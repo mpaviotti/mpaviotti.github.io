@@ -37,7 +37,7 @@ The list of publications has been automatically generated from this [bibtex file
 
 <span class="title" style="font-weight: bold;">Kan Extensions and Monads</span><br/>
   <span class="author">Marco Paviotti</span><br/>
-  <span class="journal" style="font-style: italic; font-size:80%">Notes</span>, <span class="year" style="font-style: italic; font-size:80%">2023</span>. <br> [<a href="/assets/papers/kan-notes23.pdf" class="url">pdf</a>]
+  <span class="journal" style="font-style: italic; font-size:80%">Notes</span>, <span class="year" style="font-style: italic; font-size:80%">2023</span>. <br> [<a href="/assets/papers/kan-notes.pdf" class="url">pdf</a>]
 
 
 ## ISO Standards 
