@@ -22,5 +22,3 @@ title: Teaching
 
 ## Software
 - The Markix Operating System. It is a bare bone operating system for x86 architectures written in Assembly and C. It runs on the [bochs emulator](https://bochs.sourceforge.io). Download the source code from my GitHub [page](https://github.com/mpaviotti/Markix). Software needed: NASM Compiler, C Compiler with support for cross compiling to i386 architectures, Bochs, GNU Debugger (gdb).  
-
-
