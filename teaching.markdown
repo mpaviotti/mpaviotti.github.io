@@ -5,14 +5,13 @@ title: Teaching
 ---
 
 ## Current Modules
+- 2024/2025. Kent Category Theory Seminars. Postgraduate Course. [Notes](/assets/papers/intro-cat.pdf). 
 - 2023-2025. [COMP6610 -- Theory and Practice of Concurrency](https://www.kent.ac.uk/courses/modules/module/CO661).
-- 2023-2025. [COMP6630 -- Programming Languages: Applications and Design](https://www.kent.ac.uk/courses/modules/module/CO663).  
+- 2023-2025. [COMP6630 -- Programming Languages: Applications and Design](https://www.kent.ac.uk/courses/modules/module/CO663). 
 - 2024-2025. [COMP8220 -- Introduction to Quantum Computing & Quantum Cryptography](https://www.kent.ac.uk/courses/modules/module/CO822).
-- 2024. [COMP8270 -- Programming for Artificial Intelligence](https://www.kent.ac.uk/courses/modules/module/COMP8270).
-Programming for Artificial Intelligence - COMP8270
+- 2024/2025. [COMP8270 -- Programming for Artificial Intelligence](https://www.kent.ac.uk/courses/modules/module/COMP8270).
 - 2024-2025. Class Supervisor. [COMP5180 -- Algorithms, Correctness and Efficiency](https://www.kent.ac.uk/courses/modules/module/CO518).
-- 2024-2025. Class Supervisor. [COMP5450 -- Functional and Concurrent Programming](https://www.kent.ac.uk/courses/modules/module/CO545).  
-
+- 2024-2025. Class Supervisor. [COMP5450 -- Functional and Concurrent Programming](https://www.kent.ac.uk/courses/modules/module/CO545). 
 
 ## Past Modules
 
