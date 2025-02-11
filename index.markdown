@@ -9,9 +9,7 @@ title: Short bio
 style="float:left;width:150px;height:150px;padding:3px 5px;border:1.5px solid
 #ccc;margin:20px;"> 
 
-I am an Assistant Professor (Lecturer) within the [School of
-Computing](https://www.kent.ac.uk/computing) at [University of Kent
-(U.K.)](https://www.kent.ac.uk). 
+I am a theoretical computer scientist working on foundations of computer science and mathematics, logic, semantics, type theory and category theory. I am currently Assistant Professor (Lecturer non-tenure) within the [School of Computing](https://www.kent.ac.uk/computing) at [University of Kent (U.K.)](https://www.kent.ac.uk). 
 
 Previously, I was a Senior Research Associate (senior postdoc) working in the
 [Granule Project](https://granule-project.github.io). From 2020 to 2022, I have
@@ -32,8 +30,7 @@ Udine](https://www.uniud.it/it) (Italy).
 ---
 
 I am interested in **semantics** of programming languages, functional
-programming, recursion schemes, **category theory**, mathematical logic and type
-theory. 
+programming, recursion schemes, **category theory**, mathematical logic and type theory. 
 
 ---
 
