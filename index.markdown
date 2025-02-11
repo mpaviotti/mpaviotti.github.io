@@ -9,7 +9,9 @@ title: Short bio
 style="float:left;width:150px;height:150px;padding:3px 5px;border:1.5px solid
 #ccc;margin:20px;"> 
 
-I am a *theoretical computer scientist* working on foundations of computer science and mathematics, logic, semantics, type theory and category theory. I am currently Assistant Professor (Lecturer non-tenure) within the [School of Computing](https://www.kent.ac.uk/computing) at [University of Kent (U.K.)](https://www.kent.ac.uk). 
+I am currently Assistant Professor (Lecturer non-tenure) within the [School of Computing](https://www.kent.ac.uk/computing) at [University of Kent (U.K.)](https://www.kent.ac.uk). 
+
+I am interested in **semantics** of programming languages and type theories, recursion schemes, **category theory** and mathematical logic. 
 
 Previously, I was a Senior Research Associate (senior postdoc) working in the
 [Granule Project](https://granule-project.github.io). From 2020 to 2022, I have
@@ -26,13 +28,6 @@ Ph.D. at Aarhus University within the Logic and Semantics Group.
 I have a M.Sc. with full honors (cum laude) in Theoretical Computer Science and
 a B.Sc. in Computer Science from [Università degli Studi di
 Udine](https://www.uniud.it/it) (Italy).
-
----
-
-I am interested in **semantics** of programming languages, functional
-programming, recursion schemes, **category theory**, mathematical logic and type theory. 
-
----
 
 ### PhD Vacancies
 I am looking for a PhD student to work on category theory, type theory and
