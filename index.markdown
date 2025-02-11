@@ -9,7 +9,7 @@ title: Short bio
 style="float:left;width:150px;height:150px;padding:3px 5px;border:1.5px solid
 #ccc;margin:20px;"> 
 
-I am currently Assistant Professor (Lecturer non-tenure) within the [School of Computing](https://www.kent.ac.uk/computing) at [University of Kent (U.K.)](https://www.kent.ac.uk). 
+I am currently Assistant Professor (Lecturer non-tenure track) within the [School of Computing](https://www.kent.ac.uk/computing) at [University of Kent (U.K.)](https://www.kent.ac.uk). 
 
 I am interested in **semantics** of programming languages and type theories, recursion schemes, **category theory** and mathematical logic. 
 
