@@ -15,8 +15,8 @@ I am interested in **semantics** of programming languages and type theories, rec
 
 Previously, I was a Senior Research Associate (senior postdoc) working in the
 [Granule Project](https://granule-project.github.io). From 2020 to 2022, I have
-been a Research Associate (RA) and Assistant Supervisor at Imperial College
-London in the [Functional Programming group](https://fp.doc.ic.ac.uk) and
+been a Research Associate (RA) and Assistant Supervisor at [Imperial College
+London](https://www.imperial.ac.uk) in the [Functional Programming group](https://fp.doc.ic.ac.uk) and
 Visiting Researcher at University of Kent. From 2017 and 2020 I have been an RA
 at University of Kent working Weak Memory Concurrency.
 
