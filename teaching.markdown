@@ -13,11 +13,21 @@ title: Teaching
 - 2024-2025. Class Supervisor. [COMP5180 -- Algorithms, Correctness and Efficiency](https://www.kent.ac.uk/courses/modules/module/CO518).
 - 2024-2025. Class Supervisor. [COMP5450 -- Functional and Concurrent Programming](https://www.kent.ac.uk/courses/modules/module/CO545). 
 
+## Course Notes
+<span class="title" style="font-weight: bold;">A Taste of Categorical Semantics</span><br/>
+<span class="author">Marco Paviotti </span><br/>
+<span class="journal" style="font-style: italic; font-size:80%">Notes</span>, <span class="year" style="font-style: italic; font-size:80%">2024</span>. <br> [<a href="/assets/papers/intro-cat.pdf" class="url">pdf</a>]
+
+<span class="title" style="font-weight: bold;">Kan Extensions and Monads</span><br/>
+  <span class="author">Marco Paviotti</span><br/>
+  <span class="journal" style="font-style: italic; font-size:80%">Notes</span>, <span class="year" style="font-style: italic; font-size:80%">2023</span>. <br> [<a href="/assets/papers/kan-notes.pdf" class="url">pdf</a>]
+
+
 ## Past Modules
 
-- 2017-2019. *[CO519 -- Theory of computing](https://www.kent.ac.uk/courses/modules/module/CO519)*. Moodle page [here](https://moodle.kent.ac.uk/2018/course/view.php?id=703), Class Supervisor. University of Kent.
-- 2017-2018. *[CO545 -- Functional and concurrent programming](https://www.kent.ac.uk/courses/modules/module/CO545)*. Moodle page [here](https://moodle.kent.ac.uk/2017/course/view.php?id=836), Seminar. University of Kent.
-- 2017-2019. *Category Theory* with Dominic Orchard, University of Kent. Reading group for postgraduates and researchers. Download the notes [here](/assets/papers/intro-cat24.pdf).
+- 2017-2019. *[CO519 -- Theory of computing](https://www.kent.ac.uk/courses/modules/module/CO519)*. Class Supervisor. University of Kent.
+- 2017-2018. *[CO545 -- Functional and concurrent programming](https://www.kent.ac.uk/courses/modules/module/CO545)*. Class Supervisor. University of Kent.
+- 2017-2019. *Category Theory* with Dominic Orchard, University of Kent. Postgraduate Course. Download the notes [here](/assets/papers/intro-cat24.pdf).
 - 2014-2015. *Advanced Models and Programs* with Jesper Bengtson. ITU Copenhagen. 
 
 ## Software
