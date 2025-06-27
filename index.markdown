@@ -9,9 +9,12 @@ title: Short bio
 style="float:left;width:150px;height:150px;padding:3px 5px;border:1.5px solid
 #ccc;margin:20px;"> 
 
-I am currently Assistant Professor (Lecturer non-tenure track) within the [School of Computing](https://www.kent.ac.uk/computing) at [University of Kent (U.K.)](https://www.kent.ac.uk). 
+I am currently Assistant Professor (Tenured Lecturer) at the
+[School of Computing](https://www.kent.ac.uk/computing) of [University of Kent
+(U.K.)](https://www.kent.ac.uk). 
 
-I am interested in **semantics** of programming languages and type theories, recursion schemes, **category theory** and mathematical logic. 
+I am interested in **semantics** of programming languages and type theories,
+recursion schemes, **category theory** and mathematical logic. 
 
 Previously, I was a Senior Research Associate (senior postdoc) working in the
 [Granule Project](https://granule-project.github.io). From 2020 to 2022, I have
@@ -38,11 +41,7 @@ Take a look at this [page]({% link phd.markdown %}) for more info.
 If you're interested please reach out to me!
 
 ### News
-- **October 2024**: [Submission](/assets/papers/esop25.pdf) to ESOP 25 with David Castro Perez and Michael Vollmer.  
-- **July 2024**: I am organising [SREPLS15 and The Concurrency Workshop](https://cw-srepls-24.github.io) in Kent which will happen on the 18/19 of July. Invited Speakers are Nick Wu (Imperial College London) and Peter O'Hearn (UCL) 
-- **April 2024**: The notes for the Kent Category Theory Seminars are now [online](/assets/papers/intro-cat.pdf).
-- **April 2024**: I am please to announce that Kent will be hosing SREPLS and the Concurrency Workshop on the 18th and 19th of July. Please visit the [website](https://cw-srepls-24.github.io) for more info. Call for Talks can be found [here](/assets/srepls24.txt).
-- **March 2024**: [Submission](/assets/papers/itp24.pdf) to ITP 24 on Mechanising Recursion Schemes with David Castro-Perez and Michael Vollmer. 
+- **June 2025**: [Accepted](/assets/papers/itp25.pdf) to ITP 25 with David Castro Perez and Michael Vollmer.
 
 ### Publications
 
