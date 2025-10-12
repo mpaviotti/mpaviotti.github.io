@@ -5,13 +5,9 @@ title: Teaching
 ---
 
 ## Current Modules
-- 2024/2025. Kent Category Theory Seminars. Postgraduate Course. [Notes](/assets/papers/intro-cat.pdf). 
-- 2023-2025. [COMP6610 -- Theory and Practice of Concurrency](https://www.kent.ac.uk/courses/modules/module/CO661).
-- 2023-2025. [COMP6630 -- Programming Languages: Applications and Design](https://www.kent.ac.uk/courses/modules/module/CO663). 
-- 2024-2025. [COMP8220 -- Introduction to Quantum Computing & Quantum Cryptography](https://www.kent.ac.uk/courses/modules/module/CO822).
-- 2024/2025. [COMP8270 -- Programming for Artificial Intelligence](https://www.kent.ac.uk/courses/modules/module/COMP8270).
-- 2024-2025. Class Supervisor. [COMP5180 -- Algorithms, Correctness and Efficiency](https://www.kent.ac.uk/courses/modules/module/CO518).
-- 2024-2025. Class Supervisor. [COMP5450 -- Functional and Concurrent Programming](https://www.kent.ac.uk/courses/modules/module/CO545). 
+- 2025--present. [COMP6018 -- Theory and Practice of Concurrency](https://www.kent.ac.uk/courses/modules/module/COMP6018).
+- 2025--present. [COMP6012 -- Programming Languages: Applications and Design](https://www.kent.ac.uk/courses/modules/module/COMP6012). 
+- 2025--present. [COMP8220 -- Introduction to Quantum Computing & Quantum Cryptography](https://www.kent.ac.uk/courses/modules/module/COMP7006).
 
 ## Course Notes
 <span class="title" style="font-weight: bold;">A Taste of Categorical Semantics</span><br/>
@@ -24,7 +20,13 @@ title: Teaching
 
 
 ## Past Modules
-
+- 2024/2025. Kent Category Theory Seminars. Postgraduate Course. [Notes](/assets/papers/intro-cat.pdf). 
+- 2023-2025. [COMP6610 -- Theory and Practice of Concurrency](https://www.kent.ac.uk/courses/modules/module/CO661).
+- 2023-2025. [COMP6630 -- Programming Languages: Applications and Design](https://www.kent.ac.uk/courses/modules/module/CO663). 
+- 2024-2025. [COMP8220 -- Introduction to Quantum Computing & Quantum Cryptography](https://www.kent.ac.uk/courses/modules/module/CO822).
+- 2024/2025. [COMP8270 -- Programming for Artificial Intelligence](https://www.kent.ac.uk/courses/modules/module/COMP8270).
+- 2024-2025. Class Supervisor. [COMP5180 -- Algorithms, Correctness and Efficiency](https://www.kent.ac.uk/courses/modules/module/CO518).
+- 2024-2025. Class Supervisor. [COMP5450 -- Functional and Concurrent Programming](https://www.kent.ac.uk/courses/modules/module/CO545). 
 - 2017-2019. *[CO519 -- Theory of computing](https://www.kent.ac.uk/courses/modules/module/CO519)*. Class Supervisor. University of Kent.
 - 2017-2018. *[CO545 -- Functional and concurrent programming](https://www.kent.ac.uk/courses/modules/module/CO545)*. Class Supervisor. University of Kent.
 - 2017-2019. *Category Theory* with Dominic Orchard, University of Kent. Postgraduate Course. Download the notes [here](/assets/papers/intro-cat24.pdf).
