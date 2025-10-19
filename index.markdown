@@ -9,26 +9,19 @@ title: Short bio
 style="float:left;width:150px;height:150px;padding:3px 5px;border:1.5px solid
 #ccc;margin:20px;"> 
 
-I am currently Assistant Professor (Tenured Lecturer) at the
+I am a Lecturer (Permanent Asst. Professor) at the
 [School of Computing](https://www.kent.ac.uk/computing) of [University of Kent
 (U.K.)](https://www.kent.ac.uk). 
 
-I am interested in **semantics** of programming languages and type theories,
-recursion schemes, **category theory** and mathematical logic. 
+**Resaerch Area**: Denotational Semantics of Programming Languages, Category Theory, Type Theory, Functional Programming, Guarded Recursion, Domain Theory, Recursion Schemes, Mathematical Logic. 
 
-Previously, I was a Senior Research Associate (senior postdoc) working in the
-[Granule Project](https://granule-project.github.io). From 2020 to 2022, I have
-been a Research Associate (RA) and Assistant Supervisor at [Imperial College
-London](https://www.imperial.ac.uk) in the [Functional Programming group](https://fp.doc.ic.ac.uk) and
-Visiting Researcher at University of Kent. From 2017 and 2020 I have been an RA
-at University of Kent working Weak Memory Concurrency.
-
-I did my Ph.D. at [ITU Copenhagen](https://www.itu.dk) (Denmark) in 2016 on
+**Former Affiliations**: Ph.D. student at [ITU Copenhagen](https://www.itu.dk) (Denmark) on
 [Denotational Semantics in Synthetic Guarded Domain
-Theory](/assets/papers/paviotti-phdthesis.pdf). I also spent six months of my
-Ph.D. at Aarhus University within the Logic and Semantics Group. 
+Theory](/assets/papers/paviotti-phdthesis.pdf) (2012-2016). Visiting Ph.D. at Aarhus University  the Logic and Semantics Group (2014-2015). Research Associate at University of Kent (2017-2020).
+Research Associate (RA) at [Imperial College London](https://www.imperial.ac.uk) in the [Functional Programming group](https://fp.doc.ic.ac.uk) and Visiting Researcher at University of Kent (2020-2022). Senior Research Associate in the 
+[Granule Project](https://granule-project.github.io) (2022-2023).
 
-I have a M.Sc. with full honors (cum laude) in Theoretical Computer Science and
+I have an M.Sc. (cum laude) in Theoretical Computer Science and
 a B.Sc. in Computer Science from [Università degli Studi di
 Udine](https://www.uniud.it/it) (Italy).
 
@@ -39,7 +32,7 @@ functional programming.
 Take a look at this [page]({% link phd.markdown %}) for more info.
 
 If you're interested please reach out to me!
-
+  * [x] 
 ### News
 - **June 2025**: [Accepted](/assets/papers/itp25.pdf) to ITP 25 with David Castro Perez and Michael Vollmer.
 
