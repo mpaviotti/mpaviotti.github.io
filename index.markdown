@@ -9,7 +9,7 @@ title: Short bio
 style="float:left;width:150px;height:150px;padding:3px 5px;border:1.5px solid
 #ccc;margin:20px;"> 
 
-I am a Lecturer (Permanent Asst. Professor) at the
+I am a Assistant Professor at the
 [School of Computing](https://www.kent.ac.uk/computing) of [University of Kent
 (U.K.)](https://www.kent.ac.uk). 
 
@@ -32,7 +32,7 @@ functional programming.
 Take a look at this [page]({% link phd.markdown %}) for more info.
 
 If you're interested please reach out to me!
-  * [x] 
+ 
 ### News
 - **June 2025**: [Accepted](/assets/papers/itp25.pdf) to ITP 25 with David Castro Perez and Michael Vollmer.
 
