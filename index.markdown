@@ -9,7 +9,7 @@ title: Short bio
 style="float:left;width:150px;height:150px;padding:3px 5px;border:1.5px solid
 #ccc;margin:20px;"> 
 
-I am a Assistant Professor at the
+I am an Assistant Professor at the
 [School of Computing](https://www.kent.ac.uk/computing) of [University of Kent
 (U.K.)](https://www.kent.ac.uk). 
 
