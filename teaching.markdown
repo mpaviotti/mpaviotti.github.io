@@ -12,7 +12,8 @@ title: Teaching
 ## Course Notes
 <span class="title" style="font-weight: bold;">A Taste of Categorical Semantics</span><br/>
 <span class="author">Marco Paviotti </span><br/>
-<span class="journal" style="font-style: italic; font-size:80%">Notes</span>, <span class="year" style="font-style: italic; font-size:80%">2024</span>. <br> [<a href="/assets/papers/intro-cat.pdf" class="url">pdf</a>]
+<span class="journal" style="font-style: italic; font-size:80%">
+These notes were written for the postgraduate course on Category Theory at University of Kent.</span>, <span class="year" style="font-style: italic; font-size:80%">Nov, 2025</span>. <br> [<a href="/assets/papers/intro-cat.pdf" class="url">pdf</a>]
 
 <span class="title" style="font-weight: bold;">Kan Extensions and Monads</span><br/>
   <span class="author">Marco Paviotti</span><br/>
