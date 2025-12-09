@@ -1,6 +1,6 @@
 ---
 layout: page
-permalink: /teaching/
+permalink: /catcourse/
 title: Category Theory Course at Kent
 ---
 
