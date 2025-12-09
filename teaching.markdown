@@ -9,7 +9,7 @@ title: Teaching
 - 2025--present. [COMP6012 -- Programming Languages: Applications and Design](https://www.kent.ac.uk/courses/modules/module/COMP6012). 
 - 2025--present. [COMP8220 -- Introduction to Quantum Computing & Quantum Cryptography](https://www.kent.ac.uk/courses/modules/module/COMP7006).
 
-## PhD Courses and Reading Groups 
+## PhD Courses and Reading Groups 
 - 2024/25. [A Taste of Categorical Semantics]({% link catcourse.markdown %}) 
 
 ## Notes
