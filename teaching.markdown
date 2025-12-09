@@ -9,12 +9,10 @@ title: Teaching
 - 2025--present. [COMP6012 -- Programming Languages: Applications and Design](https://www.kent.ac.uk/courses/modules/module/COMP6012). 
 - 2025--present. [COMP8220 -- Introduction to Quantum Computing & Quantum Cryptography](https://www.kent.ac.uk/courses/modules/module/COMP7006).
 
-## Course Notes
-<span class="title" style="font-weight: bold;">A Taste of Categorical Semantics</span><br/>
-<span class="author">Marco Paviotti </span><br/>
-<span class="journal" style="font-style: italic; font-size:80%">
-These notes were written for the postgraduate course on Category Theory at University of Kent.</span>, <span class="year" style="font-style: italic; font-size:80%">Nov, 2025</span>. <br> [<a href="/assets/papers/intro-cat.pdf" class="url">pdf</a>]
+## PhD Courses and Reading Groups 
+- 2024/25. [A Taste of Categorical Semantics]({% link catcourse.markdown %}) 
 
+## Notes
 <span class="title" style="font-weight: bold;">Kan Extensions and Monads</span><br/>
   <span class="author">Marco Paviotti</span><br/>
   <span class="journal" style="font-style: italic; font-size:80%">Notes</span>, <span class="year" style="font-style: italic; font-size:80%">2023</span>. <br> [<a href="/assets/papers/kan-notes.pdf" class="url">pdf</a>]
