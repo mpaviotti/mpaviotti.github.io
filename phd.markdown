@@ -1,5 +1,5 @@
 ---
-layout: page
+layout: archive
 permalink: /phd-statement/
 title: So you want to get a PhD ...  
 ---
