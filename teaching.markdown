@@ -10,7 +10,7 @@ title: Teaching
 - 2025--present. [COMP8220 -- Introduction to Quantum Computing & Quantum Cryptography](https://www.kent.ac.uk/courses/modules/module/COMP7006).
 
 ## PhD Courses and Reading Groups 
-- 2024/25. Categorical models of the $$\lambda$$-calculus. Link to the course, [here]({% link catcourse.markdown %}).
+- 2024/25. Category Theory course for postgraduates. Link to the course, [here]({% link catcourse.markdown %}).
 - 2017-2019. *Category Theory* with Dominic Orchard, University of Kent. Postgraduate Course. Download the notes [here](/assets/papers/intro-cat24.pdf).
 
 ## Notes
