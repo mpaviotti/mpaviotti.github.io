@@ -16,19 +16,12 @@ I am Assistant Professor in the
 
 **Research Area**: Denotational Semantics of Programming Languages, Category Theory, Type Theory, Functional Programming, Guarded Recursion, Domain Theory, Recursion Schemes, Mathematical Logic. 
 
-**Former Affiliations**: Ph.D. student at [ITU Copenhagen](https://www.itu.dk) (Denmark) on
-[Denotational Semantics in Synthetic Guarded Domain
-Theory](/assets/papers/paviotti-phdthesis.pdf) (2012-2016). Visiting Ph.D. at Aarhus University  the Logic and Semantics Group (2014-2015). Research Associate at University of Kent (2017-2020).
-Research Associate (RA) at [Imperial College London](https://www.imperial.ac.uk) in the [Functional Programming group](https://fp.doc.ic.ac.uk) and Visiting Researcher at University of Kent (2020-2022). Senior Research Associate in the 
-[Granule Project](https://granule-project.github.io) (2022-2023).
+**Former Affiliations**: Ph.D. student at *ITU Copenhagen* (Denmark) (2012-2016). Visiting Ph.D. at *Aarhus University* (2014-2015). Research Associate at *University of Kent* (2017-2020). Research Associate (RA) *Imperial College London* (2020-2022). Senior Research Associate at *University of Kent* (2022). I have an M.Sc. (cum laude) in Theoretical Computer Science and
+a B.Sc. in Computer Science from *Università degli Studi di Udine* (Italy).
 
-I have an M.Sc. (cum laude) in Theoretical Computer Science and
-a B.Sc. in Computer Science from [Università degli Studi di
-Udine](https://www.uniud.it/it) (Italy).
-
-### PhD Vacancies
-I am looking for a PhD student to work on category theory, type theory and
-functional programming.  
+### Project Supervision (BSc, MSc, PhD)
+I am looking for a PhD student. Here are some ideas for [PhD topics]({% link research.markdown %}).
+I also supervise undergrad projects in CS or Math. Here's some ideas for [undergrad thesis projects]({% link projects.markdown %}).
 
 If you're interested please reach out to me.
  

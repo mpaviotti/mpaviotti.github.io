@@ -131,6 +131,12 @@
             <li class="masthead__menu-item"><a href="https://mpaviotti.github.io/teaching/">Teaching</a></li>
           
             
+            <li class="masthead__menu-item"><a href="https://mpaviotti.github.io/research/">Research</a></li>
+          
+            
+            <li class="masthead__menu-item"><a href="https://mpaviotti.github.io/projects/">Projects</a></li>
+          
+            
             <li class="masthead__menu-item"><a href="https://mpaviotti.github.io/year-archive/">Blog Posts</a></li>
           
           <li id="theme-toggle" class="masthead__menu-item persist tail">
@@ -254,99 +260,67 @@
     
       <h1 class="page__title">Research</h1>
     
-    <p>My research is based on idea of “<em>Computational Trinity</em>” which is a profound insight dating back to the ’70s that <code class="language-plaintext highlighter-rouge">Computer Science</code>, <code class="language-plaintext highlighter-rouge">Intuitionistic Logic</code> and <code class="language-plaintext highlighter-rouge">Category Theory</code>  are essentially “three sides” of the same coin.</p>
+    <p>My research is based on the idea that <code class="language-plaintext highlighter-rouge">Mathematical Logic</code>, <code class="language-plaintext highlighter-rouge">Type Theory</code> and
+<code class="language-plaintext highlighter-rouge">Category Theory</code>  are essentially “three sides” of the same coin.</p>
 
-<p>Consider a terminating functional program \(f\) that takes an input of type \(A\) and produces an output of type \(B\)</p>
+<p>This is made formal via the <strong>denotational interpretation</strong> which is a
+mathematical  interpretation of a programming language using an algebraic
+structure such as that of category theory.</p>
 
-\[f : A \to B\]
+<p>This trinitarianistic view of computer science connects very neatly to programming languages and computability, and has found several <strong>applications</strong> to <strong>formal methods</strong>, <strong>functional programming</strong>, <strong>quantum computing</strong>, <strong>AI</strong> and <strong>databases</strong>.</p>
 
-<p>This program can be also viewed as a <strong>proof</strong> that \(A\) implies \(B\) and as a morphism between the objects \(A\) and \(B\). Thus total functional programming, intuitionistic logic and category theory 
-are three different mathematical subjects that describe the same idea.</p>
-
-<p>While these are interesting subjects on their own, they also have <strong>practical applications</strong> in <code class="language-plaintext highlighter-rouge">structuring functional programs</code>, <code class="language-plaintext highlighter-rouge">formal verification</code> and in the <code class="language-plaintext highlighter-rouge">design</code> of the next generation of programming languages.</p>
-
-<p>As of today, <code class="language-plaintext highlighter-rouge">Haskell</code> is probably one of the most successful examples of how Category Theory influenced the design of a programming language and how it is continuing to inspire new programming techniques, e.g <code class="language-plaintext highlighter-rouge">Recursion Schemes</code>, to structure programs even further thus ensuring these have well-understood safety properties.</p>
-
-<h1 id="denotational-semantics">Denotational Semantics</h1>
-<p>The intuition that <em>programs</em> should be regarded as <em>functions</em> and <em>types</em> should be regarded as “<em>mathematical objects</em>” is due to Christopher Strachey and Dana Scott.</p>
-
-<p>This is formalised via a <em>denotational interpretation</em> which is a <em>compositional</em> interpretation function of the syntax of a programming language \(\mu \Sigma\) into a mathematical object called a <em>semantic domain</em> \(\mathcal{D}\)</p>
-
-\[[\![\cdot ]\!] : \mu \Sigma \to \mathcal{D}\]
-
-<p>This function is furthermore characterised by two additional properties. The first is called <code class="language-plaintext highlighter-rouge">Soundness</code> and it states that the interpretation has to be agnostic to step reductions. The second is called <code class="language-plaintext highlighter-rouge">Computational Adequacy</code>  which states that if two programs are equated then they are observationally indistinguishable. Furthermore, a semantics that equates exactly the programs that are observationally indistinguishable is called <code class="language-plaintext highlighter-rouge">Fully Abstract</code>.</p>
-
-<p>The theory was developed by Christopher Strachey and Dana Scott between 1969 and 1971. The best introduction to these topics is probably <a href="https://www.amazon.co.uk/Domain-Theoretic-Foundations-Functional-Programming-Streicher/dp/9812701427">Thomas Streicher’s book</a>.</p>
-
-<h1 id="recursion-schemes">Recursion Schemes</h1>
-<p>A recursion scheme is a structuring device that ensures that recursive definitions are well-defined.</p>
-
-<p>For an inductive data type, e.g. the lists over a type <code class="language-plaintext highlighter-rouge">a</code>, the <code class="language-plaintext highlighter-rouge">foldr</code> function takes a base case of type <code class="language-plaintext highlighter-rouge">b</code> 
-and the inductive step of the recursion and returns a function from <code class="language-plaintext highlighter-rouge">[a] -&gt; b</code>.</p>
-
-<figure class="highlight"><pre><code class="language-haskell" data-lang="haskell"><span class="n">foldr</span> <span class="o">::</span> <span class="p">(</span><span class="n">a</span> <span class="o">-&gt;</span> <span class="n">b</span> <span class="o">-&gt;</span> <span class="n">b</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">b</span> <span class="o">-&gt;</span> <span class="p">[</span><span class="n">a</span><span class="p">]</span> <span class="o">-&gt;</span> <span class="n">b</span>
-<span class="n">foldr</span> <span class="n">ind</span> <span class="n">base</span> <span class="kt">[]</span>     <span class="o">=</span> <span class="n">base</span>
-<span class="n">foldr</span> <span class="n">ind</span> <span class="n">base</span> <span class="p">(</span><span class="n">x</span><span class="o">:</span><span class="n">xs</span><span class="p">)</span> <span class="o">=</span> <span class="n">ind</span> <span class="n">x</span> <span class="p">(</span><span class="n">foldr</span> <span class="n">ind</span> <span class="n">base</span> <span class="n">xs</span><span class="p">)</span> </code></pre></figure>
-
-<p>In Haskell, assuming the user only feeds well-defined functions to the <code class="language-plaintext highlighter-rouge">foldr</code> then <code class="language-plaintext highlighter-rouge">foldr</code> itself is well-defined.</p>
-
-<p>Category theory generalises this concept to any inductive data type.
-In particular, a <code class="language-plaintext highlighter-rouge">fold</code> function is in the <em>unique extension</em> of an algebra for a functor \(F\) .</p>
-
-<p>Haskell is particularly good at dealing with these abstract definitions. In fact, we can use type classes and recursive types to implement a <code class="language-plaintext highlighter-rouge">fold</code> for any functor \(F\) (that has a least fixed-point)</p>
-
-<figure class="highlight"><pre><code class="language-haskell" data-lang="haskell"><span class="cp">{-# LANGUAGE DeriveFunctor #-}</span>
-
-<span class="kr">import</span> <span class="nn">Data.Functor</span>
-
-<span class="kr">data</span> <span class="kt">Fix</span> <span class="n">f</span> <span class="o">=</span> <span class="kt">In</span> <span class="p">{</span><span class="n">inOp</span> <span class="o">::</span> <span class="n">f</span> <span class="p">(</span><span class="kt">Fix</span> <span class="n">f</span><span class="p">)}</span>
-
-<span class="n">fold</span> <span class="o">::</span> <span class="p">(</span><span class="kt">Functor</span> <span class="n">f</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">(</span><span class="n">f</span> <span class="n">b</span> <span class="o">-&gt;</span> <span class="n">b</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Fix</span> <span class="n">f</span> <span class="o">-&gt;</span> <span class="n">b</span>
-<span class="n">fold</span> <span class="n">alg</span> <span class="o">=</span> <span class="n">alg</span> <span class="o">.</span> <span class="n">fmap</span> <span class="p">(</span><span class="n">fold</span> <span class="n">alg</span><span class="p">)</span> <span class="o">.</span> <span class="n">inOp</span></code></pre></figure>
-
-<p>However, not every well-defined function can be defined in terms 
-of <code class="language-plaintext highlighter-rouge">fold</code>s (or <code class="language-plaintext highlighter-rouge">unfolds</code>) directly, but it has been shown that every recursion 
-scheme that has been observed is an instance of an <a href="https://research-information.bris.ac.uk/ws/portalfiles/portal/65842535/Nicolas_Wu_Unifying_Structured_Recursion_Schemes.pdf">adjoint (un)fold</a>.</p>
-
-<h1 id="guarded-recursion">Guarded recursion</h1>
-<p>Guarded recursion is a form or recursion where the recursive call is guarded by a 
-modality \(\blacktriangleright\) called the “<em>later</em>” operator.</p>
-
-<p>This is useful for checking productivity of definitions and solve recursive domain 
-equations that are in general hard (or impossible) to prove well-defined.</p>
-
-<p>The later modality is essentially an abstract device to talk about step-indexed definitions. The idea of step-indexing is to break the circularity of definitions by using a natural number that allows us to get a handle of recursion.</p>
-
-<p>The easiest example of the use of guarded recursion is the guarded streams defined as the <em>unique</em> solution to the following equation</p>
-
-\[\text{Str}^{g} A = A \times \blacktriangleright \text{Str}^{g} A\]
-
-<p>The intuitive meaning of this type is that while the head of the stream is available now, 
-the tail of the stream is available only after one step of computation.</p>
-
-<h3 id="ncatlab">nCatLab</h3>
-
-<p>I contribute to <a href="https://ncatlab.org/nlab/show/HomePage">nCatLab</a> by maintaining
-the following pages</p>
+<h2 id="possible-phd-topics">Possible PhD Topics</h2>
+<p>Below you can find a non-comprehensive list of PhD topics I’d be happy to supervise:</p>
 
 <ul>
-  <li><a href="https://ncatlab.org/nlab/show/synthetic+guarded+domain+theory">Synthetic Guarded Domain Theory</a></li>
-  <li><a href="https://ncatlab.org/nlab/show/guarded+recursion">Guarded Recursion</a></li>
-  <li><a href="https://ncatlab.org/nlab/show/recursion+scheme">Recursion Schemes</a></li>
+  <li><strong>Guarded type theory</strong>
+Guarded Type Theory (GTT) extends type theory with a delay (or later) modality
+that internalises the notion of contractivity familiar from metric semantics. By
+enforcing productivity and well-foundedness through the type system, GTT
+provides a principled framework for reasoning about coinductive definitions and
+it has found several important applications; for denotational semantics of
+languages with recursion (<a href="https://mpaviotti.github.io/assets/papers/paviotti-phdthesis.pdf">Paviotti,
+2016</a>), for
+models of <em>functional reactive programming</em> (FRP) (<a href="https://www.cl.cam.ac.uk/~nk480/frp-lics11.pdf">Krishnaswami &amp; Benton,
+2011</a>), for models of
+higher-order store (<a href="https://cs.au.dk/~birke/papers/sgdt-conf.pdf">Birkedal et al</a>).</li>
 </ul>
 
-<p>The end result is that productivity for elements of \(\text{Str}^{g}\) is guaranteed by the type system.</p>
+<p>You can find more information here: 
+    - <a href="https://ncatlab.org/nlab/show/synthetic+guarded+domain+theory">Guarded Type Theory</a> 
+    - <a href="https://ncatlab.org/nlab/show/guarded+recursion">Guarded Recursion</a>.</p>
 
-<h2 id="iso-standards">ISO Standards</h2>
-<p>Modular Relaxed Dependencies (MRD) is a prospective model of C++ concurrency
-(first appeared in <a href="https://link.springer.com/content/pdf/10.1007/978-3-030-44914-8_22.pdf">ESOP’20’</a>)
-which is being considered for the next ISO standard of C++.</p>
 <ul>
-  <li>Link to the draft <a href="https://graymalk.in/iso-papers/p1780/p1780r2.html">here</a></li>
-  <li>Link to the WG21 discussion <a href="https://eur01.safelinks.protection.outlook.com/?url=https%3A%2F%2Fgithub.com%2Fcplusplus%2Fpapers%2Fissues%2F554%23issuecomment-1311093994&amp;data=05%7C01%7CM.Paviotti%40kent.ac.uk%7C5e1fff970b0a4039205008dac71af6b3%7C51a9fa563f32449aa7213e3f49aa5e9a%7C0%7C0%7C638041215860503967%7CUnknown%7CTWFpbGZsb3d8eyJWIjoiMC4wLjAwMDAiLCJQIjoiV2luMzIiLCJBTiI6Ik1haWwiLCJXVCI6Mn0%3D%7C3000%7C%7C%7C&amp;sdata=V1PRIBvid5UxHNvEI2aOq2Rp4Sq9voNbcjb5rCEJ4sk%3D&amp;reserved=0">here</a></li>
-  <li>The WG21 group page: <a href="https://isocpp.org/wiki/faq/wg21">https://isocpp.org/wiki/faq/wg21</a></li>
-  <li>The MRD Web Tool <a href="https://www.cs.kent.ac.uk/projects/MRDer/">link</a></li>
+  <li><strong>Functional Programming</strong>
+Functional programming has long been closely connected to abstract mathematics.
+Since the turn of the century, this connection has been further strengthened
+through the systematic application of category-theoretic ideas to typed
+functional languages. A key insight was the observation that a functor can be
+understood, in programming terms, as a parameterised type equipped with a
+canonical map operation. Building on this idea, category theory has been applied
+in several directions, including <em>generic
+programming</em> (<a href="https://www.cs.ox.ac.uk/ralf.hinze/LN.pdf">Hinze et al.</a>),
+<em>relational algebra</em> (<a href="https://www.cs.ox.ac.uk/jeremy.gibbons/publications/reladj.pdf">Gibbons &amp;
+Hinze</a>), <em>formal
+reasoning</em> (<a href="https://www.cs.ox.ac.uk/jeremy.gibbons/publications/fast+loose.pdf">Danielsson et
+al.</a>).</li>
 </ul>
+
+<p>You can find more information about recursion schemes here: <a href="https://ncatlab.org/nlab/show/recursion+scheme">Recursion Schemes</a></p>
+
+<ul>
+  <li><strong>Coalgebraic Semantics</strong>
+Coalgebraic semantics provides a uniform, abstract framework for modelling the
+dynamic behaviour of computational systems. In this approach, the behaviour of a
+system is represented as a coalgebra for a functor that specifies the shape of
+observable transitions, such as state evolution, input/output, or
+nondeterminism. This perspective naturally supports coinductive reasoning
+principles, including <em>bisimulation</em> and <em>behavioural</em> equivalence, and applies
+uniformly to a wide range of systems, from transition systems and automata to
+programming language semantics and <em>reactive systems</em>. <em>Structural operational semantics</em> (SOS) is a particular kind of coalgebraic semantics firstly pioneered by <a href="https://homepages.inf.ed.ac.uk/gdp/publications/Origins_SOS.pdf">Plotkin</a>.  The biagebraic framework (<a href="https://homepages.inf.ed.ac.uk/gdp/publications/Math_Op_Sem.pdf">Turi &amp; Plotkin</a>) which was thoroughly expounded by <a href="https://www.sciencedirect.com/science/article/pii/S0304397511002532">Klin</a> is a way of ensuring modular reasoning. 
+This kind of semantics hasbeen used for reinforcement learning (RL) by <a href="https://arxiv.org/abs/2508.15128">Mahadevan</a>.</li>
+</ul>
+
 
   </div>
 </div>

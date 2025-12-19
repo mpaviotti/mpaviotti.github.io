@@ -19,21 +19,19 @@
 
 
 
-<title>Talk 2 on Relevant Topic in Your Field - Marco Paviotti</title>
+<title>Projects - Marco Paviotti</title>
 
 
 
-<meta name="description" content="More information here">
+<meta name="description" content="Lecturer in Computer Science">
 
 
 
 
 
-  <meta property="article:published_time" content="2014-02-01T00:00:00+00:00">
 
 
-
-  <link rel="canonical" href="https://mpaviotti.github.io/talks/2014-02-01-talk-2">
+  <link rel="canonical" href="https://mpaviotti.github.io/projects/">
 
 
 
@@ -68,15 +66,11 @@
 <!-- Open Graph protocol data (https://ogp.me/), used by social media -->
 <meta property="og:locale" content="en-US">
 <meta property="og:site_name" content="Marco Paviotti"> 
-<meta property="og:title" content="Talk 2 on Relevant Topic in Your Field">
-
-  <meta property="og:type" content="article">
+<meta property="og:title" content="Projects">
 
 
-  <meta property="og:description" name="description" content="More information here">
 
-
-  <meta property="og:url" content="https://mpaviotti.github.io/talks/2014-02-01-talk-2">
+  <meta property="og:url" content="https://mpaviotti.github.io/projects/">
 
 
 
@@ -157,8 +151,6 @@
 
 
     
-
-
 
 
 
@@ -264,83 +256,86 @@
   </div>
 
 
-  <article class="page" itemscope itemtype="http://schema.org/CreativeWork">
-    <meta itemprop="headline" content="Talk 2 on Relevant Topic in Your Field">
-    <meta itemprop="description" content="More information here">
-    <meta itemprop="datePublished" content="February 01, 2014">
+  <div class="archive">
     
-
-    <div class="page__inner-wrap">
-      
-        <header>
-          <h1 class="page__title" itemprop="headline">Talk 2 on Relevant Topic in Your Field
-</h1>
-          
-        
-          <p class="page__date"><strong><i class="fa fa-fw fa-calendar" aria-hidden="true"></i>Date:</strong> <time datetime="2014-02-01T00:00:00+00:00">February 01, 2014</time></p>
-        
-        
-
-        </header>
-      
-
-      <section class="page__content" itemprop="text">
-        <p><a href="http://example2.com">More information here</a></p>
-
-<p>This is a description of your talk, which is a markdown files that can be all markdown-ified like any other post. Yay markdown!</p>
-
-        
-      </section>
-
-      <footer class="page__meta">
-        
-        
-
-
-
-
-      </footer>
-
-      
-
-<section class="page__share">
-  
-    <h4 class="page__share-title">Share on</h4>
-  
-
-  <a href="https://bsky.app/intent/compose?text=https://mpaviotti.github.io/talks/2014-02-01-talk-2" class="btn btn--bluesky" title="Share on Bluesky"><i class="fab fa-bluesky" aria-hidden="true"></i><span> Bluesky</span></a>
-
-  <a href="https://www.facebook.com/sharer/sharer.php?u=https://mpaviotti.github.io/talks/2014-02-01-talk-2" class="btn btn--facebook" title="Share on Facebook"><i class="fab fa-facebook" aria-hidden="true"></i><span> Facebook</span></a>
-
-  <a href="https://www.linkedin.com/shareArticle?mini=true&url=https://mpaviotti.github.io/talks/2014-02-01-talk-2" class="btn btn--linkedin" title="Share on LinkedIn"><i class="fab fa-linkedin" aria-hidden="true"></i><span> LinkedIn</span></a>
-
-  <a href="https://www.addtoany.com/add_to/mastodon?linkurl=https%3A%2F%2Fmpaviotti.github.io%2Ftalks%2F2014-02-01-talk-2" class="btn btn--mastodon" title="Share on Mastodon"><i class="fab fa-mastodon" aria-hidden="true"></i><span> Mastodon</span></a>
-
-  <a href="https://x.com/intent/post?text=https://mpaviotti.github.io/talks/2014-02-01-talk-2" class="btn btn--x" title="Share on X"><i class="fab fa-x-twitter" aria-hidden="true"></i><span> X (formerly Twitter)</span></a>
-</section>
-
-
-      
-
-
-  <nav class="pagination">
+      <h1 class="page__title">Projects</h1>
     
-      <a href="https://mpaviotti.github.io/talks/2013-03-01-tutorial-1" class="pagination--pager" title="Tutorial 1 on Relevant Topic in Your Field
-">Previous</a>
-    
-    
-      <a href="https://mpaviotti.github.io/talks/2014-03-01-talk-3" class="pagination--pager" title="Conference Proceeding talk 3 on Relevant Topic in Your Field
-">Next</a>
-    
-  </nav>
+    <h2 id="operating-system-development-osdev">Operating System Development (OSDev)</h2>
+<p><em>The Markix Operating System</em>  I developed when I was little. It is a bare bone operating system for x86 architectures written in Assembly and C and runs on x86 or the <a href="https://bochs.sourceforge.io">bochs emulator</a>. The idea is to have something more minimal than Minix so that students can understand every component of an operating system in isolation.<br />
+Hence, Markix is built in incremental stages. Each milestone corresponds to a Git tag, and improvements to that module are developed on dedicated branches.</p>
 
-    </div>
+<table>
+  <thead>
+    <tr>
+      <th>Tag</th>
+      <th>Component</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Bootloader</td>
+      <td>Bootloader</td>
+      <td>Initializes the CPU in real mode, loads the kernel, and switches to protected mode</td>
+    </tr>
+    <tr>
+      <td>Interrupts</td>
+      <td>Interrupt System</td>
+      <td>Implements the 8259 PIC, IDT setup, and interrupt service routines (ISRs)</td>
+    </tr>
+    <tr>
+      <td>Keyboard</td>
+      <td>PS/2 Driver</td>
+      <td>Handles keyboard input and interrupt handling</td>
+    </tr>
+    <tr>
+      <td>Scheduler</td>
+      <td>Process Scheduler</td>
+      <td>Round-robin scheduling and context switching</td>
+    </tr>
+    <tr>
+      <td>Paging</td>
+      <td>Memory Management</td>
+      <td>GDT, paging tables, and memory protection setup</td>
+    </tr>
+    <tr>
+      <td>FilesystemGRUB</td>
+      <td>File System</td>
+      <td>Basic FAT filesystem and GRUB integration</td>
+    </tr>
+  </tbody>
+</table>
 
-    
-  </article>
+<p>Download the source code from my GitHub <a href="https://github.com/mpaviotti/Markix">page</a>. 
+Software needed: NASM Compiler, C Compiler with support for cross compiling to i386 architectures, Bochs, GNU Debugger (gdb).</p>
 
-  
-  
+<h2 id="iso-standards-for-weak-memory-concurrency">ISO Standards for Weak Memory Concurrency</h2>
+<p>Amongst other things I also helped the weak memory concurrency community in fixing some problem with the C++ and Java concurrency model.</p>
+
+<p>The work which we published at <a href="https://link.springer.com/content/pdf/10.1007/978-3-030-44914-8_22.pdf">ESOP’20’</a>)
+is being considered for the next ISO standard of C++.</p>
+<ul>
+  <li>Link to the draft <a href="https://graymalk.in/iso-papers/p1780/p1780r2.html">here</a></li>
+  <li>Link to the WG21 discussion <a href="https://eur01.safelinks.protection.outlook.com/?url=https%3A%2F%2Fgithub.com%2Fcplusplus%2Fpapers%2Fissues%2F554%23issuecomment-1311093994&amp;data=05%7C01%7CM.Paviotti%40kent.ac.uk%7C5e1fff970b0a4039205008dac71af6b3%7C51a9fa563f32449aa7213e3f49aa5e9a%7C0%7C0%7C638041215860503967%7CUnknown%7CTWFpbGZsb3d8eyJWIjoiMC4wLjAwMDAiLCJQIjoiV2luMzIiLCJBTiI6Ik1haWwiLCJXVCI6Mn0%3D%7C3000%7C%7C%7C&amp;sdata=V1PRIBvid5UxHNvEI2aOq2Rp4Sq9voNbcjb5rCEJ4sk%3D&amp;reserved=0">here</a></li>
+  <li>The WG21 group page: <a href="https://isocpp.org/wiki/faq/wg21">https://isocpp.org/wiki/faq/wg21</a></li>
+  <li>The MRD Web Tool <a href="https://www.cs.kent.ac.uk/projects/MRDer/">link</a></li>
+</ul>
+
+<h2 id="bsc-and-msc-projects-for-computer-scientists">B.Sc. and M.Sc. Projects for Computer Scientists</h2>
+<p>If you are looking for a project for your final year exam here are some, however, fair warning, these projects are not the fainted hearted:</p>
+<ul>
+  <li>Operating System Development (OSDev)</li>
+  <li>Algorithms implementation</li>
+  <li>Efficient Analysis of Chess games</li>
+  <li>Buffer Overflow Analysis</li>
+  <li>Kernel Hacking: Security, Hypervisors</li>
+</ul>
+
+<h2 id="bsc-and-msc-topics-for-mathematicians">B.Sc. and M.Sc. topics for Mathematicians</h2>
+<p>I can (and have) supervised mathematicians in the past who wanted to study some applications of group theory, abstract algebra and category to computer science and, in particular, programming languages. 
+Feel free to reach out to me if interested.</p>
+
+  </div>
 </div>
 
 
