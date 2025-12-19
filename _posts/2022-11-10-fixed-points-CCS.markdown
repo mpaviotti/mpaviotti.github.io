@@ -1,16 +1,17 @@
 ---
-layout: post
 title:  "Inconsistencies in Cartesian Closed Categories with fixed-points" 
 date:   2022-11-10 13:14:21 +0000
-categories: semantics categories recursion
+permalink: /posts/2022/11/CCC-FixedPoints/
+tags:
+  - semantics
+  - categories
+  - recursion
 ---
 
-Yesterday I had yet another interesting conversation with [Zhixuan
-Yang](https://yangzhixuan.github.io) where I pointed out that there is a very
+There is a very
 nice [paper](https://www.sciencedirect.com/science/article/pii/030439759090165E)
-paper stating that 
+out there stating that "*Any Cartesian Closed Category (CCC) with an initial object and a fixed-point operator is trivial*". Essentially this means that in languages like (e.g.) Haskell the empty type is not actually empty as it contains the non-terminating computation. Perhaps this is obvious, but here's the categorical explanation.   
 
-> Any Cartesian Closed Category (CCC) with an initial object and a fixed-point operator is trivial. 
 
 Here the word *trivial* means that every object $$A$$ in the category is isomorphic to the terminal object $$1$$. 
 

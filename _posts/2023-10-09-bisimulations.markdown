@@ -1,13 +1,13 @@
 ---
-layout: post
 title:  "Bisimulations, Equality and Traces" 
 date:   2023-10-09 13:14:21 +0000
-categories: semantics concurrency 
+permalink: /posts/2023/10/Bisim-Eq/
+tags:
+  - semantics
+  - categories 
 ---
 
-Today in Theory of Concurrency class we saw how, in certain variants of CCS,
-bisimilarity is larger than equality of traces as in it distinguishes more things than
-equality. 
+Strong bisimulation for CCS is the preferred equivalence method in concurrency because it relates less programs than trace equality. However, the reality is that is strong bisimulation and trace equality ought to be regarded as equivalent. This is the essence behind proof assistant's like (e.g.) Isabelle. So what is going here?   
 
 One example of this fact is when considering CCS with the choice operator.  In
 this language we can define a process $$P$$ and a process $$Q$$ as follows 

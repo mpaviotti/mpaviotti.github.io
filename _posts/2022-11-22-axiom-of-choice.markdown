@@ -1,12 +1,14 @@
 ---
-layout: post
-title:  "The Axiom of Choice: An easy explanation." 
+title:  "The Axiom of Choice in Type Theory" 
 date:   2022-11-25 13:14:21 +0000
-categories: foundations settheory
+permalink: /posts/2023/10/Bisim-Eq/
+tags:
+  - set theory
+  - foundations 
 ---
 
-The Axiom of Choice (AC) is a controversial axiom in set theory that states that the product of a family of non-empty sets is itself non-empty. 
- 
+The Axiom of Choice (AC) is an axiom that states that the product of a family of non-empty sets is itself non-empty. This is a rather controversial axiom amongst mathematicians but in type theory this axiom is provable within the logic. 
+
 First off, I do not consider myself an expert on set theory, but after having this kind  of conversation with mathematicians and computer scientists I found *there are* some
 misconceptions around this axiom and the reasons why it is needed. 
 

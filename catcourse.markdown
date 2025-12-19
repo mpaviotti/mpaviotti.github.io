@@ -1,26 +1,25 @@
 ---
-layout: page
+layout: archive
 permalink: /catcourse/
 title: Category Theory Course at Kent
 ---
 
 
-There are two version of these notes, the short version is for people who want to get the computational $$\lambda$$-calculus faster. 
+Notes of the course:
 
-- [Download](/assets/papers/intro-cat.pdf)
+- [Download](/assets/catcourse/cat-course.pdf)
 
 The second set of notes is the one that we used in the course which contains the following material: 
 
-- [24/01/2025] The computational trinitarianism
-- [31/01/2025] Initial, terminal objects and Products
-- [07/02/2025] The Naturals Numbers object
-- [14/02/2025] Induction on the naturals
-- [21/02/2025] Products, Coproducts and Exponentials
-- [7/03/2025]  Simply Typed $$\lambda$$-calculus and its semantics
-- [14/03/2025] Functors and Natural Transformations
-- [28/03/2025] The Yoneda Lemma for Type Theorists
-- [4/04/2025]  Type Isomorphisms via The Yoneda Lemma
-- [11/04/2025] List Optimisations via Caley's Theorem
-- [23/05/2025] A Monad is a Monoid in the Category of Endofunctors
+- [24/01/2025] The computational trinitarianism ([notes](/assets/catcourse/20250124.pdf))
+- [31/01/2025] Initial, terminal objects and Products  ([notes](/assets/catcourse/20250131.pdf))
+- [07/02/2025] The Naturals Numbers object ([notes](/assets/catcourse/20250207.pdf))
+- [14/02/2025] Induction on the naturals ([notes](/assets/catcourse/20250214.pdf))
+- [21/02/2025] Products, Coproducts and Exponentials ([notes](/assets/catcourse/20250221.pdf))
+- [7/03/2025]  Simply Typed $$\lambda$$-calculus and its semantics ([notes](/assets/catcourse/20250307.pdf))
+- [14/03/2025] Functors and Natural Transformations ([notes](/assets/catcourse/20250314.pdf))
+- [28/03/2025] The Yoneda Lemma for Type Theorists ([notes](/assets/catcourse/20250328.pdf))
+- [4/04/2025]  Type Isomorphisms via The Yoneda Lemma ([notes](/assets/catcourse/20250404.pdf))
+- [11/04/2025] List Optimisations via Caley's Theorem ([notes](/assets/catcourse/20250411.pdf))
+- [23/05/2025] A Monad is a Monoid in the Category of Endofunctors ([notes](/assets/catcourse/20250523.pdf))
 
-- [Download](/assets/papers/long-cat.pdf)

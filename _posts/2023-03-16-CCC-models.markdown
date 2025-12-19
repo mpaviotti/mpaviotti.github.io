@@ -1,12 +1,14 @@
 ---
-layout: post
-title:  "CCCs are not complete models of STLC" 
+title:  "CCCs and the complete models of STLC" 
 date:   2023-03-16 13:14:21 +0000
-categories: semantics categories 
+permalink: /posts/2023/03/CCC-STLC/
+tags:
+  - semantics
+  - categories
+  - stlc
 ---
 
-Now that I have caught your attention with a completely outrageous title I will
-explain what I mean by this.  
+Cartesian closed categories are not regarded as complete models of the Simply Typed $$\lambda$$-calculus in the traditional sense. Let's see why. 
 
 Assume $$\Lambda_X$$ is the set of closed well-typed STLC (Simply Typed $$\lambda$$-calculus) terms.
 Clearly, STLC can be interpreted into any Cartesian Closed category (CCC) by defining an interpretation function 

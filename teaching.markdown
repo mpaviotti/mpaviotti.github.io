@@ -1,5 +1,5 @@
 ---
-layout: page
+layout: archive
 permalink: /teaching/
 title: Teaching
 ---
@@ -10,13 +10,13 @@ title: Teaching
 - 2025--present. [COMP8220 -- Introduction to Quantum Computing & Quantum Cryptography](https://www.kent.ac.uk/courses/modules/module/COMP7006).
 
 ## PhD Courses and Reading Groups 
-- 2024/25. [A Taste of Categorical Semantics]({% link catcourse.markdown %}) 
+- 2024/25. Categorical models of the $$\lambda$$-calculus. Link to the course, [here]({% link catcourse.markdown %}).
 - 2017-2019. *Category Theory* with Dominic Orchard, University of Kent. Postgraduate Course. Download the notes [here](/assets/papers/intro-cat24.pdf).
 
 ## Notes
-<span class="title" style="font-weight: bold;">Kan Extensions and Monads</span><br/>
-  <span class="author">Marco Paviotti</span><br/>
-  <span class="journal" style="font-style: italic; font-size:80%">Notes</span>, <span class="year" style="font-style: italic; font-size:80%">2023</span>. <br> [<a href="/assets/papers/kan-notes.pdf" class="url">pdf</a>]
+Some of these notes were meant to be read by some of my collaborators:
+- A Taste of Categorical Semantics. ([pdf](/assets/papers/a-taste-of-cat.pdf))
+- Kan Extensions and Monads. ([pdf](/assets/papers/kan-notes.pdf))
 
 
 ## Past Modules

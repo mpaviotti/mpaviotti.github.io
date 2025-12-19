@@ -1,13 +1,16 @@
 ---
-layout: post
 title:  "The mini Yoneda lemma for Type Theorists" 
 date:   2023-09-09 13:14:21 +0000
-categories: semantics categories
+permalink: /posts/2023/09/Yoneda-TT/
+tags:
+  - semantics
+  - categories
 ---
 
-Disclaimer: I took this from a lecture by Roy Crole at the MGS 2018 which I thought it was great!
 
-Say that you want to do denotational semantics for a simply typed $$\lambda$$-calculus with a unary constructor $$\textsf{R}$$ which has the following typing rule
+I have managed to teach the Yoneda lemma to students who knew very little about category theory, here's how you do it. 
+
+Say that you want to do denotational semantics for a simply typed calculus with a unary constructor $$\textsf{R}$$ which has the following typing rule
 
 $$
   \frac{\Gamma \vdash t : A}{\Gamma \vdash \textsf{R}(t) : B}

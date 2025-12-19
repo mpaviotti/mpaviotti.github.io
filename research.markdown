@@ -1,5 +1,5 @@
 ---
-layout: page
+layout: archive
 permalink: /research/
 title: Research
 ---
@@ -78,4 +78,23 @@ $$ \text{Str}^{g} A = A \times \blacktriangleright \text{Str}^{g} A$$
 
 The intuitive meaning of this type is that while the head of the stream is available now, 
 the tail of the stream is available only after one step of computation. 
+
+### nCatLab
+
+I contribute to [nCatLab](https://ncatlab.org/nlab/show/HomePage) by maintaining
+the following pages 
+
+- [Synthetic Guarded Domain Theory](https://ncatlab.org/nlab/show/synthetic+guarded+domain+theory)
+- [Guarded Recursion](https://ncatlab.org/nlab/show/guarded+recursion)
+- [Recursion Schemes](https://ncatlab.org/nlab/show/recursion+scheme)
+
 The end result is that productivity for elements of $$\text{Str}^{g}$$ is guaranteed by the type system. 
+
+## ISO Standards 
+Modular Relaxed Dependencies (MRD) is a prospective model of C++ concurrency
+(first appeared in [ESOP'20'](https://link.springer.com/content/pdf/10.1007/978-3-030-44914-8_22.pdf))
+which is being considered for the next ISO standard of C++. 
+- Link to the draft [here](https://graymalk.in/iso-papers/p1780/p1780r2.html)
+- Link to the WG21 discussion [here](https://eur01.safelinks.protection.outlook.com/?url=https%3A%2F%2Fgithub.com%2Fcplusplus%2Fpapers%2Fissues%2F554%23issuecomment-1311093994&amp;data=05%7C01%7CM.Paviotti%40kent.ac.uk%7C5e1fff970b0a4039205008dac71af6b3%7C51a9fa563f32449aa7213e3f49aa5e9a%7C0%7C0%7C638041215860503967%7CUnknown%7CTWFpbGZsb3d8eyJWIjoiMC4wLjAwMDAiLCJQIjoiV2luMzIiLCJBTiI6Ik1haWwiLCJXVCI6Mn0%3D%7C3000%7C%7C%7C&amp;sdata=V1PRIBvid5UxHNvEI2aOq2Rp4Sq9voNbcjb5rCEJ4sk%3D&amp;reserved=0)
+- The WG21 group page: [https://isocpp.org/wiki/faq/wg21](https://isocpp.org/wiki/faq/wg21)
+- The MRD Web Tool [link](https://www.cs.kent.ac.uk/projects/MRDer/)
