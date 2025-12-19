@@ -1,0 +1,412 @@
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.10.0">Jekyll</generator><link href="https://mpaviotti.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://mpaviotti.github.io/" rel="alternate" type="text/html" /><updated>2025-12-19T15:36:16+00:00</updated><id>https://mpaviotti.github.io/feed.xml</id><title type="html">Marco Paviotti</title><subtitle>Lecturer in Computer Science</subtitle><author><name>Marco Paviotti</name><email>m.paviotti@kent.ac.uk</email></author><entry><title type="html">Bisimulations, Equality and Traces</title><link href="https://mpaviotti.github.io/posts/2023/10/Bisim-Eq/" rel="alternate" type="text/html" title="Bisimulations, Equality and Traces" /><published>2023-10-09T13:14:21+00:00</published><updated>2023-10-09T13:14:21+00:00</updated><id>https://mpaviotti.github.io/posts/2023/10/bisimulations</id><content type="html" xml:base="https://mpaviotti.github.io/posts/2023/10/Bisim-Eq/"><![CDATA[<p>Strong bisimulation for CCS is the preferred equivalence method in concurrency because it relates less programs than trace equality. However, the reality is that is strong bisimulation and trace equality ought to be regarded as equivalent. This is the essence behind proof assistant’s like (e.g.) Isabelle. So what is going here?</p>
+
+<p>One example of this fact is when considering CCS with the choice operator.  In
+this language we can define a process \(P\) and a process \(Q\) as follows</p>
+
+\[P = \text{pay}.(\text{coffee}. 0 + \text{tea}. 0)\]
+
+\[Q = (\text{pay}.\text{coffee}.0 + \text{pay}.\text{tea}. 0)\]
+
+<p>Now the <em>trace semantics</em> of the CCS processes can be defined by a function</p>
+
+\[[\![ \cdot ]\!] : \text{CCS} \to \mathcal{P}_\text{fin}(\text{Str } L)\]
+
+<p>where \(L\) is the finite set of actions and, for a generic set \(A\), the set
+\(\text{Str } A = 1 + A \times \text{Str }A\) is the set of possibly finite
+streams over a set \(A\).</p>
+
+<p>For the processes above we have that the semantics of \(P\) is \([\![P]\!] =
+\{\text{pay}.\text{coffee}, \text{pay}.\text{tea}\}\) and the semantics of \(Q\)
+is \([\![ Q ]\!] = \{\text{pay}.\text{coffee}, \text{pay}.\text{tea}\}\) and
+thus the trace semantics of \(P\) and \(Q\) indicate that these processes should
+be equal.</p>
+
+<p>However, consider the relation \(P\) <em>simulates</em> \(Q\) which is stated as</p>
+
+\[P \lesssim Q \Leftrightarrow \forall P'. \text{ if } P \xrightarrow{a} P'
+\text{ then  } \exists Q'. Q \xrightarrow{a} Q' \text{ s.t. } P' \lesssim Q'\]
+
+<p>Now the <em>bisimulation</em> relation can be defined as \(P \approx Q \Leftrightarrow P
+\lesssim Q \text{ and } Q \lesssim P\).</p>
+
+<p>The above example is a standard example in concurrency theory that shows that
+bisimulation can distinguish processes where equality on the trace semantics
+indicate that they should be regarded as equal and that is why bisimulations
+turn out to be more useful relations to compare processes.</p>
+
+<p>Using the example above we can prove that \(Q \lesssim P\). Let’s define
+half-evaluated processes as</p>
+
+\[P' = \text{coffee}. 0 + \text{tea}. 0\]
+
+\[P'_{1} = \text{coffee}. 0\]
+
+\[P'_{2} = \text{tea}. 0\]
+
+\[Q_{1} = \text{pay}.\text{coffee}.0\]
+
+\[Q_{2} = \text{pay}.\text{tea}.0\]
+
+\[Q'_{1} = \text{coffee}.0\]
+
+\[Q'_{2} = \text{tea}.0\]
+
+<p>Now for all transitions of \(Q\) we have to show \(P\) simulates them. The first
+one is \(Q \xrightarrow{\text{pay}} Q'_{1}\).  Obviously \(P
+\xrightarrow{\text{pay}} P'_{1}\) and so now we have to show that \(Q'_{1}
+\lesssim P'_{1}\) which clearly does.  This works similarly if \(Q\) decides to
+take the other route and produce tea in the end.</p>
+
+<p>All right, but \(P \lesssim Q\) does not work. This is because since \(P\) makes a transition \(P \xrightarrow{\text{pay}} P'\) we are forced to select which branch in \(Q\) is simulating this behaviour. No matter which one we choose we get stuck in one way or the other. Say \(Q \xrightarrow{\text{pay}} Q'_{1}\) we have to show \(P' \lesssim Q'_{1}\), but this latter fact does not hold because \(P'\) can make two different transitions and \(Q'_1\) can only make one.</p>
+
+<h2 id="corecursion-schemes-and-traces">CoRecursion Schemes and Traces</h2>
+<p>Consider now the unfold function which takes a seed function an produces a trace
+by <em>running</em> the seed at each steps</p>
+
+<figure class="highlight"><pre><code class="language-haskell" data-lang="haskell"><span class="n">unfold</span> <span class="o">::</span> <span class="p">(</span><span class="n">x</span> <span class="o">-&gt;</span> <span class="p">(</span><span class="kt">L</span><span class="p">,</span> <span class="n">x</span><span class="p">))</span> <span class="o">-&gt;</span> <span class="n">x</span>  <span class="o">-&gt;</span> <span class="kt">Str</span> <span class="kt">L</span>
+<span class="n">unfold</span> <span class="n">seed</span> <span class="n">x</span> <span class="o">=</span> <span class="kr">let</span> <span class="p">(</span><span class="n">l</span><span class="p">,</span><span class="n">x'</span><span class="p">)</span> <span class="o">=</span> <span class="n">seed</span> <span class="n">x</span> <span class="kr">in</span> <span class="n">l</span> <span class="o">::</span> <span class="n">unfold</span> <span class="n">seed</span> <span class="n">x'</span> </code></pre></figure>
+
+<p>Notice that the seed function \(X \to L \times X\) can be viewed as a Labeled
+Transition System (LTS) where the set of states is \(X\) and the function is the
+function implementing the transitions.</p>
+
+<p>It is a very well-known fact that the <code class="language-plaintext highlighter-rouge">unfold</code> is a fully abstract map in the
+sense if we consider the notion of bisimilarity above and set \([\![ \cdot
+]\!]\) to be <code class="language-plaintext highlighter-rouge">unfold seed</code>  then we have the following theorem</p>
+
+<blockquote>
+  <p><strong>Full abstraction</strong> \(\text{ for all } t_{1}, t_{2}, t_{1} \approx t_{2} \Leftrightarrow [\![ t_{1} ]\!] = [\![ t_{2}]\!]\).</p>
+</blockquote>
+
+<p>This is also backed by the fact that when programming in proof assistants like
+(e.g.) Agda – since coinductive data types are not really final coalgebras –
+it is common practice to just  add the following axiom to the type theory</p>
+
+<blockquote>
+  <p><strong>Axiom</strong> \(\text{ for all } (s_{1}, s_{2} : \text{Str L}). s_{1} \approx s_{2} \to s_{1} = s_{2}\) .</p>
+</blockquote>
+
+<p>Even more so, in some proof assistants like Isabelle coinductive data types are
+real final coalgebras and so the above axiom is actually a true fact in the
+prover’s logic.</p>
+
+<p>Notice that the other direction is obvious and thus the axiom implies
+bisimiliary is <em>logically equivalent</em>  equality.</p>
+
+<blockquote>
+  <p>So why bisimulation in the above example does not correpond to equality?</p>
+</blockquote>
+
+<p>The reason is that the shape behaviours for CCS+choice is not \(BX = L \times
+X\) but it is \(\mathcal{P}_\text{fin}(L \times X)\).</p>
+
+<p>In fact, the <em>seed</em> function describing the LTS of CCS+choice has the following
+type</p>
+
+<figure class="highlight"><pre><code class="language-haskell" data-lang="haskell"> 
+<span class="n">opsem</span> <span class="o">::</span> <span class="kt">CCS</span> <span class="o">-&gt;</span>  <span class="p">[(</span><span class="kt">L</span><span class="p">,</span> <span class="kt">CCS</span><span class="p">)]</span></code></pre></figure>
+
+<p>where we use lists <code class="language-plaintext highlighter-rouge">[-]</code> as a (rough) implementation of finite powersets.</p>
+
+<p>At this point the LTS for CCS+choice can be defined roughly like this</p>
+
+<figure class="highlight"><pre><code class="language-haskell" data-lang="haskell"><span class="o">...</span>
+<span class="n">opsem</span> <span class="p">(</span><span class="n">p</span> <span class="o">+</span> <span class="n">q</span><span class="p">)</span> <span class="o">=</span> <span class="p">[(</span><span class="n">l</span><span class="p">,</span> <span class="n">p'</span><span class="p">)</span> <span class="o">|</span> <span class="p">(</span><span class="n">l</span><span class="p">,</span> <span class="n">p'</span><span class="p">)</span> <span class="o">&lt;-</span> <span class="n">opsem</span> <span class="n">p</span> <span class="p">]</span> <span class="o">++</span> <span class="p">[(</span><span class="n">l</span><span class="p">,</span> <span class="n">q'</span><span class="p">)</span> <span class="o">|</span> <span class="p">(</span><span class="n">l</span><span class="p">,</span> <span class="n">q'</span><span class="p">)</span> <span class="o">&lt;-</span> <span class="n">opsem</span> <span class="n">q</span> <span class="p">]</span>  </code></pre></figure>
+
+<p>And now the unfold on this LTS will yield a fully abstract semantics</p>
+
+<figure class="highlight"><pre><code class="language-haskell" data-lang="haskell"><span class="n">unfold</span> <span class="n">opsem</span> <span class="o">::</span> <span class="kt">CCS</span> <span class="o">-&gt;</span> <span class="kt">Trees</span> <span class="kt">L</span> </code></pre></figure>
+
+<p>where \(\text{Trees}\; L = \mathcal{P}_\text{fin} (L \times \text{Trees}\; L)\).</p>]]></content><author><name>Marco Paviotti</name><email>m.paviotti@kent.ac.uk</email></author><category term="semantics" /><category term="categories" /><summary type="html"><![CDATA[Strong bisimulation for CCS is the preferred equivalence method in concurrency because it relates less programs than trace equality. However, the reality is that is strong bisimulation and trace equality ought to be regarded as equivalent. This is the essence behind proof assistant’s like (e.g.) Isabelle. So what is going here?]]></summary></entry><entry><title type="html">The mini Yoneda lemma for Type Theorists</title><link href="https://mpaviotti.github.io/posts/2023/09/Yoneda-TT/" rel="alternate" type="text/html" title="The mini Yoneda lemma for Type Theorists" /><published>2023-09-09T13:14:21+00:00</published><updated>2023-09-09T13:14:21+00:00</updated><id>https://mpaviotti.github.io/posts/2023/09/mini-yoneda</id><content type="html" xml:base="https://mpaviotti.github.io/posts/2023/09/Yoneda-TT/"><![CDATA[<p>I have managed to teach the Yoneda lemma to students who knew very little about category theory, here’s how you do it.</p>
+
+<p>Say that you want to do denotational semantics for a simply typed calculus with a unary constructor \(\textsf{R}\) which has the following typing rule</p>
+
+\[\frac{\Gamma \vdash t : A}{\Gamma \vdash \textsf{R}(t) : B}\]
+
+<p>The task is to give a semantic interpretation \([\![ \cdot ]\!]\) for the language by
+induction on the typing judgment \(\Gamma \vdash t : A\) such that terms are
+interpreted as morphisms \([\![\Gamma ]\!] \xrightarrow{[\![ t ]\!]} [\![ A ]\!]\), assuming
+for course \([\![ \cdot ]\!]\) is also defined separately for contexts and types.</p>
+
+<p>We interpret the rule above we do induction
+on the typing judgment. Thus we assume there exists a morphism
+\([\![ \Gamma ]\!] \xrightarrow{[\![ t ]\!]} [\![ A ]\!]\) and we construct a morphism
+\([\![ \Gamma ]\!] \xrightarrow{[\![ \textsf{R} ]\!] } [\![ B ]\!]\).</p>
+
+<p>For simplicity we remove the semantics brackets, for example,
+assuming \(A\) be interpretation of \([\![ A ]\!]\), \(t : \Gamma \to A\) the
+interpretation of \(t\) an so on.</p>
+
+<p>Back to the problem we are trying to solve. It can be quite tricky sometimes to figure out what the semantics of \(\textsf{R}(t)\) are since there is some plumming needed to pass around the
+context. A particular instantiation of the Yoneda lemma states that given a
+morphism \(t : \Gamma \xrightarrow{t} A\) and a morphism \(R : A \to B\) there
+is a canonical way to construct a morphism \(\Gamma \xrightarrow{R(t)} B\).</p>
+
+<p>To show this we instantiate the contravariant Yoneda lemma by setting \(F =
+\mathbb{C}(-, B)\). Then for all objects \(A : \mathbb{C}^{\text{op}}\) we have</p>
+
+\[\mathbb{C}(A, B) \cong \mathbb{C}(-, A) \xrightarrow{\cdot} \mathbb{C}(-, B)\]
+
+<p>Let \(R : A \to B\) be the interpretation of \(\textsf{R}\) then, one side of
+the isomorphism is \(\phi (\textsf{R},t) = F(t)(\textsf{R}) = \mathbb{C}(t,
+B)(\textsf{R})\).  In other words, the interpretation of \(\textsf{R}(t)\) is
+simply \(\textsf{R} \circ t\).</p>]]></content><author><name>Marco Paviotti</name><email>m.paviotti@kent.ac.uk</email></author><category term="semantics" /><category term="categories" /><summary type="html"><![CDATA[I have managed to teach the Yoneda lemma to students who knew very little about category theory, here’s how you do it.]]></summary></entry><entry><title type="html">CCCs and the complete models of STLC</title><link href="https://mpaviotti.github.io/posts/2023/03/CCC-STLC/" rel="alternate" type="text/html" title="CCCs and the complete models of STLC" /><published>2023-03-16T13:14:21+00:00</published><updated>2023-03-16T13:14:21+00:00</updated><id>https://mpaviotti.github.io/posts/2023/03/CCC-models</id><content type="html" xml:base="https://mpaviotti.github.io/posts/2023/03/CCC-STLC/"><![CDATA[<p>Cartesian closed categories are not regarded as complete models of the Simply Typed \(\lambda\)-calculus in the traditional sense. Let’s see why.</p>
+
+<p>Assume \(\Lambda_X\) is the set of closed well-typed STLC (Simply Typed \(\lambda\)-calculus) terms.
+Clearly, STLC can be interpreted into any Cartesian Closed category (CCC) by defining an interpretation function 
+\([\![\cdot]\!] : \Lambda_X \to \mathcal{C}\) such that for any term \(t \in \Lambda_X\) , \([\![t]\!] \in \mathcal{C}(1, [\![\sigma]\!])\) where \(\sigma\) is the type of \(t\). We will only consider well-typed interpretations here. Moreover, it can be proved that the interpretation function is sound and complete.  The completeness statement reads as follows. For all terms \(t_1\) and \(t_2\),</p>
+
+\[t_1 \equiv_{\beta\eta} t_2 \text{ iff } [\![t_1]\!] = [\![t_2]\!]\]
+
+<p>where the \((\Rightarrow)\) direction is soundness whereas \((\Leftarrow)\) is <em>completeness of the interpretation</em>.</p>
+
+<p>This statement is certainly true. If two terms are \(\beta\eta\) equivalent they are equal in the model, i.e. the semantics is agnostic to \(\beta\eta\)-step reductions. Conversely, all equations that hold for any two STLC-denotable terms also hold in the syntax.</p>
+
+<p>However, completeness of a model is a slightly different statement:</p>
+
+\[t_1 =_{\beta\eta} t_2 \text{ iff for all } [\![ \cdot ]\!] : \Lambda_X \to \mathcal{C}, [\![t_1]\!] = [\![t_2]\!]\]
+
+<p>This one states that fixed a category \(\mathcal{C}\), \(\beta\eta\)-equivalence between terms holds if and only if these two terms are equal in <strong>every</strong> possible interpretation.</p>
+
+<p>In this sense, CCC categories are not <em>complete models</em>. The counter example is given by the preorder category \(\mathcal{P}\) with CCC structure. The preorder the category has at most one morphism (\(\sqsubset\)) between objects. If this category has the greatest element \(\top\), binary meets (\(\wedge\)) and Heyting implications (\(\to\)) then \(\mathcal{P}\) is CCC.</p>
+
+<p>Now the problem is that when the category is thin every (well-typed) interpretation interprets two programs of the same type into morphisms of the same type, but since the category is thin these two morphisms are always equal. 
+For example, consider the projection maps out of the product  \(x \wedge x \xrightarrow{\pi_1} x\) and \(x \wedge x \xrightarrow{\pi_2} x\) for the particular case when the codomain of the two coincide. In \(\mathcal{P}\) these two are the same map, i.e. \(\pi_1 = \pi_2\).</p>
+
+<p>Now the right-hand side of the completeness theorem is satisfied since For all well-typed interpretations \([\![\cdot]\!]\) we have \([\![\pi_1]\!] = [\![\pi_2]\!]\) (when the codomain of the two is the same). However, the projections \(\pi_1\) and \(\pi_2\) in the syntax are definitely not \(\beta\eta\)-equivalent.</p>
+
+<p>I will defer the reader to the <a href="https://link.springer.com/chapter/10.1007/BFb0014068">original paper</a> for more details.</p>]]></content><author><name>Marco Paviotti</name><email>m.paviotti@kent.ac.uk</email></author><category term="semantics" /><category term="categories" /><category term="stlc" /><summary type="html"><![CDATA[Cartesian closed categories are not regarded as complete models of the Simply Typed \(\lambda\)-calculus in the traditional sense. Let’s see why.]]></summary></entry><entry><title type="html">The Axiom of Choice in Type Theory</title><link href="https://mpaviotti.github.io/posts/2023/10/Bisim-Eq/" rel="alternate" type="text/html" title="The Axiom of Choice in Type Theory" /><published>2022-11-25T13:14:21+00:00</published><updated>2022-11-25T13:14:21+00:00</updated><id>https://mpaviotti.github.io/posts/2023/10/axiom-of-choice</id><content type="html" xml:base="https://mpaviotti.github.io/posts/2023/10/Bisim-Eq/"><![CDATA[<p>The Axiom of Choice (AC) is an axiom that states that the product of a family of non-empty sets is itself non-empty. This is a rather controversial axiom amongst mathematicians but in type theory this axiom is provable within the logic.</p>
+
+<p>First off, I do not consider myself an expert on set theory, but after having this kind  of conversation with mathematicians and computer scientists I found <em>there are</em> some
+misconceptions around this axiom and the reasons why it is needed.</p>
+
+<p>For example, as you will see, it is indeed true that the axiom of choice is connected with the existential quantifier, it is not true, however, that we cannot pick an element out of the existential because the logic is classical.</p>
+
+<p>In my mind there are two problems: the first is that</p>
+
+<blockquote>
+  <p>the existential quantifier does not ensure there exists <strong>one</strong> element with a particular property in the domain of discourse</p>
+</blockquote>
+
+<p>and the second is that</p>
+
+<blockquote>
+  <p>we would need to create a infinite proof that uses Existential Instantiation for each element of the indexing set</p>
+</blockquote>
+
+<p>However, in order to fully understand what is going on we need to be more precise. 
+So first let’s begin with what is the axiom of choice.</p>
+
+<h3 id="the-axiom-of-choice-ac">The axiom of choice (AC)</h3>
+<p>The original formulation of the AC is the following.</p>
+
+<blockquote>
+  <p>Given a set \(X\) and a family of non-empty sets \(\{A_x\}_{x \in X}\) over
+\(X\), the infinite product of these sets, namely  \(\Pi_{x \in X}. A_{x}\) is
+non-empty</p>
+</blockquote>
+
+<p>For the record, the infinite product is defined as follows</p>
+
+\[\Pi_{x \in X}. A_{x} = \{ f : X \to \bigcup_{x \in X} A_{x} \mid f(x) = A_{x} \}\]
+
+<p>However, this statement is a little bit more packed than we would like it to be. An equivalent statement is skolemization.</p>
+
+<h3 id="skolemization-sk">Skolemization (Sk)</h3>
+<p>Skolemization is what allows one to turn an existentially quantified formula into a function. Formally, skolemization is the following statement</p>
+
+<blockquote>
+  <p>Given a relation \(R \subseteq X \times Y\), \(\forall x \in X. \exists y \in Y. R(x,y)\) then \(\exists f \in X \to Y. \forall x \in X. R (x, f(x))\)</p>
+</blockquote>
+
+<p>The AC is equivalent to Skolemization. A full discussion of this fact can be
+found in
+<a href="https://mathoverflow.net/questions/191010/when-does-skolemization-require-the-axiom-of-choice">here</a></p>
+
+<p>For proving that Sk \(\Rightarrow\) AC, for a family of sets \(\{A_{x}\}_{x \in
+X}\), we define a relation \(R(x,y) = y \in A_{x}\).  For the other direction we
+assume a relation \(R \subseteq X \times Y\) and then we construct the family of
+sets \(\{A_{x}\}_{x \in X}\) such that each \(A_{x} = \{ y \mid y \in Y \text{
+and } R(x,y)\}\).</p>
+
+<h3 id="the-existential">The existential</h3>
+<p>Set theory is a first-order logic together with a set of axioms (9 of them
+exactly including the AC) postulating the existence of certain sets. Besides the
+propositional fragment of first-order logic there is also the predicate fragment
+formed by <em>universal quantification</em> (\(\forall\)) and <em>existential
+quantification</em> (\(\exists\)).</p>
+
+<p>The Existential Instantiation rule states that if we know there exists an \(x\)
+that satisfies the property \(P\) and we can construct a proof from a fresh
+\(t\) that satisfies that property to a proposition \(R\) then we can obtain
+\(R\)</p>
+
+\[\frac{\exists x. P \qquad t, P[t/x]\cdots R }{R}\]
+
+<p>with \(t\) free for \(x\) in \(P\).</p>
+
+<p>So here we have to treat \(t\) carefully in that it is a fresh \(t\) that
+satisfies \(P\), but “we do not know what it is!”.</p>
+
+<p>The reason why I put this sentence in quotes is because this is the explanation
+that many people would use. However, to me the real reason is that <em>we do not
+know how many other elements in the universe exist with such a property</em>. There
+is certainly one, but there may be more.</p>
+
+<h3 id="the-problem-with-producing-a-choice-function">The problem with producing a choice function</h3>
+
+<p>To prove Sk we have to assume \(\forall x \in X. \exists y \in Y. R(x, y)\) and then
+prove \(\exists f : X \to Y. \forall x \in X. R (x , f (x))\). Though \(f : X \to Y\) really means a relation \(f \subseteq X \times Y\) such that it is a function, <em>i.e.</em> that for all \(x \in X\) there exists only one \(y \in Y\) such that \((x,y) \in f\).</p>
+
+<p>Now first we try to construct this relation \(f\). A first naive attempt is to use the axiom of comprehension as follows</p>
+
+\[f = \{(x, y) \mid x \in X \wedge y \in Y \wedge R(x, y)\}\]
+
+<p>The problem is that \(f\) is clearly not a function since there may be more than one \(y\) per one \(x\) in \(R\). Notice that the above statement is very simlar to the one where we include the existential</p>
+
+\[f = \{(x, y) \mid x \in X \wedge \exists y'. y = y' \wedge R(x, y)\}\]
+
+<p>But this does not change much from before since we know there exists at least one \(y\) per every \(x\) but we do not know how many. Clearly, we can prove that for all \(x \in X\) we have \(R(x, f(x))\), however, we cannot prove that \(f\) is a function. In particular, that for each \(x \in X\) we have a <strong>unique</strong> \(y \in Y\) we map \(x\) to.</p>
+
+<p>Now the question is, couldn’t we just have picked one \(y\) for each \(x\)?</p>
+
+<p>We could do this if we were able to use Existential Instantiation for each \(x \in
+X\). If \(X\) was finite then we could certainly do that as we can pick an \(n \in \mathbb{N}\) and assume \(X\) assuming that \(X = \{x_0, x_1, \dots, x_n \}\).<br />
+Now we can construct a set of pairs \((x_i, y_i)_{i\in \{1,\dots,n\}}\) such that every \((x_i, y_i) \in R\) by repeatedly using existential instantiation. Once the set is created we can assign \(f\) to it</p>
+
+\[f = \{(x_0,y_0), (x_1,y_1), \dots, (x_n, y_n)\}\]
+
+<p>However, when \(X\) is not finite, we cannot simply <em>write down</em> the set by hand. Instead we have to create a formula and then use set comprehension. However, there is no (open) formula of the form</p>
+
+<p>$(x_0,y_0) \in R \wedge (x_1,y_1) \in R \wedge \dots \wedge (x_n, y_n) \in R \wedge \dots }$$</p>
+
+<p>This is because formulas and proofs in set theory are finite and the one above is an infinite formula which would need an (potentially) infinite number of applications of the Existential Instantiation rule.</p>
+
+<h3 id="conclusions">Conclusions</h3>
+<p>Hopefully this untangles some confusion around the axiom of choice.</p>
+
+<p>On the other hand, AoC is derivable in Type Theory simply because we have access to the proof that for every \(x\) there exists a \(y\) such that \(R(x,y)\). But the reason why there exists only one is because inhabitants of the dependent product \(\forall\) are functions already.</p>
+
+<p>See the code below.</p>
+
+<figure class="highlight"><pre><code class="language-agda" data-lang="agda">choice : ∀ (A B : Set) → ∀ (R : A →  B → Set) → (∀ (x : A) → Σ B (λ y → R x y)) → Σ (A → B) (λ f → ∀ x → R x (f x))
+choice A B R r = (λ x →  proj₁ (r x)) , (λ x → proj₂ (r x)) </code></pre></figure>
+
+<p>If you have any comment about this please feel free to drop me an email or something I would very happy to know more (especially if I said something wrong).</p>
+
+<p>###</p>]]></content><author><name>Marco Paviotti</name><email>m.paviotti@kent.ac.uk</email></author><category term="set theory" /><category term="foundations" /><summary type="html"><![CDATA[The Axiom of Choice (AC) is an axiom that states that the product of a family of non-empty sets is itself non-empty. This is a rather controversial axiom amongst mathematicians but in type theory this axiom is provable within the logic.]]></summary></entry><entry><title type="html">Inconsistencies in Cartesian Closed Categories with fixed-points</title><link href="https://mpaviotti.github.io/posts/2022/11/CCC-FixedPoints/" rel="alternate" type="text/html" title="Inconsistencies in Cartesian Closed Categories with fixed-points" /><published>2022-11-10T13:14:21+00:00</published><updated>2022-11-10T13:14:21+00:00</updated><id>https://mpaviotti.github.io/posts/2022/11/fixed-points-CCS</id><content type="html" xml:base="https://mpaviotti.github.io/posts/2022/11/CCC-FixedPoints/"><![CDATA[<p>There is a very
+nice <a href="https://www.sciencedirect.com/science/article/pii/030439759090165E">paper</a>
+out there stating that “<em>Any Cartesian Closed Category (CCC) with an initial object and a fixed-point operator is trivial</em>”. Essentially this means that in languages like (e.g.) Haskell the empty type is not actually empty as it contains the non-terminating computation. Perhaps this is obvious, but here’s the categorical explanation.</p>
+
+<p>Here the word <em>trivial</em> means that every object \(A\) in the category is isomorphic to the terminal object \(1\).</p>
+
+<p>To do this proof we make use of the fixed-point operator, which exists at all types.</p>
+
+<p>We know that for all endomaps \(f : A \to A\) in the category there exists a map
+\(\text{fix}_{f} : 1 \to A\) such that \(f \circ \text{fix}_{f} =
+\text{fix}_{f}\). Thus, we can use the unique endomap on the initial object,
+namely the identity map \(id_{0}: 0 \to 0\), to get a map \(\text{fix}_{id_{0}} :
+1 \to 0\). But now, because \(0\) is initial (and \(1\) is terminal), we also
+have a unique map into the terminal object, namely \(! : 0 \to 1\). It is easy
+to see that \(\text{fix}_{id_{0}}\) and \(1\) are inverses to each other, hence
+they form an isomorphism \(0 \cong 1\).
+In particular, \(\text{fix}_{id_{0}} \circ ! : 0 \to 0\) is \(id_{0}\) by initiality and
+\(! \circ \text{fix}_{id_{0}} : 1 \to 1\) is \(id_{1}\) by finality.</p>
+
+<p>Now we compute as follows. For every object \(A\) in the category  \(1 \cong 0
+\cong 0 \times A \cong 1 \times A \cong A\) and the proof is concluded.</p>
+
+<p>This result was shown to hold also when in the case when instead of the
+initial object we postulate a natural numbers object \(\mathbb{N}\).</p>
+
+<p>A natural question to ask now is:</p>
+
+<blockquote>
+  <p>is every model of PCF trivial?</p>
+</blockquote>
+
+<p>To answer this question we take as a model of PCF the category of <a href="https://en.wikipedia.org/wiki/Scott_domain">Scott domains</a>.
+This category consists of pointed directed complete partial orders
+(dCPPO) as objects and continuous functions as arrows (just following <a href="https://www.amazon.co.uk/Domain-Theoretic-Foundations-Functional-Programming-Streicher/dp/9812701427">Thomas Streicher’s
+book</a> to avoid any misunderstanding).</p>
+
+<p>Now, we would like to prove that this category is cartesian closed (which we know), has a fixed-point map (which it has) 
+and that it has an initial object. However,</p>
+
+<blockquote>
+  <p>there is no initial object in the category of Scott domains</p>
+</blockquote>
+
+<p>This is because if this category had an initial element \(0\) it would have at least a bottom
+element \(\bot_0\). Notice that the subset \(\{\bot_0\}\) is indeed directed and
+its suprema \(\bigsqcup \{\bot_0\}\) is \(\bot_0\) itself. Now if we take any
+other dCPPO \(X\), a continuous function \(f : 0 \to X\) that maps \(\bot_{0}\) to any element \(x \in X\) 
+will satisfy the equation</p>
+
+\[f \bigsqcup \{\bot_0\} = \bigsqcup f \{\bot_0\}\]
+
+<p>because, for any \(x \in X\) we choose for \(f(\bot_0)\) (even the bottom element), \(\bigsqcup f \{\bot_0\} = \bigsqcup \{x\} = x\).</p>
+
+<p>The only way this category had an initial element is if the arrows in the
+category were <em>strict</em>, namely they preserved \(\bot\) elements, but, as we have
+seen, continuous functions do not necessarily preserve it.</p>
+
+<blockquote>
+  <p>Is this just a coincidence that Scott’s model is not trivial?</p>
+</blockquote>
+
+<p>Not really. Because if it was trivial it would have broken computational adequacy which is the statement
+that for every pair or well-typed terms in the language \(\Gamma \vdash t : A\)
+and \(\Gamma \vdash t' : A\)</p>
+
+<p>if \([\![ t ]\!] = [\![ t' ]\!]\) then \(t \approx t'\)</p>
+
+<p>where \(\approx\) is contextual equivalence of programs.</p>
+
+<p>But if the models was trivial then all the pairs of PCF-denotable terms (pairs
+of maps into something isomorphic to \(1\)) would be equal (by finality) and
+therefore operationally equivalent.</p>
+
+<h3 id="what-does-this-all-mean-for-the-haskell-programmer">What does this all mean for the Haskell programmer?</h3>
+
+<p>Well nothing, because Haskell does not have a formal model.</p>
+
+<p>But let’s say we make a big leap and take the fragment of Haskell consisting of
+“inductive data types” and recursion. Now I can craft a program that resembles
+what I just said above</p>
+
+<figure class="highlight"><pre><code class="language-haskell" data-lang="haskell"><span class="cp">{-# LANGUAGE GADTs #-}</span>
+
+<span class="kr">data</span> <span class="kt">Empty</span> <span class="kr">where</span>
+
+<span class="kr">data</span> <span class="kt">Unit</span> <span class="o">=</span> <span class="kt">One</span> <span class="nb">()</span>
+
+<span class="n">y</span> <span class="o">::</span> <span class="p">(</span><span class="n">a</span> <span class="o">-&gt;</span> <span class="n">a</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">a</span>
+<span class="n">y</span> <span class="n">f</span> <span class="o">=</span> <span class="n">f</span> <span class="p">(</span><span class="n">y</span> <span class="n">f</span><span class="p">)</span>
+
+<span class="n">empty</span> <span class="o">::</span> <span class="kt">Empty</span> <span class="o">-&gt;</span> <span class="kt">Empty</span>
+<span class="n">empty</span> <span class="n">x</span> <span class="o">=</span> <span class="n">x</span>
+
+<span class="p">(</span><span class="o">===</span><span class="p">)</span> <span class="o">::</span> <span class="n">a</span> <span class="o">-&gt;</span> <span class="n">a</span> <span class="o">-&gt;</span> <span class="n">a</span>
+<span class="n">x</span> <span class="o">===</span> <span class="n">y</span>
+
+<span class="n">endoEmpty</span> <span class="o">::</span> <span class="kt">Unit</span> <span class="o">-&gt;</span> <span class="kt">Empty</span>
+<span class="n">endoEmpty</span> <span class="o">=</span> <span class="n">y</span> <span class="n">id</span> <span class="o">===</span> <span class="n">id</span> <span class="p">(</span><span class="n">y</span> <span class="n">id</span><span class="p">)</span> <span class="c1">-- by Fixed-point property y f = f (y f)</span></code></pre></figure>
+
+<p>Is this a problem? No, this is not a problem because <code class="language-plaintext highlighter-rouge">y id</code> is the infinite
+computation. In other words, sends the unit element to \(\bot\). But since
+Haskell functions need not to be strict, I can send the \(\bot\) element in
+<code class="language-plaintext highlighter-rouge">Empty</code> to <code class="language-plaintext highlighter-rouge">One ()</code>. So this map is not an isomorphism.</p>
+
+<h3 id="conclusions">Conclusions</h3>
+<p>This is probably a very convoluted way of saying</p>
+<blockquote>
+  <p>There is no initial object (or natural numbers object) in PCF (or other “PCF-like” languages like Haskell)</p>
+</blockquote>
+
+<p>this is because <code class="language-plaintext highlighter-rouge">Empty</code> actually contains the bottom element \(\bot\). 
+For the same reasons, if we now consider System F with a polymorphic fixed-point operator and define the \(0\) object by setting</p>
+
+\[0 = \forall x . x\]
+
+<p>This object has actually an inhabitant: the non-terminating computation. Thus, it is not the initial object.</p>]]></content><author><name>Marco Paviotti</name><email>m.paviotti@kent.ac.uk</email></author><category term="semantics" /><category term="categories" /><category term="recursion" /><summary type="html"><![CDATA[There is a very nice paper out there stating that “Any Cartesian Closed Category (CCC) with an initial object and a fixed-point operator is trivial”. Essentially this means that in languages like (e.g.) Haskell the empty type is not actually empty as it contains the non-terminating computation. Perhaps this is obvious, but here’s the categorical explanation.]]></summary></entry></feed>

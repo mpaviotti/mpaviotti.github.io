@@ -1,0 +1,733 @@
+
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+
+<meta charset="utf-8">
+
+
+
+<!-- begin SEO -->
+
+
+
+
+
+
+
+
+
+<title>Bisimulations, Equality and Traces - Marco Paviotti</title>
+
+
+
+<meta name="description" content="Strong bisimulation for CCS is the preferred equivalence method in concurrency because it relates less programs than trace equality. However, the reality is that is strong bisimulation and trace equality ought to be regarded as equivalent. This is the essence behind proof assistant’s like (e.g.) Isabelle. So what is going here?">
+
+
+
+
+
+  <meta property="article:published_time" content="2023-10-09T13:14:21+00:00">
+
+
+
+  <link rel="canonical" href="https://mpaviotti.github.io/posts/2023/10/Bisim-Eq/">
+
+
+
+
+
+  
+
+  
+
+
+
+
+
+
+  <script type="application/ld+json">
+    {
+      "@context" : "http://schema.org",
+      "@type" : "Person",
+      "name" : "Marco Paviotti",
+      "url" : "https://mpaviotti.github.io",
+      "sameAs" : null
+    }
+  </script>
+
+
+
+
+
+
+<!-- end SEO -->
+
+<!-- Open Graph protocol data (https://ogp.me/), used by social media -->
+<meta property="og:locale" content="en-US">
+<meta property="og:site_name" content="Marco Paviotti"> 
+<meta property="og:title" content="Bisimulations, Equality and Traces">
+
+  <meta property="og:type" content="article">
+
+
+  <meta property="og:description" name="description" content="Strong bisimulation for CCS is the preferred equivalence method in concurrency because it relates less programs than trace equality. However, the reality is that is strong bisimulation and trace equality ought to be regarded as equivalent. This is the essence behind proof assistant’s like (e.g.) Isabelle. So what is going here?">
+
+
+  <meta property="og:url" content="https://mpaviotti.github.io/posts/2023/10/Bisim-Eq/">
+
+
+
+
+
+<!-- end Open Graph protocol -->
+
+<link href="https://mpaviotti.github.io/feed.xml" type="application/atom+xml" rel="alternate" title="Marco Paviotti Feed">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<script>
+  document.documentElement.className = document.documentElement.className.replace(/\bno-js\b/g, '') + ' js ';
+</script>
+
+<!-- For all browsers -->
+<link rel="stylesheet" href="https://mpaviotti.github.io/assets/css/main.css">
+
+    
+
+<!-- start custom head snippets -->
+
+<!-- Support for Academicons -->
+<link rel="stylesheet" href="https://mpaviotti.github.io/assets/css/academicons.css"/>
+
+<!-- favicon from https://commons.wikimedia.org/wiki/File:OOjs_UI_icon_academic-progressive.svg -->
+<link rel="apple-touch-icon" sizes="180x180" href="https://mpaviotti.github.io/images/apple-touch-icon-180x180.png"/>
+<link rel="icon" type="image/svg+xml" href="https://mpaviotti.github.io/images/favicon.svg"/>
+<link rel="icon" type="image/png" href="https://mpaviotti.github.io/images/favicon-32x32.png" sizes="32x32"/>
+<link rel="icon" type="image/png" href="https://mpaviotti.github.io/images/favicon-192x192.png" sizes="192x192"/>
+<link rel="manifest" href="https://mpaviotti.github.io/images/manifest.json"/>
+<link rel="icon" href="/images/favicon.ico"/>
+<meta name="theme-color" content="#ffffff"/>
+
+<!-- end custom head snippets -->
+
+  </head>
+
+  <body>
+
+    <!--[if lt IE 9]>
+<div class="notice--danger align-center" style="margin: 0;">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</div>
+<![endif]-->
+    
+
+<div class="masthead">
+  <div class="masthead__inner-wrap">
+    <div class="masthead__menu">
+      <nav id="site-nav" class="greedy-nav">
+        <button><span class="navicon"></span></button>
+        <ul class="visible-links">
+          <li class="masthead__menu-item masthead__menu-item--lg persist"><a href="https://mpaviotti.github.io/">Marco Paviotti</a></li>
+          
+            
+            <li class="masthead__menu-item"><a href="https://mpaviotti.github.io/publications/">Publications</a></li>
+          
+            
+            <li class="masthead__menu-item"><a href="https://mpaviotti.github.io/teaching/">Teaching</a></li>
+          
+            
+            <li class="masthead__menu-item"><a href="https://mpaviotti.github.io/year-archive/">Blog Posts</a></li>
+          
+          <li id="theme-toggle" class="masthead__menu-item persist tail">
+            <a role="button" aria-labelledby="theme-icon"><i id="theme-icon" class="fa-solid fa-sun" aria-hidden="true" title="toggle theme"></i></a>
+          </li>
+        </ul>
+        <ul class="hidden-links hidden"></ul>
+      </nav>
+    </div>
+  </div>
+</div>
+
+
+    
+
+
+
+
+
+<div id="main" role="main">
+  
+
+
+  <div class="sidebar sticky">
+  
+
+
+
+<div itemscope itemtype="http://schema.org/Person">
+
+  <div class="author__avatar">
+    
+    	<img src="https://mpaviotti.github.io/images/now.jpg" class="author__avatar" alt="Marco Paviotti"  fetchpriority="high" />
+    
+  </div>
+
+  <div class="author__content">
+    <h3 class="author__name">Marco Paviotti</h3>
+    
+    <p class="author__bio">Lecturer in Computer Science</p>
+  </div>
+
+  <div class="author__urls-wrapper">
+    <button class="btn btn--inverse">Follow</button>
+    <ul class="author__urls social-icons">
+      <!-- Font Awesome icons / Biographic information  -->
+      
+        <li class="author__desktop"><i class="fas fa-fw fa-location-dot icon-pad-right" aria-hidden="true"></i>Office 214, Kennedy Building</li>
+      
+      
+        <li class="author__desktop"><i class="fas fa-fw fa-building-columns icon-pad-right" aria-hidden="true"></i>University of Kent</li>
+      
+      
+      
+        <li><a href="mailto:m.paviotti@kent.ac.uk"><i class="fas fa-fw fa-envelope icon-pad-right" aria-hidden="true"></i>Email</a></li>
+      
+
+      <!-- Font Awesome and Academicons icons / Academic websites -->
+      
+            
+      
+        <li><a href="https://scholar.google.com/citations?user=PS_CX0AAAAAJ"><i class="ai ai-google-scholar ai-fw icon-pad-right"></i>Google Scholar</a></li>
+      
+            
+      
+      
+        <li><a href="https://orcid.org/0000-0002-1513-0807"><i class="ai ai-orcid ai-fw icon-pad-right"></i>ORCID</a></li>
+      
+                              
+      
+      
+      
+      
+      
+
+      <!-- Font Awesome icons / Repositories and software development -->
+      
+            
+            
+      
+        <li><a href="https://github.com/academicpages"><i class="fab fa-fw fa-github icon-pad-right" aria-hidden="true"></i>GitHub</a></li>
+      
+            
+            
+
+      <!-- Font Awesome icons / Social media -->
+              
+      
+        <li><a href="https://bsky.app/profile/@gfixme.bsky.social"><i class="fab fa-fw fa-bluesky icon-pad-right" aria-hidden="true"></i>Bluesky</a></li>
+      
+      
+            
+      
+                  
+                  
+      
+            
+            
+            
+      
+            
+                  
+            
+      
+            
+            
+      
+              
+      
+                      
+      
+      
+            
+    </ul>
+  </div>
+</div>
+
+  
+  </div>
+
+
+  <article class="page" itemscope itemtype="http://schema.org/CreativeWork">
+    <meta itemprop="headline" content="Bisimulations, Equality and Traces">
+    <meta itemprop="description" content="Strong bisimulation for CCS is the preferred equivalence method in concurrency because it relates less programs than trace equality. However, the reality is that is strong bisimulation and trace equality ought to be regarded as equivalent. This is the essence behind proof assistant’s like (e.g.) Isabelle. So what is going here?">
+    <meta itemprop="datePublished" content="October 09, 2023">
+    
+
+    <div class="page__inner-wrap">
+      
+        <header>
+          <h1 class="page__title" itemprop="headline">Bisimulations, Equality and Traces
+</h1>
+          
+            <p class="page__meta"><i class="fa fa-clock" aria-hidden="true"></i> 
+
+
+  
+	  5 minute read
+	
+</p>
+          
+        
+        
+        
+          <p class="page__date"><strong><i class="fa fa-fw fa-calendar" aria-hidden="true"></i> Published:</strong> <time datetime="2023-10-09T13:14:21+00:00">October 09, 2023</time></p>
+            
+        </header>
+      
+
+      <section class="page__content" itemprop="text">
+        <p>Strong bisimulation for CCS is the preferred equivalence method in concurrency because it relates less programs than trace equality. However, the reality is that is strong bisimulation and trace equality ought to be regarded as equivalent. This is the essence behind proof assistant’s like (e.g.) Isabelle. So what is going here?</p>
+
+<p>One example of this fact is when considering CCS with the choice operator.  In
+this language we can define a process \(P\) and a process \(Q\) as follows</p>
+
+\[P = \text{pay}.(\text{coffee}. 0 + \text{tea}. 0)\]
+
+\[Q = (\text{pay}.\text{coffee}.0 + \text{pay}.\text{tea}. 0)\]
+
+<p>Now the <em>trace semantics</em> of the CCS processes can be defined by a function</p>
+
+\[[\![ \cdot ]\!] : \text{CCS} \to \mathcal{P}_\text{fin}(\text{Str } L)\]
+
+<p>where \(L\) is the finite set of actions and, for a generic set \(A\), the set
+\(\text{Str } A = 1 + A \times \text{Str }A\) is the set of possibly finite
+streams over a set \(A\).</p>
+
+<p>For the processes above we have that the semantics of \(P\) is \([\![P]\!] =
+\{\text{pay}.\text{coffee}, \text{pay}.\text{tea}\}\) and the semantics of \(Q\)
+is \([\![ Q ]\!] = \{\text{pay}.\text{coffee}, \text{pay}.\text{tea}\}\) and
+thus the trace semantics of \(P\) and \(Q\) indicate that these processes should
+be equal.</p>
+
+<p>However, consider the relation \(P\) <em>simulates</em> \(Q\) which is stated as</p>
+
+\[P \lesssim Q \Leftrightarrow \forall P'. \text{ if } P \xrightarrow{a} P'
+\text{ then  } \exists Q'. Q \xrightarrow{a} Q' \text{ s.t. } P' \lesssim Q'\]
+
+<p>Now the <em>bisimulation</em> relation can be defined as \(P \approx Q \Leftrightarrow P
+\lesssim Q \text{ and } Q \lesssim P\).</p>
+
+<p>The above example is a standard example in concurrency theory that shows that
+bisimulation can distinguish processes where equality on the trace semantics
+indicate that they should be regarded as equal and that is why bisimulations
+turn out to be more useful relations to compare processes.</p>
+
+<p>Using the example above we can prove that \(Q \lesssim P\). Let’s define
+half-evaluated processes as</p>
+
+\[P' = \text{coffee}. 0 + \text{tea}. 0\]
+
+\[P'_{1} = \text{coffee}. 0\]
+
+\[P'_{2} = \text{tea}. 0\]
+
+\[Q_{1} = \text{pay}.\text{coffee}.0\]
+
+\[Q_{2} = \text{pay}.\text{tea}.0\]
+
+\[Q'_{1} = \text{coffee}.0\]
+
+\[Q'_{2} = \text{tea}.0\]
+
+<p>Now for all transitions of \(Q\) we have to show \(P\) simulates them. The first
+one is \(Q \xrightarrow{\text{pay}} Q'_{1}\).  Obviously \(P
+\xrightarrow{\text{pay}} P'_{1}\) and so now we have to show that \(Q'_{1}
+\lesssim P'_{1}\) which clearly does.  This works similarly if \(Q\) decides to
+take the other route and produce tea in the end.</p>
+
+<p>All right, but \(P \lesssim Q\) does not work. This is because since \(P\) makes a transition \(P \xrightarrow{\text{pay}} P'\) we are forced to select which branch in \(Q\) is simulating this behaviour. No matter which one we choose we get stuck in one way or the other. Say \(Q \xrightarrow{\text{pay}} Q'_{1}\) we have to show \(P' \lesssim Q'_{1}\), but this latter fact does not hold because \(P'\) can make two different transitions and \(Q'_1\) can only make one.</p>
+
+<h2 id="corecursion-schemes-and-traces">CoRecursion Schemes and Traces</h2>
+<p>Consider now the unfold function which takes a seed function an produces a trace
+by <em>running</em> the seed at each steps</p>
+
+<figure class="highlight"><pre><code class="language-haskell" data-lang="haskell"><span class="n">unfold</span> <span class="o">::</span> <span class="p">(</span><span class="n">x</span> <span class="o">-&gt;</span> <span class="p">(</span><span class="kt">L</span><span class="p">,</span> <span class="n">x</span><span class="p">))</span> <span class="o">-&gt;</span> <span class="n">x</span>  <span class="o">-&gt;</span> <span class="kt">Str</span> <span class="kt">L</span>
+<span class="n">unfold</span> <span class="n">seed</span> <span class="n">x</span> <span class="o">=</span> <span class="kr">let</span> <span class="p">(</span><span class="n">l</span><span class="p">,</span><span class="n">x'</span><span class="p">)</span> <span class="o">=</span> <span class="n">seed</span> <span class="n">x</span> <span class="kr">in</span> <span class="n">l</span> <span class="o">::</span> <span class="n">unfold</span> <span class="n">seed</span> <span class="n">x'</span> </code></pre></figure>
+
+<p>Notice that the seed function \(X \to L \times X\) can be viewed as a Labeled
+Transition System (LTS) where the set of states is \(X\) and the function is the
+function implementing the transitions.</p>
+
+<p>It is a very well-known fact that the <code class="language-plaintext highlighter-rouge">unfold</code> is a fully abstract map in the
+sense if we consider the notion of bisimilarity above and set \([\![ \cdot
+]\!]\) to be <code class="language-plaintext highlighter-rouge">unfold seed</code>  then we have the following theorem</p>
+
+<blockquote>
+  <p><strong>Full abstraction</strong> \(\text{ for all } t_{1}, t_{2}, t_{1} \approx t_{2} \Leftrightarrow [\![ t_{1} ]\!] = [\![ t_{2}]\!]\).</p>
+</blockquote>
+
+<p>This is also backed by the fact that when programming in proof assistants like
+(e.g.) Agda – since coinductive data types are not really final coalgebras –
+it is common practice to just  add the following axiom to the type theory</p>
+
+<blockquote>
+  <p><strong>Axiom</strong> \(\text{ for all } (s_{1}, s_{2} : \text{Str L}). s_{1} \approx s_{2} \to s_{1} = s_{2}\) .</p>
+</blockquote>
+
+<p>Even more so, in some proof assistants like Isabelle coinductive data types are
+real final coalgebras and so the above axiom is actually a true fact in the
+prover’s logic.</p>
+
+<p>Notice that the other direction is obvious and thus the axiom implies
+bisimiliary is <em>logically equivalent</em>  equality.</p>
+
+<blockquote>
+  <p>So why bisimulation in the above example does not correpond to equality?</p>
+</blockquote>
+
+<p>The reason is that the shape behaviours for CCS+choice is not \(BX = L \times
+X\) but it is \(\mathcal{P}_\text{fin}(L \times X)\).</p>
+
+<p>In fact, the <em>seed</em> function describing the LTS of CCS+choice has the following
+type</p>
+
+<figure class="highlight"><pre><code class="language-haskell" data-lang="haskell"> 
+<span class="n">opsem</span> <span class="o">::</span> <span class="kt">CCS</span> <span class="o">-&gt;</span>  <span class="p">[(</span><span class="kt">L</span><span class="p">,</span> <span class="kt">CCS</span><span class="p">)]</span></code></pre></figure>
+
+<p>where we use lists <code class="language-plaintext highlighter-rouge">[-]</code> as a (rough) implementation of finite powersets.</p>
+
+<p>At this point the LTS for CCS+choice can be defined roughly like this</p>
+
+<figure class="highlight"><pre><code class="language-haskell" data-lang="haskell"><span class="o">...</span>
+<span class="n">opsem</span> <span class="p">(</span><span class="n">p</span> <span class="o">+</span> <span class="n">q</span><span class="p">)</span> <span class="o">=</span> <span class="p">[(</span><span class="n">l</span><span class="p">,</span> <span class="n">p'</span><span class="p">)</span> <span class="o">|</span> <span class="p">(</span><span class="n">l</span><span class="p">,</span> <span class="n">p'</span><span class="p">)</span> <span class="o">&lt;-</span> <span class="n">opsem</span> <span class="n">p</span> <span class="p">]</span> <span class="o">++</span> <span class="p">[(</span><span class="n">l</span><span class="p">,</span> <span class="n">q'</span><span class="p">)</span> <span class="o">|</span> <span class="p">(</span><span class="n">l</span><span class="p">,</span> <span class="n">q'</span><span class="p">)</span> <span class="o">&lt;-</span> <span class="n">opsem</span> <span class="n">q</span> <span class="p">]</span>  </code></pre></figure>
+
+<p>And now the unfold on this LTS will yield a fully abstract semantics</p>
+
+<figure class="highlight"><pre><code class="language-haskell" data-lang="haskell"><span class="n">unfold</span> <span class="n">opsem</span> <span class="o">::</span> <span class="kt">CCS</span> <span class="o">-&gt;</span> <span class="kt">Trees</span> <span class="kt">L</span> </code></pre></figure>
+
+<p>where \(\text{Trees}\; L = \mathcal{P}_\text{fin} (L \times \text{Trees}\; L)\).</p>
+
+
+        
+
+        
+      </section>
+
+      <footer class="page__meta">
+        
+        
+
+
+  
+
+
+
+
+  
+  
+  
+
+  <p class="page__taxonomy">
+    <strong><i class="fa fa-fw fa-tags" aria-hidden="true"></i> Tags: </strong>
+    <span itemprop="keywords">
+    
+      
+      
+      <a href="https://mpaviotti.github.io/tags/#categories" class="page__taxonomy-item" rel="tag">categories</a><span class="sep">, </span>
+    
+      
+      
+      <a href="https://mpaviotti.github.io/tags/#semantics" class="page__taxonomy-item" rel="tag">semantics</a>
+    
+    </span>
+  </p>
+
+
+
+
+      </footer>
+
+      
+
+<section class="page__share">
+  
+    <h4 class="page__share-title">Share on</h4>
+  
+
+  <a href="https://bsky.app/intent/compose?text=https://mpaviotti.github.io/posts/2023/10/Bisim-Eq/" class="btn btn--bluesky" title="Share on Bluesky"><i class="fab fa-bluesky" aria-hidden="true"></i><span> Bluesky</span></a>
+
+  <a href="https://www.facebook.com/sharer/sharer.php?u=https://mpaviotti.github.io/posts/2023/10/Bisim-Eq/" class="btn btn--facebook" title="Share on Facebook"><i class="fab fa-facebook" aria-hidden="true"></i><span> Facebook</span></a>
+
+  <a href="https://www.linkedin.com/shareArticle?mini=true&url=https://mpaviotti.github.io/posts/2023/10/Bisim-Eq/" class="btn btn--linkedin" title="Share on LinkedIn"><i class="fab fa-linkedin" aria-hidden="true"></i><span> LinkedIn</span></a>
+
+  <a href="https://www.addtoany.com/add_to/mastodon?linkurl=https%3A%2F%2Fmpaviotti.github.io%2Fposts%2F2023%2F10%2FBisim-Eq%2F" class="btn btn--mastodon" title="Share on Mastodon"><i class="fab fa-mastodon" aria-hidden="true"></i><span> Mastodon</span></a>
+
+  <a href="https://x.com/intent/post?text=https://mpaviotti.github.io/posts/2023/10/Bisim-Eq/" class="btn btn--x" title="Share on X"><i class="fab fa-x-twitter" aria-hidden="true"></i><span> X (formerly Twitter)</span></a>
+</section>
+
+
+      
+
+
+  <nav class="pagination">
+    
+      <a href="https://mpaviotti.github.io/posts/2023/09/Yoneda-TT/" class="pagination--pager" title="The mini Yoneda lemma for Type Theorists
+">Previous</a>
+    
+    
+      <a href="#" class="pagination--pager disabled">Next</a>
+    
+  </nav>
+
+    </div>
+
+    
+  </article>
+
+  
+  
+    <div class="page__related">
+      
+        <h4 class="page__related-title">You May Also Enjoy</h4>
+      
+      <div class="grid__wrapper">
+        
+          
+
+
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="http://schema.org/CreativeWork">
+    
+
+    <h2 class="archive__item-title" itemprop="headline">
+      
+        <a href="https://mpaviotti.github.io/posts/2023/09/Yoneda-TT/" rel="permalink">The mini Yoneda lemma for Type Theorists
+</a>
+      
+    </h2>
+    
+    
+      <p class="page__meta"><i class="fa fa-clock" aria-hidden="true"></i> 
+
+
+  
+	  1 minute read
+	
+</p>
+    
+
+        
+         <p class="page__date"><strong><i class="fa fa-fw fa-calendar" aria-hidden="true"></i> Published:</strong> <time datetime="2023-09-09T13:14:21+00:00">September 09, 2023</time></p>
+        
+
+    
+    <p class="archive__item-excerpt" itemprop="description"><p>I have managed to teach the Yoneda lemma to students who knew very little about category theory, here’s how you do it.</p>
+
+</p>
+    
+    
+    
+
+  </article>
+</div>
+
+        
+          
+
+
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="http://schema.org/CreativeWork">
+    
+
+    <h2 class="archive__item-title" itemprop="headline">
+      
+        <a href="https://mpaviotti.github.io/posts/2023/03/CCC-STLC/" rel="permalink">CCCs and the complete models of STLC
+</a>
+      
+    </h2>
+    
+    
+      <p class="page__meta"><i class="fa fa-clock" aria-hidden="true"></i> 
+
+
+  
+	  2 minute read
+	
+</p>
+    
+
+        
+         <p class="page__date"><strong><i class="fa fa-fw fa-calendar" aria-hidden="true"></i> Published:</strong> <time datetime="2023-03-16T13:14:21+00:00">March 16, 2023</time></p>
+        
+
+    
+    <p class="archive__item-excerpt" itemprop="description"><p>Cartesian closed categories are not regarded as complete models of the Simply Typed \(\lambda\)-calculus in the traditional sense. Let’s see why.</p>
+
+</p>
+    
+    
+    
+
+  </article>
+</div>
+
+        
+          
+
+
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="http://schema.org/CreativeWork">
+    
+
+    <h2 class="archive__item-title" itemprop="headline">
+      
+        <a href="https://mpaviotti.github.io/posts/2023/10/Bisim-Eq/" rel="permalink">The Axiom of Choice in Type Theory
+</a>
+      
+    </h2>
+    
+    
+      <p class="page__meta"><i class="fa fa-clock" aria-hidden="true"></i> 
+
+
+  
+	  7 minute read
+	
+</p>
+    
+
+        
+         <p class="page__date"><strong><i class="fa fa-fw fa-calendar" aria-hidden="true"></i> Published:</strong> <time datetime="2022-11-25T13:14:21+00:00">November 25, 2022</time></p>
+        
+
+    
+    <p class="archive__item-excerpt" itemprop="description"><p>The Axiom of Choice (AC) is an axiom that states that the product of a family of non-empty sets is itself non-empty. This is a rather controversial axiom amongst mathematicians but in type theory this axiom is provable within the logic.</p>
+
+</p>
+    
+    
+    
+
+  </article>
+</div>
+
+        
+          
+
+
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="http://schema.org/CreativeWork">
+    
+
+    <h2 class="archive__item-title" itemprop="headline">
+      
+        <a href="https://mpaviotti.github.io/posts/2022/11/CCC-FixedPoints/" rel="permalink">Inconsistencies in Cartesian Closed Categories with fixed-points
+</a>
+      
+    </h2>
+    
+    
+      <p class="page__meta"><i class="fa fa-clock" aria-hidden="true"></i> 
+
+
+  
+	  5 minute read
+	
+</p>
+    
+
+        
+         <p class="page__date"><strong><i class="fa fa-fw fa-calendar" aria-hidden="true"></i> Published:</strong> <time datetime="2022-11-10T13:14:21+00:00">November 10, 2022</time></p>
+        
+
+    
+    <p class="archive__item-excerpt" itemprop="description"><p>There is a very
+nice <a href="https://www.sciencedirect.com/science/article/pii/030439759090165E">paper</a>
+out there stating that “<em>Any Cartesian Closed Category (CCC) with an initial object and a fixed-point operator is trivial</em>”. Essentially this means that in languages like (e.g.) Haskell the empty type is not actually empty as it contains the non-terminating computation. Perhaps this is obvious, but here’s the categorical explanation.</p>
+
+</p>
+    
+    
+    
+
+  </article>
+</div>
+
+        
+      </div>
+    </div>
+  
+</div>
+
+
+    <div class="page__footer">
+      <footer>
+        <!-- start custom footer snippets -->
+
+<a href="/sitemap/">Sitemap</a>
+
+<!-- Support for MatJax -->
+<script defer src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js" id="MathJax-script"></script>
+
+<!-- Support for Mermaid -->
+<script type="module">
+    import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.esm.min.mjs';
+    mermaid.initialize({startOnLoad:true, theme:'default'});
+    await mermaid.run({querySelector:'code.language-mermaid'});
+</script>
+
+<!-- end custom footer snippets -->
+
+        
+
+
+<div class="page__footer-follow">
+  <ul class="social-icons">
+    
+      <li><strong>Follow:</strong></li>
+    
+    
+      <li><a href="https://github.com/academicpages"><i class="fab fa-github" aria-hidden="true"></i> GitHub</a></li>
+    
+    
+    
+    <li><a href="https://mpaviotti.github.io/feed.xml"><i class="fa fa-fw fa-rss-square" aria-hidden="true"></i> Feed</a></li>
+    
+  </ul>
+</div>
+
+
+<div class="page__footer-copyright">
+  &copy; 2025 Marco Paviotti, Powered by <a href="https://jekyllrb.com" rel="nofollow">Jekyll</a> &amp; <a href="https://github.com/academicpages/academicpages.github.io">AcademicPages</a>, a fork of <a href="https://mademistakes.com/work/minimal-mistakes-jekyll-theme/" rel="nofollow">Minimal Mistakes</a>.<br />
+  Site last updated 2025-12-19
+</div>
+
+      </footer>
+    </div>
+
+    <script type="module" src="https://mpaviotti.github.io/assets/js/main.min.js"></script>
+
+
+
+
+
+
+
+
+  </body>
+</html>
+
