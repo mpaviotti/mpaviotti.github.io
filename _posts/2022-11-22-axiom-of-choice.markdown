@@ -1,7 +1,7 @@
 ---
 title:  "The Axiom of Choice in Type Theory" 
 date:   2022-11-25 13:14:21 +0000
-permalink: /posts/2023/10/Bisim-Eq/
+permalink: /posts/2022/11/Axiom-Choice/
 tags:
   - set theory
   - foundations 

@@ -1,4 +1,134 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.10.0">Jekyll</generator><link href="https://mpaviotti.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://mpaviotti.github.io/" rel="alternate" type="text/html" /><updated>2025-12-19T18:56:13+00:00</updated><id>https://mpaviotti.github.io/feed.xml</id><title type="html">Marco Paviotti</title><subtitle>Lecturer in Computer Science</subtitle><author><name>Marco Paviotti</name><email>m.paviotti@kent.ac.uk</email></author><entry><title type="html">Bisimulations, Equality and Traces</title><link href="https://mpaviotti.github.io/posts/2023/10/Bisim-Eq/" rel="alternate" type="text/html" title="Bisimulations, Equality and Traces" /><published>2023-10-09T13:14:21+00:00</published><updated>2023-10-09T13:14:21+00:00</updated><id>https://mpaviotti.github.io/posts/2023/10/bisimulations</id><content type="html" xml:base="https://mpaviotti.github.io/posts/2023/10/Bisim-Eq/"><![CDATA[<p>Strong bisimulation for CCS is the preferred equivalence method in concurrency because it relates less programs than trace equality. However, the reality is that is strong bisimulation and trace equality ought to be regarded as equivalent. This is the essence behind proof assistant’s like (e.g.) Isabelle. So what is going here?</p>
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.10.0">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2025-12-20T21:43:54+00:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">Marco Paviotti</title><subtitle>Lecturer in Computer Science</subtitle><author><name>Marco Paviotti</name><email>m.paviotti@kent.ac.uk</email></author><entry><title type="html">On Lax Monoidal Functors</title><link href="http://localhost:4000/posts/2025/12/Lax-Monoidal-Functors/" rel="alternate" type="text/html" title="On Lax Monoidal Functors" /><published>2025-12-19T21:17:21+00:00</published><updated>2025-12-19T21:17:21+00:00</updated><id>http://localhost:4000/posts/2025/12/Lax-Monoidal-Functors</id><content type="html" xml:base="http://localhost:4000/posts/2025/12/Lax-Monoidal-Functors/"><![CDATA[<p>What is the difference between</p>
+<ul>
+  <li>a lax monoidal functor</li>
+  <li>a monoid in a Day-monoidal category</li>
+  <li>a morphism of lax-algebras for the free monoid 2-monad, and</li>
+  <li>a codistributive law with the tensor product?</li>
+</ul>
+
+<p><em>Well, None. Let’s see why</em>.</p>
+
+<p>To keep this post as concise as humanly possible I will assume knowledge of (symmetric)<a href="https://ncatlab.org/nlab/show/monoidal+category">monoidal categories</a>, <a href="https://ncatlab.org/nlab/show/Kan+extension">kan extensions</a> and <a href="https://ncatlab.org/nlab/show/enriched+category">enriched categories</a>.</p>
+
+<p>We show informally the following proposition.</p>
+
+<p><strong>Proposition.</strong>
+Let
+\((\mathcal{C}, \otimes_{\mathcal{C}}, I_{\mathcal{C}})\)
+be a small monoidal closed category enriched in a monoidal closed category 
+\((\mathcal{D}, \otimes_{\mathcal{D}}, I_{\mathcal{V}})\)
+ and let
+\(F : \mathcal{C} \to \mathcal{D}\)
+be a functor. The following statements for \(F\) are equivalent:</p>
+
+<ol>
+  <li>It is a lax monoidal functor</li>
+  <li>It is a monoid in the monoidal category
+\(([\mathcal{C}, \mathcal{D}], \otimes_\text{Day}, y(I_{\mathcal{C}}))\)</li>
+  <li>It is a homomorphism of lax algebras for the free monoid 2-monad</li>
+  <li>
+    <p>It is a \(\mathbb{N}\)-indexed family of (co)distributive laws for a functor \(F : \mathcal{C} \to \mathcal{C}\)</p>
+
+\[\text{Nat}(\otimes^{n} \circ F^{n}, F \circ \otimes^{n})\]
+
+    <p>where
+\(\otimes^{n} : \mathcal{C}^{n} \to \mathcal{C}\)</p>
+  </li>
+</ol>
+
+<p>Let us assume the hypothesis of the proposition.</p>
+
+<p><strong>Proof(Sketch).</strong> 
+(1) \(\Leftrightarrow\) (2).</p>
+
+<p>A <em>lax
+monoidal functor</em> is a functor which lax-preserves the monoidal structure of \(\mathcal{C}\) that is, there is a morphism</p>
+
+\[u : I_{\mathcal{D}} \to F I_{\mathcal{C}}\]
+
+<p>and a family of morphisms</p>
+
+\[\circledast_{X,Y} : F X \otimes_{\mathcal{D}} F Y \to F (X \otimes_{\mathcal{C}} Y)\]
+
+<p>indexed by \(X,Y\) and natural therein, subject to some <a href="https://ncatlab.org/nlab/show/monoidal+functor">coherence conditions</a>.</p>
+
+<p>On the other hand, the <em>Day convolution</em> provides a natural way to define a
+monoidal structure on the category of functors.  In other words, the task is to
+turn the category of functors \([\mathcal{C}, \mathcal{D}]\) into a monoidal
+category by equipping it with a tensor product and a unit. Hence, for two
+functors
+\(F, G : \mathcal{C} \to \mathcal{D}\)
+the Day convolution \(\otimes_\text{Day}\) is defined as follows:</p>
+
+\[\begin{align*}
+(F \otimes_\text{Day} G) C &amp; := \int^{X,Y \in \mathcal{C}} \mathcal{C}(X \otimes_{\mathcal{C}} Y, C) \otimes_{\mathcal{D}} F X \otimes_{\mathcal{D}} G Y\\
+    &amp; = \text{Lan}_{\otimes_{\mathcal{C}}}(\otimes_{\mathcal{D}} \circ F \times F)
+\end{align*}\]
+
+<p>while the unit of \([\mathcal{C}, \mathcal{D}]\) is given by the Yoneda embedding applied to
+the unit \(I_\mathcal{C}\) that is \(y(I_\mathcal{C}) = \mathcal{C}(I_\mathcal{C},-)\).</p>
+
+<p>Now, a monoid in \(([\mathcal{C}, \mathcal{D}], \otimes_\text{Day}, y(I))\) is called a Day-monoid. This is a functor
+\(F : \mathcal{C} \to \mathcal{D}\)
+together with a unit and multiplication map.</p>
+
+<ul>
+  <li>The <strong>unit map</strong>
+\(\eta : y(I) \to F\)
+is obtained from the unit of the lax monoidal functor (and viceversa) via the enriched Yoneda lemma</li>
+</ul>
+
+\[\text{Nat}(y(I), F) \cong \mathcal{D}(I_{\mathcal{D}}, F(I_{\mathcal{C}}))\]
+
+<ul>
+  <li>The <strong>multiplication map</strong> 
+\(\mu : F \otimes_{\text{Day}} F \to F\)
+is obtained from \(\circledast\) (and viceversa) by using the adjunction \(\text{Lan}_J \dashv - \circ J\) as follows</li>
+</ul>
+
+\[\text{Nat}(\text{Lan}_{\otimes_\mathcal{C}}(\otimes_\mathcal{D} \circ F \times F), F)
+\cong
+\text{Nat}(\otimes_\mathcal{D} \circ F \times F, F \circ \otimes_\mathcal{C})\]
+
+<p>It remains to prove that the laws of the unit and multiplication of the monoid  imply
+the lax monoidal properties of \(u\) and \(\circledast\) (left as exercise to the reader).</p>
+
+<p>\((2) \Leftrightarrow (3)\).</p>
+
+<p>This is a rather easy statement which generalises the free monoid construction to 2-categories.</p>
+
+<p>In particular, the cheapest way of turning a set \(A\) into a monoid is to take the set of words over \(A\), namely \(A^*\). This is the free monoid over \(A\) where the empty word is the unit and concatenation is the multiplication of the monoid. The Eilenberg-Moore algebras of \(A^*\) are equivalent to the algebraic structure of the monoid \(A^*\).<br />
+In particular, the category of Eilenberg-Moore algebras over \(A^*\) is
+equivalent to the category of monoids</p>
+
+\[\mathcal{C}^{A^*} \simeq \textbf{Mon}\]
+
+<p>Similarly, given a category \(\mathcal{C}\), the cheapest way of turning this category into a monoid (a monoidal category) is to send \(\mathcal{C}\) to the category of finite sequences of objects \((A_1, \dots, A_n)\) and componentwise sequences of morphisms in \(\mathcal{C}\). 
+In other words, \(T\) is the free monoid 2-monad in \(\textbf{Cat}\) defined as the \(\mathbb{N}\)-coproduct \(\mathcal{C}^n\), that is</p>
+
+\[T\mathcal{C} = \sum_{n : \mathbb{N}} \mathcal{C}^{n}\]
+
+<p>Now, similarly to what happens in the 1-category case, we have the following equivalence</p>
+
+\[\textbf{Cat}^T \simeq 2\text{-Mon}\]
+
+<p>where \(\textbf{Cat}^T\) is the 2-category of algebras for a 2-monad \(T\) and \(T\)-algebra homomorphisms and \(2\)-Mon is the 2-category of monoidal categories and monoidal functors (monoids in \(\textbf{Cat}\)). Hence (lax) \(T\)-algebra homomorphisms are (lax) monoidal functors.</p>
+
+<p>\((3 \Leftrightarrow 4)\).</p>
+
+<p>Clearly, if \(T\) is the free monoid 2-monad, an algebra for  \(T\) is a map</p>
+
+\[a : \sum_{n : \mathbb{N}} \mathcal{C}^n \to \mathcal{C}\]
+
+<p>The previous point states that this is a monoidal category where \(A \otimes_\mathcal{C} B := a (A,B)\) and \(I_\mathcal{C} = a()\), thus \(a\) sends \((A_1, \dots, A_n)\) to \(A_1 \otimes_\mathcal{C} \dots \otimes_\mathcal{C} A_n\).</p>
+
+<p>A lax monoidal functor \(F\) is a lax \(T\)-algebra homomorphism, thus it has to satisfy</p>
+
+\[F(A_1) \otimes_\mathcal{D} \dots \otimes_\mathcal{D} F(A_n) \to F(A_1 \otimes_\mathcal{C} \dots \otimes_\mathcal{C} A_n)\]
+
+<p>which is defined at all \(n\) and \(A_i\) hence it is a (co)distributive law</p>
+
+\[\text{Nat}(\otimes^{n}_{\mathcal{D}} \circ F^{n}, F \circ \otimes^{n}_{\mathcal{C}})\]]]></content><author><name>Marco Paviotti</name><email>m.paviotti@kent.ac.uk</email></author><category term="monoids" /><category term="categories" /><category term="monads" /><summary type="html"><![CDATA[What is the difference between a lax monoidal functor a monoid in a Day-monoidal category a morphism of lax-algebras for the free monoid 2-monad, and a codistributive law with the tensor product?]]></summary></entry><entry><title type="html">Bisimulations, Equality and Traces</title><link href="http://localhost:4000/posts/2023/10/Bisim-Eq/" rel="alternate" type="text/html" title="Bisimulations, Equality and Traces" /><published>2023-10-09T13:14:21+00:00</published><updated>2023-10-09T13:14:21+00:00</updated><id>http://localhost:4000/posts/2023/10/bisimulations</id><content type="html" xml:base="http://localhost:4000/posts/2023/10/Bisim-Eq/"><![CDATA[<p>Strong bisimulation for CCS is the preferred equivalence method in concurrency because it relates less programs than trace equality. However, the reality is that is strong bisimulation and trace equality ought to be regarded as equivalent. This is the essence behind proof assistant’s like (e.g.) Isabelle. So what is going here?</p>
 
 <p>One example of this fact is when considering CCS with the choice operator.  In
 this language we can define a process \(P\) and a process \(Q\) as follows</p>
@@ -117,7 +247,7 @@ type</p>
 
 <figure class="highlight"><pre><code class="language-haskell" data-lang="haskell"><span class="n">unfold</span> <span class="n">opsem</span> <span class="o">::</span> <span class="kt">CCS</span> <span class="o">-&gt;</span> <span class="kt">Trees</span> <span class="kt">L</span> </code></pre></figure>
 
-<p>where \(\text{Trees}\; L = \mathcal{P}_\text{fin} (L \times \text{Trees}\; L)\).</p>]]></content><author><name>Marco Paviotti</name><email>m.paviotti@kent.ac.uk</email></author><category term="semantics" /><category term="categories" /><summary type="html"><![CDATA[Strong bisimulation for CCS is the preferred equivalence method in concurrency because it relates less programs than trace equality. However, the reality is that is strong bisimulation and trace equality ought to be regarded as equivalent. This is the essence behind proof assistant’s like (e.g.) Isabelle. So what is going here?]]></summary></entry><entry><title type="html">The mini Yoneda lemma for Type Theorists</title><link href="https://mpaviotti.github.io/posts/2023/09/Yoneda-TT/" rel="alternate" type="text/html" title="The mini Yoneda lemma for Type Theorists" /><published>2023-09-09T13:14:21+00:00</published><updated>2023-09-09T13:14:21+00:00</updated><id>https://mpaviotti.github.io/posts/2023/09/mini-yoneda</id><content type="html" xml:base="https://mpaviotti.github.io/posts/2023/09/Yoneda-TT/"><![CDATA[<p>I have managed to teach the Yoneda lemma to students who knew very little about category theory, here’s how you do it.</p>
+<p>where \(\text{Trees}\; L = \mathcal{P}_\text{fin} (L \times \text{Trees}\; L)\).</p>]]></content><author><name>Marco Paviotti</name><email>m.paviotti@kent.ac.uk</email></author><category term="semantics" /><category term="categories" /><summary type="html"><![CDATA[Strong bisimulation for CCS is the preferred equivalence method in concurrency because it relates less programs than trace equality. However, the reality is that is strong bisimulation and trace equality ought to be regarded as equivalent. This is the essence behind proof assistant’s like (e.g.) Isabelle. So what is going here?]]></summary></entry><entry><title type="html">The mini Yoneda lemma for Type Theorists</title><link href="http://localhost:4000/posts/2023/09/Yoneda-TT/" rel="alternate" type="text/html" title="The mini Yoneda lemma for Type Theorists" /><published>2023-09-09T13:14:21+00:00</published><updated>2023-09-09T13:14:21+00:00</updated><id>http://localhost:4000/posts/2023/09/mini-yoneda</id><content type="html" xml:base="http://localhost:4000/posts/2023/09/Yoneda-TT/"><![CDATA[<p>I have managed to teach the Yoneda lemma to students who knew very little about category theory, here’s how you do it.</p>
 
 <p>Say that you want to do denotational semantics for a simply typed calculus with a unary constructor \(\textsf{R}\) which has the following typing rule</p>
 
@@ -150,7 +280,7 @@ is a canonical way to construct a morphism \(\Gamma \xrightarrow{R(t)} B\).</p>
 <p>Let \(R : A \to B\) be the interpretation of \(\textsf{R}\) then, one side of
 the isomorphism is \(\phi (\textsf{R},t) = F(t)(\textsf{R}) = \mathbb{C}(t,
 B)(\textsf{R})\).  In other words, the interpretation of \(\textsf{R}(t)\) is
-simply \(\textsf{R} \circ t\).</p>]]></content><author><name>Marco Paviotti</name><email>m.paviotti@kent.ac.uk</email></author><category term="semantics" /><category term="categories" /><summary type="html"><![CDATA[I have managed to teach the Yoneda lemma to students who knew very little about category theory, here’s how you do it.]]></summary></entry><entry><title type="html">CCCs and the complete models of STLC</title><link href="https://mpaviotti.github.io/posts/2023/03/CCC-STLC/" rel="alternate" type="text/html" title="CCCs and the complete models of STLC" /><published>2023-03-16T13:14:21+00:00</published><updated>2023-03-16T13:14:21+00:00</updated><id>https://mpaviotti.github.io/posts/2023/03/CCC-models</id><content type="html" xml:base="https://mpaviotti.github.io/posts/2023/03/CCC-STLC/"><![CDATA[<p>Cartesian closed categories are not regarded as complete models of the Simply Typed \(\lambda\)-calculus in the traditional sense. Let’s see why.</p>
+simply \(\textsf{R} \circ t\).</p>]]></content><author><name>Marco Paviotti</name><email>m.paviotti@kent.ac.uk</email></author><category term="semantics" /><category term="categories" /><summary type="html"><![CDATA[I have managed to teach the Yoneda lemma to students who knew very little about category theory, here’s how you do it.]]></summary></entry><entry><title type="html">CCCs and the complete models of STLC</title><link href="http://localhost:4000/posts/2023/03/CCC-STLC/" rel="alternate" type="text/html" title="CCCs and the complete models of STLC" /><published>2023-03-16T13:14:21+00:00</published><updated>2023-03-16T13:14:21+00:00</updated><id>http://localhost:4000/posts/2023/03/CCC-models</id><content type="html" xml:base="http://localhost:4000/posts/2023/03/CCC-STLC/"><![CDATA[<p>Cartesian closed categories are not regarded as complete models of the Simply Typed \(\lambda\)-calculus in the traditional sense. Let’s see why.</p>
 
 <p>Assume \(\Lambda_X\) is the set of closed well-typed STLC (Simply Typed \(\lambda\)-calculus) terms.
 Clearly, STLC can be interpreted into any Cartesian Closed category (CCC) by defining an interpretation function 
@@ -175,7 +305,7 @@ For example, consider the projection maps out of the product  \(x \wedge x \xrig
 
 <p>Now the right-hand side of the completeness theorem is satisfied since For all well-typed interpretations \([\![\cdot]\!]\) we have \([\![\pi_1]\!] = [\![\pi_2]\!]\) (when the codomain of the two is the same). However, the projections \(\pi_1\) and \(\pi_2\) in the syntax are definitely not \(\beta\eta\)-equivalent.</p>
 
-<p>I will defer the reader to the <a href="https://link.springer.com/chapter/10.1007/BFb0014068">original paper</a> for more details.</p>]]></content><author><name>Marco Paviotti</name><email>m.paviotti@kent.ac.uk</email></author><category term="semantics" /><category term="categories" /><category term="stlc" /><summary type="html"><![CDATA[Cartesian closed categories are not regarded as complete models of the Simply Typed \(\lambda\)-calculus in the traditional sense. Let’s see why.]]></summary></entry><entry><title type="html">The Axiom of Choice in Type Theory</title><link href="https://mpaviotti.github.io/posts/2023/10/Bisim-Eq/" rel="alternate" type="text/html" title="The Axiom of Choice in Type Theory" /><published>2022-11-25T13:14:21+00:00</published><updated>2022-11-25T13:14:21+00:00</updated><id>https://mpaviotti.github.io/posts/2023/10/axiom-of-choice</id><content type="html" xml:base="https://mpaviotti.github.io/posts/2023/10/Bisim-Eq/"><![CDATA[<p>The Axiom of Choice (AC) is an axiom that states that the product of a family of non-empty sets is itself non-empty. This is a rather controversial axiom amongst mathematicians but in type theory this axiom is provable within the logic.</p>
+<p>I will defer the reader to the <a href="https://link.springer.com/chapter/10.1007/BFb0014068">original paper</a> for more details.</p>]]></content><author><name>Marco Paviotti</name><email>m.paviotti@kent.ac.uk</email></author><category term="semantics" /><category term="categories" /><category term="stlc" /><summary type="html"><![CDATA[Cartesian closed categories are not regarded as complete models of the Simply Typed \(\lambda\)-calculus in the traditional sense. Let’s see why.]]></summary></entry><entry><title type="html">The Axiom of Choice in Type Theory</title><link href="http://localhost:4000/posts/2022/11/Axiom-Choice/" rel="alternate" type="text/html" title="The Axiom of Choice in Type Theory" /><published>2022-11-25T13:14:21+00:00</published><updated>2022-11-25T13:14:21+00:00</updated><id>http://localhost:4000/posts/2022/11/axiom-of-choice</id><content type="html" xml:base="http://localhost:4000/posts/2022/11/Axiom-Choice/"><![CDATA[<p>The Axiom of Choice (AC) is an axiom that states that the product of a family of non-empty sets is itself non-empty. This is a rather controversial axiom amongst mathematicians but in type theory this axiom is provable within the logic.</p>
 
 <p>First off, I do not consider myself an expert on set theory, but after having this kind  of conversation with mathematicians and computer scientists I found <em>there are</em> some
 misconceptions around this axiom and the reasons why it is needed.</p>
@@ -294,7 +424,7 @@ choice A B R r = (λ x →  proj₁ (r x)) , (λ x → proj₂ (r x)) </code></p
 
 <p>If you have any comment about this please feel free to drop me an email or something I would very happy to know more (especially if I said something wrong).</p>
 
-<p>###</p>]]></content><author><name>Marco Paviotti</name><email>m.paviotti@kent.ac.uk</email></author><category term="set theory" /><category term="foundations" /><summary type="html"><![CDATA[The Axiom of Choice (AC) is an axiom that states that the product of a family of non-empty sets is itself non-empty. This is a rather controversial axiom amongst mathematicians but in type theory this axiom is provable within the logic.]]></summary></entry><entry><title type="html">Inconsistencies in Cartesian Closed Categories with fixed-points</title><link href="https://mpaviotti.github.io/posts/2022/11/CCC-FixedPoints/" rel="alternate" type="text/html" title="Inconsistencies in Cartesian Closed Categories with fixed-points" /><published>2022-11-10T13:14:21+00:00</published><updated>2022-11-10T13:14:21+00:00</updated><id>https://mpaviotti.github.io/posts/2022/11/fixed-points-CCS</id><content type="html" xml:base="https://mpaviotti.github.io/posts/2022/11/CCC-FixedPoints/"><![CDATA[<p>There is a very
+<p>###</p>]]></content><author><name>Marco Paviotti</name><email>m.paviotti@kent.ac.uk</email></author><category term="set theory" /><category term="foundations" /><summary type="html"><![CDATA[The Axiom of Choice (AC) is an axiom that states that the product of a family of non-empty sets is itself non-empty. This is a rather controversial axiom amongst mathematicians but in type theory this axiom is provable within the logic.]]></summary></entry><entry><title type="html">Inconsistencies in Cartesian Closed Categories with fixed-points</title><link href="http://localhost:4000/posts/2022/11/CCC-FixedPoints/" rel="alternate" type="text/html" title="Inconsistencies in Cartesian Closed Categories with fixed-points" /><published>2022-11-10T13:14:21+00:00</published><updated>2022-11-10T13:14:21+00:00</updated><id>http://localhost:4000/posts/2022/11/fixed-points-CCS</id><content type="html" xml:base="http://localhost:4000/posts/2022/11/CCC-FixedPoints/"><![CDATA[<p>There is a very
 nice <a href="https://www.sciencedirect.com/science/article/pii/030439759090165E">paper</a>
 out there stating that “<em>Any Cartesian Closed Category (CCC) with an initial object and a fixed-point operator is trivial</em>”. Essentially this means that in languages like (e.g.) Haskell the empty type is not actually empty as it contains the non-terminating computation. Perhaps this is obvious, but here’s the categorical explanation.</p>
 

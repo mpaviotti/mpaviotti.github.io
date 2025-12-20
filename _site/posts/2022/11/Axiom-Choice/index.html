@@ -19,21 +19,21 @@
 
 
 
-<title>Inconsistencies in Cartesian Closed Categories with fixed-points - Marco Paviotti</title>
+<title>The Axiom of Choice in Type Theory - Marco Paviotti</title>
 
 
 
-<meta name="description" content="There is a verynice paperout there stating that “Any Cartesian Closed Category (CCC) with an initial object and a fixed-point operator is trivial”. Essentially this means that in languages like (e.g.) Haskell the empty type is not actually empty as it contains the non-terminating computation. Perhaps this is obvious, but here’s the categorical explanation.">
+<meta name="description" content="The Axiom of Choice (AC) is an axiom that states that the product of a family of non-empty sets is itself non-empty. This is a rather controversial axiom amongst mathematicians but in type theory this axiom is provable within the logic.">
 
 
 
 
 
-  <meta property="article:published_time" content="2022-11-10T13:14:21+00:00">
+  <meta property="article:published_time" content="2022-11-25T13:14:21+00:00">
 
 
 
-  <link rel="canonical" href="http://localhost:4000/posts/2022/11/CCC-FixedPoints/">
+  <link rel="canonical" href="http://localhost:4000/posts/2022/11/Axiom-Choice/">
 
 
 
@@ -68,15 +68,15 @@
 <!-- Open Graph protocol data (https://ogp.me/), used by social media -->
 <meta property="og:locale" content="en-US">
 <meta property="og:site_name" content="Marco Paviotti"> 
-<meta property="og:title" content="Inconsistencies in Cartesian Closed Categories with fixed-points">
+<meta property="og:title" content="The Axiom of Choice in Type Theory">
 
   <meta property="og:type" content="article">
 
 
-  <meta property="og:description" name="description" content="There is a verynice paperout there stating that “Any Cartesian Closed Category (CCC) with an initial object and a fixed-point operator is trivial”. Essentially this means that in languages like (e.g.) Haskell the empty type is not actually empty as it contains the non-terminating computation. Perhaps this is obvious, but here’s the categorical explanation.">
+  <meta property="og:description" name="description" content="The Axiom of Choice (AC) is an axiom that states that the product of a family of non-empty sets is itself non-empty. This is a rather controversial axiom amongst mathematicians but in type theory this axiom is provable within the logic.">
 
 
-  <meta property="og:url" content="http://localhost:4000/posts/2022/11/CCC-FixedPoints/">
+  <meta property="og:url" content="http://localhost:4000/posts/2022/11/Axiom-Choice/">
 
 
 
@@ -269,150 +269,154 @@
 
 
   <article class="page" itemscope itemtype="http://schema.org/CreativeWork">
-    <meta itemprop="headline" content="Inconsistencies in Cartesian Closed Categories with fixed-points">
-    <meta itemprop="description" content="There is a verynice paperout there stating that “Any Cartesian Closed Category (CCC) with an initial object and a fixed-point operator is trivial”. Essentially this means that in languages like (e.g.) Haskell the empty type is not actually empty as it contains the non-terminating computation. Perhaps this is obvious, but here’s the categorical explanation.">
-    <meta itemprop="datePublished" content="November 10, 2022">
+    <meta itemprop="headline" content="The Axiom of Choice in Type Theory">
+    <meta itemprop="description" content="The Axiom of Choice (AC) is an axiom that states that the product of a family of non-empty sets is itself non-empty. This is a rather controversial axiom amongst mathematicians but in type theory this axiom is provable within the logic.">
+    <meta itemprop="datePublished" content="November 25, 2022">
     
 
     <div class="page__inner-wrap">
       
         <header>
-          <h1 class="page__title" itemprop="headline">Inconsistencies in Cartesian Closed Categories with fixed-points
+          <h1 class="page__title" itemprop="headline">The Axiom of Choice in Type Theory
 </h1>
           
             <p class="page__meta"><i class="fa fa-clock" aria-hidden="true"></i> 
 
 
   
-	  5 minute read
+	  7 minute read
 	
 </p>
           
         
         
         
-          <p class="page__date"><strong><i class="fa fa-fw fa-calendar" aria-hidden="true"></i> Published:</strong> <time datetime="2022-11-10T13:14:21+00:00">November 10, 2022</time></p>
+          <p class="page__date"><strong><i class="fa fa-fw fa-calendar" aria-hidden="true"></i> Published:</strong> <time datetime="2022-11-25T13:14:21+00:00">November 25, 2022</time></p>
             
         </header>
       
 
       <section class="page__content" itemprop="text">
-        <p>There is a very
-nice <a href="https://www.sciencedirect.com/science/article/pii/030439759090165E">paper</a>
-out there stating that “<em>Any Cartesian Closed Category (CCC) with an initial object and a fixed-point operator is trivial</em>”. Essentially this means that in languages like (e.g.) Haskell the empty type is not actually empty as it contains the non-terminating computation. Perhaps this is obvious, but here’s the categorical explanation.</p>
+        <p>The Axiom of Choice (AC) is an axiom that states that the product of a family of non-empty sets is itself non-empty. This is a rather controversial axiom amongst mathematicians but in type theory this axiom is provable within the logic.</p>
 
-<p>Here the word <em>trivial</em> means that every object \(A\) in the category is isomorphic to the terminal object \(1\).</p>
+<p>First off, I do not consider myself an expert on set theory, but after having this kind  of conversation with mathematicians and computer scientists I found <em>there are</em> some
+misconceptions around this axiom and the reasons why it is needed.</p>
 
-<p>To do this proof we make use of the fixed-point operator, which exists at all types.</p>
+<p>For example, as you will see, it is indeed true that the axiom of choice is connected with the existential quantifier, it is not true, however, that we cannot pick an element out of the existential because the logic is classical.</p>
 
-<p>We know that for all endomaps \(f : A \to A\) in the category there exists a map
-\(\text{fix}_{f} : 1 \to A\) such that \(f \circ \text{fix}_{f} =
-\text{fix}_{f}\). Thus, we can use the unique endomap on the initial object,
-namely the identity map \(id_{0}: 0 \to 0\), to get a map \(\text{fix}_{id_{0}} :
-1 \to 0\). But now, because \(0\) is initial (and \(1\) is terminal), we also
-have a unique map into the terminal object, namely \(! : 0 \to 1\). It is easy
-to see that \(\text{fix}_{id_{0}}\) and \(1\) are inverses to each other, hence
-they form an isomorphism \(0 \cong 1\).
-In particular, \(\text{fix}_{id_{0}} \circ ! : 0 \to 0\) is \(id_{0}\) by initiality and
-\(! \circ \text{fix}_{id_{0}} : 1 \to 1\) is \(id_{1}\) by finality.</p>
-
-<p>Now we compute as follows. For every object \(A\) in the category  \(1 \cong 0
-\cong 0 \times A \cong 1 \times A \cong A\) and the proof is concluded.</p>
-
-<p>This result was shown to hold also when in the case when instead of the
-initial object we postulate a natural numbers object \(\mathbb{N}\).</p>
-
-<p>A natural question to ask now is:</p>
+<p>In my mind there are two problems: the first is that</p>
 
 <blockquote>
-  <p>is every model of PCF trivial?</p>
+  <p>the existential quantifier does not ensure there exists <strong>one</strong> element with a particular property in the domain of discourse</p>
 </blockquote>
 
-<p>To answer this question we take as a model of PCF the category of <a href="https://en.wikipedia.org/wiki/Scott_domain">Scott domains</a>.
-This category consists of pointed directed complete partial orders
-(dCPPO) as objects and continuous functions as arrows (just following <a href="https://www.amazon.co.uk/Domain-Theoretic-Foundations-Functional-Programming-Streicher/dp/9812701427">Thomas Streicher’s
-book</a> to avoid any misunderstanding).</p>
-
-<p>Now, we would like to prove that this category is cartesian closed (which we know), has a fixed-point map (which it has) 
-and that it has an initial object. However,</p>
+<p>and the second is that</p>
 
 <blockquote>
-  <p>there is no initial object in the category of Scott domains</p>
+  <p>we would need to create a infinite proof that uses Existential Instantiation for each element of the indexing set</p>
 </blockquote>
 
-<p>This is because if this category had an initial element \(0\) it would have at least a bottom
-element \(\bot_0\). Notice that the subset \(\{\bot_0\}\) is indeed directed and
-its suprema \(\bigsqcup \{\bot_0\}\) is \(\bot_0\) itself. Now if we take any
-other dCPPO \(X\), a continuous function \(f : 0 \to X\) that maps \(\bot_{0}\) to any element \(x \in X\) 
-will satisfy the equation</p>
+<p>However, in order to fully understand what is going on we need to be more precise. 
+So first let’s begin with what is the axiom of choice.</p>
 
-\[f \bigsqcup \{\bot_0\} = \bigsqcup f \{\bot_0\}\]
-
-<p>because, for any \(x \in X\) we choose for \(f(\bot_0)\) (even the bottom element), \(\bigsqcup f \{\bot_0\} = \bigsqcup \{x\} = x\).</p>
-
-<p>The only way this category had an initial element is if the arrows in the
-category were <em>strict</em>, namely they preserved \(\bot\) elements, but, as we have
-seen, continuous functions do not necessarily preserve it.</p>
+<h3 id="the-axiom-of-choice-ac">The axiom of choice (AC)</h3>
+<p>The original formulation of the AC is the following.</p>
 
 <blockquote>
-  <p>Is this just a coincidence that Scott’s model is not trivial?</p>
+  <p>Given a set \(X\) and a family of non-empty sets \(\{A_x\}_{x \in X}\) over
+\(X\), the infinite product of these sets, namely  \(\Pi_{x \in X}. A_{x}\) is
+non-empty</p>
 </blockquote>
 
-<p>Not really. Because if it was trivial it would have broken computational adequacy which is the statement
-that for every pair or well-typed terms in the language \(\Gamma \vdash t : A\)
-and \(\Gamma \vdash t' : A\)</p>
+<p>For the record, the infinite product is defined as follows</p>
 
-<p>if \([\![ t ]\!] = [\![ t' ]\!]\) then \(t \approx t'\)</p>
+\[\Pi_{x \in X}. A_{x} = \{ f : X \to \bigcup_{x \in X} A_{x} \mid f(x) = A_{x} \}\]
 
-<p>where \(\approx\) is contextual equivalence of programs.</p>
+<p>However, this statement is a little bit more packed than we would like it to be. An equivalent statement is skolemization.</p>
 
-<p>But if the models was trivial then all the pairs of PCF-denotable terms (pairs
-of maps into something isomorphic to \(1\)) would be equal (by finality) and
-therefore operationally equivalent.</p>
+<h3 id="skolemization-sk">Skolemization (Sk)</h3>
+<p>Skolemization is what allows one to turn an existentially quantified formula into a function. Formally, skolemization is the following statement</p>
 
-<h3 id="what-does-this-all-mean-for-the-haskell-programmer">What does this all mean for the Haskell programmer?</h3>
+<blockquote>
+  <p>Given a relation \(R \subseteq X \times Y\), \(\forall x \in X. \exists y \in Y. R(x,y)\) then \(\exists f \in X \to Y. \forall x \in X. R (x, f(x))\)</p>
+</blockquote>
 
-<p>Well nothing, because Haskell does not have a formal model.</p>
+<p>The AC is equivalent to Skolemization. A full discussion of this fact can be
+found in
+<a href="https://mathoverflow.net/questions/191010/when-does-skolemization-require-the-axiom-of-choice">here</a></p>
 
-<p>But let’s say we make a big leap and take the fragment of Haskell consisting of
-“inductive data types” and recursion. Now I can craft a program that resembles
-what I just said above</p>
+<p>For proving that Sk \(\Rightarrow\) AC, for a family of sets \(\{A_{x}\}_{x \in
+X}\), we define a relation \(R(x,y) = y \in A_{x}\).  For the other direction we
+assume a relation \(R \subseteq X \times Y\) and then we construct the family of
+sets \(\{A_{x}\}_{x \in X}\) such that each \(A_{x} = \{ y \mid y \in Y \text{
+and } R(x,y)\}\).</p>
 
-<figure class="highlight"><pre><code class="language-haskell" data-lang="haskell"><span class="cp">{-# LANGUAGE GADTs #-}</span>
+<h3 id="the-existential">The existential</h3>
+<p>Set theory is a first-order logic together with a set of axioms (9 of them
+exactly including the AC) postulating the existence of certain sets. Besides the
+propositional fragment of first-order logic there is also the predicate fragment
+formed by <em>universal quantification</em> (\(\forall\)) and <em>existential
+quantification</em> (\(\exists\)).</p>
 
-<span class="kr">data</span> <span class="kt">Empty</span> <span class="kr">where</span>
+<p>The Existential Instantiation rule states that if we know there exists an \(x\)
+that satisfies the property \(P\) and we can construct a proof from a fresh
+\(t\) that satisfies that property to a proposition \(R\) then we can obtain
+\(R\)</p>
 
-<span class="kr">data</span> <span class="kt">Unit</span> <span class="o">=</span> <span class="kt">One</span> <span class="nb">()</span>
+\[\frac{\exists x. P \qquad t, P[t/x]\cdots R }{R}\]
 
-<span class="n">y</span> <span class="o">::</span> <span class="p">(</span><span class="n">a</span> <span class="o">-&gt;</span> <span class="n">a</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">a</span>
-<span class="n">y</span> <span class="n">f</span> <span class="o">=</span> <span class="n">f</span> <span class="p">(</span><span class="n">y</span> <span class="n">f</span><span class="p">)</span>
+<p>with \(t\) free for \(x\) in \(P\).</p>
 
-<span class="n">empty</span> <span class="o">::</span> <span class="kt">Empty</span> <span class="o">-&gt;</span> <span class="kt">Empty</span>
-<span class="n">empty</span> <span class="n">x</span> <span class="o">=</span> <span class="n">x</span>
+<p>So here we have to treat \(t\) carefully in that it is a fresh \(t\) that
+satisfies \(P\), but “we do not know what it is!”.</p>
 
-<span class="p">(</span><span class="o">===</span><span class="p">)</span> <span class="o">::</span> <span class="n">a</span> <span class="o">-&gt;</span> <span class="n">a</span> <span class="o">-&gt;</span> <span class="n">a</span>
-<span class="n">x</span> <span class="o">===</span> <span class="n">y</span>
+<p>The reason why I put this sentence in quotes is because this is the explanation
+that many people would use. However, to me the real reason is that <em>we do not
+know how many other elements in the universe exist with such a property</em>. There
+is certainly one, but there may be more.</p>
 
-<span class="n">endoEmpty</span> <span class="o">::</span> <span class="kt">Unit</span> <span class="o">-&gt;</span> <span class="kt">Empty</span>
-<span class="n">endoEmpty</span> <span class="o">=</span> <span class="n">y</span> <span class="n">id</span> <span class="o">===</span> <span class="n">id</span> <span class="p">(</span><span class="n">y</span> <span class="n">id</span><span class="p">)</span> <span class="c1">-- by Fixed-point property y f = f (y f)</span></code></pre></figure>
+<h3 id="the-problem-with-producing-a-choice-function">The problem with producing a choice function</h3>
 
-<p>Is this a problem? No, this is not a problem because <code class="language-plaintext highlighter-rouge">y id</code> is the infinite
-computation. In other words, sends the unit element to \(\bot\). But since
-Haskell functions need not to be strict, I can send the \(\bot\) element in
-<code class="language-plaintext highlighter-rouge">Empty</code> to <code class="language-plaintext highlighter-rouge">One ()</code>. So this map is not an isomorphism.</p>
+<p>To prove Sk we have to assume \(\forall x \in X. \exists y \in Y. R(x, y)\) and then
+prove \(\exists f : X \to Y. \forall x \in X. R (x , f (x))\). Though \(f : X \to Y\) really means a relation \(f \subseteq X \times Y\) such that it is a function, <em>i.e.</em> that for all \(x \in X\) there exists only one \(y \in Y\) such that \((x,y) \in f\).</p>
+
+<p>Now first we try to construct this relation \(f\). A first naive attempt is to use the axiom of comprehension as follows</p>
+
+\[f = \{(x, y) \mid x \in X \wedge y \in Y \wedge R(x, y)\}\]
+
+<p>The problem is that \(f\) is clearly not a function since there may be more than one \(y\) per one \(x\) in \(R\). Notice that the above statement is very simlar to the one where we include the existential</p>
+
+\[f = \{(x, y) \mid x \in X \wedge \exists y'. y = y' \wedge R(x, y)\}\]
+
+<p>But this does not change much from before since we know there exists at least one \(y\) per every \(x\) but we do not know how many. Clearly, we can prove that for all \(x \in X\) we have \(R(x, f(x))\), however, we cannot prove that \(f\) is a function. In particular, that for each \(x \in X\) we have a <strong>unique</strong> \(y \in Y\) we map \(x\) to.</p>
+
+<p>Now the question is, couldn’t we just have picked one \(y\) for each \(x\)?</p>
+
+<p>We could do this if we were able to use Existential Instantiation for each \(x \in
+X\). If \(X\) was finite then we could certainly do that as we can pick an \(n \in \mathbb{N}\) and assume \(X\) assuming that \(X = \{x_0, x_1, \dots, x_n \}\).<br />
+Now we can construct a set of pairs \((x_i, y_i)_{i\in \{1,\dots,n\}}\) such that every \((x_i, y_i) \in R\) by repeatedly using existential instantiation. Once the set is created we can assign \(f\) to it</p>
+
+\[f = \{(x_0,y_0), (x_1,y_1), \dots, (x_n, y_n)\}\]
+
+<p>However, when \(X\) is not finite, we cannot simply <em>write down</em> the set by hand. Instead we have to create a formula and then use set comprehension. However, there is no (open) formula of the form</p>
+
+<p>$(x_0,y_0) \in R \wedge (x_1,y_1) \in R \wedge \dots \wedge (x_n, y_n) \in R \wedge \dots }$$</p>
+
+<p>This is because formulas and proofs in set theory are finite and the one above is an infinite formula which would need an (potentially) infinite number of applications of the Existential Instantiation rule.</p>
 
 <h3 id="conclusions">Conclusions</h3>
-<p>This is probably a very convoluted way of saying</p>
-<blockquote>
-  <p>There is no initial object (or natural numbers object) in PCF (or other “PCF-like” languages like Haskell)</p>
-</blockquote>
+<p>Hopefully this untangles some confusion around the axiom of choice.</p>
 
-<p>this is because <code class="language-plaintext highlighter-rouge">Empty</code> actually contains the bottom element \(\bot\). 
-For the same reasons, if we now consider System F with a polymorphic fixed-point operator and define the \(0\) object by setting</p>
+<p>On the other hand, AoC is derivable in Type Theory simply because we have access to the proof that for every \(x\) there exists a \(y\) such that \(R(x,y)\). But the reason why there exists only one is because inhabitants of the dependent product \(\forall\) are functions already.</p>
 
-\[0 = \forall x . x\]
+<p>See the code below.</p>
 
-<p>This object has actually an inhabitant: the non-terminating computation. Thus, it is not the initial object.</p>
+<figure class="highlight"><pre><code class="language-agda" data-lang="agda">choice : ∀ (A B : Set) → ∀ (R : A →  B → Set) → (∀ (x : A) → Σ B (λ y → R x y)) → Σ (A → B) (λ f → ∀ x → R x (f x))
+choice A B R r = (λ x →  proj₁ (r x)) , (λ x → proj₂ (r x)) </code></pre></figure>
+
+<p>If you have any comment about this please feel free to drop me an email or something I would very happy to know more (especially if I said something wrong).</p>
+
+<p>###</p>
 
 
         
@@ -440,15 +444,11 @@ For the same reasons, if we now consider System F with a polymorphic fixed-point
     
       
       
-      <a href="http://localhost:4000/tags/#categories" class="page__taxonomy-item" rel="tag">categories</a><span class="sep">, </span>
+      <a href="http://localhost:4000/tags/#foundations" class="page__taxonomy-item" rel="tag">foundations</a><span class="sep">, </span>
     
       
       
-      <a href="http://localhost:4000/tags/#recursion" class="page__taxonomy-item" rel="tag">recursion</a><span class="sep">, </span>
-    
-      
-      
-      <a href="http://localhost:4000/tags/#semantics" class="page__taxonomy-item" rel="tag">semantics</a>
+      <a href="http://localhost:4000/tags/#set-theory" class="page__taxonomy-item" rel="tag">set theory</a>
     
     </span>
   </p>
@@ -465,15 +465,15 @@ For the same reasons, if we now consider System F with a polymorphic fixed-point
     <h4 class="page__share-title">Share on</h4>
   
 
-  <a href="https://bsky.app/intent/compose?text=http://localhost:4000/posts/2022/11/CCC-FixedPoints/" class="btn btn--bluesky" title="Share on Bluesky"><i class="fab fa-bluesky" aria-hidden="true"></i><span> Bluesky</span></a>
+  <a href="https://bsky.app/intent/compose?text=http://localhost:4000/posts/2022/11/Axiom-Choice/" class="btn btn--bluesky" title="Share on Bluesky"><i class="fab fa-bluesky" aria-hidden="true"></i><span> Bluesky</span></a>
 
-  <a href="https://www.facebook.com/sharer/sharer.php?u=http://localhost:4000/posts/2022/11/CCC-FixedPoints/" class="btn btn--facebook" title="Share on Facebook"><i class="fab fa-facebook" aria-hidden="true"></i><span> Facebook</span></a>
+  <a href="https://www.facebook.com/sharer/sharer.php?u=http://localhost:4000/posts/2022/11/Axiom-Choice/" class="btn btn--facebook" title="Share on Facebook"><i class="fab fa-facebook" aria-hidden="true"></i><span> Facebook</span></a>
 
-  <a href="https://www.linkedin.com/shareArticle?mini=true&url=http://localhost:4000/posts/2022/11/CCC-FixedPoints/" class="btn btn--linkedin" title="Share on LinkedIn"><i class="fab fa-linkedin" aria-hidden="true"></i><span> LinkedIn</span></a>
+  <a href="https://www.linkedin.com/shareArticle?mini=true&url=http://localhost:4000/posts/2022/11/Axiom-Choice/" class="btn btn--linkedin" title="Share on LinkedIn"><i class="fab fa-linkedin" aria-hidden="true"></i><span> LinkedIn</span></a>
 
-  <a href="https://www.addtoany.com/add_to/mastodon?linkurl=http%3A%2F%2Flocalhost%3A4000%2Fposts%2F2022%2F11%2FCCC-FixedPoints%2F" class="btn btn--mastodon" title="Share on Mastodon"><i class="fab fa-mastodon" aria-hidden="true"></i><span> Mastodon</span></a>
+  <a href="https://www.addtoany.com/add_to/mastodon?linkurl=http%3A%2F%2Flocalhost%3A4000%2Fposts%2F2022%2F11%2FAxiom-Choice%2F" class="btn btn--mastodon" title="Share on Mastodon"><i class="fab fa-mastodon" aria-hidden="true"></i><span> Mastodon</span></a>
 
-  <a href="https://x.com/intent/post?text=http://localhost:4000/posts/2022/11/CCC-FixedPoints/" class="btn btn--x" title="Share on X"><i class="fab fa-x-twitter" aria-hidden="true"></i><span> X (formerly Twitter)</span></a>
+  <a href="https://x.com/intent/post?text=http://localhost:4000/posts/2022/11/Axiom-Choice/" class="btn btn--x" title="Share on X"><i class="fab fa-x-twitter" aria-hidden="true"></i><span> X (formerly Twitter)</span></a>
 </section>
 
 
@@ -482,10 +482,11 @@ For the same reasons, if we now consider System F with a polymorphic fixed-point
 
   <nav class="pagination">
     
-      <a href="#" class="pagination--pager disabled">Previous</a>
+      <a href="http://localhost:4000/posts/2022/11/CCC-FixedPoints/" class="pagination--pager" title="Inconsistencies in Cartesian Closed Categories with fixed-points
+">Previous</a>
     
     
-      <a href="http://localhost:4000/posts/2022/11/Axiom-Choice/" class="pagination--pager" title="The Axiom of Choice in Type Theory
+      <a href="http://localhost:4000/posts/2023/03/CCC-STLC/" class="pagination--pager" title="CCCs and the complete models of STLC
 ">Next</a>
     
   </nav>
