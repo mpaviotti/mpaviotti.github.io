@@ -26,6 +26,7 @@ I also supervise undergrad projects in CS or Math. Here's some ideas for [underg
 If you're interested please reach out to me.
  
 ### News
+- [Chentian Wu](https://cv.wuct.site) got awarded R.Creighton Buck Prize for **Best Undergraduate Math Thesis** on "*Beck's monadicity theorem*". Download the thesis [here](https://cv.wuct.site/pdf/bs-thesis.pdf). 
 - **June 2025**: [Accepted](/assets/papers/itp25.pdf) to ITP 25 with David Castro Perez and Michael Vollmer.
 
 ### Publications
