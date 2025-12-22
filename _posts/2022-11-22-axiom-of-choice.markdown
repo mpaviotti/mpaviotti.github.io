@@ -23,7 +23,7 @@ and the second is that
 > we would need to create a infinite proof that uses Existential Instantiation for each element of the indexing set   
 
 However, in order to fully understand what is going on we need to be more precise. 
-So first let's begin with what is the axiom of choice.
+So first let's begin with what is the axiom of choice. 
 
 ### The axiom of choice (AC)
 The original formulation of the AC is the following. 
