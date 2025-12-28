@@ -19,21 +19,21 @@
 
 
 
-<title>On Lax Monoidal Functors - Marco Paviotti</title>
+<title>Recursion as an Effect - Marco Paviotti</title>
 
 
 
-<meta name="description" content="What is the difference between  a lax monoidal functor  a monoid in a Day-monoidal category  a morphism of lax-algebras for the free monoid 2-monad, and  a codistributive law with the tensor product?">
+<meta name="description" content="In one of my previous post I showed that anytheory featuring general recursion is inconsistent when viewed as a logicalsystem which inevitably leads to the idea that all definable functions in such a theory should betotal (or productive). However, losing Turing-completeness could be somewhat problematic for some, but it can be addressed in several ways. One of these, an possibly the most popular, is to isolate recursion into a monad, effectively regarding  recursion as an effect. We discuss several lifting monads which are fit for purpose.">
 
 
 
 
 
-  <meta property="article:published_time" content="2025-12-19T21:17:21+00:00">
+  <meta property="article:published_time" content="2025-12-28T19:24:21+00:00">
 
 
 
-  <link rel="canonical" href="https://mpaviotti.github.io/posts/2025/12/Lax-Monoidal-Functors/">
+  <link rel="canonical" href="https://mpaviotti.github.io/posts/2025/12/Liftings/">
 
 
 
@@ -68,15 +68,15 @@
 <!-- Open Graph protocol data (https://ogp.me/), used by social media -->
 <meta property="og:locale" content="en-US">
 <meta property="og:site_name" content="Marco Paviotti"> 
-<meta property="og:title" content="On Lax Monoidal Functors">
+<meta property="og:title" content="Recursion as an Effect">
 
   <meta property="og:type" content="article">
 
 
-  <meta property="og:description" name="description" content="What is the difference between  a lax monoidal functor  a monoid in a Day-monoidal category  a morphism of lax-algebras for the free monoid 2-monad, and  a codistributive law with the tensor product?">
+  <meta property="og:description" name="description" content="In one of my previous post I showed that anytheory featuring general recursion is inconsistent when viewed as a logicalsystem which inevitably leads to the idea that all definable functions in such a theory should betotal (or productive). However, losing Turing-completeness could be somewhat problematic for some, but it can be addressed in several ways. One of these, an possibly the most popular, is to isolate recursion into a monad, effectively regarding  recursion as an effect. We discuss several lifting monads which are fit for purpose.">
 
 
-  <meta property="og:url" content="https://mpaviotti.github.io/posts/2025/12/Lax-Monoidal-Functors/">
+  <meta property="og:url" content="https://mpaviotti.github.io/posts/2025/12/Liftings/">
 
 
 
@@ -270,166 +270,137 @@
 
 
   <article class="page" itemscope itemtype="http://schema.org/CreativeWork">
-    <meta itemprop="headline" content="On Lax Monoidal Functors">
-    <meta itemprop="description" content="What is the difference between  a lax monoidal functor  a monoid in a Day-monoidal category  a morphism of lax-algebras for the free monoid 2-monad, and  a codistributive law with the tensor product?">
-    <meta itemprop="datePublished" content="December 19, 2025">
+    <meta itemprop="headline" content="Recursion as an Effect">
+    <meta itemprop="description" content="In one of my previous post I showed that anytheory featuring general recursion is inconsistent when viewed as a logicalsystem which inevitably leads to the idea that all definable functions in such a theory should betotal (or productive). However, losing Turing-completeness could be somewhat problematic for some, but it can be addressed in several ways. One of these, an possibly the most popular, is to isolate recursion into a monad, effectively regarding  recursion as an effect. We discuss several lifting monads which are fit for purpose.">
+    <meta itemprop="datePublished" content="December 28, 2025">
     
 
     <div class="page__inner-wrap">
       
         <header>
-          <h1 class="page__title" itemprop="headline">On Lax Monoidal Functors
+          <h1 class="page__title" itemprop="headline">Recursion as an Effect
 </h1>
           
             <p class="page__meta"><i class="fa fa-clock" aria-hidden="true"></i> 
 
 
   
-	  4 minute read
+	  6 minute read
 	
 </p>
           
         
         
         
-          <p class="page__date"><strong><i class="fa fa-fw fa-calendar" aria-hidden="true"></i> Published:</strong> <time datetime="2025-12-19T21:17:21+00:00">December 19, 2025</time></p>
+          <p class="page__date"><strong><i class="fa fa-fw fa-calendar" aria-hidden="true"></i> Published:</strong> <time datetime="2025-12-28T19:24:21+00:00">December 28, 2025</time></p>
             
         </header>
       
 
       <section class="page__content" itemprop="text">
-        <p>What is the difference between</p>
-<ul>
-  <li>a lax monoidal functor</li>
-  <li>a monoid in a Day-monoidal category</li>
-  <li>a morphism of lax-algebras for the free monoid 2-monad, and</li>
-  <li>a codistributive law with the tensor product?</li>
-</ul>
+        <p>In one of my previous <a href="/posts/2022/11/CCC-FixedPoints/">post</a> I showed that any
+theory featuring general recursion is inconsistent when viewed as a logical
+system which inevitably leads to the idea that all definable functions in such a theory should be
+total (or productive). 
+However, losing Turing-completeness could be somewhat problematic for some, but it can be addressed in several ways. One of these, an possibly the most popular, is to isolate recursion into a monad, effectively regarding  <strong>recursion as an effect</strong>. We discuss several lifting monads which are fit for purpose.</p>
 
-<p><em>Well, None. Let’s see why</em>.</p>
+<h2 id="a-naive-solution">A Naive Solution</h2>
+<p>In domain theory non-termination is modelled as an operation \(A \mapsto A_\bot\) which takes a CPO and endows it with a bottom element, which is called the <strong>lifting</strong> of a CPO.</p>
 
-<p>To keep this post as concise as humanly possible I will assume knowledge of (symmetric)<a href="https://ncatlab.org/nlab/show/monoidal+category">monoidal categories</a>, <a href="https://ncatlab.org/nlab/show/Kan+extension">kan extensions</a> and <a href="https://ncatlab.org/nlab/show/enriched+category">enriched categories</a>.</p>
+<p>Thus one could naively think that it is fine to just model non-termination by defining the set</p>
 
-<p>We show informally the following proposition.</p>
+\[M A = A + 1\]
 
-<p><strong>Proposition.</strong>
-Let
-\((\mathcal{C}, \otimes_{\mathcal{C}}, I_{\mathcal{C}})\)
-be a small monoidal closed category enriched in a monoidal closed category 
-\((\mathcal{D}, \otimes_{\mathcal{D}}, I_{\mathcal{V}})\)
- and let
-\(F : \mathcal{C} \to \mathcal{D}\)
-be a functor. The following statements for \(F\) are equivalent:</p>
+<p>which is the set of computations that either return an element of type \(A\) or do not terminate.</p>
 
-<ol>
-  <li>It is a lax monoidal functor</li>
-  <li>It is a monoid in the monoidal category
-\(([\mathcal{C}, \mathcal{D}], \otimes_\text{Day}, y(I_{\mathcal{C}}))\)</li>
-  <li>It is a homomorphism of pseudo algebras for the free monoid 2-monad</li>
-  <li>
-    <p>It is a \(\mathbb{N}\)-indexed family of (co)distributive laws for a functor \(F : \mathcal{C} \to \mathcal{C}\)</p>
+<p>Unfortunately, without proper restrictions on the functions that we can apply to it, this monad allows one to “decide non-termination”: one can write a function \(f : M A \to \{\textbf{True}, \textbf{False}\}\) which returns \(\textbf{True}\) if the program does not terminate and \(\textbf{False}\) otherwise. This clearly is not what we are trying to model. In domain theory this is not a problem, because \(\bot \sqsubseteq a\) for all \(a \in A\) and in the set \(\bot \sqsubseteq \textbf{True}, \bot \sqsubseteq \textbf{False}\}\) the elements  \(\textbf{True}\) and  \(\textbf{False}\)  are not related, thus we cannot give a continuous mapping \(a \mapsto \textbf{False}\) and \(\bot \mapsto \textbf{True}\).</p>
 
-\[\text{Nat}(\otimes^{n} \circ F^{n}, F \circ \otimes^{n})\]
+<h2 id="the-coinductive-lifting-capretta">The Coinductive Lifting (Capretta)</h2>
 
-    <p>where
-\(\otimes^{n} : \mathcal{C}^{n} \to \mathcal{C}\)</p>
-  </li>
-</ol>
+<p>One solution proposed by Capretta is to take the coinductive solution to the following domain equation</p>
 
-<p>Let us assume the hypothesis of the proposition.</p>
+\[D A \cong A + D A\]
 
-<p><strong>Proof(Sketch).</strong> 
-(1) \(\Leftrightarrow\) (2).</p>
+<p>In other words, \(DA\) is the set coinductively generated by the constructors \(\text{now} : A \to D A\) and \(\text{delay} : DA \to DA\).  Intuitively, \(\text{now}(x)\) is a terminating computation which returns an element \(x \in A\) in \(0\) steps, while \(\text{delay}(c)\) takes a computation \(c \in DA\) and delays it by adding one computational step to it. For example, \(\text{delay}(\text{delay}(\text{delay}(10)))\) is a computation which returns the number \(10\) in three steps.</p>
 
-<p>A <em>lax
-monoidal functor</em> is a functor which lax-preserves the monoidal structure of \(\mathcal{C}\) that is, there is a morphism</p>
+<p><strong>Remark.</strong> \(D\) can be given the structure of an \(\omega\)-CPO with \(\bot\).</p>
 
-\[u : I_{\mathcal{D}} \to F I_{\mathcal{C}}\]
+<p>First, the non-terminating computation \(\bot\) can be defined coinductively as</p>
 
-<p>and a family of morphisms</p>
+\[\bot = \text{delay}(\bot)\]
 
-\[\circledast_{X,Y} : F X \otimes_{\mathcal{D}} F Y \to F (X \otimes_{\mathcal{C}} Y)\]
+<p>which is clearly a productive definition. Intuitively, \(\bot\) corresponds to the never-ending stream of delays:</p>
 
-<p>indexed by \(X,Y\) and natural therein, subject to some <a href="https://ncatlab.org/nlab/show/monoidal+functor">coherence conditions</a>.</p>
+\[\bot = \text{delay}(\text{delay}(\text{delay}\dots))\]
 
-<p>On the other hand, the <em>Day convolution</em> provides a natural way to define a
-monoidal structure on the category of functors.  In other words, the task is to
-turn the category of functors \([\mathcal{C}, \mathcal{D}]\) into a monoidal
-category by equipping it with a tensor product and a unit. Hence, for two
-functors
-\(F, G : \mathcal{C} \to \mathcal{D}\)
-the Day convolution \(\otimes_\text{Day}\) is defined as follows:</p>
+<p>so clearly, we cannot produce a function which discriminate between a terminating computation and non-terminating one. Capretta proves that \(D\) is a domain (up-to bisimilarity), that is, he defines a partial order \(\sqsubseteq_D\) on \(D\) which leads to a notion of least upper bounds for \(\omega\)-chains, written \(\bigsqcup_{n\in \omega} d_n\) for</p>
 
-\[\begin{align*}
-(F \otimes_\text{Day} G) C &amp; := \int^{X,Y \in \mathcal{C}} \mathcal{C}(X \otimes_{\mathcal{C}} Y, C) \otimes_{\mathcal{D}} F X \otimes_{\mathcal{D}} G Y\\
-    &amp; = \text{Lan}_{\otimes_{\mathcal{C}}}(\otimes_{\mathcal{D}} \circ F \times F)
-\end{align*}\]
+\[d_0 \sqsubseteq_D d_0 \sqsubseteq_D d_1 \dots \sqsubseteq_D d_n \dots\]
 
-<p>while the unit of \([\mathcal{C}, \mathcal{D}]\) is given by the Yoneda embedding applied to
-the unit \(I_\mathcal{C}\) that is \(y(I_\mathcal{C}) = \mathcal{C}(I_\mathcal{C},-)\).</p>
+<p>then it can be proven that every continuous function on \(D\) has a fixed-point.</p>
 
-<p>Now, a monoid in \(([\mathcal{C}, \mathcal{D}], \otimes_\text{Day}, y(I))\) is called a Day-monoid. This is a functor
-\(F : \mathcal{C} \to \mathcal{D}\)
-together with a unit and multiplication map.</p>
+<p>However, the constructive delay monad doesn’t seem to have a nice presentation as a theory. This means that contrarily to \(M\) it is not entirely clear how to give an algebraic presentation.</p>
 
-<ul>
-  <li>The <strong>unit map</strong>
-\(\eta : y(I) \to F\)
-is obtained from the unit of the lax monoidal functor (and viceversa) via the enriched Yoneda lemma</li>
-</ul>
+<h2 id="metric-lifting-monad-martin-escardó">Metric Lifting Monad (Martin Escardó)</h2>
 
-\[\text{Nat}(y(I), F) \cong \mathcal{D}(I_{\mathcal{D}}, F(I_{\mathcal{C}}))\]
+<p>Escardó’s <em>metric lifting</em> models partiality using <strong>metric spaces</strong> rather
+than coinduction.  The <strong>metric lifting</strong> of a set \(A\), written \(LA\), is defined as</p>
 
-<ul>
-  <li>The <strong>multiplication map</strong> 
-\(\mu : F \otimes_{\text{Day}} F \to F\)
-is obtained from \(\circledast\) (and viceversa) by using the adjunction \(\text{Lan}_J \dashv - \circ J\) as follows</li>
-</ul>
+\[LA = (A \times \mathbb{N}) \cup \{\infty\}\]
 
-\[\text{Nat}(\text{Lan}_{\otimes_\mathcal{C}}(\otimes_\mathcal{D} \circ F \times F), F)
-\cong
-\text{Nat}(\otimes_\mathcal{D} \circ F \times F, F \circ \otimes_\mathcal{C})\]
+<p>together with a distance function \(d : LA \times LA \to [0, \infty]\) where
+equal computations have distance \(0\), terminating computations \((a,k)\) and non-terminating ones have distance \((1/2)^k\), and terminating computations \((a,k)\) and \((b,l)\) have distance \(1/2^{\text{min}(k,l)}\). Intuitively, \((a,k)\) is a computation which returns \(a\) in \(k\) steps and \(\infty\) is the divergent computation.</p>
 
-<p>It remains to prove that the laws of the unit and multiplication of the monoid  imply
-the lax monoidal properties of \(u\) and \(\circledast\) (left as exercise to the reader).</p>
+<p><strong>Remark.</strong> \(LA\) is a complete bounded metric ultrametric space.</p>
 
-<p>\((2) \Leftrightarrow (3)\).</p>
+<p>The unit of the monad \(LA\) is defined by \(\eta_A(a) = (a,0)\) and the delay operation is defined by</p>
 
-<p>This is a rather easy statement which generalises the free monoid construction to 2-categories.</p>
+\[\delta_A(a,n) = (a, n + 1) \qquad \delta_A(\infty) = \infty\]
 
-<p>In particular, the cheapest way of turning a set \(A\) into a monoid is to take the set of words over \(A\), namely \(A^*\). This is the free monoid over \(A\) where the empty word is the unit and concatenation is the multiplication of the monoid. The Eilenberg-Moore algebras of \(A^*\) are equivalent to the algebraic structure of the monoid \(A^*\).<br />
-In particular, the category of Eilenberg-Moore algebras over \(A^*\) is
-equivalent to the category of monoids</p>
+<p>In metric spaces terminology, a function is non-expansive if it does not expand  the space relative to a distance function \(d\), but possibly contracts it:</p>
 
-\[\mathcal{C}^{A^*} \simeq \textbf{Mon}\]
+\[d(f(x), f(y)) \le d(x,y)\]
 
-<p>Similarly, given a category \(\mathcal{C}\), the cheapest way of turning this category into a monoid (a monoidal category) is to send \(\mathcal{C}\) to the category of finite sequences of objects \((A_1, \dots, A_n)\) and componentwise sequences of morphisms in \(\mathcal{C}\). 
-In other words, \(T\) is the free monoid 2-monad in \(\textbf{Cat}\) defined as the \(\mathbb{N}\)-coproduct \(\mathcal{C}^n\), that is</p>
+<p>On the other hand, a contractive map is a map which contracts the space:</p>
 
-\[T\mathcal{C} = \sum_{n : \mathbb{N}} \mathcal{C}^{n}\]
+\[d(f(x), f(y)) \le c \dot (d(x,y))\]
 
-<p>Now, similarly to what happens in the 1-category case, we have the following equivalence</p>
+<p>for a certain \(c &lt; 1\). At this point it is possible to define a fixed-point operator for all contractive maps</p>
 
-\[\textbf{Cat}^T \simeq 2\text{-Mon}\]
+\[\text{fix} : (LA \to LA) \to LA\]
 
-<p>where \(\textbf{Cat}^T\) is the 2-category of algebras for a 2-monad \(T\) and \(T\)-algebra homomorphisms and \(2\)-Mon is the 2-category of monoidal categories and monoidal functors (monoids in \(\textbf{Cat}\)). Hence (pseudo) \(T\)-algebra homomorphisms are (lax) monoidal functors.</p>
+<p>which sends every non-expansive map \(f\) to the fixed-point of \(\delta_A \circ f\), which is contractive because \(\delta_A\) is contractive. At this point the non-divergent computation is now defined as</p>
 
-<p>\((3 \Leftrightarrow 4)\).</p>
+\[\bot_A = \text{fix}(id_{LA})\]
 
-<p>Clearly, if \(T\) is the free monoid 2-monad, an algebra for  \(T\) is a map</p>
+<h2 id="guarded-lifting-atkey--mcbride">Guarded Lifting (Atkey &amp; McBride)</h2>
+<p>The coinductive lifting monad suffers from productivity and equality
+issues, while both the coinductive and metric liftings need additional structure on the maps defined on them to work properly with fixed-points.</p>
 
-\[a : \sum_{n : \mathbb{N}} \mathcal{C}^n \to \mathcal{C}\]
+<p>In guarded type theory however, maps are always non-expansive and contractiveness is enforced at the type level. In particular, a contractive map is a function of type \(\triangleright X \to X\) 
+for which there is always a fixed-point at all types \(X\):</p>
 
-<p>The previous point states that this is a monoidal category where \(A \otimes_\mathcal{C} B := a (A,B)\) and \(I_\mathcal{C} = a()\), thus \(a\) sends \((A_1, \dots, A_n)\) to \(A_1 \otimes_\mathcal{C} \dots \otimes_\mathcal{C} A_n\).</p>
+\[\text{fix}_g : (\triangleright X \to X) \to X\]
 
-<p>A lax monoidal functor \(F\) is a lax \(T\)-algebra homomorphism, thus it has to satisfy</p>
+<p>sending a map \(f : (\triangleright X \to X)\) to the unique fixed-point of \(f \circ \text{next}\).
+The guarded lifting is defined as the unique solution to the domain equation</p>
 
-\[F(A_1) \otimes_\mathcal{D} \dots \otimes_\mathcal{D} F(A_n) \to F(A_1 \otimes_\mathcal{C} \dots \otimes_\mathcal{C} A_n)\]
+\[L_g A = A + \triangleright L_g A\]
 
-<p>which is defined at all \(n\) and \(A_i\) hence it is a (co)distributive law</p>
+<p>There is an obvious unit of the monad \(\eta_A : A \to L_g A\) and delay map which has type</p>
 
-\[\text{Nat}(\otimes^{n}_{\mathcal{D}} \circ F^{n}, F \circ \otimes^{n}_{\mathcal{C}})\]
+\[\delta_A : \triangleright L_g A \to L_g A\]
 
+<p>Conceptually, this monad can be seen as Capretta’s lifting monad with an
+explicit notion of time or delay built into the type theory.
+At this point the divergent computation \(\bot_A : L_{g} A\) is defined as the guarded fixed-point of \(\delta\):</p>
+
+\[\bot_A = \text{fix}_g (\delta_A)\]
+
+<p>Now we can check from the fixed-point property that \(\bot = \delta_A (\text{next}(\bot_A))\). Here, the term \(\delta_A \circ \text{next}\) corresponds to the delay operation which adds one step to the computation.</p>
+
+<h2 id="conclusion">Conclusion</h2>
+<p>The three monads presented here have many similarities, perhaps too many for it not to have a proper reconciliating story, but perhaps there is.</p>
 
 
         
@@ -461,11 +432,19 @@ In other words, \(T\) is the free monoid 2-monad in \(\textbf{Cat}\) defined as 
     
       
       
+      <a href="https://mpaviotti.github.io/tags/#domain-theory" class="page__taxonomy-item" rel="tag">domain-theory</a><span class="sep">, </span>
+    
+      
+      
       <a href="https://mpaviotti.github.io/tags/#monads" class="page__taxonomy-item" rel="tag">monads</a><span class="sep">, </span>
     
       
       
-      <a href="https://mpaviotti.github.io/tags/#monoids" class="page__taxonomy-item" rel="tag">monoids</a>
+      <a href="https://mpaviotti.github.io/tags/#recursion" class="page__taxonomy-item" rel="tag">recursion</a><span class="sep">, </span>
+    
+      
+      
+      <a href="https://mpaviotti.github.io/tags/#semantics" class="page__taxonomy-item" rel="tag">semantics</a>
     
     </span>
   </p>
@@ -482,15 +461,15 @@ In other words, \(T\) is the free monoid 2-monad in \(\textbf{Cat}\) defined as 
     <h4 class="page__share-title">Share on</h4>
   
 
-  <a href="https://bsky.app/intent/compose?text=https://mpaviotti.github.io/posts/2025/12/Lax-Monoidal-Functors/" class="btn btn--bluesky" title="Share on Bluesky"><i class="fab fa-bluesky" aria-hidden="true"></i><span> Bluesky</span></a>
+  <a href="https://bsky.app/intent/compose?text=https://mpaviotti.github.io/posts/2025/12/Liftings/" class="btn btn--bluesky" title="Share on Bluesky"><i class="fab fa-bluesky" aria-hidden="true"></i><span> Bluesky</span></a>
 
-  <a href="https://www.facebook.com/sharer/sharer.php?u=https://mpaviotti.github.io/posts/2025/12/Lax-Monoidal-Functors/" class="btn btn--facebook" title="Share on Facebook"><i class="fab fa-facebook" aria-hidden="true"></i><span> Facebook</span></a>
+  <a href="https://www.facebook.com/sharer/sharer.php?u=https://mpaviotti.github.io/posts/2025/12/Liftings/" class="btn btn--facebook" title="Share on Facebook"><i class="fab fa-facebook" aria-hidden="true"></i><span> Facebook</span></a>
 
-  <a href="https://www.linkedin.com/shareArticle?mini=true&url=https://mpaviotti.github.io/posts/2025/12/Lax-Monoidal-Functors/" class="btn btn--linkedin" title="Share on LinkedIn"><i class="fab fa-linkedin" aria-hidden="true"></i><span> LinkedIn</span></a>
+  <a href="https://www.linkedin.com/shareArticle?mini=true&url=https://mpaviotti.github.io/posts/2025/12/Liftings/" class="btn btn--linkedin" title="Share on LinkedIn"><i class="fab fa-linkedin" aria-hidden="true"></i><span> LinkedIn</span></a>
 
-  <a href="https://www.addtoany.com/add_to/mastodon?linkurl=https%3A%2F%2Fmpaviotti.github.io%2Fposts%2F2025%2F12%2FLax-Monoidal-Functors%2F" class="btn btn--mastodon" title="Share on Mastodon"><i class="fab fa-mastodon" aria-hidden="true"></i><span> Mastodon</span></a>
+  <a href="https://www.addtoany.com/add_to/mastodon?linkurl=https%3A%2F%2Fmpaviotti.github.io%2Fposts%2F2025%2F12%2FLiftings%2F" class="btn btn--mastodon" title="Share on Mastodon"><i class="fab fa-mastodon" aria-hidden="true"></i><span> Mastodon</span></a>
 
-  <a href="https://x.com/intent/post?text=https://mpaviotti.github.io/posts/2025/12/Lax-Monoidal-Functors/" class="btn btn--x" title="Share on X"><i class="fab fa-x-twitter" aria-hidden="true"></i><span> X (formerly Twitter)</span></a>
+  <a href="https://x.com/intent/post?text=https://mpaviotti.github.io/posts/2025/12/Liftings/" class="btn btn--x" title="Share on X"><i class="fab fa-x-twitter" aria-hidden="true"></i><span> X (formerly Twitter)</span></a>
 </section>
 
 
@@ -499,12 +478,11 @@ In other words, \(T\) is the free monoid 2-monad in \(\textbf{Cat}\) defined as 
 
   <nav class="pagination">
     
-      <a href="https://mpaviotti.github.io/posts/2023/10/Bisim-Eq/" class="pagination--pager" title="Bisimulations, Equality and Traces
+      <a href="https://mpaviotti.github.io/posts/2025/12/Lax-Monoidal-Functors/" class="pagination--pager" title="On Lax Monoidal Functors
 ">Previous</a>
     
     
-      <a href="https://mpaviotti.github.io/posts/2025/12/Liftings/" class="pagination--pager" title="Recursion as an Effect
-">Next</a>
+      <a href="#" class="pagination--pager disabled">Next</a>
     
   </nav>
 
@@ -533,7 +511,7 @@ In other words, \(T\) is the free monoid 2-monad in \(\textbf{Cat}\) defined as 
 
     <h2 class="archive__item-title" itemprop="headline">
       
-        <a href="https://mpaviotti.github.io/posts/2025/12/Liftings/" rel="permalink">Recursion as an Effect
+        <a href="https://mpaviotti.github.io/posts/2025/12/Lax-Monoidal-Functors/" rel="permalink">On Lax Monoidal Functors
 </a>
       
     </h2>
@@ -543,21 +521,23 @@ In other words, \(T\) is the free monoid 2-monad in \(\textbf{Cat}\) defined as 
 
 
   
-	  6 minute read
+	  4 minute read
 	
 </p>
     
 
         
-         <p class="page__date"><strong><i class="fa fa-fw fa-calendar" aria-hidden="true"></i> Published:</strong> <time datetime="2025-12-28T19:24:21+00:00">December 28, 2025</time></p>
+         <p class="page__date"><strong><i class="fa fa-fw fa-calendar" aria-hidden="true"></i> Published:</strong> <time datetime="2025-12-19T21:17:21+00:00">December 19, 2025</time></p>
         
 
     
-    <p class="archive__item-excerpt" itemprop="description"><p>In one of my previous <a href="/posts/2022/11/CCC-FixedPoints/">post</a> I showed that any
-theory featuring general recursion is inconsistent when viewed as a logical
-system which inevitably leads to the idea that all definable functions in such a theory should be
-total (or productive). 
-However, losing Turing-completeness could be somewhat problematic for some, but it can be addressed in several ways. One of these, an possibly the most popular, is to isolate recursion into a monad, effectively regarding  <strong>recursion as an effect</strong>. We discuss several lifting monads which are fit for purpose.</p>
+    <p class="archive__item-excerpt" itemprop="description"><p>What is the difference between</p>
+<ul>
+  <li>a lax monoidal functor</li>
+  <li>a monoid in a Day-monoidal category</li>
+  <li>a morphism of lax-algebras for the free monoid 2-monad, and</li>
+  <li>a codistributive law with the tensor product?</li>
+</ul>
 
 </p>
     

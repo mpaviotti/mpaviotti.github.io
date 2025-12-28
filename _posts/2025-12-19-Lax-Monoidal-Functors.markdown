@@ -40,7 +40,7 @@ be a functor. The following statements for $$F$$ are equivalent:
    $$
    ([\mathcal{C}, \mathcal{D}], \otimes_\text{Day}, y(I_{\mathcal{C}}))
    $$
-3. It is a homomorphism of lax algebras for the free monoid 2-monad
+3. It is a homomorphism of pseudo algebras for the free monoid 2-monad
 4. It is a $$\mathbb{N}$$-indexed family of (co)distributive laws for a functor $$F : \mathcal{C} \to \mathcal{C}$$
    
    $$
@@ -145,7 +145,7 @@ $$
 \textbf{Cat}^T \simeq 2\text{-Mon}
 $$
 
-where $$\textbf{Cat}^T$$ is the 2-category of algebras for a 2-monad $$T$$ and $$T$$-algebra homomorphisms and $$2$$-Mon is the 2-category of monoidal categories and monoidal functors (monoids in $$\textbf{Cat}$$). Hence (lax) $$T$$-algebra homomorphisms are (lax) monoidal functors. 
+where $$\textbf{Cat}^T$$ is the 2-category of algebras for a 2-monad $$T$$ and $$T$$-algebra homomorphisms and $$2$$-Mon is the 2-category of monoidal categories and monoidal functors (monoids in $$\textbf{Cat}$$). Hence (pseudo) $$T$$-algebra homomorphisms are (lax) monoidal functors. 
 
 
 $$(3 \Leftrightarrow 4)$$.

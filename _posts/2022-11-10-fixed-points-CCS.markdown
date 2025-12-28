@@ -8,10 +8,7 @@ tags:
   - recursion
 ---
 
-There is a very
-nice [paper](https://www.sciencedirect.com/science/article/pii/030439759090165E)
-out there stating that "*Any Cartesian Closed Category (CCC) with an initial object and a fixed-point operator is trivial*". Essentially this means that in languages like (e.g.) Haskell the empty type is not actually empty as it contains the non-terminating computation. Perhaps this is obvious, but here's the categorical explanation.   
-
+Any Cartesian Closed Category (CCC) with an initial object and a fixed-point operator is trivial. Essentially this means that in languages like (e.g.) Haskell the empty type is not actually empty as it contains the non-terminating computation. Perhaps this is obvious, but here's the categorical explanation.   
 
 Here the word *trivial* means that every object $$A$$ in the category is isomorphic to the terminal object $$1$$. 
 
