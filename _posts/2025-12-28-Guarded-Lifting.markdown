@@ -24,10 +24,15 @@ $$M A = A + 1$$
 
 which is the set of computations that either return an element of type $$A$$ or do not terminate.
 
-Of course, without proper restrictions on the functions that we can apply to it, this monad allows one to "decide non-termination": one can write a function $$f : M A \to \{\textbf{True}, \textbf{False}\}$$ which returns $$\textbf{True}$$ if the program does not terminate and $$\textbf{False}$$ otherwise. This clearly is not what we are trying to model. 
+Of course, without proper restrictions on the functions that we can apply to it,
+this monad allows one to "decide non-termination": one can write a function
+$$f : M A \to \{\textbf{True}, \textbf{False}\}$$ which returns
+$$\textbf{True}$$ if the program does not terminate and $$\textbf{False}$$
+otherwise. This clearly is not what we are trying to model. 
 
 To avoid this problem, in domain theory, a set $$A$$ are endowed with a **complete partial order** ($$\sqsubseteq$$) where non-termination is modelled as the least element ($$\bot$$). The operation $$A \mapsto A_\bot$$ which adds a least element to a CPO is called the **lifting** of a CPO.    
-Moreover, functions have to respect a **continuity** condition, that is the function must preserve least upper bounds of arbitrary $$\omega$$-chains:
+Moreover, functions have to respect a **continuity** condition, that is the
+function must preserve least upper bounds of arbitrary $$\omega$$-chains:
 
 $$f(\bigsqcup_{i\in \omega} d_i) = \bigsqcup_{i \in \omega} f(d_i)$$
 
