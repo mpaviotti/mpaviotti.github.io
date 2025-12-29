@@ -20,10 +20,10 @@ I am Assistant Professor in the
 a B.Sc. in Computer Science from *Università degli Studi di Udine* (Italy).
 
 ### Project Supervision (BSc, MSc, PhD)
-
-If you're interested in doing a PhD within my research area please reach out to me. 
+I have some PhD vacancies. 
 - Here are some ideas for [PhD topics]({% link research.markdown %}).
 - Instead, for undergrad projects in CS or Math, look here [here]({% link projects.markdown %}).
+
  
 ### News
 - [12/2025] [Chentian Wu](https://cv.wuct.site) got awarded R.Creighton Buck Prize for **Best Undergraduate Math Thesis** on "*Beck's monadicity theorem*". Download the thesis [here](https://cv.wuct.site/pdf/bs-thesis.pdf). Well done, Chentian!

@@ -5,7 +5,9 @@ title: Projects
 ---
 
 
-## Operating System Development (OSDev)
+## Undergrad Projects for Computer Scientists
+
+### OS Development
 Markix is an operating System I developed when I was little. It is a bare bone operating system for x86 architectures written in Assembly and C and runs on x86 or the [bochs emulator](https://bochs.sourceforge.io). The idea is to have something more minimal than Minix so that students can understand every component of an operating system in isolation.  
 Hence, Markix is built in incremental stages. Each milestone corresponds to a Git tag, and improvements to that module are developed on dedicated branches.
 
@@ -23,7 +25,7 @@ Download the source code from my GitHub [page](https://github.com/mpaviotti/Mark
 Software needed: NASM Compiler, C Compiler with support for cross compiling to i386 architectures, Bochs, GNU Debugger (gdb).  
 
 
-## ISO Standards for Weak Memory Concurrency
+### Weak Memory Concurrency
 Amongst other things I also helped the weak memory concurrency community in fixing some problem with the C++ and Java concurrency model.
 
 The work which we published at [ESOP'20'](https://link.springer.com/content/pdf/10.1007/978-3-030-44914-8_22.pdf)
@@ -33,8 +35,8 @@ is being considered for the next ISO standard of C++.
 - The WG21 group page: [https://isocpp.org/wiki/faq/wg21](https://isocpp.org/wiki/faq/wg21)
 - The MRD Web Tool [link](https://www.cs.kent.ac.uk/projects/MRDer/)
 
-## B.Sc. and M.Sc. Projects for Computer Scientists
-If you are looking for a project for your final year exam here are some, however, fair warning, these projects are not the fainted hearted: 
+### Other Projects B.Sc. and M.Sc. Projects for Computer Scientists
+ 
 - Operating System Development (OSDev)
 - Algorithms implementation 
 - Efficient Analysis of Chess games
@@ -42,6 +44,5 @@ If you are looking for a project for your final year exam here are some, however
 - Kernel Hacking: Security, Hypervisors
 
 
-## B.Sc. and M.Sc. topics for Mathematicians
-I can (and have) supervised mathematicians in the past who wanted to study some applications of group theory, abstract algebra and category to computer science and, in particular, programming languages. 
-Feel free to reach out to me if interested. 
+## Undergrad topics for Mathematicians
+TBA. 
