@@ -1,0 +1,132 @@
+<p>What is the difference between</p>
+<ul>
+  <li>a lax monoidal functor</li>
+  <li>a monoid in a Day-monoidal category</li>
+  <li>a morphism of lax-algebras for the free monoid 2-monad, and</li>
+  <li>a codistributive law with the tensor product?</li>
+</ul>
+
+<p><em>Well, None. Let’s see why</em>.</p>
+
+<p>To keep this post as concise as humanly possible I will assume knowledge of (symmetric)<a href="https://ncatlab.org/nlab/show/monoidal+category">monoidal categories</a>, <a href="https://ncatlab.org/nlab/show/Kan+extension">kan extensions</a> and <a href="https://ncatlab.org/nlab/show/enriched+category">enriched categories</a>.</p>
+
+<p>We show informally the following proposition.</p>
+
+<p><strong>Proposition.</strong>
+Let
+\((\mathcal{C}, \otimes_{\mathcal{C}}, I_{\mathcal{C}})\)
+be a small monoidal closed category enriched in a monoidal closed category 
+\((\mathcal{D}, \otimes_{\mathcal{D}}, I_{\mathcal{V}})\)
+ and let
+\(F : \mathcal{C} \to \mathcal{D}\)
+be a functor. The following statements for \(F\) are equivalent:</p>
+
+<ol>
+  <li>It is a lax monoidal functor</li>
+  <li>It is a monoid in the monoidal category
+\(([\mathcal{C}, \mathcal{D}], \otimes_\text{Day}, y(I_{\mathcal{C}}))\)</li>
+  <li>It is a homomorphism of pseudo algebras for the free monoid 2-monad</li>
+  <li>
+    <p>It is a \(\mathbb{N}\)-indexed family of (co)distributive laws for a functor \(F : \mathcal{C} \to \mathcal{C}\)</p>
+
+\[\text{Nat}(\otimes^{n} \circ F^{n}, F \circ \otimes^{n})\]
+
+    <p>where
+\(\otimes^{n} : \mathcal{C}^{n} \to \mathcal{C}\)</p>
+  </li>
+</ol>
+
+<p>Let us assume the hypothesis of the proposition.</p>
+
+<p><strong>Proof(Sketch).</strong> 
+(1) \(\Leftrightarrow\) (2).</p>
+
+<p>A <em>lax
+monoidal functor</em> is a functor which lax-preserves the monoidal structure of \(\mathcal{C}\) that is, there is a morphism</p>
+
+\[u : I_{\mathcal{D}} \to F I_{\mathcal{C}}\]
+
+<p>and a family of morphisms</p>
+
+\[\circledast_{X,Y} : F X \otimes_{\mathcal{D}} F Y \to F (X \otimes_{\mathcal{C}} Y)\]
+
+<p>indexed by \(X,Y\) and natural therein, subject to some <a href="https://ncatlab.org/nlab/show/monoidal+functor">coherence conditions</a>.</p>
+
+<p>On the other hand, the <em>Day convolution</em> provides a natural way to define a
+monoidal structure on the category of functors.  In other words, the task is to
+turn the category of functors \([\mathcal{C}, \mathcal{D}]\) into a monoidal
+category by equipping it with a tensor product and a unit. Hence, for two
+functors
+\(F, G : \mathcal{C} \to \mathcal{D}\)
+the Day convolution \(\otimes_\text{Day}\) is defined as follows:</p>
+
+\[\begin{align*}
+(F \otimes_\text{Day} G) C &amp; := \int^{X,Y \in \mathcal{C}} \mathcal{C}(X \otimes_{\mathcal{C}} Y, C) \otimes_{\mathcal{D}} F X \otimes_{\mathcal{D}} G Y\\
+    &amp; = \text{Lan}_{\otimes_{\mathcal{C}}}(\otimes_{\mathcal{D}} \circ F \times F)
+\end{align*}\]
+
+<p>while the unit of \([\mathcal{C}, \mathcal{D}]\) is given by the Yoneda embedding applied to
+the unit \(I_\mathcal{C}\) that is \(y(I_\mathcal{C}) = \mathcal{C}(I_\mathcal{C},-)\).</p>
+
+<p>Now, a monoid in \(([\mathcal{C}, \mathcal{D}], \otimes_\text{Day}, y(I))\) is called a Day-monoid. This is a functor
+\(F : \mathcal{C} \to \mathcal{D}\)
+together with a unit and multiplication map.</p>
+
+<ul>
+  <li>The <strong>unit map</strong>
+\(\eta : y(I) \to F\)
+is obtained from the unit of the lax monoidal functor (and viceversa) via the enriched Yoneda lemma</li>
+</ul>
+
+\[\text{Nat}(y(I), F) \cong \mathcal{D}(I_{\mathcal{D}}, F(I_{\mathcal{C}}))\]
+
+<ul>
+  <li>The <strong>multiplication map</strong> 
+\(\mu : F \otimes_{\text{Day}} F \to F\)
+is obtained from \(\circledast\) (and viceversa) by using the adjunction \(\text{Lan}_J \dashv - \circ J\) as follows</li>
+</ul>
+
+\[\text{Nat}(\text{Lan}_{\otimes_\mathcal{C}}(\otimes_\mathcal{D} \circ F \times F), F)
+\cong
+\text{Nat}(\otimes_\mathcal{D} \circ F \times F, F \circ \otimes_\mathcal{C})\]
+
+<p>It remains to prove that the laws of the unit and multiplication of the monoid  imply
+the lax monoidal properties of \(u\) and \(\circledast\) (left as exercise to the reader).</p>
+
+<p>\((2) \Leftrightarrow (3)\).</p>
+
+<p>This is a rather easy statement which generalises the free monoid construction to 2-categories.</p>
+
+<p>In particular, the cheapest way of turning a set \(A\) into a monoid is to take the set of words over \(A\), namely \(A^*\). This is the free monoid over \(A\) where the empty word is the unit and concatenation is the multiplication of the monoid. The Eilenberg-Moore algebras of \(A^*\) are equivalent to the algebraic structure of the monoid \(A^*\).<br />
+In particular, the category of Eilenberg-Moore algebras over \(A^*\) is
+equivalent to the category of monoids</p>
+
+\[\mathcal{C}^{A^*} \simeq \textbf{Mon}\]
+
+<p>Similarly, given a category \(\mathcal{C}\), the cheapest way of turning this category into a monoid (a monoidal category) is to send \(\mathcal{C}\) to the category of finite sequences of objects \((A_1, \dots, A_n)\) and componentwise sequences of morphisms in \(\mathcal{C}\). 
+In other words, \(T\) is the free monoid 2-monad in \(\textbf{Cat}\) defined as the \(\mathbb{N}\)-coproduct \(\mathcal{C}^n\), that is</p>
+
+\[T\mathcal{C} = \sum_{n : \mathbb{N}} \mathcal{C}^{n}\]
+
+<p>Now, similarly to what happens in the 1-category case, we have the following equivalence</p>
+
+\[\textbf{Cat}^T \simeq 2\text{-Mon}\]
+
+<p>where \(\textbf{Cat}^T\) is the 2-category of algebras for a 2-monad \(T\) and \(T\)-algebra homomorphisms and \(2\)-Mon is the 2-category of monoidal categories and monoidal functors (monoids in \(\textbf{Cat}\)). Hence (pseudo) \(T\)-algebra homomorphisms are (lax) monoidal functors.</p>
+
+<p>\((3 \Leftrightarrow 4)\).</p>
+
+<p>Clearly, if \(T\) is the free monoid 2-monad, an algebra for  \(T\) is a map</p>
+
+\[a : \sum_{n : \mathbb{N}} \mathcal{C}^n \to \mathcal{C}\]
+
+<p>The previous point states that this is a monoidal category where \(A \otimes_\mathcal{C} B := a (A,B)\) and \(I_\mathcal{C} = a()\), thus \(a\) sends \((A_1, \dots, A_n)\) to \(A_1 \otimes_\mathcal{C} \dots \otimes_\mathcal{C} A_n\).</p>
+
+<p>A lax monoidal functor \(F\) is a lax \(T\)-algebra homomorphism, thus it has to satisfy</p>
+
+\[F(A_1) \otimes_\mathcal{D} \dots \otimes_\mathcal{D} F(A_n) \to F(A_1 \otimes_\mathcal{C} \dots \otimes_\mathcal{C} A_n)\]
+
+<p>which is defined at all \(n\) and \(A_i\) hence it is a (co)distributive law</p>
+
+\[\text{Nat}(\otimes^{n}_{\mathcal{D}} \circ F^{n}, F \circ \otimes^{n}_{\mathcal{C}})\]
+

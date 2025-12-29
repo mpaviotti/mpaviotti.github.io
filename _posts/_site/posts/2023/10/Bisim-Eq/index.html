@@ -1,0 +1,120 @@
+<p>Strong bisimulation for CCS is the preferred equivalence method in concurrency because it relates less programs than trace equality. However, the reality is that is strong bisimulation and trace equality ought to be regarded as equivalent. This is the essence behind proof assistant’s like (e.g.) Isabelle. So what is going here?</p>
+
+<p>One example of this fact is when considering CCS with the choice operator.  In
+this language we can define a process \(P\) and a process \(Q\) as follows</p>
+
+\[P = \text{pay}.(\text{coffee}. 0 + \text{tea}. 0)\]
+
+\[Q = (\text{pay}.\text{coffee}.0 + \text{pay}.\text{tea}. 0)\]
+
+<p>Now the <em>trace semantics</em> of the CCS processes can be defined by a function</p>
+
+\[[\![ \cdot ]\!] : \text{CCS} \to \mathcal{P}_\text{fin}(\text{Str } L)\]
+
+<p>where \(L\) is the finite set of actions and, for a generic set \(A\), the set
+\(\text{Str } A = 1 + A \times \text{Str }A\) is the set of possibly finite
+streams over a set \(A\).</p>
+
+<p>For the processes above we have that the semantics of \(P\) is \([\![P]\!] =
+\{\text{pay}.\text{coffee}, \text{pay}.\text{tea}\}\) and the semantics of \(Q\)
+is \([\![ Q ]\!] = \{\text{pay}.\text{coffee}, \text{pay}.\text{tea}\}\) and
+thus the trace semantics of \(P\) and \(Q\) indicate that these processes should
+be equal.</p>
+
+<p>However, consider the relation \(P\) <em>simulates</em> \(Q\) which is stated as</p>
+
+\[P \lesssim Q \Leftrightarrow \forall P'. \text{ if } P \xrightarrow{a} P'
+\text{ then  } \exists Q'. Q \xrightarrow{a} Q' \text{ s.t. } P' \lesssim Q'\]
+
+<p>Now the <em>bisimulation</em> relation can be defined as \(P \approx Q \Leftrightarrow P
+\lesssim Q \text{ and } Q \lesssim P\).</p>
+
+<p>The above example is a standard example in concurrency theory that shows that
+bisimulation can distinguish processes where equality on the trace semantics
+indicate that they should be regarded as equal and that is why bisimulations
+turn out to be more useful relations to compare processes.</p>
+
+<p>Using the example above we can prove that \(Q \lesssim P\). Let’s define
+half-evaluated processes as</p>
+
+\[P' = \text{coffee}. 0 + \text{tea}. 0\]
+
+\[P'_{1} = \text{coffee}. 0\]
+
+\[P'_{2} = \text{tea}. 0\]
+
+\[Q_{1} = \text{pay}.\text{coffee}.0\]
+
+\[Q_{2} = \text{pay}.\text{tea}.0\]
+
+\[Q'_{1} = \text{coffee}.0\]
+
+\[Q'_{2} = \text{tea}.0\]
+
+<p>Now for all transitions of \(Q\) we have to show \(P\) simulates them. The first
+one is \(Q \xrightarrow{\text{pay}} Q'_{1}\).  Obviously \(P
+\xrightarrow{\text{pay}} P'_{1}\) and so now we have to show that \(Q'_{1}
+\lesssim P'_{1}\) which clearly does.  This works similarly if \(Q\) decides to
+take the other route and produce tea in the end.</p>
+
+<p>All right, but \(P \lesssim Q\) does not work. This is because since \(P\) makes a transition \(P \xrightarrow{\text{pay}} P'\) we are forced to select which branch in \(Q\) is simulating this behaviour. No matter which one we choose we get stuck in one way or the other. Say \(Q \xrightarrow{\text{pay}} Q'_{1}\) we have to show \(P' \lesssim Q'_{1}\), but this latter fact does not hold because \(P'\) can make two different transitions and \(Q'_1\) can only make one.</p>
+
+<h2 id="corecursion-schemes-and-traces">CoRecursion Schemes and Traces</h2>
+<p>Consider now the unfold function which takes a seed function an produces a trace
+by <em>running</em> the seed at each steps</p>
+
+<figure class="highlight"><pre><code class="language-haskell" data-lang="haskell"><span class="n">unfold</span> <span class="o">::</span> <span class="p">(</span><span class="n">x</span> <span class="o">-&gt;</span> <span class="p">(</span><span class="kt">L</span><span class="p">,</span> <span class="n">x</span><span class="p">))</span> <span class="o">-&gt;</span> <span class="n">x</span>  <span class="o">-&gt;</span> <span class="kt">Str</span> <span class="kt">L</span>
+<span class="n">unfold</span> <span class="n">seed</span> <span class="n">x</span> <span class="o">=</span> <span class="kr">let</span> <span class="p">(</span><span class="n">l</span><span class="p">,</span><span class="n">x'</span><span class="p">)</span> <span class="o">=</span> <span class="n">seed</span> <span class="n">x</span> <span class="kr">in</span> <span class="n">l</span> <span class="o">::</span> <span class="n">unfold</span> <span class="n">seed</span> <span class="n">x'</span> </code></pre></figure>
+
+<p>Notice that the seed function \(X \to L \times X\) can be viewed as a Labeled
+Transition System (LTS) where the set of states is \(X\) and the function is the
+function implementing the transitions.</p>
+
+<p>It is a very well-known fact that the <code class="language-plaintext highlighter-rouge">unfold</code> is a fully abstract map in the
+sense if we consider the notion of bisimilarity above and set \([\![ \cdot
+]\!]\) to be <code class="language-plaintext highlighter-rouge">unfold seed</code>  then we have the following theorem</p>
+
+<blockquote>
+  <p><strong>Full abstraction</strong> \(\text{ for all } t_{1}, t_{2}, t_{1} \approx t_{2} \Leftrightarrow [\![ t_{1} ]\!] = [\![ t_{2}]\!]\).</p>
+</blockquote>
+
+<p>This is also backed by the fact that when programming in proof assistants like
+(e.g.) Agda – since coinductive data types are not really final coalgebras –
+it is common practice to just  add the following axiom to the type theory</p>
+
+<blockquote>
+  <p><strong>Axiom</strong> \(\text{ for all } (s_{1}, s_{2} : \text{Str L}). s_{1} \approx s_{2} \to s_{1} = s_{2}\) .</p>
+</blockquote>
+
+<p>Even more so, in some proof assistants like Isabelle coinductive data types are
+real final coalgebras and so the above axiom is actually a true fact in the
+prover’s logic.</p>
+
+<p>Notice that the other direction is obvious and thus the axiom implies
+bisimiliary is <em>logically equivalent</em>  equality.</p>
+
+<blockquote>
+  <p>So why bisimulation in the above example does not correpond to equality?</p>
+</blockquote>
+
+<p>The reason is that the shape behaviours for CCS+choice is not \(BX = L \times
+X\) but it is \(\mathcal{P}_\text{fin}(L \times X)\).</p>
+
+<p>In fact, the <em>seed</em> function describing the LTS of CCS+choice has the following
+type</p>
+
+<figure class="highlight"><pre><code class="language-haskell" data-lang="haskell"> 
+<span class="n">opsem</span> <span class="o">::</span> <span class="kt">CCS</span> <span class="o">-&gt;</span>  <span class="p">[(</span><span class="kt">L</span><span class="p">,</span> <span class="kt">CCS</span><span class="p">)]</span></code></pre></figure>
+
+<p>where we use lists <code class="language-plaintext highlighter-rouge">[-]</code> as a (rough) implementation of finite powersets.</p>
+
+<p>At this point the LTS for CCS+choice can be defined roughly like this</p>
+
+<figure class="highlight"><pre><code class="language-haskell" data-lang="haskell"><span class="o">...</span>
+<span class="n">opsem</span> <span class="p">(</span><span class="n">p</span> <span class="o">+</span> <span class="n">q</span><span class="p">)</span> <span class="o">=</span> <span class="p">[(</span><span class="n">l</span><span class="p">,</span> <span class="n">p'</span><span class="p">)</span> <span class="o">|</span> <span class="p">(</span><span class="n">l</span><span class="p">,</span> <span class="n">p'</span><span class="p">)</span> <span class="o">&lt;-</span> <span class="n">opsem</span> <span class="n">p</span> <span class="p">]</span> <span class="o">++</span> <span class="p">[(</span><span class="n">l</span><span class="p">,</span> <span class="n">q'</span><span class="p">)</span> <span class="o">|</span> <span class="p">(</span><span class="n">l</span><span class="p">,</span> <span class="n">q'</span><span class="p">)</span> <span class="o">&lt;-</span> <span class="n">opsem</span> <span class="n">q</span> <span class="p">]</span>  </code></pre></figure>
+
+<p>And now the unfold on this LTS will yield a fully abstract semantics</p>
+
+<figure class="highlight"><pre><code class="language-haskell" data-lang="haskell"><span class="n">unfold</span> <span class="n">opsem</span> <span class="o">::</span> <span class="kt">CCS</span> <span class="o">-&gt;</span> <span class="kt">Trees</span> <span class="kt">L</span> </code></pre></figure>
+
+<p>where \(\text{Trees}\; L = \mathcal{P}_\text{fin} (L \times \text{Trees}\; L)\).</p>
