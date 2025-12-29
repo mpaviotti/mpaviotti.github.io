@@ -1,22 +1,52 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.10.0">Jekyll</generator><link href="https://mpaviotti.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://mpaviotti.github.io/" rel="alternate" type="text/html" /><updated>2025-12-28T22:50:26+00:00</updated><id>https://mpaviotti.github.io/feed.xml</id><title type="html">Marco Paviotti</title><subtitle>Lecturer in Computer Science</subtitle><author><name>Marco Paviotti</name><email>m.paviotti@kent.ac.uk</email></author><entry><title type="html">Recursion as an Effect</title><link href="https://mpaviotti.github.io/posts/2025/12/Liftings/" rel="alternate" type="text/html" title="Recursion as an Effect" /><published>2025-12-28T19:24:21+00:00</published><updated>2025-12-28T19:24:21+00:00</updated><id>https://mpaviotti.github.io/posts/2025/12/Guarded-Lifting</id><content type="html" xml:base="https://mpaviotti.github.io/posts/2025/12/Liftings/"><![CDATA[<p>In one of my previous <a href="/posts/2022/11/CCC-FixedPoints/">post</a> I showed that any
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.10.0">Jekyll</generator><link href="https://mpaviotti.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://mpaviotti.github.io/" rel="alternate" type="text/html" /><updated>2025-12-29T09:43:43+00:00</updated><id>https://mpaviotti.github.io/feed.xml</id><title type="html">Marco Paviotti</title><subtitle>Lecturer in Computer Science</subtitle><author><name>Marco Paviotti</name><email>m.paviotti@kent.ac.uk</email></author><entry><title type="html">Recursion as an Effect</title><link href="https://mpaviotti.github.io/posts/2025/12/Lifting/" rel="alternate" type="text/html" title="Recursion as an Effect" /><published>2025-12-28T19:24:21+00:00</published><updated>2025-12-28T19:24:21+00:00</updated><id>https://mpaviotti.github.io/posts/2025/12/Guarded-Lifting</id><content type="html" xml:base="https://mpaviotti.github.io/posts/2025/12/Lifting/"><![CDATA[<p>In one of my previous <a href="/posts/2022/11/CCC-FixedPoints/">post</a> I showed that any
 theory featuring general recursion is inconsistent when viewed as a logical
 system which inevitably leads to the idea that all definable functions in such a theory should be
 total (or productive). 
 However, losing Turing-completeness could be somewhat problematic for some, but it can be addressed in several ways. One of these, an possibly the most popular, is to isolate recursion into a monad, effectively regarding  <strong>recursion as an effect</strong>. We discuss several lifting monads which are fit for purpose.</p>
 
-<h2 id="a-naive-solution">A Naive Solution</h2>
-<p>In domain theory non-termination is modelled as an operation \(A \mapsto A_\bot\) which takes a CPO and endows it with a bottom element, which is called the <strong>lifting</strong> of a CPO.</p>
-
-<p>Thus one could naively think that it is fine to just model non-termination by defining the set</p>
+<h2 id="domain-theoretic-liftings">Domain-Theoretic Liftings</h2>
+<p>The domain-theoretic approach to non-termination is to model computations as maps between sets with an additional  element. 
+Thus we define a <strong>lifting</strong> operation which takes a set and adds an element to it</p>
 
 \[M A = A + 1\]
 
 <p>which is the set of computations that either return an element of type \(A\) or do not terminate.</p>
 
-<p>Unfortunately, without proper restrictions on the functions that we can apply to it, this monad allows one to “decide non-termination”: one can write a function \(f : M A \to \{\textbf{True}, \textbf{False}\}\) which returns \(\textbf{True}\) if the program does not terminate and \(\textbf{False}\) otherwise. This clearly is not what we are trying to model. In domain theory this is not a problem, because \(\bot \sqsubseteq a\) for all \(a \in A\) and in the set \(\bot \sqsubseteq \textbf{True}, \bot \sqsubseteq \textbf{False}\}\) the elements  \(\textbf{True}\) and  \(\textbf{False}\)  are not related, thus we cannot give a continuous mapping \(a \mapsto \textbf{False}\) and \(\bot \mapsto \textbf{True}\).</p>
+<p>Of course, without proper restrictions on the functions that we can apply to it, this monad allows one to “decide non-termination”: one can write a function \(f : M A \to \{\textbf{True}, \textbf{False}\}\) which returns \(\textbf{True}\) if the program does not terminate and \(\textbf{False}\) otherwise. This clearly is not what we are trying to model.</p>
+
+<p>To avoid this problem, in domain theory, a set \(A\) are endowed with a <strong>complete partial order</strong> (\(\sqsubseteq\)) where non-termination is modelled as the least element (\(\bot\)). The operation \(A \mapsto A_\bot\) which adds a least element to a CPO is called the <strong>lifting</strong> of a CPO.  <br />
+Moreover, functions have to respect a <strong>continuity</strong> condition, that is the function must preserve least upper bounds of arbitrary \(\omega\)-chains:</p>
+
+\[f(\bigsqcup_{i\in \omega} d_i) = \bigsqcup_{i \in \omega} f(d_i)\]
+
+<p>Essentially what this means is that the function \(f\) when applied to the best approximation of a subset, can be computed <em>locally</em> for each element of this subset. One consequence of this fact is that \(f\) is monotonic: it preserves the order of the CPO. One feature of this category is that every continuous map \(A_\bot \xrightarrow{\text{cont}} A_\bot\) has a fixed-point operator via the Fixed-Point Theorem:</p>
+
+\[\text{fix}(f) = \bigsqcup_{i \in \omega} f^n(\bot)\]
+
+<p>which is given by the least upper bound of an \(\omega\)-chain</p>
+
+\[\bot \sqsubseteq f(\bot) \sqsubseteq f^2(\bot) \sqsubseteq \dots  \sqsubseteq f^n(\bot)  \sqsubseteq \dots\]
+
+<p>To go back to our original problem. Since \(\bot \sqsubseteq a\) for all \(a \in A\), we cannot define a continuous map \(A_\bot \to 2_\bot\) such the one above because in the codomain of this function the elements \(\textbf{True}\) and  \(\textbf{False}\) are not related.</p>
+
+<p><strong>Remark.</strong> When doing mathematics into a proof assistant the expert distinguishes two ways:</p>
+<ol>
+  <li>implementing all the theory inside the prover’s logic, or</li>
+  <li>creating a new synthetic language whose structure is interpreted inside the mathematical theory we want to work with</li>
+</ol>
+
+<p>The second approach is the one, for example, used in HoTT, where types are certain topological spaces and functions are continuous.</p>
+
+<p>The problem of formalising domain theory is that it becomes more complicated when the proof assistant is based on type theory. In particular, the problem is that a type is not really a set.</p>
+
+<p>On the other hand, doing things synthetically would mean that recursion is
+somewhat spread across the whole language. What I mean by this is that since
+every continuous function has a fixed-point then non-termination can happen at
+every type making the internal language of this category effectively an
+inconsistent language when viewed as a logic. Hence the need for treating
+recursion as an effect.</p>
 
 <h2 id="the-coinductive-lifting-capretta">The Coinductive Lifting (Capretta)</h2>
-
 <p>One solution proposed by Capretta is to take the coinductive solution to the following domain equation</p>
 
 \[D A \cong A + D A\]
@@ -33,18 +63,23 @@ However, losing Turing-completeness could be somewhat problematic for some, but 
 
 \[\bot = \text{delay}(\text{delay}(\text{delay}\dots))\]
 
-<p>so clearly, we cannot produce a function which discriminate between a terminating computation and non-terminating one. Capretta proves that \(D\) is a domain (up-to bisimilarity), that is, he defines a partial order \(\sqsubseteq_D\) on \(D\) which leads to a notion of least upper bounds for \(\omega\)-chains, written \(\bigsqcup_{n\in \omega} d_n\) for</p>
+<p>Clearly, we cannot produce a function which discriminate between a terminating computation and non-terminating one. Capretta proves that \(D\) is a domain (up-to bisimilarity), that is, he defines a partial order \(\sqsubseteq_D\) on \(D\) which leads to a notion of least upper bounds for \(\omega\)-chains, written \(\bigsqcup_{n\in \omega} d_n\) for</p>
 
 \[d_0 \sqsubseteq_D d_0 \sqsubseteq_D d_1 \dots \sqsubseteq_D d_n \dots\]
 
-<p>then it can be proven that every continuous function on \(D\) has a fixed-point.</p>
+<p>then it can be proven that every continuous function on \(D\) has a fixed-point similarly to the construction in domain theory.</p>
 
-<p>However, the constructive delay monad doesn’t seem to have a nice presentation as a theory. This means that contrarily to \(M\) it is not entirely clear how to give an algebraic presentation.</p>
+<p><strong>Considerations.</strong> Now that recursion is being isolated into an effect we have solved one problem. However, programming in practice with this monad is far from being easy as one has to</p>
+<ol>
+  <li>prove that each program on \(DA\) they define is a continuous function</li>
+  <li>working with a coinductive bisimilarity relation rather than equality</li>
+  <li>ensure productivity of definitions</li>
+</ol>
 
 <h2 id="metric-lifting-monad-martin-escardó">Metric Lifting Monad (Martin Escardó)</h2>
 
 <p>Escardó’s <em>metric lifting</em> models partiality using <strong>metric spaces</strong> rather
-than coinduction.  The <strong>metric lifting</strong> of a set \(A\), written \(LA\), is defined as</p>
+than coinduction, but the idea is not that different from Capretta’s.  The <strong>metric lifting</strong> of a set \(A\), written \(LA\), is defined as</p>
 
 \[LA = (A \times \mathbb{N}) \cup \{\infty\}\]
 
@@ -73,9 +108,12 @@ equal computations have distance \(0\), terminating computations \((a,k)\) and n
 
 \[\bot_A = \text{fix}(id_{LA})\]
 
+<p><strong>Considerations.</strong> This approach does not seem to suffer from the use of coinduction, but it still needs the programmer to prove functions are non-expansiveness.</p>
+
 <h2 id="guarded-lifting-atkey--mcbride">Guarded Lifting (Atkey &amp; McBride)</h2>
-<p>The coinductive lifting monad suffers from productivity and equality
-issues, while both the coinductive and metric liftings need additional structure on the maps defined on them to work properly with fixed-points.</p>
+<p>The coinductive lifting monad suffers from productivity and equality issues,
+while both the coinductive and metric liftings need additional structure on the
+maps defined on them to work properly with fixed-points.</p>
 
 <p>In guarded type theory however, maps are always non-expansive and contractiveness is enforced at the type level. In particular, a contractive map is a function of type \(\triangleright X \to X\) 
 for which there is always a fixed-point at all types \(X\):</p>
@@ -92,15 +130,42 @@ The guarded lifting is defined as the unique solution to the domain equation</p>
 \[\delta_A : \triangleright L_g A \to L_g A\]
 
 <p>Conceptually, this monad can be seen as Capretta’s lifting monad with an
-explicit notion of time or delay built into the type theory.
-At this point the divergent computation \(\bot_A : L_{g} A\) is defined as the guarded fixed-point of \(\delta\):</p>
+explicit notion of time or delay built into the type theory.  At this point the
+divergent computation \(\bot_A : L_{g} A\) is defined as the guarded fixed-point
+of \(\delta\):</p>
 
 \[\bot_A = \text{fix}_g (\delta_A)\]
 
 <p>Now we can check from the fixed-point property that \(\bot = \delta_A (\text{next}(\bot_A))\). Here, the term \(\delta_A \circ \text{next}\) corresponds to the delay operation which adds one step to the computation.</p>
 
 <h2 id="conclusion">Conclusion</h2>
-<p>The three monads presented here have many similarities, perhaps too many for it not to have a proper reconciliating story, but perhaps there is.</p>]]></content><author><name>Marco Paviotti</name><email>m.paviotti@kent.ac.uk</email></author><category term="semantics" /><category term="categories" /><category term="monads" /><category term="domain-theory" /><category term="recursion" /><summary type="html"><![CDATA[In one of my previous post I showed that any theory featuring general recursion is inconsistent when viewed as a logical system which inevitably leads to the idea that all definable functions in such a theory should be total (or productive). However, losing Turing-completeness could be somewhat problematic for some, but it can be addressed in several ways. One of these, an possibly the most popular, is to isolate recursion into a monad, effectively regarding recursion as an effect. We discuss several lifting monads which are fit for purpose.]]></summary></entry><entry><title type="html">On Lax Monoidal Functors</title><link href="https://mpaviotti.github.io/posts/2025/12/Lax-Monoidal-Functors/" rel="alternate" type="text/html" title="On Lax Monoidal Functors" /><published>2025-12-19T21:17:21+00:00</published><updated>2025-12-19T21:17:21+00:00</updated><id>https://mpaviotti.github.io/posts/2025/12/Lax-Monoidal-Functors</id><content type="html" xml:base="https://mpaviotti.github.io/posts/2025/12/Lax-Monoidal-Functors/"><![CDATA[<p>What is the difference between</p>
+
+<p><strong>The Synthetic Approach.</strong> What I personally found truly amazing about the guarded lifting is that this
+monad is truly synthetic. There is no need for additional structure as in
+Capretta’s lifting, no need for checking continuity or non-expansiveness of
+maps. Furthermore, using the model of guarded type theory one can show that (in
+a certain sense) it corresponds to Martin’s metric lifting on one side and to
+Capretta’s monad on the other. I will probably need another post to explain this
+point.</p>
+
+<p><strong>Intensionality.</strong> To be honest, the only problem arising from the use of guarded recursion
+unfortunately is the fact that computations are modelled intensionally, that is
+two computations that return the same output given the same input are not
+necessarily equal if they take a different amount of steps to terminate. This is
+an issue that has to be solved once again by quotienting the monad which is
+another problem entirely.</p>
+
+<p>Nevertheless, these problems also arise in coinductive and metric approaches. At
+present, the only extensional model of general recursion I am aware of is based
+on domain theory.</p>
+
+<p><strong>Consistency.</strong> Naturally, one might wonder why do we need guarded recursion, if domain theory
+already lets us model all of this extensionally? The answer to that is that,
+while domain theory is extremely powerful for modelling recursion extensionally,
+it does not yield a logically consistent model suitable for type theory. As
+noted in the introduction, this inconsistency makes domain-theoretic models
+ill-suited as foundations for type-theoretic languages, where logical soundness
+is essential.</p>]]></content><author><name>Marco Paviotti</name><email>m.paviotti@kent.ac.uk</email></author><category term="semantics" /><category term="categories" /><category term="monads" /><category term="domain-theory" /><category term="recursion" /><summary type="html"><![CDATA[In one of my previous post I showed that any theory featuring general recursion is inconsistent when viewed as a logical system which inevitably leads to the idea that all definable functions in such a theory should be total (or productive). However, losing Turing-completeness could be somewhat problematic for some, but it can be addressed in several ways. One of these, an possibly the most popular, is to isolate recursion into a monad, effectively regarding recursion as an effect. We discuss several lifting monads which are fit for purpose.]]></summary></entry><entry><title type="html">On Lax Monoidal Functors</title><link href="https://mpaviotti.github.io/posts/2025/12/Lax-Monoidal-Functors/" rel="alternate" type="text/html" title="On Lax Monoidal Functors" /><published>2025-12-19T21:17:21+00:00</published><updated>2025-12-19T21:17:21+00:00</updated><id>https://mpaviotti.github.io/posts/2025/12/Lax-Monoidal-Functors</id><content type="html" xml:base="https://mpaviotti.github.io/posts/2025/12/Lax-Monoidal-Functors/"><![CDATA[<p>What is the difference between</p>
 <ul>
   <li>a lax monoidal functor</li>
   <li>a monoid in a Day-monoidal category</li>

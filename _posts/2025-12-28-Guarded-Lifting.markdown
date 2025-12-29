@@ -1,7 +1,7 @@
 ---
 title:  "Recursion as an Effect" 
 date:   2025-12-28 19:24:21 +0000
-permalink: /posts/2025/12/Liftings/
+permalink: /posts/2025/12/Lifting/
 tags:
   - semantics
   - categories
@@ -16,19 +16,51 @@ system which inevitably leads to the idea that all definable functions in such a
 total (or productive). 
 However, losing Turing-completeness could be somewhat problematic for some, but it can be addressed in several ways. One of these, an possibly the most popular, is to isolate recursion into a monad, effectively regarding  **recursion as an effect**. We discuss several lifting monads which are fit for purpose.
 
-## A Naive Solution 
-In domain theory non-termination is modelled as an operation $$A \mapsto A_\bot$$ which takes a CPO and endows it with a bottom element, which is called the **lifting** of a CPO. 
-
-Thus one could naively think that it is fine to just model non-termination by defining the set 
+## Domain-Theoretic Liftings
+The domain-theoretic approach to non-termination is to model computations as maps between sets with an additional  element. 
+Thus we define a **lifting** operation which takes a set and adds an element to it
 
 $$M A = A + 1$$
 
 which is the set of computations that either return an element of type $$A$$ or do not terminate.
 
-Unfortunately, without proper restrictions on the functions that we can apply to it, this monad allows one to "decide non-termination": one can write a function $$f : M A \to \{\textbf{True}, \textbf{False}\}$$ which returns $$\textbf{True}$$ if the program does not terminate and $$\textbf{False}$$ otherwise. This clearly is not what we are trying to model. In domain theory this is not a problem, because $$\bot \sqsubseteq a$$ for all $$a \in A$$ and in the set $$\bot \sqsubseteq \textbf{True}, \bot \sqsubseteq \textbf{False}\}$$ the elements  $$\textbf{True}$$ and  $$\textbf{False}$$  are not related, thus we cannot give a continuous mapping $$a \mapsto \textbf{False}$$ and $$\bot \mapsto \textbf{True}$$.   
+Of course, without proper restrictions on the functions that we can apply to it, this monad allows one to "decide non-termination": one can write a function $$f : M A \to \{\textbf{True}, \textbf{False}\}$$ which returns $$\textbf{True}$$ if the program does not terminate and $$\textbf{False}$$ otherwise. This clearly is not what we are trying to model. 
+
+To avoid this problem, in domain theory, a set $$A$$ are endowed with a **complete partial order** ($$\sqsubseteq$$) where non-termination is modelled as the least element ($$\bot$$). The operation $$A \mapsto A_\bot$$ which adds a least element to a CPO is called the **lifting** of a CPO.    
+Moreover, functions have to respect a **continuity** condition, that is the function must preserve least upper bounds of arbitrary $$\omega$$-chains:
+
+$$f(\bigsqcup_{i\in \omega} d_i) = \bigsqcup_{i \in \omega} f(d_i)$$
+
+Essentially what this means is that the function $$f$$ when applied to the best approximation of a subset, can be computed *locally* for each element of this subset. One consequence of this fact is that $$f$$ is monotonic: it preserves the order of the CPO. One feature of this category is that every continuous map $$A_\bot \xrightarrow{\text{cont}} A_\bot$$ has a fixed-point operator via the Fixed-Point Theorem: 
+
+$$
+\text{fix}(f) = \bigsqcup_{i \in \omega} f^n(\bot)
+$$
+
+which is given by the least upper bound of an $$\omega$$-chain 
+
+$$
+\bot \sqsubseteq f(\bot) \sqsubseteq f^2(\bot) \sqsubseteq \dots  \sqsubseteq f^n(\bot)  \sqsubseteq \dots
+$$
+
+To go back to our original problem. Since $$\bot \sqsubseteq a$$ for all $$a \in A$$, we cannot define a continuous map $$A_\bot \to 2_\bot$$ such the one above because in the codomain of this function the elements $$\textbf{True}$$ and  $$\textbf{False}$$ are not related. 
+
+**Remark.** When doing mathematics into a proof assistant the expert distinguishes two ways:
+1. implementing all the theory inside the prover's logic, or 
+2. creating a new synthetic language whose structure is interpreted inside the mathematical theory we want to work with 
+
+The second approach is the one, for example, used in HoTT, where types are certain topological spaces and functions are continuous. 
+
+The problem of formalising domain theory is that it becomes more complicated when the proof assistant is based on type theory. In particular, the problem is that a type is not really a set.
+
+On the other hand, doing things synthetically would mean that recursion is
+somewhat spread across the whole language. What I mean by this is that since
+every continuous function has a fixed-point then non-termination can happen at
+every type making the internal language of this category effectively an
+inconsistent language when viewed as a logic. Hence the need for treating
+recursion as an effect. 
 
 ## The Coinductive Lifting (Capretta)
-
 One solution proposed by Capretta is to take the coinductive solution to the following domain equation
 
 $$
@@ -51,20 +83,24 @@ $$
 \bot = \text{delay}(\text{delay}(\text{delay}\dots))
 $$
 
-so clearly, we cannot produce a function which discriminate between a terminating computation and non-terminating one. Capretta proves that $$D$$ is a domain (up-to bisimilarity), that is, he defines a partial order $$\sqsubseteq_D$$ on $$D$$ which leads to a notion of least upper bounds for $$\omega$$-chains, written $$\bigsqcup_{n\in \omega} d_n$$ for
+Clearly, we cannot produce a function which discriminate between a terminating computation and non-terminating one. Capretta proves that $$D$$ is a domain (up-to bisimilarity), that is, he defines a partial order $$\sqsubseteq_D$$ on $$D$$ which leads to a notion of least upper bounds for $$\omega$$-chains, written $$\bigsqcup_{n\in \omega} d_n$$ for
 
 $$
 d_0 \sqsubseteq_D d_0 \sqsubseteq_D d_1 \dots \sqsubseteq_D d_n \dots
 $$
 
-then it can be proven that every continuous function on $$D$$ has a fixed-point. 
+then it can be proven that every continuous function on $$D$$ has a fixed-point similarly to the construction in domain theory. 
 
-However, the constructive delay monad doesn't seem to have a nice presentation as a theory. This means that contrarily to $$M$$ it is not entirely clear how to give an algebraic presentation. 
+**Considerations.** Now that recursion is being isolated into an effect we have solved one problem. However, programming in practice with this monad is far from being easy as one has to 
+1. prove that each program on $$DA$$ they define is a continuous function
+2. working with a coinductive bisimilarity relation rather than equality 
+3. ensure productivity of definitions
+
 
 ## Metric Lifting Monad (Martin Escardó)
 
 Escardó’s *metric lifting* models partiality using **metric spaces** rather
-than coinduction.  The **metric lifting** of a set $$A$$, written $$LA$$, is defined as 
+than coinduction, but the idea is not that different from Capretta's.  The **metric lifting** of a set $$A$$, written $$LA$$, is defined as 
 
 $$
 LA = (A \times \mathbb{N}) \cup \{\infty\}
@@ -95,11 +131,13 @@ which sends every non-expansive map $$f$$ to the fixed-point of $$\delta_A \circ
 
 $$\bot_A = \text{fix}(id_{LA})$$
 
+**Considerations.** This approach does not seem to suffer from the use of coinduction, but it still needs the programmer to prove functions are non-expansiveness. 
 
 
 ## Guarded Lifting (Atkey & McBride)
-The coinductive lifting monad suffers from productivity and equality
-issues, while both the coinductive and metric liftings need additional structure on the maps defined on them to work properly with fixed-points. 
+The coinductive lifting monad suffers from productivity and equality issues,
+while both the coinductive and metric liftings need additional structure on the
+maps defined on them to work properly with fixed-points. 
 
 In guarded type theory however, maps are always non-expansive and contractiveness is enforced at the type level. In particular, a contractive map is a function of type $$\triangleright X \to X$$ 
 for which there is always a fixed-point at all types $$X$$:
@@ -122,8 +160,9 @@ $$
 $$
 
 Conceptually, this monad can be seen as Capretta’s lifting monad with an
-explicit notion of time or delay built into the type theory.
-At this point the divergent computation $$\bot_A : L_{g} A$$ is defined as the guarded fixed-point of $$\delta$$: 
+explicit notion of time or delay built into the type theory.  At this point the
+divergent computation $$\bot_A : L_{g} A$$ is defined as the guarded fixed-point
+of $$\delta$$: 
 
 $$
 \bot_A = \text{fix}_g (\delta_A)
@@ -132,4 +171,30 @@ $$
 Now we can check from the fixed-point property that $$\bot = \delta_A (\text{next}(\bot_A))$$. Here, the term $$\delta_A \circ \text{next}$$ corresponds to the delay operation which adds one step to the computation. 
 
 ## Conclusion
-The three monads presented here have many similarities, perhaps too many for it not to have a proper reconciliating story, but perhaps there is. 
+
+**The Synthetic Approach.** What I personally found truly amazing about the guarded lifting is that this
+monad is truly synthetic. There is no need for additional structure as in
+Capretta's lifting, no need for checking continuity or non-expansiveness of
+maps. Furthermore, using the model of guarded type theory one can show that (in
+a certain sense) it corresponds to Martin's metric lifting on one side and to
+Capretta's monad on the other. I will probably need another post to explain this
+point.
+
+**Intensionality.** To be honest, the only problem arising from the use of guarded recursion
+unfortunately is the fact that computations are modelled intensionally, that is
+two computations that return the same output given the same input are not
+necessarily equal if they take a different amount of steps to terminate. This is
+an issue that has to be solved once again by quotienting the monad which is
+another problem entirely. 
+
+Nevertheless, these problems also arise in coinductive and metric approaches. At
+present, the only extensional model of general recursion I am aware of is based
+on domain theory.
+
+**Consistency.** Naturally, one might wonder why do we need guarded recursion, if domain theory
+already lets us model all of this extensionally? The answer to that is that,
+while domain theory is extremely powerful for modelling recursion extensionally,
+it does not yield a logically consistent model suitable for type theory. As
+noted in the introduction, this inconsistency makes domain-theoretic models
+ill-suited as foundations for type-theoretic languages, where logical soundness
+is essential.
