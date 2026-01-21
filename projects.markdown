@@ -7,6 +7,22 @@ title: Projects
 
 ## Undergrad Projects for Computer Scientists
 
+### Graded Monads for Efficient Database Implementations 
+Functional programming languages such as Haskell make it easy to express database queries using list comprehensions. For instance, the SQL query
+
+`SELECT name, amount
+FROM customers, invoices
+WHERE cid = cust AND due < today`
+
+can be written in Haskell as the following one-liner:
+
+
+`[ (c.name, i.amount) |c ←customers, i ←invoices, c.cid i.cust, i.due < today ]`
+
+This approach is highly convenient: monads allow us to concisely express fairly complex operations over lists. However, this simplicity comes at a cost—such implementations are often inefficient. A more performant alternative is to use indexed tables, which can be viewed as finite functions of type `Key -> [Value]`. While this representation improves efficiency, it sacrifices the ability to compose queries elegantly using monads.
+
+This project will address this trade-off by implementing an efficient database representation based on **graded monads**, thereby retaining compositionality while improving performance.
+
 ### OS Development
 Markix is an operating System I developed when I was little. It is a bare bone operating system for x86 architectures written in Assembly and C and runs on x86 or the [bochs emulator](https://bochs.sourceforge.io). The idea is to have something more minimal than Minix so that students can understand every component of an operating system in isolation.  
 Hence, Markix is built in incremental stages. Each milestone corresponds to a Git tag, and improvements to that module are developed on dedicated branches.
@@ -35,6 +51,7 @@ is being considered for the next ISO standard of C++.
 - The WG21 group page: [https://isocpp.org/wiki/faq/wg21](https://isocpp.org/wiki/faq/wg21)
 - The MRD Web Tool [link](https://www.cs.kent.ac.uk/projects/MRDer/)
 
+###
 ### Other Projects B.Sc. and M.Sc. Projects for Computer Scientists
  
 - Operating System Development (OSDev)

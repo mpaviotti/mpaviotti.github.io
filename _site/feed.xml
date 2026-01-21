@@ -1,16 +1,22 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.10.0">Jekyll</generator><link href="https://mpaviotti.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://mpaviotti.github.io/" rel="alternate" type="text/html" /><updated>2025-12-29T10:09:13+00:00</updated><id>https://mpaviotti.github.io/feed.xml</id><title type="html">Marco Paviotti</title><subtitle>Lecturer in Computer Science</subtitle><author><name>Marco Paviotti</name><email>m.paviotti@kent.ac.uk</email></author><entry><title type="html">Recursion as an Effect</title><link href="https://mpaviotti.github.io/posts/2025/12/Lifting/" rel="alternate" type="text/html" title="Recursion as an Effect" /><published>2025-12-28T19:24:21+00:00</published><updated>2025-12-28T19:24:21+00:00</updated><id>https://mpaviotti.github.io/posts/2025/12/Guarded-Lifting</id><content type="html" xml:base="https://mpaviotti.github.io/posts/2025/12/Lifting/"><![CDATA[<p>In one of my previous <a href="/posts/2022/11/CCC-FixedPoints/">post</a> I showed that any
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.10.0">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2025-12-29T20:38:20+00:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">Marco Paviotti</title><subtitle>Lecturer in Computer Science</subtitle><author><name>Marco Paviotti</name><email>m.paviotti@kent.ac.uk</email></author><entry><title type="html">Recursion as an Effect</title><link href="http://localhost:4000/posts/2025/12/Lifting/" rel="alternate" type="text/html" title="Recursion as an Effect" /><published>2025-12-28T19:24:21+00:00</published><updated>2025-12-28T19:24:21+00:00</updated><id>http://localhost:4000/posts/2025/12/Guarded-Lifting</id><content type="html" xml:base="http://localhost:4000/posts/2025/12/Lifting/"><![CDATA[<p>In one of my previous <a href="/posts/2022/11/CCC-FixedPoints/">post</a> I showed that any
 theory featuring general recursion is inconsistent when viewed as a logical
-system which inevitably leads to the idea that all definable functions in such a theory should be
-total (or productive). 
-However, losing Turing-completeness could be somewhat problematic for some, but it can be addressed in several ways. One of these, an possibly the most popular, is to isolate recursion into a monad, effectively regarding  <strong>recursion as an effect</strong>. We discuss several lifting monads which are fit for purpose.</p>
+system which inevitably leads to the idea that all definable functions in such a
+theory should be total (or productive).</p>
+
+<p>However, losing Turing-completeness could be somewhat problematic for some, but
+it can be addressed in several ways. One of these, an possibly the most popular,
+is to isolate recursion into a monad, effectively regarding  <strong>recursion as an
+effect</strong>. We discuss several lifting monads which are fit for purpose.</p>
 
 <h2 id="domain-theoretic-liftings">Domain-Theoretic Liftings</h2>
-<p>The domain-theoretic approach to non-termination is to model computations as maps between sets with an additional  element. 
-Thus we define a <strong>lifting</strong> operation which takes a set and adds an element to it</p>
+<p>The domain-theoretic approach to non-termination is to model computations as
+maps between sets with an additional  element.  Thus we define a <strong>lifting</strong>
+operation which takes a set and adds an element to it</p>
 
 \[M A = A + 1\]
 
-<p>which is the set of computations that either return an element of type \(A\) or do not terminate.</p>
+<p>which is the set of computations that either return an element of type \(A\) or
+do not terminate.</p>
 
 <p>Of course, without proper restrictions on the functions that we can apply to it,
 this monad allows one to “decide non-termination”: one can write a function
@@ -24,7 +30,12 @@ function must preserve least upper bounds of arbitrary \(\omega\)-chains:</p>
 
 \[f(\bigsqcup_{i\in \omega} d_i) = \bigsqcup_{i \in \omega} f(d_i)\]
 
-<p>Essentially what this means is that the function \(f\) when applied to the best approximation of a subset, can be computed <em>locally</em> for each element of this subset. One consequence of this fact is that \(f\) is monotonic: it preserves the order of the CPO. One feature of this category is that every continuous map \(A_\bot \xrightarrow{\text{cont}} A_\bot\) has a fixed-point operator via the Fixed-Point Theorem:</p>
+<p>Essentially what this means is that the function \(f\) when applied to the best
+approximation of a subset, can be computed <em>locally</em> for each element of this
+subset. One consequence of this fact is that \(f\) is monotonic: it preserves
+the order of the CPO. One feature of this category is that every continuous map
+\(A_\bot \xrightarrow{\text{cont}} A_\bot\) has a fixed-point operator via the
+Fixed-Point Theorem:</p>
 
 \[\text{fix}(f) = \bigsqcup_{i \in \omega} f^n(\bot)\]
 
@@ -32,7 +43,10 @@ function must preserve least upper bounds of arbitrary \(\omega\)-chains:</p>
 
 \[\bot \sqsubseteq f(\bot) \sqsubseteq f^2(\bot) \sqsubseteq \dots  \sqsubseteq f^n(\bot)  \sqsubseteq \dots\]
 
-<p>To go back to our original problem. Since \(\bot \sqsubseteq a\) for all \(a \in A\), we cannot define a continuous map \(A_\bot \to 2_\bot\) such the one above because in the codomain of this function the elements \(\textbf{True}\) and  \(\textbf{False}\) are not related.</p>
+<p>To go back to our original problem. Since \(\bot \sqsubseteq a\) for all \(a \in
+A\), we cannot define a continuous map \(A_\bot \to 2_\bot\) such the one above
+because in the codomain of this function the elements \(\textbf{True}\) and
+\(\textbf{False}\) are not related.</p>
 
 <p><strong>Remark.</strong> When doing mathematics into a proof assistant the expert distinguishes two ways:</p>
 <ol>
@@ -40,9 +54,12 @@ function must preserve least upper bounds of arbitrary \(\omega\)-chains:</p>
   <li>creating a new synthetic language whose structure is interpreted inside the mathematical theory we want to work with</li>
 </ol>
 
-<p>The second approach is the one, for example, used in HoTT, where types are certain topological spaces and functions are continuous.</p>
+<p>The second approach is the one, for example, used in HoTT, where types are
+certain topological spaces and functions are continuous.</p>
 
-<p>The problem of formalising domain theory is that it becomes more complicated when the proof assistant is based on type theory. In particular, the problem is that a type is not really a set.</p>
+<p>The problem of formalising domain theory is that it becomes more complicated
+when the proof assistant is based on type theory. In particular, the problem is
+that a type is not really a set.</p>
 
 <p>On the other hand, doing things synthetically would mean that recursion is
 somewhat spread across the whole language. What I mean by this is that since
@@ -52,11 +69,18 @@ inconsistent language when viewed as a logic. Hence the need for treating
 recursion as an effect.</p>
 
 <h2 id="the-coinductive-lifting-capretta">The Coinductive Lifting (Capretta)</h2>
-<p>One solution proposed by Capretta is to take the coinductive solution to the following domain equation</p>
+<p>One solution proposed by Capretta is to take the coinductive solution to the
+following domain equation</p>
 
 \[D A \cong A + D A\]
 
-<p>In other words, \(DA\) is the set coinductively generated by the constructors \(\text{now} : A \to D A\) and \(\text{delay} : DA \to DA\).  Intuitively, \(\text{now}(x)\) is a terminating computation which returns an element \(x \in A\) in \(0\) steps, while \(\text{delay}(c)\) takes a computation \(c \in DA\) and delays it by adding one computational step to it. For example, \(\text{delay}(\text{delay}(\text{delay}(10)))\) is a computation which returns the number \(10\) in three steps.</p>
+<p>In other words, \(DA\) is the set coinductively generated by the constructors
+\(\text{now} : A \to D A\) and \(\text{delay} : DA \to DA\).  Intuitively,
+\(\text{now}(x)\) is a terminating computation which returns an element \(x \in
+A\) in \(0\) steps, while \(\text{delay}(c)\) takes a computation \(c \in DA\)
+and delays it by adding one computational step to it. For example,
+\(\text{delay}(\text{delay}(\text{delay}(10)))\) is a computation which returns
+the number \(10\) in three steps.</p>
 
 <p><strong>Remark.</strong> \(D\) can be given the structure of an \(\omega\)-CPO with \(\bot\).</p>
 
@@ -64,17 +88,25 @@ recursion as an effect.</p>
 
 \[\bot = \text{delay}(\bot)\]
 
-<p>which is clearly a productive definition. Intuitively, \(\bot\) corresponds to the never-ending stream of delays:</p>
+<p>which is clearly a productive definition. Intuitively, \(\bot\) corresponds to
+the never-ending stream of delays:</p>
 
 \[\bot = \text{delay}(\text{delay}(\text{delay}\dots))\]
 
-<p>Clearly, we cannot produce a function which discriminate between a terminating computation and non-terminating one. Capretta proves that \(D\) is a domain (up-to bisimilarity), that is, he defines a partial order \(\sqsubseteq_D\) on \(D\) which leads to a notion of least upper bounds for \(\omega\)-chains, written \(\bigsqcup_{n\in \omega} d_n\) for</p>
+<p>Clearly, we cannot produce a function which discriminate between a terminating
+computation and non-terminating one. Capretta proves that \(D\) is a domain
+(up-to bisimilarity), that is, he defines a partial order \(\sqsubseteq_D\) on
+\(D\) which leads to a notion of least upper bounds for \(\omega\)-chains,
+written \(\bigsqcup_{n\in \omega} d_n\) for</p>
 
 \[d_0 \sqsubseteq_D d_0 \sqsubseteq_D d_1 \dots \sqsubseteq_D d_n \dots\]
 
-<p>then it can be proven that every continuous function on \(D\) has a fixed-point similarly to the construction in domain theory.</p>
+<p>then it can be proven that every continuous function on \(D\) has a fixed-point
+similarly to the construction in domain theory.</p>
 
-<p><strong>Considerations.</strong> Now that recursion is being isolated into an effect we have solved one problem. However, programming in practice with this monad is far from being easy as one has to</p>
+<p><strong>Considerations.</strong> Now that recursion is being isolated into an effect we have
+solved one problem. However, programming in practice with this monad is far from
+being easy as one has to</p>
 <ol>
   <li>prove that each program on \(DA\) they define is a continuous function</li>
   <li>working with a coinductive bisimilarity relation rather than equality</li>
@@ -83,21 +115,28 @@ recursion as an effect.</p>
 
 <h2 id="metric-lifting-monad-martin-escardó">Metric Lifting Monad (Martin Escardó)</h2>
 
-<p>Escardó’s <em>metric lifting</em> models partiality using <strong>metric spaces</strong> rather
-than coinduction, but the idea is not that different from Capretta’s.  The <strong>metric lifting</strong> of a set \(A\), written \(LA\), is defined as</p>
+<p>Escardó’s <em>metric lifting</em> models partiality using <strong>metric spaces</strong> rather than
+coinduction, but the idea is not that different from Capretta’s.  The <strong>metric
+lifting</strong> of a set \(A\), written \(LA\), is defined as</p>
 
 \[LA = (A \times \mathbb{N}) \cup \{\infty\}\]
 
 <p>together with a distance function \(d : LA \times LA \to [0, \infty]\) where
-equal computations have distance \(0\), terminating computations \((a,k)\) and non-terminating ones have distance \((1/2)^k\), and terminating computations \((a,k)\) and \((b,l)\) have distance \(1/2^{\text{min}(k,l)}\). Intuitively, \((a,k)\) is a computation which returns \(a\) in \(k\) steps and \(\infty\) is the divergent computation.</p>
+equal computations have distance \(0\), terminating computations \((a,k)\) and
+non-terminating ones have distance \((1/2)^k\), and terminating computations
+\((a,k)\) and \((b,l)\) have distance \(1/2^{\text{min}(k,l)}\). Intuitively,
+\((a,k)\) is a computation which returns \(a\) in \(k\) steps and \(\infty\) is
+the divergent computation.</p>
 
 <p><strong>Remark.</strong> \(LA\) is a complete bounded metric ultrametric space.</p>
 
-<p>The unit of the monad \(LA\) is defined by \(\eta_A(a) = (a,0)\) and the delay operation is defined by</p>
+<p>The unit of the monad \(LA\) is defined by \(\eta_A(a) = (a,0)\) and the delay
+operation is defined by</p>
 
 \[\delta_A(a,n) = (a, n + 1) \qquad \delta_A(\infty) = \infty\]
 
-<p>In metric spaces terminology, a function is non-expansive if it does not expand  the space relative to a distance function \(d\), but possibly contracts it:</p>
+<p>In metric spaces terminology, a function is non-expansive if it does not expand
+the space relative to a distance function \(d\), but possibly contracts it:</p>
 
 \[d(f(x), f(y)) \le d(x,y)\]
 
@@ -105,32 +144,41 @@ equal computations have distance \(0\), terminating computations \((a,k)\) and n
 
 \[d(f(x), f(y)) \le c \dot (d(x,y))\]
 
-<p>for a certain \(c &lt; 1\). At this point it is possible to define a fixed-point operator for all contractive maps</p>
+<p>for a certain \(c &lt; 1\). At this point it is possible to define a fixed-point
+operator for all contractive maps</p>
 
 \[\text{fix} : (LA \to LA) \to LA\]
 
-<p>which sends every non-expansive map \(f\) to the fixed-point of \(\delta_A \circ f\), which is contractive because \(\delta_A\) is contractive. At this point the non-divergent computation is now defined as</p>
+<p>which sends every non-expansive map \(f\) to the fixed-point of \(\delta_A \circ
+f\), which is contractive because \(\delta_A\) is contractive. At this point the
+non-divergent computation is now defined as</p>
 
 \[\bot_A = \text{fix}(id_{LA})\]
 
-<p><strong>Considerations.</strong> This approach does not seem to suffer from the use of coinduction, but it still needs the programmer to prove functions are non-expansiveness.</p>
+<p><strong>Considerations.</strong> This approach does not seem to suffer from the use of
+coinduction, but it still needs the programmer to prove functions are
+non-expansiveness.</p>
 
 <h2 id="guarded-lifting-atkey--mcbride">Guarded Lifting (Atkey &amp; McBride)</h2>
 <p>The coinductive lifting monad suffers from productivity and equality issues,
 while both the coinductive and metric liftings need additional structure on the
 maps defined on them to work properly with fixed-points.</p>
 
-<p>In guarded type theory however, maps are always non-expansive and contractiveness is enforced at the type level. In particular, a contractive map is a function of type \(\triangleright X \to X\) 
-for which there is always a fixed-point at all types \(X\):</p>
+<p>In guarded type theory however, maps are always non-expansive and
+contractiveness is enforced at the type level. In particular, a contractive map
+is a function of type \(\triangleright X \to X\)  for which there is always a
+fixed-point at all types \(X\):</p>
 
 \[\text{fix}_g : (\triangleright X \to X) \to X\]
 
-<p>sending a map \(f : (\triangleright X \to X)\) to the unique fixed-point of \(f \circ \text{next}\).
-The guarded lifting is defined as the unique solution to the domain equation</p>
+<p>sending a map \(f : (\triangleright X \to X)\) to the unique fixed-point of \(f
+\circ \text{next}\).  The guarded lifting is defined as the unique solution to
+the domain equation</p>
 
 \[L_g A = A + \triangleright L_g A\]
 
-<p>There is an obvious unit of the monad \(\eta_A : A \to L_g A\) and delay map which has type</p>
+<p>There is an obvious unit of the monad \(\eta_A : A \to L_g A\) and delay map
+which has type</p>
 
 \[\delta_A : \triangleright L_g A \to L_g A\]
 
@@ -170,7 +218,7 @@ while domain theory is extremely powerful for modelling recursion extensionally,
 it does not yield a logically consistent model suitable for type theory. As
 noted in the introduction, this inconsistency makes domain-theoretic models
 ill-suited as foundations for type-theoretic languages, where logical soundness
-is essential.</p>]]></content><author><name>Marco Paviotti</name><email>m.paviotti@kent.ac.uk</email></author><category term="semantics" /><category term="categories" /><category term="monads" /><category term="domain-theory" /><category term="recursion" /><summary type="html"><![CDATA[In one of my previous post I showed that any theory featuring general recursion is inconsistent when viewed as a logical system which inevitably leads to the idea that all definable functions in such a theory should be total (or productive). However, losing Turing-completeness could be somewhat problematic for some, but it can be addressed in several ways. One of these, an possibly the most popular, is to isolate recursion into a monad, effectively regarding recursion as an effect. We discuss several lifting monads which are fit for purpose.]]></summary></entry><entry><title type="html">On Lax Monoidal Functors</title><link href="https://mpaviotti.github.io/posts/2025/12/Lax-Monoidal-Functors/" rel="alternate" type="text/html" title="On Lax Monoidal Functors" /><published>2025-12-19T21:17:21+00:00</published><updated>2025-12-19T21:17:21+00:00</updated><id>https://mpaviotti.github.io/posts/2025/12/Lax-Monoidal-Functors</id><content type="html" xml:base="https://mpaviotti.github.io/posts/2025/12/Lax-Monoidal-Functors/"><![CDATA[<p>What is the difference between</p>
+is essential.</p>]]></content><author><name>Marco Paviotti</name><email>m.paviotti@kent.ac.uk</email></author><category term="semantics" /><category term="categories" /><category term="monads" /><category term="domain-theory" /><category term="recursion" /><summary type="html"><![CDATA[In one of my previous post I showed that any theory featuring general recursion is inconsistent when viewed as a logical system which inevitably leads to the idea that all definable functions in such a theory should be total (or productive).]]></summary></entry><entry><title type="html">On Lax Monoidal Functors</title><link href="http://localhost:4000/posts/2025/12/Lax-Monoidal-Functors/" rel="alternate" type="text/html" title="On Lax Monoidal Functors" /><published>2025-12-19T21:17:21+00:00</published><updated>2025-12-19T21:17:21+00:00</updated><id>http://localhost:4000/posts/2025/12/Lax-Monoidal-Functors</id><content type="html" xml:base="http://localhost:4000/posts/2025/12/Lax-Monoidal-Functors/"><![CDATA[<p>What is the difference between</p>
 <ul>
   <li>a lax monoidal functor</li>
   <li>a monoid in a Day-monoidal category</li>
@@ -300,7 +348,7 @@ In other words, \(T\) is the free monoid 2-monad in \(\textbf{Cat}\) defined as 
 
 <p>which is defined at all \(n\) and \(A_i\) hence it is a (co)distributive law</p>
 
-\[\text{Nat}(\otimes^{n}_{\mathcal{D}} \circ F^{n}, F \circ \otimes^{n}_{\mathcal{C}})\]]]></content><author><name>Marco Paviotti</name><email>m.paviotti@kent.ac.uk</email></author><category term="monoids" /><category term="categories" /><category term="monads" /><summary type="html"><![CDATA[What is the difference between a lax monoidal functor a monoid in a Day-monoidal category a morphism of lax-algebras for the free monoid 2-monad, and a codistributive law with the tensor product?]]></summary></entry><entry><title type="html">Bisimulations, Equality and Traces</title><link href="https://mpaviotti.github.io/posts/2023/10/Bisim-Eq/" rel="alternate" type="text/html" title="Bisimulations, Equality and Traces" /><published>2023-10-09T13:14:21+00:00</published><updated>2023-10-09T13:14:21+00:00</updated><id>https://mpaviotti.github.io/posts/2023/10/bisimulations</id><content type="html" xml:base="https://mpaviotti.github.io/posts/2023/10/Bisim-Eq/"><![CDATA[<p>Strong bisimulation for CCS is the preferred equivalence method in concurrency because it relates less programs than trace equality. However, the reality is that is strong bisimulation and trace equality ought to be regarded as equivalent. This is the essence behind proof assistant’s like (e.g.) Isabelle. So what is going here?</p>
+\[\text{Nat}(\otimes^{n}_{\mathcal{D}} \circ F^{n}, F \circ \otimes^{n}_{\mathcal{C}})\]]]></content><author><name>Marco Paviotti</name><email>m.paviotti@kent.ac.uk</email></author><category term="monoids" /><category term="categories" /><category term="monads" /><summary type="html"><![CDATA[What is the difference between a lax monoidal functor a monoid in a Day-monoidal category a morphism of lax-algebras for the free monoid 2-monad, and a codistributive law with the tensor product?]]></summary></entry><entry><title type="html">Bisimulations, Equality and Traces</title><link href="http://localhost:4000/posts/2023/10/Bisim-Eq/" rel="alternate" type="text/html" title="Bisimulations, Equality and Traces" /><published>2023-10-09T13:14:21+00:00</published><updated>2023-10-09T13:14:21+00:00</updated><id>http://localhost:4000/posts/2023/10/bisimulations</id><content type="html" xml:base="http://localhost:4000/posts/2023/10/Bisim-Eq/"><![CDATA[<p>Strong bisimulation for CCS is the preferred equivalence method in concurrency because it relates less programs than trace equality. However, the reality is that is strong bisimulation and trace equality ought to be regarded as equivalent. This is the essence behind proof assistant’s like (e.g.) Isabelle. So what is going here?</p>
 
 <p>One example of this fact is when considering CCS with the choice operator.  In
 this language we can define a process \(P\) and a process \(Q\) as follows</p>
@@ -419,7 +467,7 @@ type</p>
 
 <figure class="highlight"><pre><code class="language-haskell" data-lang="haskell"><span class="n">unfold</span> <span class="n">opsem</span> <span class="o">::</span> <span class="kt">CCS</span> <span class="o">-&gt;</span> <span class="kt">Trees</span> <span class="kt">L</span> </code></pre></figure>
 
-<p>where \(\text{Trees}\; L = \mathcal{P}_\text{fin} (L \times \text{Trees}\; L)\).</p>]]></content><author><name>Marco Paviotti</name><email>m.paviotti@kent.ac.uk</email></author><category term="semantics" /><category term="categories" /><summary type="html"><![CDATA[Strong bisimulation for CCS is the preferred equivalence method in concurrency because it relates less programs than trace equality. However, the reality is that is strong bisimulation and trace equality ought to be regarded as equivalent. This is the essence behind proof assistant’s like (e.g.) Isabelle. So what is going here?]]></summary></entry><entry><title type="html">The mini Yoneda lemma for Type Theorists</title><link href="https://mpaviotti.github.io/posts/2023/09/Yoneda-TT/" rel="alternate" type="text/html" title="The mini Yoneda lemma for Type Theorists" /><published>2023-09-09T13:14:21+00:00</published><updated>2023-09-09T13:14:21+00:00</updated><id>https://mpaviotti.github.io/posts/2023/09/mini-yoneda</id><content type="html" xml:base="https://mpaviotti.github.io/posts/2023/09/Yoneda-TT/"><![CDATA[<p>I have managed to teach the Yoneda lemma to students who knew very little about category theory, here’s how you do it.</p>
+<p>where \(\text{Trees}\; L = \mathcal{P}_\text{fin} (L \times \text{Trees}\; L)\).</p>]]></content><author><name>Marco Paviotti</name><email>m.paviotti@kent.ac.uk</email></author><category term="semantics" /><category term="categories" /><summary type="html"><![CDATA[Strong bisimulation for CCS is the preferred equivalence method in concurrency because it relates less programs than trace equality. However, the reality is that is strong bisimulation and trace equality ought to be regarded as equivalent. This is the essence behind proof assistant’s like (e.g.) Isabelle. So what is going here?]]></summary></entry><entry><title type="html">The mini Yoneda lemma for Type Theorists</title><link href="http://localhost:4000/posts/2023/09/Yoneda-TT/" rel="alternate" type="text/html" title="The mini Yoneda lemma for Type Theorists" /><published>2023-09-09T13:14:21+00:00</published><updated>2023-09-09T13:14:21+00:00</updated><id>http://localhost:4000/posts/2023/09/mini-yoneda</id><content type="html" xml:base="http://localhost:4000/posts/2023/09/Yoneda-TT/"><![CDATA[<p>I have managed to teach the Yoneda lemma to students who knew very little about category theory, here’s how you do it.</p>
 
 <p>Say that you want to do denotational semantics for a simply typed calculus with a unary constructor \(\textsf{R}\) which has the following typing rule</p>
 
@@ -452,7 +500,7 @@ is a canonical way to construct a morphism \(\Gamma \xrightarrow{R(t)} B\).</p>
 <p>Let \(R : A \to B\) be the interpretation of \(\textsf{R}\) then, one side of
 the isomorphism is \(\phi (\textsf{R},t) = F(t)(\textsf{R}) = \mathbb{C}(t,
 B)(\textsf{R})\).  In other words, the interpretation of \(\textsf{R}(t)\) is
-simply \(\textsf{R} \circ t\).</p>]]></content><author><name>Marco Paviotti</name><email>m.paviotti@kent.ac.uk</email></author><category term="semantics" /><category term="categories" /><summary type="html"><![CDATA[I have managed to teach the Yoneda lemma to students who knew very little about category theory, here’s how you do it.]]></summary></entry><entry><title type="html">CCCs and the complete models of STLC</title><link href="https://mpaviotti.github.io/posts/2023/03/CCC-STLC/" rel="alternate" type="text/html" title="CCCs and the complete models of STLC" /><published>2023-03-16T13:14:21+00:00</published><updated>2023-03-16T13:14:21+00:00</updated><id>https://mpaviotti.github.io/posts/2023/03/CCC-models</id><content type="html" xml:base="https://mpaviotti.github.io/posts/2023/03/CCC-STLC/"><![CDATA[<p>Cartesian closed categories are not regarded as complete models of the Simply Typed \(\lambda\)-calculus in the traditional sense. Let’s see why.</p>
+simply \(\textsf{R} \circ t\).</p>]]></content><author><name>Marco Paviotti</name><email>m.paviotti@kent.ac.uk</email></author><category term="semantics" /><category term="categories" /><summary type="html"><![CDATA[I have managed to teach the Yoneda lemma to students who knew very little about category theory, here’s how you do it.]]></summary></entry><entry><title type="html">CCCs and the complete models of STLC</title><link href="http://localhost:4000/posts/2023/03/CCC-STLC/" rel="alternate" type="text/html" title="CCCs and the complete models of STLC" /><published>2023-03-16T13:14:21+00:00</published><updated>2023-03-16T13:14:21+00:00</updated><id>http://localhost:4000/posts/2023/03/CCC-models</id><content type="html" xml:base="http://localhost:4000/posts/2023/03/CCC-STLC/"><![CDATA[<p>Cartesian closed categories are not regarded as complete models of the Simply Typed \(\lambda\)-calculus in the traditional sense. Let’s see why.</p>
 
 <p>Assume \(\Lambda_X\) is the set of closed well-typed STLC (Simply Typed \(\lambda\)-calculus) terms.
 Clearly, STLC can be interpreted into any Cartesian Closed category (CCC) by defining an interpretation function 
@@ -477,7 +525,7 @@ For example, consider the projection maps out of the product  \(x \wedge x \xrig
 
 <p>Now the right-hand side of the completeness theorem is satisfied since For all well-typed interpretations \([\![\cdot]\!]\) we have \([\![\pi_1]\!] = [\![\pi_2]\!]\) (when the codomain of the two is the same). However, the projections \(\pi_1\) and \(\pi_2\) in the syntax are definitely not \(\beta\eta\)-equivalent.</p>
 
-<p>I will defer the reader to the <a href="https://link.springer.com/chapter/10.1007/BFb0014068">original paper</a> for more details.</p>]]></content><author><name>Marco Paviotti</name><email>m.paviotti@kent.ac.uk</email></author><category term="semantics" /><category term="categories" /><category term="stlc" /><summary type="html"><![CDATA[Cartesian closed categories are not regarded as complete models of the Simply Typed \(\lambda\)-calculus in the traditional sense. Let’s see why.]]></summary></entry><entry><title type="html">The Axiom of Choice in Type Theory</title><link href="https://mpaviotti.github.io/posts/2022/11/Axiom-Choice/" rel="alternate" type="text/html" title="The Axiom of Choice in Type Theory" /><published>2022-11-25T13:14:21+00:00</published><updated>2022-11-25T13:14:21+00:00</updated><id>https://mpaviotti.github.io/posts/2022/11/axiom-of-choice</id><content type="html" xml:base="https://mpaviotti.github.io/posts/2022/11/Axiom-Choice/"><![CDATA[<p>The Axiom of Choice (AC) is an axiom that states that the product of a family of non-empty sets is itself non-empty. This is a rather controversial axiom amongst mathematicians but in type theory this axiom is provable within the logic.</p>
+<p>I will defer the reader to the <a href="https://link.springer.com/chapter/10.1007/BFb0014068">original paper</a> for more details.</p>]]></content><author><name>Marco Paviotti</name><email>m.paviotti@kent.ac.uk</email></author><category term="semantics" /><category term="categories" /><category term="stlc" /><summary type="html"><![CDATA[Cartesian closed categories are not regarded as complete models of the Simply Typed \(\lambda\)-calculus in the traditional sense. Let’s see why.]]></summary></entry><entry><title type="html">The Axiom of Choice in Type Theory</title><link href="http://localhost:4000/posts/2022/11/Axiom-Choice/" rel="alternate" type="text/html" title="The Axiom of Choice in Type Theory" /><published>2022-11-25T13:14:21+00:00</published><updated>2022-11-25T13:14:21+00:00</updated><id>http://localhost:4000/posts/2022/11/axiom-of-choice</id><content type="html" xml:base="http://localhost:4000/posts/2022/11/Axiom-Choice/"><![CDATA[<p>The Axiom of Choice (AC) is an axiom that states that the product of a family of non-empty sets is itself non-empty. This is a rather controversial axiom amongst mathematicians but in type theory this axiom is provable within the logic.</p>
 
 <p>First off, I do not consider myself an expert on set theory, but after having this kind  of conversation with mathematicians and computer scientists I found <em>there are</em> some
 misconceptions around this axiom and the reasons why it is needed.</p>
@@ -596,7 +644,7 @@ choice A B R r = (λ x →  proj₁ (r x)) , (λ x → proj₂ (r x)) </code></p
 
 <p>If you have any comment about this please feel free to drop me an email or something I would very happy to know more (especially if I said something wrong).</p>
 
-<p>###</p>]]></content><author><name>Marco Paviotti</name><email>m.paviotti@kent.ac.uk</email></author><category term="set theory" /><category term="foundations" /><summary type="html"><![CDATA[The Axiom of Choice (AC) is an axiom that states that the product of a family of non-empty sets is itself non-empty. This is a rather controversial axiom amongst mathematicians but in type theory this axiom is provable within the logic.]]></summary></entry><entry><title type="html">Inconsistencies in Cartesian Closed Categories with fixed-points</title><link href="https://mpaviotti.github.io/posts/2022/11/CCC-FixedPoints/" rel="alternate" type="text/html" title="Inconsistencies in Cartesian Closed Categories with fixed-points" /><published>2022-11-10T13:14:21+00:00</published><updated>2022-11-10T13:14:21+00:00</updated><id>https://mpaviotti.github.io/posts/2022/11/fixed-points-CCS</id><content type="html" xml:base="https://mpaviotti.github.io/posts/2022/11/CCC-FixedPoints/"><![CDATA[<p>Any Cartesian Closed Category (CCC) with an initial object and a fixed-point operator is trivial. Essentially this means that in languages like (e.g.) Haskell the empty type is not actually empty as it contains the non-terminating computation. Perhaps this is obvious, but here’s the categorical explanation.</p>
+<p>###</p>]]></content><author><name>Marco Paviotti</name><email>m.paviotti@kent.ac.uk</email></author><category term="set theory" /><category term="foundations" /><summary type="html"><![CDATA[The Axiom of Choice (AC) is an axiom that states that the product of a family of non-empty sets is itself non-empty. This is a rather controversial axiom amongst mathematicians but in type theory this axiom is provable within the logic.]]></summary></entry><entry><title type="html">Inconsistencies in Cartesian Closed Categories with fixed-points</title><link href="http://localhost:4000/posts/2022/11/CCC-FixedPoints/" rel="alternate" type="text/html" title="Inconsistencies in Cartesian Closed Categories with fixed-points" /><published>2022-11-10T13:14:21+00:00</published><updated>2022-11-10T13:14:21+00:00</updated><id>http://localhost:4000/posts/2022/11/fixed-points-CCS</id><content type="html" xml:base="http://localhost:4000/posts/2022/11/CCC-FixedPoints/"><![CDATA[<p>Any Cartesian Closed Category (CCC) with an initial object and a fixed-point operator is trivial. Essentially this means that in languages like (e.g.) Haskell the empty type is not actually empty as it contains the non-terminating computation. Perhaps this is obvious, but here’s the categorical explanation.</p>
 
 <p>Here the word <em>trivial</em> means that every object \(A\) in the category is isomorphic to the terminal object \(1\).</p>
 

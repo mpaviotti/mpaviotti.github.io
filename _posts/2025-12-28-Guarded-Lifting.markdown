@@ -12,17 +12,23 @@ tags:
 
 In one of my previous [post](/posts/2022/11/CCC-FixedPoints/) I showed that any
 theory featuring general recursion is inconsistent when viewed as a logical
-system which inevitably leads to the idea that all definable functions in such a theory should be
-total (or productive). 
-However, losing Turing-completeness could be somewhat problematic for some, but it can be addressed in several ways. One of these, an possibly the most popular, is to isolate recursion into a monad, effectively regarding  **recursion as an effect**. We discuss several lifting monads which are fit for purpose.
+system which inevitably leads to the idea that all definable functions in such a
+theory should be total (or productive). 
+
+However, losing Turing-completeness could be somewhat problematic for some, but
+it can be addressed in several ways. One of these, an possibly the most popular,
+is to isolate recursion into a monad, effectively regarding  **recursion as an
+effect**. We discuss several lifting monads which are fit for purpose.
 
 ## Domain-Theoretic Liftings
-The domain-theoretic approach to non-termination is to model computations as maps between sets with an additional  element. 
-Thus we define a **lifting** operation which takes a set and adds an element to it
+The domain-theoretic approach to non-termination is to model computations as
+maps between sets with an additional  element.  Thus we define a **lifting**
+operation which takes a set and adds an element to it
 
 $$M A = A + 1$$
 
-which is the set of computations that either return an element of type $$A$$ or do not terminate.
+which is the set of computations that either return an element of type $$A$$ or
+do not terminate.
 
 Of course, without proper restrictions on the functions that we can apply to it,
 this monad allows one to "decide non-termination": one can write a function
@@ -36,7 +42,12 @@ function must preserve least upper bounds of arbitrary $$\omega$$-chains:
 
 $$f(\bigsqcup_{i\in \omega} d_i) = \bigsqcup_{i \in \omega} f(d_i)$$
 
-Essentially what this means is that the function $$f$$ when applied to the best approximation of a subset, can be computed *locally* for each element of this subset. One consequence of this fact is that $$f$$ is monotonic: it preserves the order of the CPO. One feature of this category is that every continuous map $$A_\bot \xrightarrow{\text{cont}} A_\bot$$ has a fixed-point operator via the Fixed-Point Theorem: 
+Essentially what this means is that the function $$f$$ when applied to the best
+approximation of a subset, can be computed *locally* for each element of this
+subset. One consequence of this fact is that $$f$$ is monotonic: it preserves
+the order of the CPO. One feature of this category is that every continuous map
+$$A_\bot \xrightarrow{\text{cont}} A_\bot$$ has a fixed-point operator via the
+Fixed-Point Theorem: 
 
 $$
 \text{fix}(f) = \bigsqcup_{i \in \omega} f^n(\bot)
@@ -48,15 +59,21 @@ $$
 \bot \sqsubseteq f(\bot) \sqsubseteq f^2(\bot) \sqsubseteq \dots  \sqsubseteq f^n(\bot)  \sqsubseteq \dots
 $$
 
-To go back to our original problem. Since $$\bot \sqsubseteq a$$ for all $$a \in A$$, we cannot define a continuous map $$A_\bot \to 2_\bot$$ such the one above because in the codomain of this function the elements $$\textbf{True}$$ and  $$\textbf{False}$$ are not related. 
+To go back to our original problem. Since $$\bot \sqsubseteq a$$ for all $$a \in
+A$$, we cannot define a continuous map $$A_\bot \to 2_\bot$$ such the one above
+because in the codomain of this function the elements $$\textbf{True}$$ and
+$$\textbf{False}$$ are not related. 
 
 **Remark.** When doing mathematics into a proof assistant the expert distinguishes two ways:
 1. implementing all the theory inside the prover's logic, or 
 2. creating a new synthetic language whose structure is interpreted inside the mathematical theory we want to work with 
 
-The second approach is the one, for example, used in HoTT, where types are certain topological spaces and functions are continuous. 
+The second approach is the one, for example, used in HoTT, where types are
+certain topological spaces and functions are continuous. 
 
-The problem of formalising domain theory is that it becomes more complicated when the proof assistant is based on type theory. In particular, the problem is that a type is not really a set.
+The problem of formalising domain theory is that it becomes more complicated
+when the proof assistant is based on type theory. In particular, the problem is
+that a type is not really a set.
 
 On the other hand, doing things synthetically would mean that recursion is
 somewhat spread across the whole language. What I mean by this is that since
@@ -66,13 +83,20 @@ inconsistent language when viewed as a logic. Hence the need for treating
 recursion as an effect. 
 
 ## The Coinductive Lifting (Capretta)
-One solution proposed by Capretta is to take the coinductive solution to the following domain equation
+One solution proposed by Capretta is to take the coinductive solution to the
+following domain equation
 
 $$
 D A \cong A + D A
 $$
 
-In other words, $$DA$$ is the set coinductively generated by the constructors $$\text{now} : A \to D A$$ and $$\text{delay} : DA \to DA$$.  Intuitively, $$\text{now}(x)$$ is a terminating computation which returns an element $$x \in A$$ in $$0$$ steps, while $$\text{delay}(c)$$ takes a computation $$c \in DA$$ and delays it by adding one computational step to it. For example, $$\text{delay}(\text{delay}(\text{delay}(10)))$$ is a computation which returns the number $$10$$ in three steps. 
+In other words, $$DA$$ is the set coinductively generated by the constructors
+$$\text{now} : A \to D A$$ and $$\text{delay} : DA \to DA$$.  Intuitively,
+$$\text{now}(x)$$ is a terminating computation which returns an element $$x \in
+A$$ in $$0$$ steps, while $$\text{delay}(c)$$ takes a computation $$c \in DA$$
+and delays it by adding one computational step to it. For example,
+$$\text{delay}(\text{delay}(\text{delay}(10)))$$ is a computation which returns
+the number $$10$$ in three steps. 
 
 **Remark.** $$D$$ can be given the structure of an $$\omega$$-CPO with $$\bot$$. 
 
@@ -82,21 +106,29 @@ $$
 \bot = \text{delay}(\bot)
 $$
 
-which is clearly a productive definition. Intuitively, $$\bot$$ corresponds to the never-ending stream of delays:
+which is clearly a productive definition. Intuitively, $$\bot$$ corresponds to
+the never-ending stream of delays:
 
 $$
 \bot = \text{delay}(\text{delay}(\text{delay}\dots))
 $$
 
-Clearly, we cannot produce a function which discriminate between a terminating computation and non-terminating one. Capretta proves that $$D$$ is a domain (up-to bisimilarity), that is, he defines a partial order $$\sqsubseteq_D$$ on $$D$$ which leads to a notion of least upper bounds for $$\omega$$-chains, written $$\bigsqcup_{n\in \omega} d_n$$ for
+Clearly, we cannot produce a function which discriminate between a terminating
+computation and non-terminating one. Capretta proves that $$D$$ is a domain
+(up-to bisimilarity), that is, he defines a partial order $$\sqsubseteq_D$$ on
+$$D$$ which leads to a notion of least upper bounds for $$\omega$$-chains,
+written $$\bigsqcup_{n\in \omega} d_n$$ for
 
 $$
 d_0 \sqsubseteq_D d_0 \sqsubseteq_D d_1 \dots \sqsubseteq_D d_n \dots
 $$
 
-then it can be proven that every continuous function on $$D$$ has a fixed-point similarly to the construction in domain theory. 
+then it can be proven that every continuous function on $$D$$ has a fixed-point
+similarly to the construction in domain theory. 
 
-**Considerations.** Now that recursion is being isolated into an effect we have solved one problem. However, programming in practice with this monad is far from being easy as one has to 
+**Considerations.** Now that recursion is being isolated into an effect we have
+solved one problem. However, programming in practice with this monad is far from
+being easy as one has to 
 1. prove that each program on $$DA$$ they define is a continuous function
 2. working with a coinductive bisimilarity relation rather than equality 
 3. ensure productivity of definitions
@@ -104,23 +136,30 @@ then it can be proven that every continuous function on $$D$$ has a fixed-point 
 
 ## Metric Lifting Monad (Martin Escardó)
 
-Escardó’s *metric lifting* models partiality using **metric spaces** rather
-than coinduction, but the idea is not that different from Capretta's.  The **metric lifting** of a set $$A$$, written $$LA$$, is defined as 
+Escardó’s *metric lifting* models partiality using **metric spaces** rather than
+coinduction, but the idea is not that different from Capretta's.  The **metric
+lifting** of a set $$A$$, written $$LA$$, is defined as 
 
 $$
 LA = (A \times \mathbb{N}) \cup \{\infty\}
 $$
 
 together with a distance function $$d : LA \times LA \to [0, \infty]$$ where
-equal computations have distance $$0$$, terminating computations $$(a,k)$$ and non-terminating ones have distance $$(1/2)^k$$, and terminating computations $$(a,k)$$ and $$(b,l)$$ have distance $$1/2^{\text{min}(k,l)}$$. Intuitively, $$(a,k)$$ is a computation which returns $$a$$ in $$k$$ steps and $$\infty$$ is the divergent computation. 
+equal computations have distance $$0$$, terminating computations $$(a,k)$$ and
+non-terminating ones have distance $$(1/2)^k$$, and terminating computations
+$$(a,k)$$ and $$(b,l)$$ have distance $$1/2^{\text{min}(k,l)}$$. Intuitively,
+$$(a,k)$$ is a computation which returns $$a$$ in $$k$$ steps and $$\infty$$ is
+the divergent computation. 
 
 **Remark.** $$LA$$ is a complete bounded metric ultrametric space.
 
-The unit of the monad $$LA$$ is defined by $$\eta_A(a) = (a,0)$$ and the delay operation is defined by 
+The unit of the monad $$LA$$ is defined by $$\eta_A(a) = (a,0)$$ and the delay
+operation is defined by 
 
 $$\delta_A(a,n) = (a, n + 1) \qquad \delta_A(\infty) = \infty$$ 
 
-In metric spaces terminology, a function is non-expansive if it does not expand  the space relative to a distance function $$d$$, but possibly contracts it: 
+In metric spaces terminology, a function is non-expansive if it does not expand
+the space relative to a distance function $$d$$, but possibly contracts it: 
 
 $$d(f(x), f(y)) \le d(x,y)$$
 
@@ -128,15 +167,20 @@ On the other hand, a contractive map is a map which contracts the space:
 
 $$d(f(x), f(y)) \le c \dot (d(x,y))$$
 
-for a certain $$c < 1$$. At this point it is possible to define a fixed-point operator for all contractive maps
+for a certain $$c < 1$$. At this point it is possible to define a fixed-point
+operator for all contractive maps
 
 $$\text{fix} : (LA \to LA) \to LA$$ 
 
-which sends every non-expansive map $$f$$ to the fixed-point of $$\delta_A \circ f$$, which is contractive because $$\delta_A$$ is contractive. At this point the non-divergent computation is now defined as 
+which sends every non-expansive map $$f$$ to the fixed-point of $$\delta_A \circ
+f$$, which is contractive because $$\delta_A$$ is contractive. At this point the
+non-divergent computation is now defined as 
 
 $$\bot_A = \text{fix}(id_{LA})$$
 
-**Considerations.** This approach does not seem to suffer from the use of coinduction, but it still needs the programmer to prove functions are non-expansiveness. 
+**Considerations.** This approach does not seem to suffer from the use of
+coinduction, but it still needs the programmer to prove functions are
+non-expansiveness. 
 
 
 ## Guarded Lifting (Atkey & McBride)
@@ -144,21 +188,25 @@ The coinductive lifting monad suffers from productivity and equality issues,
 while both the coinductive and metric liftings need additional structure on the
 maps defined on them to work properly with fixed-points. 
 
-In guarded type theory however, maps are always non-expansive and contractiveness is enforced at the type level. In particular, a contractive map is a function of type $$\triangleright X \to X$$ 
-for which there is always a fixed-point at all types $$X$$:
+In guarded type theory however, maps are always non-expansive and
+contractiveness is enforced at the type level. In particular, a contractive map
+is a function of type $$\triangleright X \to X$$  for which there is always a
+fixed-point at all types $$X$$:
 
 $$
 \text{fix}_g : (\triangleright X \to X) \to X
 $$
 
-sending a map $$f : (\triangleright X \to X)$$ to the unique fixed-point of $$f \circ \text{next}$$.
-The guarded lifting is defined as the unique solution to the domain equation 
+sending a map $$f : (\triangleright X \to X)$$ to the unique fixed-point of $$f
+\circ \text{next}$$.  The guarded lifting is defined as the unique solution to
+the domain equation 
 
 $$
 L_g A = A + \triangleright L_g A
 $$
 
-There is an obvious unit of the monad $$\eta_A : A \to L_g A$$ and delay map which has type 
+There is an obvious unit of the monad $$\eta_A : A \to L_g A$$ and delay map
+which has type 
 
 $$
 \delta_A : \triangleright L_g A \to L_g A

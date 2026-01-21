@@ -23,7 +23,7 @@
 
 
 
-<meta name="description" content="In one of my previous post I showed that anytheory featuring general recursion is inconsistent when viewed as a logicalsystem which inevitably leads to the idea that all definable functions in such a theory should betotal (or productive). However, losing Turing-completeness could be somewhat problematic for some, but it can be addressed in several ways. One of these, an possibly the most popular, is to isolate recursion into a monad, effectively regarding  recursion as an effect. We discuss several lifting monads which are fit for purpose.">
+<meta name="description" content="In one of my previous post I showed that anytheory featuring general recursion is inconsistent when viewed as a logicalsystem which inevitably leads to the idea that all definable functions in such atheory should be total (or productive).">
 
 
 
@@ -33,7 +33,7 @@
 
 
 
-  <link rel="canonical" href="https://mpaviotti.github.io/posts/2025/12/Lifting/">
+  <link rel="canonical" href="http://localhost:4000/posts/2025/12/Lifting/">
 
 
 
@@ -53,7 +53,7 @@
       "@context" : "http://schema.org",
       "@type" : "Person",
       "name" : "Marco Paviotti",
-      "url" : "https://mpaviotti.github.io",
+      "url" : "http://localhost:4000",
       "sameAs" : null
     }
   </script>
@@ -73,10 +73,10 @@
   <meta property="og:type" content="article">
 
 
-  <meta property="og:description" name="description" content="In one of my previous post I showed that anytheory featuring general recursion is inconsistent when viewed as a logicalsystem which inevitably leads to the idea that all definable functions in such a theory should betotal (or productive). However, losing Turing-completeness could be somewhat problematic for some, but it can be addressed in several ways. One of these, an possibly the most popular, is to isolate recursion into a monad, effectively regarding  recursion as an effect. We discuss several lifting monads which are fit for purpose.">
+  <meta property="og:description" name="description" content="In one of my previous post I showed that anytheory featuring general recursion is inconsistent when viewed as a logicalsystem which inevitably leads to the idea that all definable functions in such atheory should be total (or productive).">
 
 
-  <meta property="og:url" content="https://mpaviotti.github.io/posts/2025/12/Lifting/">
+  <meta property="og:url" content="http://localhost:4000/posts/2025/12/Lifting/">
 
 
 
@@ -84,7 +84,7 @@
 
 <!-- end Open Graph protocol -->
 
-<link href="https://mpaviotti.github.io/feed.xml" type="application/atom+xml" rel="alternate" title="Marco Paviotti Feed">
+<link href="http://localhost:4000/feed.xml" type="application/atom+xml" rel="alternate" title="Marco Paviotti Feed">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
@@ -94,21 +94,21 @@
 
 
 <!-- For all browsers -->
-<link rel="stylesheet" href="https://mpaviotti.github.io/assets/css/main.css">
+<link rel="stylesheet" href="http://localhost:4000/assets/css/main.css">
 
     
 
 <!-- start custom head snippets -->
 
 <!-- Support for Academicons -->
-<link rel="stylesheet" href="https://mpaviotti.github.io/assets/css/academicons.css"/>
+<link rel="stylesheet" href="http://localhost:4000/assets/css/academicons.css"/>
 
 <!-- favicon from https://commons.wikimedia.org/wiki/File:OOjs_UI_icon_academic-progressive.svg -->
-<link rel="apple-touch-icon" sizes="180x180" href="https://mpaviotti.github.io/images/apple-touch-icon-180x180.png"/>
-<link rel="icon" type="image/svg+xml" href="https://mpaviotti.github.io/images/favicon.svg"/>
-<link rel="icon" type="image/png" href="https://mpaviotti.github.io/images/favicon-32x32.png" sizes="32x32"/>
-<link rel="icon" type="image/png" href="https://mpaviotti.github.io/images/favicon-192x192.png" sizes="192x192"/>
-<link rel="manifest" href="https://mpaviotti.github.io/images/manifest.json"/>
+<link rel="apple-touch-icon" sizes="180x180" href="http://localhost:4000/images/apple-touch-icon-180x180.png"/>
+<link rel="icon" type="image/svg+xml" href="http://localhost:4000/images/favicon.svg"/>
+<link rel="icon" type="image/png" href="http://localhost:4000/images/favicon-32x32.png" sizes="32x32"/>
+<link rel="icon" type="image/png" href="http://localhost:4000/images/favicon-192x192.png" sizes="192x192"/>
+<link rel="manifest" href="http://localhost:4000/images/manifest.json"/>
 <link rel="icon" href="/images/favicon.ico"/>
 <meta name="theme-color" content="#ffffff"/>
 
@@ -129,22 +129,22 @@
       <nav id="site-nav" class="greedy-nav">
         <button><span class="navicon"></span></button>
         <ul class="visible-links">
-          <li class="masthead__menu-item masthead__menu-item--lg persist"><a href="https://mpaviotti.github.io/">Marco Paviotti</a></li>
+          <li class="masthead__menu-item masthead__menu-item--lg persist"><a href="http://localhost:4000/">Marco Paviotti</a></li>
           
             
-            <li class="masthead__menu-item"><a href="https://mpaviotti.github.io/publications/">Publications</a></li>
+            <li class="masthead__menu-item"><a href="http://localhost:4000/publications/">Publications</a></li>
           
             
-            <li class="masthead__menu-item"><a href="https://mpaviotti.github.io/teaching/">Teaching</a></li>
+            <li class="masthead__menu-item"><a href="http://localhost:4000/teaching/">Teaching</a></li>
           
             
-            <li class="masthead__menu-item"><a href="https://mpaviotti.github.io/research/">Research</a></li>
+            <li class="masthead__menu-item"><a href="http://localhost:4000/research/">Research</a></li>
           
             
-            <li class="masthead__menu-item"><a href="https://mpaviotti.github.io/projects/">Projects</a></li>
+            <li class="masthead__menu-item"><a href="http://localhost:4000/projects/">Projects</a></li>
           
             
-            <li class="masthead__menu-item"><a href="https://mpaviotti.github.io/year-archive/">Blog Posts</a></li>
+            <li class="masthead__menu-item"><a href="http://localhost:4000/year-archive/">Blog Posts</a></li>
           
           <li id="theme-toggle" class="masthead__menu-item persist tail">
             <a role="button" aria-labelledby="theme-icon"><i id="theme-icon" class="fa-solid fa-sun" aria-hidden="true" title="toggle theme"></i></a>
@@ -176,7 +176,7 @@
 
   <div class="author__avatar">
     
-    	<img src="https://mpaviotti.github.io/images/now.jpg" class="author__avatar" alt="Marco Paviotti"  fetchpriority="high" />
+    	<img src="http://localhost:4000/images/now.jpg" class="author__avatar" alt="Marco Paviotti"  fetchpriority="high" />
     
   </div>
 
@@ -271,7 +271,7 @@
 
   <article class="page" itemscope itemtype="http://schema.org/CreativeWork">
     <meta itemprop="headline" content="Recursion as an Effect">
-    <meta itemprop="description" content="In one of my previous post I showed that anytheory featuring general recursion is inconsistent when viewed as a logicalsystem which inevitably leads to the idea that all definable functions in such a theory should betotal (or productive). However, losing Turing-completeness could be somewhat problematic for some, but it can be addressed in several ways. One of these, an possibly the most popular, is to isolate recursion into a monad, effectively regarding  recursion as an effect. We discuss several lifting monads which are fit for purpose.">
+    <meta itemprop="description" content="In one of my previous post I showed that anytheory featuring general recursion is inconsistent when viewed as a logicalsystem which inevitably leads to the idea that all definable functions in such atheory should be total (or productive).">
     <meta itemprop="datePublished" content="December 28, 2025">
     
 
@@ -300,17 +300,23 @@
       <section class="page__content" itemprop="text">
         <p>In one of my previous <a href="/posts/2022/11/CCC-FixedPoints/">post</a> I showed that any
 theory featuring general recursion is inconsistent when viewed as a logical
-system which inevitably leads to the idea that all definable functions in such a theory should be
-total (or productive). 
-However, losing Turing-completeness could be somewhat problematic for some, but it can be addressed in several ways. One of these, an possibly the most popular, is to isolate recursion into a monad, effectively regarding  <strong>recursion as an effect</strong>. We discuss several lifting monads which are fit for purpose.</p>
+system which inevitably leads to the idea that all definable functions in such a
+theory should be total (or productive).</p>
+
+<p>However, losing Turing-completeness could be somewhat problematic for some, but
+it can be addressed in several ways. One of these, an possibly the most popular,
+is to isolate recursion into a monad, effectively regarding  <strong>recursion as an
+effect</strong>. We discuss several lifting monads which are fit for purpose.</p>
 
 <h2 id="domain-theoretic-liftings">Domain-Theoretic Liftings</h2>
-<p>The domain-theoretic approach to non-termination is to model computations as maps between sets with an additional  element. 
-Thus we define a <strong>lifting</strong> operation which takes a set and adds an element to it</p>
+<p>The domain-theoretic approach to non-termination is to model computations as
+maps between sets with an additional  element.  Thus we define a <strong>lifting</strong>
+operation which takes a set and adds an element to it</p>
 
 \[M A = A + 1\]
 
-<p>which is the set of computations that either return an element of type \(A\) or do not terminate.</p>
+<p>which is the set of computations that either return an element of type \(A\) or
+do not terminate.</p>
 
 <p>Of course, without proper restrictions on the functions that we can apply to it,
 this monad allows one to “decide non-termination”: one can write a function
@@ -324,7 +330,12 @@ function must preserve least upper bounds of arbitrary \(\omega\)-chains:</p>
 
 \[f(\bigsqcup_{i\in \omega} d_i) = \bigsqcup_{i \in \omega} f(d_i)\]
 
-<p>Essentially what this means is that the function \(f\) when applied to the best approximation of a subset, can be computed <em>locally</em> for each element of this subset. One consequence of this fact is that \(f\) is monotonic: it preserves the order of the CPO. One feature of this category is that every continuous map \(A_\bot \xrightarrow{\text{cont}} A_\bot\) has a fixed-point operator via the Fixed-Point Theorem:</p>
+<p>Essentially what this means is that the function \(f\) when applied to the best
+approximation of a subset, can be computed <em>locally</em> for each element of this
+subset. One consequence of this fact is that \(f\) is monotonic: it preserves
+the order of the CPO. One feature of this category is that every continuous map
+\(A_\bot \xrightarrow{\text{cont}} A_\bot\) has a fixed-point operator via the
+Fixed-Point Theorem:</p>
 
 \[\text{fix}(f) = \bigsqcup_{i \in \omega} f^n(\bot)\]
 
@@ -332,7 +343,10 @@ function must preserve least upper bounds of arbitrary \(\omega\)-chains:</p>
 
 \[\bot \sqsubseteq f(\bot) \sqsubseteq f^2(\bot) \sqsubseteq \dots  \sqsubseteq f^n(\bot)  \sqsubseteq \dots\]
 
-<p>To go back to our original problem. Since \(\bot \sqsubseteq a\) for all \(a \in A\), we cannot define a continuous map \(A_\bot \to 2_\bot\) such the one above because in the codomain of this function the elements \(\textbf{True}\) and  \(\textbf{False}\) are not related.</p>
+<p>To go back to our original problem. Since \(\bot \sqsubseteq a\) for all \(a \in
+A\), we cannot define a continuous map \(A_\bot \to 2_\bot\) such the one above
+because in the codomain of this function the elements \(\textbf{True}\) and
+\(\textbf{False}\) are not related.</p>
 
 <p><strong>Remark.</strong> When doing mathematics into a proof assistant the expert distinguishes two ways:</p>
 <ol>
@@ -340,9 +354,12 @@ function must preserve least upper bounds of arbitrary \(\omega\)-chains:</p>
   <li>creating a new synthetic language whose structure is interpreted inside the mathematical theory we want to work with</li>
 </ol>
 
-<p>The second approach is the one, for example, used in HoTT, where types are certain topological spaces and functions are continuous.</p>
+<p>The second approach is the one, for example, used in HoTT, where types are
+certain topological spaces and functions are continuous.</p>
 
-<p>The problem of formalising domain theory is that it becomes more complicated when the proof assistant is based on type theory. In particular, the problem is that a type is not really a set.</p>
+<p>The problem of formalising domain theory is that it becomes more complicated
+when the proof assistant is based on type theory. In particular, the problem is
+that a type is not really a set.</p>
 
 <p>On the other hand, doing things synthetically would mean that recursion is
 somewhat spread across the whole language. What I mean by this is that since
@@ -352,11 +369,18 @@ inconsistent language when viewed as a logic. Hence the need for treating
 recursion as an effect.</p>
 
 <h2 id="the-coinductive-lifting-capretta">The Coinductive Lifting (Capretta)</h2>
-<p>One solution proposed by Capretta is to take the coinductive solution to the following domain equation</p>
+<p>One solution proposed by Capretta is to take the coinductive solution to the
+following domain equation</p>
 
 \[D A \cong A + D A\]
 
-<p>In other words, \(DA\) is the set coinductively generated by the constructors \(\text{now} : A \to D A\) and \(\text{delay} : DA \to DA\).  Intuitively, \(\text{now}(x)\) is a terminating computation which returns an element \(x \in A\) in \(0\) steps, while \(\text{delay}(c)\) takes a computation \(c \in DA\) and delays it by adding one computational step to it. For example, \(\text{delay}(\text{delay}(\text{delay}(10)))\) is a computation which returns the number \(10\) in three steps.</p>
+<p>In other words, \(DA\) is the set coinductively generated by the constructors
+\(\text{now} : A \to D A\) and \(\text{delay} : DA \to DA\).  Intuitively,
+\(\text{now}(x)\) is a terminating computation which returns an element \(x \in
+A\) in \(0\) steps, while \(\text{delay}(c)\) takes a computation \(c \in DA\)
+and delays it by adding one computational step to it. For example,
+\(\text{delay}(\text{delay}(\text{delay}(10)))\) is a computation which returns
+the number \(10\) in three steps.</p>
 
 <p><strong>Remark.</strong> \(D\) can be given the structure of an \(\omega\)-CPO with \(\bot\).</p>
 
@@ -364,17 +388,25 @@ recursion as an effect.</p>
 
 \[\bot = \text{delay}(\bot)\]
 
-<p>which is clearly a productive definition. Intuitively, \(\bot\) corresponds to the never-ending stream of delays:</p>
+<p>which is clearly a productive definition. Intuitively, \(\bot\) corresponds to
+the never-ending stream of delays:</p>
 
 \[\bot = \text{delay}(\text{delay}(\text{delay}\dots))\]
 
-<p>Clearly, we cannot produce a function which discriminate between a terminating computation and non-terminating one. Capretta proves that \(D\) is a domain (up-to bisimilarity), that is, he defines a partial order \(\sqsubseteq_D\) on \(D\) which leads to a notion of least upper bounds for \(\omega\)-chains, written \(\bigsqcup_{n\in \omega} d_n\) for</p>
+<p>Clearly, we cannot produce a function which discriminate between a terminating
+computation and non-terminating one. Capretta proves that \(D\) is a domain
+(up-to bisimilarity), that is, he defines a partial order \(\sqsubseteq_D\) on
+\(D\) which leads to a notion of least upper bounds for \(\omega\)-chains,
+written \(\bigsqcup_{n\in \omega} d_n\) for</p>
 
 \[d_0 \sqsubseteq_D d_0 \sqsubseteq_D d_1 \dots \sqsubseteq_D d_n \dots\]
 
-<p>then it can be proven that every continuous function on \(D\) has a fixed-point similarly to the construction in domain theory.</p>
+<p>then it can be proven that every continuous function on \(D\) has a fixed-point
+similarly to the construction in domain theory.</p>
 
-<p><strong>Considerations.</strong> Now that recursion is being isolated into an effect we have solved one problem. However, programming in practice with this monad is far from being easy as one has to</p>
+<p><strong>Considerations.</strong> Now that recursion is being isolated into an effect we have
+solved one problem. However, programming in practice with this monad is far from
+being easy as one has to</p>
 <ol>
   <li>prove that each program on \(DA\) they define is a continuous function</li>
   <li>working with a coinductive bisimilarity relation rather than equality</li>
@@ -383,21 +415,28 @@ recursion as an effect.</p>
 
 <h2 id="metric-lifting-monad-martin-escardó">Metric Lifting Monad (Martin Escardó)</h2>
 
-<p>Escardó’s <em>metric lifting</em> models partiality using <strong>metric spaces</strong> rather
-than coinduction, but the idea is not that different from Capretta’s.  The <strong>metric lifting</strong> of a set \(A\), written \(LA\), is defined as</p>
+<p>Escardó’s <em>metric lifting</em> models partiality using <strong>metric spaces</strong> rather than
+coinduction, but the idea is not that different from Capretta’s.  The <strong>metric
+lifting</strong> of a set \(A\), written \(LA\), is defined as</p>
 
 \[LA = (A \times \mathbb{N}) \cup \{\infty\}\]
 
 <p>together with a distance function \(d : LA \times LA \to [0, \infty]\) where
-equal computations have distance \(0\), terminating computations \((a,k)\) and non-terminating ones have distance \((1/2)^k\), and terminating computations \((a,k)\) and \((b,l)\) have distance \(1/2^{\text{min}(k,l)}\). Intuitively, \((a,k)\) is a computation which returns \(a\) in \(k\) steps and \(\infty\) is the divergent computation.</p>
+equal computations have distance \(0\), terminating computations \((a,k)\) and
+non-terminating ones have distance \((1/2)^k\), and terminating computations
+\((a,k)\) and \((b,l)\) have distance \(1/2^{\text{min}(k,l)}\). Intuitively,
+\((a,k)\) is a computation which returns \(a\) in \(k\) steps and \(\infty\) is
+the divergent computation.</p>
 
 <p><strong>Remark.</strong> \(LA\) is a complete bounded metric ultrametric space.</p>
 
-<p>The unit of the monad \(LA\) is defined by \(\eta_A(a) = (a,0)\) and the delay operation is defined by</p>
+<p>The unit of the monad \(LA\) is defined by \(\eta_A(a) = (a,0)\) and the delay
+operation is defined by</p>
 
 \[\delta_A(a,n) = (a, n + 1) \qquad \delta_A(\infty) = \infty\]
 
-<p>In metric spaces terminology, a function is non-expansive if it does not expand  the space relative to a distance function \(d\), but possibly contracts it:</p>
+<p>In metric spaces terminology, a function is non-expansive if it does not expand
+the space relative to a distance function \(d\), but possibly contracts it:</p>
 
 \[d(f(x), f(y)) \le d(x,y)\]
 
@@ -405,32 +444,41 @@ equal computations have distance \(0\), terminating computations \((a,k)\) and n
 
 \[d(f(x), f(y)) \le c \dot (d(x,y))\]
 
-<p>for a certain \(c &lt; 1\). At this point it is possible to define a fixed-point operator for all contractive maps</p>
+<p>for a certain \(c &lt; 1\). At this point it is possible to define a fixed-point
+operator for all contractive maps</p>
 
 \[\text{fix} : (LA \to LA) \to LA\]
 
-<p>which sends every non-expansive map \(f\) to the fixed-point of \(\delta_A \circ f\), which is contractive because \(\delta_A\) is contractive. At this point the non-divergent computation is now defined as</p>
+<p>which sends every non-expansive map \(f\) to the fixed-point of \(\delta_A \circ
+f\), which is contractive because \(\delta_A\) is contractive. At this point the
+non-divergent computation is now defined as</p>
 
 \[\bot_A = \text{fix}(id_{LA})\]
 
-<p><strong>Considerations.</strong> This approach does not seem to suffer from the use of coinduction, but it still needs the programmer to prove functions are non-expansiveness.</p>
+<p><strong>Considerations.</strong> This approach does not seem to suffer from the use of
+coinduction, but it still needs the programmer to prove functions are
+non-expansiveness.</p>
 
 <h2 id="guarded-lifting-atkey--mcbride">Guarded Lifting (Atkey &amp; McBride)</h2>
 <p>The coinductive lifting monad suffers from productivity and equality issues,
 while both the coinductive and metric liftings need additional structure on the
 maps defined on them to work properly with fixed-points.</p>
 
-<p>In guarded type theory however, maps are always non-expansive and contractiveness is enforced at the type level. In particular, a contractive map is a function of type \(\triangleright X \to X\) 
-for which there is always a fixed-point at all types \(X\):</p>
+<p>In guarded type theory however, maps are always non-expansive and
+contractiveness is enforced at the type level. In particular, a contractive map
+is a function of type \(\triangleright X \to X\)  for which there is always a
+fixed-point at all types \(X\):</p>
 
 \[\text{fix}_g : (\triangleright X \to X) \to X\]
 
-<p>sending a map \(f : (\triangleright X \to X)\) to the unique fixed-point of \(f \circ \text{next}\).
-The guarded lifting is defined as the unique solution to the domain equation</p>
+<p>sending a map \(f : (\triangleright X \to X)\) to the unique fixed-point of \(f
+\circ \text{next}\).  The guarded lifting is defined as the unique solution to
+the domain equation</p>
 
 \[L_g A = A + \triangleright L_g A\]
 
-<p>There is an obvious unit of the monad \(\eta_A : A \to L_g A\) and delay map which has type</p>
+<p>There is an obvious unit of the monad \(\eta_A : A \to L_g A\) and delay map
+which has type</p>
 
 \[\delta_A : \triangleright L_g A \to L_g A\]
 
@@ -498,23 +546,23 @@ is essential.</p>
     
       
       
-      <a href="https://mpaviotti.github.io/tags/#categories" class="page__taxonomy-item" rel="tag">categories</a><span class="sep">, </span>
+      <a href="http://localhost:4000/tags/#categories" class="page__taxonomy-item" rel="tag">categories</a><span class="sep">, </span>
     
       
       
-      <a href="https://mpaviotti.github.io/tags/#domain-theory" class="page__taxonomy-item" rel="tag">domain-theory</a><span class="sep">, </span>
+      <a href="http://localhost:4000/tags/#domain-theory" class="page__taxonomy-item" rel="tag">domain-theory</a><span class="sep">, </span>
     
       
       
-      <a href="https://mpaviotti.github.io/tags/#monads" class="page__taxonomy-item" rel="tag">monads</a><span class="sep">, </span>
+      <a href="http://localhost:4000/tags/#monads" class="page__taxonomy-item" rel="tag">monads</a><span class="sep">, </span>
     
       
       
-      <a href="https://mpaviotti.github.io/tags/#recursion" class="page__taxonomy-item" rel="tag">recursion</a><span class="sep">, </span>
+      <a href="http://localhost:4000/tags/#recursion" class="page__taxonomy-item" rel="tag">recursion</a><span class="sep">, </span>
     
       
       
-      <a href="https://mpaviotti.github.io/tags/#semantics" class="page__taxonomy-item" rel="tag">semantics</a>
+      <a href="http://localhost:4000/tags/#semantics" class="page__taxonomy-item" rel="tag">semantics</a>
     
     </span>
   </p>
@@ -531,15 +579,15 @@ is essential.</p>
     <h4 class="page__share-title">Share on</h4>
   
 
-  <a href="https://bsky.app/intent/compose?text=https://mpaviotti.github.io/posts/2025/12/Lifting/" class="btn btn--bluesky" title="Share on Bluesky"><i class="fab fa-bluesky" aria-hidden="true"></i><span> Bluesky</span></a>
+  <a href="https://bsky.app/intent/compose?text=http://localhost:4000/posts/2025/12/Lifting/" class="btn btn--bluesky" title="Share on Bluesky"><i class="fab fa-bluesky" aria-hidden="true"></i><span> Bluesky</span></a>
 
-  <a href="https://www.facebook.com/sharer/sharer.php?u=https://mpaviotti.github.io/posts/2025/12/Lifting/" class="btn btn--facebook" title="Share on Facebook"><i class="fab fa-facebook" aria-hidden="true"></i><span> Facebook</span></a>
+  <a href="https://www.facebook.com/sharer/sharer.php?u=http://localhost:4000/posts/2025/12/Lifting/" class="btn btn--facebook" title="Share on Facebook"><i class="fab fa-facebook" aria-hidden="true"></i><span> Facebook</span></a>
 
-  <a href="https://www.linkedin.com/shareArticle?mini=true&url=https://mpaviotti.github.io/posts/2025/12/Lifting/" class="btn btn--linkedin" title="Share on LinkedIn"><i class="fab fa-linkedin" aria-hidden="true"></i><span> LinkedIn</span></a>
+  <a href="https://www.linkedin.com/shareArticle?mini=true&url=http://localhost:4000/posts/2025/12/Lifting/" class="btn btn--linkedin" title="Share on LinkedIn"><i class="fab fa-linkedin" aria-hidden="true"></i><span> LinkedIn</span></a>
 
-  <a href="https://www.addtoany.com/add_to/mastodon?linkurl=https%3A%2F%2Fmpaviotti.github.io%2Fposts%2F2025%2F12%2FLifting%2F" class="btn btn--mastodon" title="Share on Mastodon"><i class="fab fa-mastodon" aria-hidden="true"></i><span> Mastodon</span></a>
+  <a href="https://www.addtoany.com/add_to/mastodon?linkurl=http%3A%2F%2Flocalhost%3A4000%2Fposts%2F2025%2F12%2FLifting%2F" class="btn btn--mastodon" title="Share on Mastodon"><i class="fab fa-mastodon" aria-hidden="true"></i><span> Mastodon</span></a>
 
-  <a href="https://x.com/intent/post?text=https://mpaviotti.github.io/posts/2025/12/Lifting/" class="btn btn--x" title="Share on X"><i class="fab fa-x-twitter" aria-hidden="true"></i><span> X (formerly Twitter)</span></a>
+  <a href="https://x.com/intent/post?text=http://localhost:4000/posts/2025/12/Lifting/" class="btn btn--x" title="Share on X"><i class="fab fa-x-twitter" aria-hidden="true"></i><span> X (formerly Twitter)</span></a>
 </section>
 
 
@@ -548,7 +596,7 @@ is essential.</p>
 
   <nav class="pagination">
     
-      <a href="https://mpaviotti.github.io/posts/2025/12/Lax-Monoidal-Functors/" class="pagination--pager" title="On Lax Monoidal Functors
+      <a href="http://localhost:4000/posts/2025/12/Lax-Monoidal-Functors/" class="pagination--pager" title="On Lax Monoidal Functors
 ">Previous</a>
     
     
@@ -581,7 +629,7 @@ is essential.</p>
 
     <h2 class="archive__item-title" itemprop="headline">
       
-        <a href="https://mpaviotti.github.io/posts/2025/12/Lax-Monoidal-Functors/" rel="permalink">On Lax Monoidal Functors
+        <a href="http://localhost:4000/posts/2025/12/Lax-Monoidal-Functors/" rel="permalink">On Lax Monoidal Functors
 </a>
       
     </h2>
@@ -630,7 +678,7 @@ is essential.</p>
 
     <h2 class="archive__item-title" itemprop="headline">
       
-        <a href="https://mpaviotti.github.io/posts/2023/10/Bisim-Eq/" rel="permalink">Bisimulations, Equality and Traces
+        <a href="http://localhost:4000/posts/2023/10/Bisim-Eq/" rel="permalink">Bisimulations, Equality and Traces
 </a>
       
     </h2>
@@ -673,7 +721,7 @@ is essential.</p>
 
     <h2 class="archive__item-title" itemprop="headline">
       
-        <a href="https://mpaviotti.github.io/posts/2023/09/Yoneda-TT/" rel="permalink">The mini Yoneda lemma for Type Theorists
+        <a href="http://localhost:4000/posts/2023/09/Yoneda-TT/" rel="permalink">The mini Yoneda lemma for Type Theorists
 </a>
       
     </h2>
@@ -716,7 +764,7 @@ is essential.</p>
 
     <h2 class="archive__item-title" itemprop="headline">
       
-        <a href="https://mpaviotti.github.io/posts/2023/03/CCC-STLC/" rel="permalink">CCCs and the complete models of STLC
+        <a href="http://localhost:4000/posts/2023/03/CCC-STLC/" rel="permalink">CCCs and the complete models of STLC
 </a>
       
     </h2>
@@ -785,7 +833,7 @@ is essential.</p>
     
     
     
-    <li><a href="https://mpaviotti.github.io/feed.xml"><i class="fa fa-fw fa-rss-square" aria-hidden="true"></i> Feed</a></li>
+    <li><a href="http://localhost:4000/feed.xml"><i class="fa fa-fw fa-rss-square" aria-hidden="true"></i> Feed</a></li>
     
   </ul>
 </div>
@@ -799,7 +847,7 @@ is essential.</p>
       </footer>
     </div>
 
-    <script type="module" src="https://mpaviotti.github.io/assets/js/main.min.js"></script>
+    <script type="module" src="http://localhost:4000/assets/js/main.min.js"></script>
 
 
 
