@@ -268,7 +268,8 @@
     <h2 id="undergrad-projects-for-computer-scientists">Undergrad Projects for Computer Scientists</h2>
 
 <h3 id="graded-monads-for-efficient-database-implementations">Graded Monads for Efficient Database Implementations</h3>
-<p>Functional programming languages such as Haskell make it easy to express database queries using list comprehensions. For instance, the SQL query</p>
+<p>Functional programming languages such as Haskell make it easy to express
+database queries using list comprehensions. For instance, the SQL query</p>
 
 <p><code class="language-plaintext highlighter-rouge">SELECT name, amount
 FROM customers, invoices
@@ -278,13 +279,53 @@ WHERE cid = cust AND due &lt; today</code></p>
 
 <p><code class="language-plaintext highlighter-rouge">[ (c.name, i.amount) |c ←customers, i ←invoices, c.cid i.cust, i.due &lt; today ]</code></p>
 
-<p>This approach is highly convenient: monads allow us to concisely express fairly complex operations over lists. However, this simplicity comes at a cost—such implementations are often inefficient. A more performant alternative is to use indexed tables, which can be viewed as finite functions of type <code class="language-plaintext highlighter-rouge">Key -&gt; [Value]</code>. While this representation improves efficiency, it sacrifices the ability to compose queries elegantly using monads.</p>
+<p>This approach is highly convenient: monads allow us to concisely express fairly
+complex operations over lists. However, this simplicity comes at a cost—such
+implementations are often inefficient. A more performant alternative to lists is to use
+indexed tables, which can be viewed as finite functions of type <code class="language-plaintext highlighter-rouge">Key -&gt;
+[Value]</code>. While this representation improves efficiency, it sacrifices the
+ability to compose queries elegantly using monads.</p>
 
-<p>This project will address this trade-off by implementing an efficient database representation based on <strong>graded monads</strong>, thereby retaining compositionality while improving performance.</p>
+<p>This project will address this trade-off by implementing an efficient database
+representation based on <strong>graded monads</strong>, thereby retaining compositionality
+while improving performance.</p>
+
+<h3 id="reactive-dashboard-with-functional-reactive-programming">Reactive Dashboard with Functional Reactive Programming</h3>
+<p>Functional Reactive Programming (FRP) is a programming paradigm commonly used in
+applications that involve time-varying or event-driven data, such as:</p>
+<ul>
+  <li>Graphical User Interfaces (GUIs): handling interactive components like buttons, sliders, and animations.</li>
+  <li>Games and simulations: managing continuously changing game states and reactive events.</li>
+  <li>Robotics and embedded systems: controlling sensors and actuators in real-time.</li>
+  <li>Financial or IoT dashboards: updating displays in response to live data streams.</li>
+  <li>Audio/video processing: modeling signals and effects that change over time.</li>
+</ul>
+
+<p>The key idea of FRP is to treat signals as never-ending as streams can can be manipulated by
+combinators. For example, the following code creates a <strong>reactive counter</strong> that automatically
+increments each time a tick event occurs. It prints the updated counter value
+whenever it changes:
+<code class="language-plaintext highlighter-rouge">main = do
+    (addTick, fire) &lt;- newAddHandler
+    network &lt;- compile $ reactimate $ fmap print =&lt;&lt; changes &lt;$&gt; accumB 0 ((+1) &lt;$ fromAddHandler addTick)
+    actuate network</code></p>
+
+<p>The goal of this project is to build a small interactive dashboard that responds
+in real-time to multiple input streams, leveraging libraries such as Reflex or reactive-banana. The dashboard
+may react to dynamic data — such as simulated sensor readings, stock prices,
+or game statistics — which updates automatically as the underlying signals
+change. The project should demonstrate compositional event handling, including
+the creation of derived signals that combine multiple inputs and the detection
+of complex events, such as threshold crossings.</p>
 
 <h3 id="os-development">OS Development</h3>
-<p>Markix is an operating System I developed when I was little. It is a bare bone operating system for x86 architectures written in Assembly and C and runs on x86 or the <a href="https://bochs.sourceforge.io">bochs emulator</a>. The idea is to have something more minimal than Minix so that students can understand every component of an operating system in isolation.<br />
-Hence, Markix is built in incremental stages. Each milestone corresponds to a Git tag, and improvements to that module are developed on dedicated branches.</p>
+<p>Markix is an operating System I developed when I was little. It is a bare bone
+operating system for x86 architectures written in Assembly and C and runs on x86
+or the <a href="https://bochs.sourceforge.io">bochs emulator</a>. The idea is to have
+something more minimal than Minix so that students can understand every
+component of an operating system in isolation. Hence, Markix is built in
+incremental stages. Each milestone corresponds to a Git tag, and improvements to
+that module are developed on dedicated branches.</p>
 
 <table>
   <thead>
@@ -343,12 +384,9 @@ is being considered for the next ISO standard of C++.</p>
   <li>The MRD Web Tool <a href="https://www.cs.kent.ac.uk/projects/MRDer/">link</a></li>
 </ul>
 
-<p>###</p>
 <h3 id="other-projects-bsc-and-msc-projects-for-computer-scientists">Other Projects B.Sc. and M.Sc. Projects for Computer Scientists</h3>
 
 <ul>
-  <li>Operating System Development (OSDev)</li>
-  <li>Algorithms implementation</li>
   <li>Efficient Analysis of Chess games</li>
   <li>Buffer Overflow Analysis</li>
   <li>Kernel Hacking: Security, Hypervisors</li>
@@ -401,7 +439,7 @@ is being considered for the next ISO standard of C++.</p>
 
 <div class="page__footer-copyright">
   &copy; 2026 Marco Paviotti, Powered by <a href="https://jekyllrb.com" rel="nofollow">Jekyll</a> &amp; <a href="https://github.com/academicpages/academicpages.github.io">AcademicPages</a>, a fork of <a href="https://mademistakes.com/work/minimal-mistakes-jekyll-theme/" rel="nofollow">Minimal Mistakes</a>.<br />
-  Site last updated 2026-01-21
+  Site last updated 2026-01-26
 </div>
 
       </footer>
