@@ -301,15 +301,6 @@ applications that involve time-varying or event-driven data, such as:</p>
   <li>Audio/video processing: modeling signals and effects that change over time.</li>
 </ul>
 
-<p>The key idea of FRP is to treat signals as never-ending as streams can can be manipulated by
-combinators. For example, the following code creates a <strong>reactive counter</strong> that automatically
-increments each time a tick event occurs. It prints the updated counter value
-whenever it changes:
-<code class="language-plaintext highlighter-rouge">main = do
-    (addTick, fire) &lt;- newAddHandler
-    network &lt;- compile $ reactimate $ fmap print =&lt;&lt; changes &lt;$&gt; accumB 0 ((+1) &lt;$ fromAddHandler addTick)
-    actuate network</code></p>
-
 <p>The goal of this project is to build a small interactive dashboard that responds
 in real-time to multiple input streams, leveraging libraries such as Reflex or reactive-banana. The dashboard
 may react to dynamic data — such as simulated sensor readings, stock prices,
