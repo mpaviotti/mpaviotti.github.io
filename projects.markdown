@@ -8,7 +8,8 @@ title: Projects
 ## Undergrad Projects for Computer Scientists
 
 ### Graded Monads for Efficient Database Implementations 
-Functional programming languages such as Haskell make it easy to express database queries using list comprehensions. For instance, the SQL query
+Functional programming languages such as Haskell make it easy to express
+database queries using list comprehensions. For instance, the SQL query
 
 `SELECT name, amount
 FROM customers, invoices
@@ -19,16 +20,54 @@ can be written in Haskell as the following one-liner:
 
 `[ (c.name, i.amount) |c ←customers, i ←invoices, c.cid i.cust, i.due < today ]`
 
-This approach is highly convenient: monads allow us to concisely express fairly complex operations over lists. However, this simplicity comes at a cost—such implementations are often inefficient. A more performant alternative is to use indexed tables, which can be viewed as finite functions of type `Key -> [Value]`. While this representation improves efficiency, it sacrifices the ability to compose queries elegantly using monads.
+This approach is highly convenient: monads allow us to concisely express fairly
+complex operations over lists. However, this simplicity comes at a cost—such
+implementations are often inefficient. A more performant alternative to lists is to use
+indexed tables, which can be viewed as finite functions of type `Key ->
+[Value]`. While this representation improves efficiency, it sacrifices the
+ability to compose queries elegantly using monads.
 
-This project will address this trade-off by implementing an efficient database representation based on **graded monads**, thereby retaining compositionality while improving performance.
+This project will address this trade-off by implementing an efficient database
+representation based on **graded monads**, thereby retaining compositionality
+while improving performance.
+
+### Reactive Dashboard with Functional Reactive Programming
+Functional Reactive Programming (FRP) is a programming paradigm commonly used in
+applications that involve time-varying or event-driven data, such as:
+- Graphical User Interfaces (GUIs): handling interactive components like buttons, sliders, and animations.
+- Games and simulations: managing continuously changing game states and reactive events.
+- Robotics and embedded systems: controlling sensors and actuators in real-time.
+- Financial or IoT dashboards: updating displays in response to live data streams.
+- Audio/video processing: modeling signals and effects that change over time.
+
+The key idea of FRP is to treat signals as never-ending as streams can can be manipulated by
+combinators. For example, the following code creates a **reactive counter** that automatically
+increments each time a tick event occurs. It prints the updated counter value
+whenever it changes:
+`main = do
+    (addTick, fire) <- newAddHandler
+    network <- compile $ reactimate $ fmap print =<< changes <$> accumB 0 ((+1) <$ fromAddHandler addTick)
+    actuate network`
+
+The goal of this project is to build a small interactive dashboard that responds
+in real-time to multiple input streams, leveraging libraries such as Reflex or reactive-banana. The dashboard
+may react to dynamic data --- such as simulated sensor readings, stock prices,
+or game statistics --- which updates automatically as the underlying signals
+change. The project should demonstrate compositional event handling, including
+the creation of derived signals that combine multiple inputs and the detection
+of complex events, such as threshold crossings. 
 
 ### OS Development
-Markix is an operating System I developed when I was little. It is a bare bone operating system for x86 architectures written in Assembly and C and runs on x86 or the [bochs emulator](https://bochs.sourceforge.io). The idea is to have something more minimal than Minix so that students can understand every component of an operating system in isolation.  
-Hence, Markix is built in incremental stages. Each milestone corresponds to a Git tag, and improvements to that module are developed on dedicated branches.
+Markix is an operating System I developed when I was little. It is a bare bone
+operating system for x86 architectures written in Assembly and C and runs on x86
+or the [bochs emulator](https://bochs.sourceforge.io). The idea is to have
+something more minimal than Minix so that students can understand every
+component of an operating system in isolation. Hence, Markix is built in
+incremental stages. Each milestone corresponds to a Git tag, and improvements to
+that module are developed on dedicated branches.
 
-| Tag          | Component          | Description                                                                 |
-|--------------|------------------|-----------------------------------------------------------------------------|
+| Tag          | Component         | Description                                                                 |
+|--------------|-------------------|-----------------------------------------------------------------------------|
 | Bootloader   | Bootloader        | Initializes the CPU in real mode, loads the kernel, and switches to protected mode |
 | Interrupts   | Interrupt System  | Implements the 8259 PIC, IDT setup, and interrupt service routines (ISRs) |
 | Keyboard     | PS/2 Driver       | Handles keyboard input and interrupt handling                               |
@@ -38,7 +77,7 @@ Hence, Markix is built in incremental stages. Each milestone corresponds to a Gi
 
 
 Download the source code from my GitHub [page](https://github.com/mpaviotti/Markix). 
-Software needed: NASM Compiler, C Compiler with support for cross compiling to i386 architectures, Bochs, GNU Debugger (gdb).  
+Software needed: NASM Compiler, C Compiler with support for cross compiling to i386 architectures, Bochs, GNU Debugger (gdb).
 
 
 ### Weak Memory Concurrency
@@ -51,11 +90,8 @@ is being considered for the next ISO standard of C++.
 - The WG21 group page: [https://isocpp.org/wiki/faq/wg21](https://isocpp.org/wiki/faq/wg21)
 - The MRD Web Tool [link](https://www.cs.kent.ac.uk/projects/MRDer/)
 
-###
 ### Other Projects B.Sc. and M.Sc. Projects for Computer Scientists
  
-- Operating System Development (OSDev)
-- Algorithms implementation 
 - Efficient Analysis of Chess games
 - Buffer Overflow Analysis
 - Kernel Hacking: Security, Hypervisors
