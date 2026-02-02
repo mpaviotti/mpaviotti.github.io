@@ -14,28 +14,31 @@ structure such as that of category theory.
 This trinitarianistic view of computer science connects very neatly to programming languages and computability, and has found several **applications** to **formal methods**, **functional programming**, **quantum computing**, **AI** and **databases**.   
 
 ## Possible PhD Topics
-Below you can find a non-comprehensive list of PhD topics I'd be happy to supervise: 
+I am interested in supervising PhD students on a wide variety of topics as long as category theory is the guiding structuring principle.
+These may include **databases** ([Gibbons &
+Hinze](https://www.cs.ox.ac.uk/jeremy.gibbons/publications/reladj.pdf)), **quantum computing** ([David Reutter and Jamie Vicary](https://www.cs.ox.ac.uk/files/10510/notes.pdf)),
+**deep learning** ([Gavranovic et al.](https://arxiv.org/pdf/2402.15332v1)) and **functional reactive programming** (FRP) ([Krishnaswami & Benton,
+2011](https://www.cl.cam.ac.uk/~nk480/frp-lics11.pdf)).  
+Below you can find a non-comprehensive list of PhD topics I'd be happy to
+supervise: 
 
-- **Guarded type theory**
-Guarded Type Theory (GTT) extends type theory with a delay (or later) modality
+- **Guarded Type Theory** (GTT) extends type theory with a delay (or later) modality
 that internalises the notion of contractivity familiar from metric semantics. By
 enforcing productivity and well-foundedness through the type system, GTT
 provides a principled framework for reasoning about coinductive definitions and
-it has found several important applications; for denotational semantics of
+it has found several important applications in denotational semantics of
 languages with recursion ([Paviotti,
-2016](https://mpaviotti.github.io/assets/papers/paviotti-phdthesis.pdf)), for
-models of *functional reactive programming* (FRP) ([Krishnaswami & Benton,
-2011](https://www.cl.cam.ac.uk/~nk480/frp-lics11.pdf)), for models of
-higher-order store ([Birkedal et al](https://cs.au.dk/~birke/papers/sgdt-conf.pdf)). 
+2016](https://mpaviotti.github.io/assets/papers/paviotti-phdthesis.pdf)), 
+ *functional reactive programming* (FRP) ([Krishnaswami & Benton,
+2011](https://www.cl.cam.ac.uk/~nk480/frp-lics11.pdf)), 
+models of higher-order store ([Birkedal et al](https://cs.au.dk/~birke/papers/sgdt-conf.pdf)). 
 
 You can find more information here: 
     - [Guarded Type Theory](https://ncatlab.org/nlab/show/synthetic+guarded+domain+theory) 
     - [Guarded Recursion](https://ncatlab.org/nlab/show/guarded+recursion). 
 
  
-
-- **Functional Programming**
-Functional programming has long been closely connected to abstract mathematics.
+- **Functional Programming**  has long been closely connected to abstract mathematics.
 Since the turn of the century, this connection has been further strengthened
 through the systematic application of category-theoretic ideas to typed
 functional languages. A key insight was the observation that a functor can be
@@ -50,8 +53,7 @@ al.](https://www.cs.ox.ac.uk/jeremy.gibbons/publications/fast+loose.pdf)).
 
 You can find more information about recursion schemes here: [Recursion Schemes](https://ncatlab.org/nlab/show/recursion+scheme)
  
-- **Coalgebraic Semantics**
-Coalgebraic semantics provides a uniform, abstract framework for modelling the
+- **Concurrency Languages** provides a uniform, abstract framework for modelling the
 dynamic behaviour of computational systems. In this approach, the behaviour of a
 system is represented as a coalgebra for a functor that specifies the shape of
 observable transitions, such as state evolution, input/output, or
