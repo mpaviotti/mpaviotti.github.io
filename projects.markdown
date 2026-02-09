@@ -31,6 +31,26 @@ This project will address this trade-off by implementing an efficient database
 representation based on **graded monads**, thereby retaining compositionality
 while improving performance.
 
+### Quantum Functional Programming 
+This project investigates the design and implementation of a purely functional
+domain-specific language for quantum programming, grounded in category-theoretic
+semantics. Quantum circuits are represented as typed morphisms—e.g. `Hadamard ::
+Qubit ⟶ Qubit` and `CNOT :: (Qubit ⊗ Qubit) ⟶ (Qubit ⊗ Qubit)` --- with
+sequential and parallel composition expressed via categorical operators `(∘)`
+and `(⊗)`. 
+
+By leveraging linear or affine typing (possibly with the use of modal types),
+the language enforces core quantum constraints such as no-cloning and
+no-deleting at compile time, ensuring correct usage of quantum data by construction.
+
+Selected circuits and algorithms developed in the DSL (e.g. Bell states,
+teleportation, or Grover-style oracles) are reimplemented as exercises in
+Quipper, enabling a comparative evaluation of expressiveness, safety guarantees,
+and programmer effort. The project will delvier an executable prototype capable
+of simulating or compiling circuits, illustrating how  structure in functional
+programming together yield expressive, principled, and statically safe
+abstractions for quantum computation.
+
 ### Reactive Dashboard with Functional Reactive Programming
 Functional Reactive Programming (FRP) is a programming paradigm commonly used in
 applications that involve time-varying or event-driven data, such as:
