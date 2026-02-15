@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.10.0">Jekyll</generator><link href="https://mpaviotti.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://mpaviotti.github.io/" rel="alternate" type="text/html" /><updated>2026-02-15T15:03:29+00:00</updated><id>https://mpaviotti.github.io/feed.xml</id><title type="html">Marco Paviotti</title><subtitle>Lecturer in Computer Science</subtitle><author><name>Marco Paviotti</name><email>m.paviotti@kent.ac.uk</email></author><entry><title type="html">So you want to get a PhD..</title><link href="https://mpaviotti.github.io/posts/2026/02/PhD/" rel="alternate" type="text/html" title="So you want to get a PhD.." /><published>2026-02-15T13:15:00+00:00</published><updated>2026-02-15T13:15:00+00:00</updated><id>https://mpaviotti.github.io/posts/2026/02/PhD</id><content type="html" xml:base="https://mpaviotti.github.io/posts/2026/02/PhD/"><![CDATA[<p>while I think this is a great idea, let me tell you: <em>This is not a degree for the faint-hearted</em>.</p>
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.10.0">Jekyll</generator><link href="https://mpaviotti.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://mpaviotti.github.io/" rel="alternate" type="text/html" /><updated>2026-02-15T15:19:20+00:00</updated><id>https://mpaviotti.github.io/feed.xml</id><title type="html">Marco Paviotti</title><subtitle>Lecturer in Computer Science</subtitle><author><name>Marco Paviotti</name><email>m.paviotti@kent.ac.uk</email></author><entry><title type="html">So you want to get a PhD..</title><link href="https://mpaviotti.github.io/posts/2026/02/PhD/" rel="alternate" type="text/html" title="So you want to get a PhD.." /><published>2026-02-15T13:15:00+00:00</published><updated>2026-02-15T13:15:00+00:00</updated><id>https://mpaviotti.github.io/posts/2026/02/PhD</id><content type="html" xml:base="https://mpaviotti.github.io/posts/2026/02/PhD/"><![CDATA[<p>while I think this is a great idea, let me tell you: <em>This is not a degree for the faint-hearted</em>.</p>
 
 <h1 id="-what-a-phd-really-is">🎓 What a PhD Really Is</h1>
 
@@ -106,6 +106,20 @@ While the supervisor is responsible for you, if you do not carry on with your ow
 <p>In many European systems in particular, the <strong>supervisor may be the single most important factor</strong> in your PhD experience.</p>
 
 <p>A bad or toxic supervisor can derail even a strong student, while a good supervisor can elevate an average project into an excellent one. Still a good supervisor can do little if the students is not willing to contribute.</p>
+
+<h1 id="-takeaways">✅ Takeaways</h1>
+<p>A PhD is a challenging and unpredictable journey.<br />
+Everyone’s experience is different, so in the end, <strong>no one can truly tell you
+what a PhD is</strong> — you have to experience it yourself, fail, learn, and try
+again.</p>
+
+<p>Failure, confusion, and rejection are all part of the process. <strong>Embrace them.</strong><br />
+If you’ve made it this far, you <strong>can</strong> make it to the end. Believe in yourself and keep moving forward. 💪</p>
+
+<p>During times of self-doubt, take care of yourself, trying go for a walk in the
+park 🌿, don’t beat yourself up and avoid overindulging in pubs or nightclubs
+🍻. Get a good night’s sleep 🛌 , tomorrow things will feel a little easier,
+and you’ll be ready to tackle the next challenge.</p>
 
 <hr />]]></content><author><name>Marco Paviotti</name><email>m.paviotti@kent.ac.uk</email></author><category term="PhD" /><summary type="html"><![CDATA[while I think this is a great idea, let me tell you: This is not a degree for the faint-hearted.]]></summary></entry><entry><title type="html">Recursion as an Effect</title><link href="https://mpaviotti.github.io/posts/2025/12/Lifting/" rel="alternate" type="text/html" title="Recursion as an Effect" /><published>2025-12-28T19:24:21+00:00</published><updated>2025-12-28T19:24:21+00:00</updated><id>https://mpaviotti.github.io/posts/2025/12/Guarded-Lifting</id><content type="html" xml:base="https://mpaviotti.github.io/posts/2025/12/Lifting/"><![CDATA[<p>In one of my previous <a href="/posts/2022/11/CCC-FixedPoints/">post</a> I showed that any
 theory featuring general recursion is inconsistent when viewed as a logical
