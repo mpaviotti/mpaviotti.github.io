@@ -7,12 +7,9 @@ redirect_from:
   - /about.html
 ---
 
-
-
-
 I am Assistant Professor in the
 [School of Computing](https://www.kent.ac.uk/computing) of [University of Kent
-(U.K.)](https://www.kent.ac.uk). 
+(U.K.)](https://www.kent.ac.uk). I am a member of the Programming Languages and Systems group (PLaS) and the Quantum Applications Research Centre (QuARC) at Kent. 
 
 **Research Area**: Denotational Semantics of Programming Languages, Category Theory, Type Theory, Functional Programming, Guarded Recursion, Domain Theory, Recursion Schemes, Mathematical Logic. 
 
@@ -26,6 +23,7 @@ I have some PhD vacancies.
 
  
 ### News
+- [02/2026] I am a member of the Quantum Applications Research Centre (QuARC) at Kent. 
 - [12/2025] [Chentian Wu](https://cv.wuct.site) got awarded R.Creighton Buck Prize for **Best Undergraduate Math Thesis** on "*Beck's monadicity theorem*". Download the thesis [here](https://cv.wuct.site/pdf/bs-thesis.pdf). Well done, Chentian!
 - [06/2025] [Accepted](/assets/papers/itp25.pdf) to ITP 25 with David Castro Perez and Michael Vollmer. 
 

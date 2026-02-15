@@ -1,8 +1,11 @@
 ---
-layout: archive
-permalink: /phd-statement/
-title: So you want to get a PhD ...  
+title:  "So you want to get a PhD.." 
+date:   2025-02-15 13:15:00 +0000
+permalink: /posts/2026/02/PhD/
+tags:
+  - PhD
 ---
+
 If you are here you are probably considering getting a PhD in Theoretical
 Computer Science. While a think this is a great idea(!) I would like you to take some time reading this page to make sure you understand the **advantages** as well as the **risks** involved in getting into a PhD program.      
 

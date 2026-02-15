@@ -290,6 +290,26 @@ ability to compose queries elegantly using monads.</p>
 representation based on <strong>graded monads</strong>, thereby retaining compositionality
 while improving performance.</p>
 
+<h3 id="quantum-functional-programming">Quantum Functional Programming</h3>
+<p>This project investigates the design and implementation of a purely functional
+domain-specific language for quantum programming, grounded in category-theoretic
+semantics. Quantum circuits are represented as typed morphisms—e.g. <code class="language-plaintext highlighter-rouge">Hadamard ::
+Qubit ⟶ Qubit</code> and <code class="language-plaintext highlighter-rouge">CNOT :: (Qubit ⊗ Qubit) ⟶ (Qubit ⊗ Qubit)</code> — with
+sequential and parallel composition expressed via categorical operators <code class="language-plaintext highlighter-rouge">(∘)</code>
+and <code class="language-plaintext highlighter-rouge">(⊗)</code>.</p>
+
+<p>By leveraging linear or affine typing (possibly with the use of modal types),
+the language enforces core quantum constraints such as no-cloning and
+no-deleting at compile time, ensuring correct usage of quantum data by construction.</p>
+
+<p>Selected circuits and algorithms developed in the DSL (e.g. Bell states,
+teleportation, or Grover-style oracles) are reimplemented as exercises in
+Quipper, enabling a comparative evaluation of expressiveness, safety guarantees,
+and programmer effort. The project will delvier an executable prototype capable
+of simulating or compiling circuits, illustrating how  structure in functional
+programming together yield expressive, principled, and statically safe
+abstractions for quantum computation.</p>
+
 <h3 id="reactive-dashboard-with-functional-reactive-programming">Reactive Dashboard with Functional Reactive Programming</h3>
 <p>Functional Reactive Programming (FRP) is a programming paradigm commonly used in
 applications that involve time-varying or event-driven data, such as:</p>
@@ -430,7 +450,7 @@ is being considered for the next ISO standard of C++.</p>
 
 <div class="page__footer-copyright">
   &copy; 2026 Marco Paviotti, Powered by <a href="https://jekyllrb.com" rel="nofollow">Jekyll</a> &amp; <a href="https://github.com/academicpages/academicpages.github.io">AcademicPages</a>, a fork of <a href="https://mademistakes.com/work/minimal-mistakes-jekyll-theme/" rel="nofollow">Minimal Mistakes</a>.<br />
-  Site last updated 2026-02-02
+  Site last updated 2026-02-15
 </div>
 
       </footer>
