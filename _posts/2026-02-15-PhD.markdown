@@ -35,20 +35,20 @@ The reasons why people don't make it to the end of the line can vary from person
 ## 🌟 It can be the best moment of your life,... :pirate_flag: or the worst!
 
 A PhD can become, one of your **biggest life achievements** and the most
-**intellectually rewarding periods** of your life.  This provided that you can
+**intellectually rewarding periods** of your life. This provided that you can
 make **consistent progress**, tolerate uncertainty, reach the finish line. 
 
 Otherwise, it can become **a long tunnel with no visible exit**, a slow erosion
 of confidence, and a prolonged period of stress and doubt. 
 
 You might think I’m trying to scare you — and to some extent, that’s true — but
-it’s better to be honest than to lead you into a trap. Yes, it can
-feel like a trap, because once you begin, you’re committing to three or four
-years of your life, possibly more. 
+it’s better to be honest than to lead you into a trap. Yes, it can feel like a
+trap, because once you begin, you’re committing to three or four years of your
+life, possibly more. 
 
 It’s truly a make-or-break journey.  If halfway through you realize it’s not
-right for you, you’re faced with a difficult decision:
-acknowledging that you’ve lost a significant amount of time and quit or keep going for another 
+right for you, you’re faced with a difficult decision: acknowledging that you’ve
+lost a significant amount of time and quit or keep going for another 
 several years and not knowing whether you're going to make it or not.  
 
 That choice can be heartbreaking — for you and for us.
@@ -95,16 +95,17 @@ be very careful about using it for doing rigorous work.
 The problem is that the unscrupulous use of AI is making undergraduates often
 **less trained to work independently** and to push themselves rigorously. Not
 only AI only regurgitates existing knowledge and cannot produce new, but also
-the knowledge it regurgitates is often wrong and sloppy. I spent days trying to
-debug AI slop and at some point I gave up because the AI can produce wrong math faster than I can disprove it.  
+the knowledge it regurgitates is often wrong and sloppy. I recently spent days trying to
+debug AI slop and at some point I gave up because the AI would produce wrong math faster than I could disprove it.  
 
 This is also known, as a **The bullshit asymmetry principle** (a valuable piece of wisdom btw). The principle is as follows:  
 
-"The amount of energy needed to refute bullshit is an order of magnitude bigger
-than to produce it."
+*The amount of energy needed to refute bullshit is an order of magnitude bigger
+than to produce it.*
 
 Read more about it
 [here](https://statmodeling.stat.columbia.edu/2019/01/28/bullshit-asymmetry-principle/).
+
 
 
 ---
@@ -128,7 +129,9 @@ It is crucial that you find a supervisor whose  **research interests align**
 with yours, someone you feel **comfortable working with** and someone whose
 mentoring style matches your needs. 
 
-State at the beginning what the expectations are, who needs to do what and how much  
+When looking for a PhD, my suggestion is to state upfront what kind of topics
+you like and what kind of supervision you want. Don't negotiate on it.
+Ultimately, it is your PhD.      
 
 
 ## 🤝 The 2-Player Game
@@ -153,7 +156,10 @@ Everyone’s experience is different, so in the end, **no one can truly tell you
 what a PhD is** — you have to experience it yourself, fail, learn, and try
 again.
 
-Failure, confusion, and rejection are all part of the process. **Embrace them.**  💪
+To anyone who is considering doing a PhD, I'd suggest to choose 
+- a topic that makes you tick :metal:  
+- a supervisor that is willing to supervise you 🤝
+- a country that you like 
 
 During times of self-doubt, take care of yourself, don’t beat yourself up and
 avoid overindulging in pubs or nightclubs 🍻. Get a good night’s sleep 🛌  and
