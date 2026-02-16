@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.10.0">Jekyll</generator><link href="https://mpaviotti.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://mpaviotti.github.io/" rel="alternate" type="text/html" /><updated>2026-02-16T10:49:00+00:00</updated><id>https://mpaviotti.github.io/feed.xml</id><title type="html">Marco Paviotti</title><subtitle>Lecturer in Computer Science</subtitle><author><name>Marco Paviotti</name><email>m.paviotti@kent.ac.uk</email></author><entry><title type="html">So you want to get a PhD..</title><link href="https://mpaviotti.github.io/posts/2026/02/PhD/" rel="alternate" type="text/html" title="So you want to get a PhD.." /><published>2026-02-15T13:15:00+00:00</published><updated>2026-02-15T13:15:00+00:00</updated><id>https://mpaviotti.github.io/posts/2026/02/PhD</id><content type="html" xml:base="https://mpaviotti.github.io/posts/2026/02/PhD/"><![CDATA[<p>while I think this is a great idea, let me tell you: <em>This is not a degree for the faint-hearted</em>.</p>
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.10.0">Jekyll</generator><link href="https://mpaviotti.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://mpaviotti.github.io/" rel="alternate" type="text/html" /><updated>2026-02-16T10:55:24+00:00</updated><id>https://mpaviotti.github.io/feed.xml</id><title type="html">Marco Paviotti</title><subtitle>Lecturer in Computer Science</subtitle><author><name>Marco Paviotti</name><email>m.paviotti@kent.ac.uk</email></author><entry><title type="html">So you want to get a PhD..</title><link href="https://mpaviotti.github.io/posts/2026/02/PhD/" rel="alternate" type="text/html" title="So you want to get a PhD.." /><published>2026-02-15T13:15:00+00:00</published><updated>2026-02-15T13:15:00+00:00</updated><id>https://mpaviotti.github.io/posts/2026/02/PhD</id><content type="html" xml:base="https://mpaviotti.github.io/posts/2026/02/PhD/"><![CDATA[<p>while I think this is a great idea, let me tell you: <em>This is not a degree for the faint-hearted</em>.</p>
 
 <h1 id="-what-a-phd-really-is">🎓 What a PhD Really Is</h1>
 
@@ -10,7 +10,10 @@ knowledge</strong>, not just learning existing knowledge.</p>
 <p>At the same time, <strong>failure rates for PhD students can be as high as 40%</strong> (based on my calculations in a research group at a university I worked for).</p>
 
 <p>Doing a PhD, is radically different from any other university degree.<br />
-A PhD is about studying books an pass exams. Rather, you will focus for a long period of time on a <strong>very specific topic</strong>, doing independent <strong>original research</strong> that makes a significant contribution, <strong>publishing and presenting</strong> your findings and finally writing and defending a <strong>doctoral thesis</strong>.</p>
+A PhD is about studying books an pass exams. Rather, you will focus for a long
+period of time on a <strong>very specific topic</strong>, doing independent <strong>original
+research</strong> that makes a significant contribution, <strong>publishing and presenting</strong>
+your findings and finally writing and defending a <strong>doctoral thesis</strong>.</p>
 
 <p>Essentially, having a PhD demonstrates that you possess a <strong>deep knowledge</strong> of your own specific field and can engage with other <strong>international experts</strong> as a peer.</p>
 
@@ -59,7 +62,7 @@ frustrates you, then this path is for you.</p>
 <hr />
 <h2 id="-the-harsh-truth-of-modern-academia">🧠 The harsh truth of modern academia</h2>
 <p>Sorry for saying this, but the harsh truth is that undergraduate degrees are
-getting easier and easier to attain, on the other hand, PhD are <strong>as demanding
+getting easier and easier to attain, on the other hand, PhDs are <strong>as demanding
 as ever</strong>.</p>
 
 <p>When doing an undergraduate degree, you are <strong>safeguarded</strong>; Material is
@@ -69,44 +72,55 @@ these rules</strong>; There is <strong>no guarantee of success</strong>.</p>
 
 <p>There is also an uncomfortable truth about modern academia that we (as a society) will need to address at some point: The AI factor.</p>
 
-<p>Don’t get me wrong, it is not a sin to use AI to restructure text, but I would be very careful about using it for doing rigorous work.</p>
+<p>Don’t get me wrong, it is not a sin to use AI to restructure text, but I would
+be very careful about using it for doing rigorous work.</p>
 
-<p>The problem is that the unscrupulous use of AI is making undergraduates often <strong>less
-trained to work independently</strong> and to push themselves rigorously. Not only AI
-only regurgitates existing knowledge and cannot produce new, but also the
-knowledge it regurgitates is often wrong and sloppy. I spent days trying to
+<p>The problem is that the unscrupulous use of AI is making undergraduates often
+<strong>less trained to work independently</strong> and to push themselves rigorously. Not
+only AI only regurgitates existing knowledge and cannot produce new, but also
+the knowledge it regurgitates is often wrong and sloppy. I spent days trying to
 debug AI slop and at some point I gave up because the AI can produce wrong math faster than I can disprove it.</p>
 
 <p>This is also known, as a <strong>The bullshit asymmetry principle</strong> (a valuable piece of wisdom btw). The principle is as follows:</p>
 
-<p>“The amount of energy needed to refute bullshit is an order of magnitude bigger than to produce it.”</p>
+<p>“The amount of energy needed to refute bullshit is an order of magnitude bigger
+than to produce it.”</p>
 
-<p>Read more about it <a href="https://statmodeling.stat.columbia.edu/2019/01/28/bullshit-asymmetry-principle/">here</a>.</p>
+<p>Read more about it
+<a href="https://statmodeling.stat.columbia.edu/2019/01/28/bullshit-asymmetry-principle/">here</a>.</p>
 
 <hr />
 
 <h1 id="-lets-be-real-the-most-important-thing-of-a-phd">🔱 Let’s be real: The most important thing of a PhD</h1>
 
-<p>The other most important thing I’ve learned when doing a PhD is that relationships are not built on magic or illusions — they are built on mutual benefit.🤝</p>
+<p>The other most important thing I’ve learned when doing a PhD is that
+relationships are not built on magic or illusions — they are built on mutual
+benefit.🤝</p>
 
 <p><code class="language-plaintext highlighter-rouge">I give you what you need, if you give me something that I need</code> ⚖️</p>
 
-<p>Any connection that ignores this fundamental balance risks becoming <strong>toxic</strong>. ☠️🧪⚠️</p>
+<p>Any connection that ignores this fundamental balance risks becoming <strong>toxic</strong>.
+☠️🧪⚠️</p>
 
 <p>This basic life lesson is the core of the PhD program and therefore I’d say that the most important in your PhD is</p>
 
 <p><code class="language-plaintext highlighter-rouge">The relationship with your supervisor</code>.</p>
 
-<p>It is crucial that you find a supervisor whose  <strong>research interests align</strong> with yours, someone you feel <strong>comfortable working with</strong> and someone whose mentoring style matches your needs.</p>
+<p>It is crucial that you find a supervisor whose  <strong>research interests align</strong>
+with yours, someone you feel <strong>comfortable working with</strong> and someone whose
+mentoring style matches your needs.</p>
 
 <h2 id="-the-2-player-game">🤝 The 2-Player Game</h2>
 
 <p>In my opinion, a PhD is essentially a <strong>two-player game</strong> between the student and the supervisor.</p>
 
-<p>Crucially though, if this relationship break, the one who suffers the most is the student.🛋️💡 
-While the supervisor is responsible for you, if you do not carry on with your own work, they will not lose their job if you don’t get your PhD.</p>
+<p>Crucially though, if this relationship break, the one who suffers the most is
+the student.🛋️💡  While the supervisor is responsible for you, if you do not
+carry on with your own work, they will not lose their job if you don’t get your
+PhD.</p>
 
-<p>In many European systems in particular, the <strong>supervisor may be the single most important factor</strong> in your PhD experience.</p>
+<p>In many European systems in particular, the <strong>supervisor may be the single most
+important factor</strong> in your PhD experience.</p>
 
 <p>A bad or toxic supervisor can derail even a strong student, while a good supervisor can elevate an average project into an excellent one and, also,<br />
 a good supervisor can do little if the students is not willing to contribute.</p>
@@ -120,8 +134,9 @@ again.</p>
 
 <p>Failure, confusion, and rejection are all part of the process. <strong>Embrace them.</strong>  💪</p>
 
-<p>During times of self-doubt, take care of yourself, don’t beat yourself up and avoid overindulging in pubs or nightclubs
-🍻. Get a good night’s sleep 🛌  and try again tomorrow.</p>
+<p>During times of self-doubt, take care of yourself, don’t beat yourself up and
+avoid overindulging in pubs or nightclubs 🍻. Get a good night’s sleep 🛌  and
+try again tomorrow.</p>
 
 <p>(Do as I say, not as I do).</p>
 
