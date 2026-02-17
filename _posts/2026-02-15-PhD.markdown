@@ -32,7 +32,7 @@ students can be as high as 40%** .
 
 The reasons why people don't make it to the end of the line can vary from person to person, but common mistakes include underestimating the amount of work required, supervisor mismatch and/or topic mismatch, and not understanding what is the requirement for getting a PhD.   
 
-## 🌟 It can be the best moment of your life,... :pirate_flag: or the worst!
+## 🌟 It can be the best moment of your life,... or the worst :pirate_flag: !
 
 A PhD can become, one of your **biggest life achievements** and the most
 **intellectually rewarding periods** of your life. This provided that you can
@@ -55,13 +55,13 @@ That choice can be heartbreaking — for you and for us.
 
 ## 🔥 If You're Not Failing, You're Not Trying Hard Enough
 
-One of the most precious life lessons I learned from my PhD is that failure happens when you try something new. Don't worry, those who are never wrong or never made a mistake have never tried to push their limits. If you’ve never failed, it likely means you’ve been staying in your comfort zone for too long.  
+One of the most precious life lessons I learned from my PhD is that **failure
+happens when you try something new**. 
 
-A PhD is not about constant success, it is more about failure than success. 
+If anyone ever mocked you for having failed at something don't worry; **Those who are never wrong have never tried anything challenging**. 
+I personally think I failed in my life more than I succeeded, in a sense, _I have a PhD in doing mistakes_, and I am not ashamed of saying it.   
 
-I personally think I failed in my life more than I succeeded, but I learned my lessons.  
-
-Failure is not a side effect, it is **the mechanism.** If you cannot tolerate
+However, failure is not a side effect, it is **the mechanism.** If you cannot tolerate
 being wrong, uncertain, or behind for long periods, a PhD will feel unbearable.
   
 Doing research means 
@@ -95,8 +95,9 @@ be very careful about using it for doing rigorous work.
 The problem is that the unscrupulous use of AI is making undergraduates often
 **less trained to work independently** and to push themselves rigorously. Not
 only AI only regurgitates existing knowledge and cannot produce new, but also
-the knowledge it regurgitates is often wrong and sloppy. I recently spent days trying to
-debug AI slop and at some point I gave up because the AI would produce wrong math faster than I could disprove it.  
+the knowledge it regurgitates is often wrong and sloppy. I recently spent days
+trying to debug AI slop and at some point I gave up because the AI would produce wrong math 
+faster than I could disprove it.  
 
 This is also known, as a **The bullshit asymmetry principle** (a valuable piece of wisdom btw). The principle is as follows:  
 
