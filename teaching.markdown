@@ -8,16 +8,11 @@ title: Teaching
 - 2025--present. [COMP6018 -- Theory and Practice of Concurrency](https://www.kent.ac.uk/courses/modules/module/COMP6018).
 - 2025--present. [COMP6012 -- Programming Languages: Applications and Design](https://www.kent.ac.uk/courses/modules/module/COMP6012). 
 - 2025--present. [COMP7006 -- Introduction to Quantum Computing & Quantum Cryptography](https://www.kent.ac.uk/courses/modules/module/COMP7006).
-  Lecture Notes ([pdf](/assets/papers/quantum-notes.pdf))
+  Lecture Notes ([pdf](/assets/papers/quantum-notes.pdf)).
 
-## PhD Courses and Reading Groups 
+## PhD Courses and Reading Groups
 - 2024/25. Category Theory course for postgraduates. Link to the course, [here]({% link catcourse.markdown %}).
 - 2017-2019. *Category Theory* with Dominic Orchard, University of Kent. Postgraduate Course. Download the notes [here](/assets/papers/intro-cat24.pdf).
-
-## Notes
-- A Taste of Categorical Semantics. ([pdf](/assets/papers/a-taste-of-cat.pdf))
-- Kan Extensions and Monads. ([pdf](/assets/papers/kan-notes.pdf))
-
 
 ## Past Modules
 - 2023-2025. [COMP6610 -- Theory and Practice of Concurrency](https://www.kent.ac.uk/courses/modules/module/CO661).

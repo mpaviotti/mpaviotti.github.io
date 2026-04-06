@@ -7,7 +7,9 @@ title: Category Theory Course at Kent
 
 Notes of the course:
 
-- [Download](/assets/catcourse/cat-course.pdf)
+- Lecture Notes ([pdf](/assets/catcourse/cat-course.pdf)).
+- A Taste of Categorical Semantics ([pdf](/assets/papers/a-taste-of-cat.pdf)).
+- Kan Extensions and Monads ([pdf](/assets/papers/kan-notes.pdf)).
 
 The second set of notes is the one that we used in the course which contains the following material: 
 
