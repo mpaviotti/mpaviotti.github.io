@@ -8,7 +8,7 @@ title: Teaching
 - 2025--present. [COMP6018 -- Theory and Practice of Concurrency](https://www.kent.ac.uk/courses/modules/module/COMP6018).
 - 2025--present. [COMP6012 -- Programming Languages: Applications and Design](https://www.kent.ac.uk/courses/modules/module/COMP6012). 
 - 2025--present. [COMP7006 -- Introduction to Quantum Computing & Quantum Cryptography](https://www.kent.ac.uk/courses/modules/module/COMP7006).
-  Lecture Notes ([pdf](/assets/papers/quantum-notes.pdf)).
+  * Lecture Notes ([pdf](/assets/papers/quantum-notes.pdf)).
 
 ## PhD Courses and Reading Groups
 - 2024/25. Category Theory course for postgraduates. Link to the course, [here]({% link catcourse.markdown %}).
