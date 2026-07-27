@@ -7,7 +7,7 @@ title: Teaching
 ## Current Modules
 - 2025--present. [COMP6018 -- Theory and Practice of Concurrency](https://www.kent.ac.uk/courses/modules/module/COMP6018).
   * Lecture Notes by Dominic Orchard with some edits ([github](https://github.com/mpaviotti/co661-notes)) 
-  - 2025--present. [COMP6012 -- Programming Languages and Type Systems](https://www.kent.ac.uk/courses/modules/module/COMP6012).
+- 2025--present. [COMP6012 -- Programming Languages and Type Systems](https://www.kent.ac.uk/courses/modules/module/COMP6012).
   * Lecture Notes by Neel Krishnaswami ([pdf](https://www.cl.cam.ac.uk/teaching/2021/Semantics/notes.pdf)).
 - 2025--present. [COMP7006 -- Introduction to Quantum Computing & Quantum Cryptography](https://www.kent.ac.uk/courses/modules/module/COMP7006).
   * Lecture Notes ([pdf](/assets/papers/quantum-notes.pdf)).
