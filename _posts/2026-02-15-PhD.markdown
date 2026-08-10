@@ -6,14 +6,16 @@ tags:
   - PhD
 ---
 
-while I think this is a great idea, let me tell you: *This is not a degree for the faint-hearted*. 
+If you are here you are probably considering getting a PhD in Computer Science or another topic. While a think this is a great idea(!) I would like you to take some time reading this page to make sure you understand the **advantages** as well as the **risks** involved in getting into a PhD program.      
+
+The **TLDR** can probably be summarised as follows: *This is not a degree for the faint-hearted*. 
 
 # 🎓 What a PhD Really Is
 
 A PhD (Doctor of Philosophy) is a research degree focused on creating **new
 knowledge**, not just learning existing knowledge.
 
-It is radically different from any other university degree.   
+It is thus radically different from any other university degree.   
 As a PhD student you will not necessarily just study books an pass exams, but
 focus more on doing independent **original research**, **publishing and
 presenting** your findings and finally writing and defending a **doctoral
@@ -25,12 +27,12 @@ possess a **deep knowledge** of your own specific field and can engage with
 other **international experts** as a peer.
 
 If it still sounds easy to you here's some facts. A PhD is the **highest
-academic degree** awarded by universities — held by roughly **2% of the world’s
-population** (I took this number from Google, don't ask!) and, based on
+academic degree** awarded by universities (to a first approximation) — held by roughly **2% of the world’s
+population** (I took this number from Google, don't ask!). Based on
 calculations I've made in a university I worked for, **failure rates for PhD
 students can be as high as 40%** .
 
-The reasons why people don't make it to the end of the line can vary from person to person, but common mistakes include underestimating the amount of work required, supervisor mismatch and/or topic mismatch, and not understanding what is the requirement for getting a PhD.   
+The reasons why people don't make it to the end of the line can vary from person to person, but common mistakes include **underestimating the amount of work** required, **supervisor mismatch** and/or **topic mismatch**, and not understanding what is the **requirement for getting a PhD**.   
 
 ## 🌟 It can be the best moment of your life,... or the worst :pirate_flag: !
 
@@ -42,12 +44,11 @@ Otherwise, it can become **a long tunnel with no visible exit**, a slow erosion
 of confidence, and a prolonged period of stress and doubt. 
 
 You might think I’m trying to scare you — and to some extent, that’s true — but
-it’s better to be honest than to lead you into a trap. Yes, it can feel like a
-trap, because once you begin, you’re committing to three or four years of your
-life, possibly more. 
+it’s better to be honest than to lead you into a trap. 
+Uhm, yes, it may become a trap, because once you begin, you’re committing to three or four years of your life, possibly more. 
 
-It’s truly a make-or-break journey.  If halfway through you realize it’s not
-right for you, you’re faced with a difficult decision: acknowledging that you’ve
+If halfway through you realize it’s not
+right for you, you’re faced with a very difficult decision: acknowledging that you’ve
 lost a significant amount of time and quit or keep going for another 
 several years and not knowing whether you're going to make it or not.  
 
@@ -59,27 +60,26 @@ One of the most precious life lessons I learned from my PhD is that
 
 *Failure happens when you try something new* 
 
-If anyone ever mocked you for having failed at something don't worry; **Those who are never wrong have never tried anything challenging**. 
-I personally think I failed in my life more than I succeeded. In a sense, _I have a PhD in making mistakes_, and I am not ashamed of saying it.   
+If anyone ever mocked you for having failed at something don't worry; **Those who are never wrong have never tried anything challenging** and they just do not understand the valuable lessons you learn when you realised you have done a mistake. 
+I personally think I failed in my life more than I succeeded. In a sense, _I have a PhD in making mistakes_, and I am not ashamed of saying it.
 
-However, failure is not a side effect, it is **the mechanism.** If you cannot tolerate
-being wrong, uncertain, or behind for long periods, a PhD will feel unbearable.
-  
-Doing research means 
+Failure is just the **the mechanism** with which you learn and doing a PhD essentially means being 
+being wrong, uncertain, or behind for long periods of times; perhaps months, perhaps years. This can be daunting and dejecting, but doing essentially research means: 
 
 - Submit papers that get rejected ❌  
 - Run experiments that fail 💥  
 - Write code that doesn’t work 🐛  
 - Read things you don’t understand (yet) 🤯  
 
-But, 💪 if you can treat failure as data, confusion as progress, and rejection
+But, if you can treat failure as data that can be used, confusion as progress, and rejection
 as part of life, then a PhD is for you. In other words, if failure challenges
 you and drives you forward, and if not knowing things excites you rather than
 frustrates you, then this path is for you. 
 
 ---
 ## 🧠 The harsh truth of modern academia  
-Sorry for saying this, but the harsh truth is that undergraduate degrees are
+
+The harsh truth is that undergraduate degrees are
 getting easier and easier to attain, on the other hand, PhDs are **as demanding
 as ever**. 
 
@@ -90,85 +90,56 @@ these rules**; There is **no guarantee of success**.
 
 There is also an uncomfortable truth about modern academia that we (as a society) will need to address at some point: **The AI factor**.  
 
-Don't get me wrong, it is not a sin to use AI to restructure text, but I would
-be very careful about using it for doing rigorous work.
+Don't get me wrong, it is not a sin to use AI to restructure text, using it as a search engine or as a learning tool, perhaps a learning buddy, but I would
+be very careful about using it for doing rigorous work and, even as a learning buddy, sometimes the AI just generates wrong examples, proofs and so on. 
 
-The problem is that the unscrupulous use of AI is making undergraduates often
-**less trained to work independently** and to push themselves rigorously. Not
-only AI only regurgitates existing knowledge and cannot produce new, but also
-the knowledge it regurgitates is often wrong and sloppy. I recently spent days
-trying to debug AI slop and at some point I gave up because the AI would produce wrong math 
-faster than I could disprove it.  
-
-This is also known, as a **The bullshit asymmetry principle** (a valuable piece of wisdom btw). The principle is as follows:  
+This reminds me a little of the [The bullshit asymmetry principle](https://statmodeling.stat.columbia.edu/2019/01/28/bullshit-asymmetry-principle/), a valuable piece of wisdom I learned as an undergrad. The principle is as follows:  
 
 *The amount of energy needed to refute bullshit is an order of magnitude bigger
 than to produce it.*
 
-Read more about it
-[here](https://statmodeling.stat.columbia.edu/2019/01/28/bullshit-asymmetry-principle/).
-
+This makes academics more weary than ever about the papers being submitted and
+thus they require solid proofs that your work is correct. In modern academia this is more
+true than ever since the unscrupulous use of AI has made undergraduates less
+trained to work critically. This is something you are going to need to fix
+quickly if you want a PhD. 
 
 ---
 
-# 🔱 The most important thing of a PhD
+# 🔱 The most important component of a PhD
 
-The other most important thing I've learned when doing a PhD is that
-relationships are not built on magic or illusions — they are built on mutual
-benefit.🤝
-
-`I give you what you need, if you give me something that I need` ⚖️
-  
-Anyone that ignores this fundamental balance risks becoming **toxic**.
-☠️🧪⚠️
-
-This basic life lesson is the core of the PhD program and therefore I'd say that the most important in your PhD is  
+The most important component in your PhD is   
 
 `The relationship with your supervisor`. 
+
+The supervisor is your main collaborator, the person you are going to work with for a long period of time and whose expertise and personality will strongly influence your work. 
 
 It is crucial that you find a supervisor whose  **research interests align**
 with yours, someone you feel **comfortable working with** and someone whose
 mentoring style matches your needs. 
 
 When looking for a PhD, my suggestion is to state upfront what kind of topics
-you like and what kind of supervision you want. Don't negotiate on it.
-Ultimately, it is your PhD.      
+you like and what kind of supervision you want. 
 
+My suggestion is not to negotiate on it because if this relationship fails, it is your PhD that will be in jeopardy.  
 
-## 🤝 The 2-Player Game
+On the other hand, while I think the supervisor is responsible for you, there is nothing a supervisor can do if you decide you do not want to do your part. 
 
-In my opinion, a PhD is essentially a **two-player game** between the student and the supervisor.   
-
-Crucially though, if this relationship break, the one who suffers the most is
-the student.🛋️💡  While the supervisor is responsible for you, if you do not
-carry on with your own work, they will not lose their job if you don't get your
-PhD. 
-
-In many European systems in particular, the **supervisor may be the single most
-important factor** in your PhD experience.
-
-A bad or toxic supervisor can derail even a strong student, while a good supervisor can elevate an average project into an excellent one and, also,  
-a good supervisor can do little if the students is not willing to contribute. 
+A bad or toxic supervisor can derail even a strong student, while a good supervisor can elevate an average student into an excellent one and, but,  
+a good supervisor can do little if the students is not willing to pay heed to
+feedback and advice or simply not willing to do the work. 
 
 # 🌍 Moving abroad
 
 If you are not a native English speaker, I strongly support the idea of doing a
-PhD in an English-speaking country or similar (like the Netherlands, Canada or
-Scandinavia).
+PhD in an English-speaking country or similar.
 
 For a handful of reasons: 
-- these countries are best at supporting research 🔬
+- these countries are typically the best at supporting research 🔬
 - you will hone your English abilities 🇬🇧
 - you will learn to interact with a wide variety of different people 🧑‍🤝‍🧑
 
-In other words, moving abroad will strengthen your PhD considerably into many
-different directions. 
-
-Often countries like Denmark or the Netherlands have way more funding of PhD
-students, they treat students more fairly and ... they pay more.  It is overall
-a better environment that allows everyone to thrive.  
-
-Moreover, to get a good PhD you need to be able to collaborate with different
+To get a good PhD you need to be able to collaborate with different
 people as good ideas tend to arise in environments with a high level of
 diversity. This is, in my opinion, just because we work in a very specialised 
 and narrow field and so eventually finding people locally is extremely hard.   
@@ -178,12 +149,18 @@ with all kind of people regardless of their culture, ethnicity and so on.
 At the same time, **doing a PhD while living abroad**, confronting yourself with
 different cultures and learning a new language  can become **a daunting task**.  
 Some people experience significant **cultural shocks** while pursuing their PhD,
-which can take a heavy toll on their mental health. I would encourage anyone who
-feels overwhelmed to seek support. Many universities provide resources,
-sometimes limited, but still helpful, or it can be beneficial to speak with a
-professional.
+which can take a heavy toll on their mental health. 
 
-Make sure you like the country you are moving to before accepting a PhD offer. 
+Make sure you like the country you are moving to before accepting a PhD offer.
+
+In terms of funding, often countries like Denmark or the Netherlands have way
+more funding for PhD students, they treat students more fairly and ... they pay
+more. It is overall a better environment that allows everyone to thrive.
+However, the European PhD is typically limited to only 3.5 years so you might
+want to consider the USA where PhDs can be as long as 5 to 7 years, so I have
+heard. That will allow you to become an expert in your field without worrying
+about looking for funding in the near future. 
+
 
 ---
 # ✅ Takeaways
