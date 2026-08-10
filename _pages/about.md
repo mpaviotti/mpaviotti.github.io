@@ -34,4 +34,4 @@ I have some PhD vacancies.
 See full list of publications [here]({% link publications.markdown %}).
 
 ### Buy Me a Gift
-If you fell like you want to buy me a gift here's my Amazon's wish [list](https://www.amazon.co.uk/hz/wishlist/ls/10P2ZBPAA92EH?ref_=wl_share) 
+If you feel like you want to buy me a gift here's my Amazon's wish [list](https://www.amazon.co.uk/hz/wishlist/ls/10P2ZBPAA92EH?ref_=wl_share) 
