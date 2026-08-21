@@ -26,33 +26,20 @@ knowledge and disseminate it. Essentially, having a PhD demonstrates that you
 possess a **deep knowledge** of your own specific field and can engage with
 other **international experts** as a peer.
 
-If it still sounds easy to you here's some facts. A PhD is the **highest
-academic degree** awarded by universities (to a first approximation) — held by roughly **2% of the world’s
-population** (I took this number from Google, don't ask!). Based on
-calculations I've made in a university I worked for, **failure rates for PhD
-students can be as high as 40%** .
+It sounds great, doesn't it? The issue is that you will probably spend more time
+failing than succeeding. In all likelihood, you will spend time coming up with
+ideas that are wrong, theorems that turn out to be false and you will have to
+redo everything all over again.  This may create a breach in self confidence
+that makes you doubt whether you are actually cut out for it. Some people do not
+overcome this and eventually quit. 
 
-The reasons why people don't make it to the end of the line can vary from person to person, but common mistakes include **underestimating the amount of work** required, **supervisor mismatch** and/or **topic mismatch**, and not understanding what is the **requirement for getting a PhD**.   
+The main issue in my opinion is that a lot of students either **underestimate the amount of work** required, choose the wrong **supervisor** or the wrong **topic**, or do not understand the **requirement for getting a PhD**.   
 
-## 🌟 It can be the best moment of your life,... or the worst :pirate_flag: !
+In some sense a PhD,
 
-A PhD can become, one of your **biggest life achievements** and the most
-**intellectually rewarding periods** of your life. This provided that you can
-make **consistent progress**, tolerate uncertainty, reach the finish line. 
+*can be the best moment of your life,... or the worst*
 
-Otherwise, it can become **a long tunnel with no visible exit**, a slow erosion
-of confidence, and a prolonged period of stress and doubt. 
 
-You might think I’m trying to scare you — and to some extent, that’s true — but
-it’s better to be honest than to lead you into a trap. 
-Uhm, yes, it may become a trap, because once you begin, you’re committing to three or four years of your life, possibly more. 
-
-If halfway through you realize it’s not
-right for you, you’re faced with a very difficult decision: acknowledging that you’ve
-lost a significant amount of time and quit or keep going for another 
-several years and not knowing whether you're going to make it or not.  
-
-That choice can be heartbreaking — for you and for us.
 
 ## 🔥 I have a PhD in "Making Mistakes" 
 
@@ -93,23 +80,16 @@ prepared for you, grades follow standardized metrics, and admission almost
 guarantees eventual graduation. A PhD, on the other hand, **does not follow
 these rules**; There is **no guarantee of success**.
 
-There is also an uncomfortable truth about modern academia that we (as a society) will need to address at some point: **The AI factor**.  
+There is also something to be said about **The AI factor**.  
 
-Don't get me wrong, it is not a sin to use AI to restructure text, using it as a
-search engine or as a learning tool, perhaps a learning buddy, but I would be
-very careful about using it for doing rigorous work and, even as a learning
-buddy, sometimes the AI just generates wrong examples, proofs and so on. 
+The AI is essentially a really good *stochastic parrot*.  While it is very good
+at solving undergraduate home exercises, it is really bad at doing research.
+This is because the AI only regurgitates information that has been already
+provided, thus each time you try to push the AI to the boundaries of what is
+known it produces garbage. 
 
-This reminds me a little of the [The bullshit asymmetry principle](https://statmodeling.stat.columbia.edu/2019/01/28/bullshit-asymmetry-principle/), a valuable piece of wisdom I learned as an undergrad. The principle is as follows:  
+This adds another layer of difficulty when transitioning from the B.Sc/M.Sc to a PhD be cause the unscrupulous use of AI has made **undergraduates less trained to work critically**. 
 
-*The amount of energy needed to refute bullshit is an order of magnitude bigger
-than to produce it.*
-
-This makes academics more weary than ever about the papers being submitted and
-thus they require solid proofs that your work is correct. In modern academia
-this is more true than ever since the unscrupulous use of AI has made
-**undergraduates less trained to work critically**. This is something you are
-going to need to fix quickly if you want a PhD. 
 
 ---
 
@@ -135,7 +115,7 @@ My suggestion is not to negotiate on it because if this relationship fails, it i
 On the other hand, while I think the supervisor is responsible for you, there is
 nothing a supervisor can do if you decide you do not want to do your part. 
 
-A bad or toxic supervisor can derail even a strong student, while a good supervisor can elevate an average student into an excellent one and, but,  
+A bad or toxic supervisor can derail even a strong student, while a good supervisor can elevate an average student into an excellent one, but,  
 a good supervisor can do little if the student is not willing to pay heed to
 feedback and advice or simply not willing to do the work. 
 
@@ -150,50 +130,21 @@ For a handful of reasons:
 - you will learn to interact with a wide variety of different people 🧑‍🤝‍🧑
 
 To get a good PhD you need to be able to collaborate with different people as
-good ideas tend to arise in environments with a high level of diversity. This
-is, in my opinion, just because we work in a very specialised  and vertical
-field and so eventually finding people interested in the same topics locally is
-extremely hard.  Hence it is extremely important that you learn to communicate
-and collaborate
-with all kind of people regardless of their culture, ethnicity and so on.   
+good ideas tend to arise in environments with a high level of diversity.   
 
 At the same time, **doing a PhD while living abroad**, confronting yourself with
 different cultures and learning a new language  can become **a daunting task**.  
 Some people experience significant **cultural shocks** while pursuing their PhD,
-which can take a heavy toll on their mental health. 
+which can add up to all the other challenges you will be facing.  
 
 Making sure you like the country you are moving to before accepting a PhD offer
 is a good way of mitigating these risks.. even though a lot of people end up
 loathing the country they did their PhD in (lmao).
 
-In terms of funding, often countries like Denmark or the Netherlands have way
-more funding for PhD students, they treat students more fairly and ... they pay
-more. It is overall a better environment that allows everyone to thrive.
-However, the European PhD is typically limited to only 3.5 years so you might
-want to consider the USA where PhDs can be as long as 5 to 7 years, so I have
-heard. That will allow you to become an expert in your field without worrying
-about looking for funding in the near future, but the risk could be that you
-could be induced to tarry a little too much and never finish, so... meh. 
 
-
----
-# ✅ Summary
-
-Explaining what a PhD is, is not an easy task, it is a challenging and unpredictable journey.  
-Everyone’s experience is different, so in the end, **no one can truly tell you
-what a PhD is** — you have to experience it yourself, fail, learn, and try
-again.
-
-To anyone who is considering doing a PhD, I'd suggest to choose 
-- a topic that makes you tick :metal:  
-- a supervisor that is willing to supervise you 🤝
-- a country that you like 
-
-During times of self-doubt, take care of yourself, don’t beat yourself up and
-avoid overindulging in pubs or nightclubs 🍻. Get a good night’s sleep 🛌  and
-try again tomorrow. 
-
-Do as I say, not as I did.  
+In the end, I can try to warn you about all the risks involved in doing a PhD, but the reality is that **to learn what a PhD is you will have to do one**. 
+ 
+ 
 
 
 ---
