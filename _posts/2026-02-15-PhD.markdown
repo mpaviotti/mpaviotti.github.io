@@ -6,118 +6,134 @@ tags:
   - PhD
 ---
 
-If you are here you are probably considering getting a PhD in Computer Science or another topic. While a think this is a great idea(!) I would like you to take some time reading this page to make sure you understand the **advantages** as well as the **risks** involved in getting into a PhD program.      
+If you are here you are probably considering getting a PhD i Computer Science or
+another topic. While a think this is a great idea(!) I would like you to take
+some time reading this page to make sure you understand the **advantages** as
+well as the **risks** involved in getting into a PhD program.
 
-The **TLDR** can probably be summarised as follows: *This is not a degree for the faint-hearted*. 
+**TLDR** : *This is not a degree for the faint-hearted*. 
 
 # 🎓 What a PhD Really Is
 
-A PhD (Doctor of Philosophy) is a research degree focused on creating **new
-knowledge**, not just learning existing knowledge.
-
-It is thus radically different from any other university degree.   
+A PhD (Doctor of Philosophy) is rather different from anything you have probably
+experience so far in your B.Sc./M.Sc. in that it is a **research degree** and is
+focused on doing research as opposed to "just" learning existing knowledge.
+   
 As a PhD student you will not necessarily just study books an pass exams, but
 focus more on doing independent **original research**, **publishing and
 presenting** your findings and finally writing and defending a **doctoral
 thesis**.
 
-In other words, you will spend a lot of time reading, writing, creating
-knowledge and disseminate it. Essentially, having a PhD demonstrates that you
-possess a **deep knowledge** of your own specific field and can engage with
-other **international experts** as a peer.
+A central feature of a research degree is **failure**. More specifically, it is
+hard (but possible) to fail when you are doing something everyone knows how to
+do. On the other hand, it is very easy to fail when you're walking  on uncharted
+territory, as it were. 
 
-It sounds great, doesn't it? The issue is that you will probably spend more time
-failing than succeeding. In all likelihood, you will spend time coming up with
-ideas that are wrong, theorems that turn out to be false and you will have to
-redo everything all over again.  This may create a breach in self confidence
-that makes you doubt whether you are actually cut out for it. Some people do not
-overcome this and eventually quit. 
+In all likelihood, you will spend time coming up with ideas that are wrong,
+theorems that turn out to be false and you will have to redo everything all over
+again. This means you have to be comfortable with the process of trying, failing
+and repeating again until you reach the end of the line.  You will probably
+spend more time failing than succeeding and this dragged on for long periods of
+time can be very frustrating and demotivating. 
 
-The main issue in my opinion is that a lot of students either **underestimate the amount of work** required, choose the wrong **supervisor** or the wrong **topic**, or do not understand the **requirement for getting a PhD**.   
+This may create a breach in self confidence that makes you constantly doubt
+whether you are actually cut out for it. Some people do not overcome this and
+eventually quit. 
 
-In some sense a PhD,
+A lot of students either **underestimate the amount of work** required,
+**misunderstand** the rules of the game, choose the wrong **supervisor** or the
+wrong **topic**, or do not understand the **requirement for getting a PhD**.
 
-*can be the best moment of your life,... or the worst*
+With this said, a PhD does not have necessarily to be a drag, it could actually
+be the best time of your life. This provided you make constant progress and
+deliver on the research in a timely manner. This issue is probably that this seldomly happens.. (lmao!)  
 
-
-
-## 🔥 I have a PhD in "Making Mistakes" 
+# 🔥 Failure is Part of the Game   
 
 One of the most precious life lessons I learned from my PhD is that 
 
 *Failure happens when you try something new* 
 
 If anyone ever mocked or criticised you for having failed at something don't
-worry; **Those who are never wrong have never tried anything challenging** and
-they just do not understand the valuable lessons you learn when you realised you
-have done a mistake.  I personally think I failed in my life more than I
-succeeded. In a sense, _I have a PhD in making mistakes_, and I am not ashamed
-of saying it.
+worry; **Those who have never tried anything challenging have never been
+wrong**. 
 
-Failure is just the **the mechanism** with which you learn and doing a PhD
-essentially means being  being wrong, uncertain, or behind for long periods of
-times; perhaps months, perhaps years. This can be draining, daunting and
-dejecting, but doing essentially research means: 
+Failure is not a result, failure is just the **the mechanism** with which you
+learn and doing a PhD essentially means being being wrong, uncertain, or behind
+for long periods of times; perhaps months, perhaps years. This can be very stressful
+given the fact that time is limited, there is a thesis to write and time will
+be against you while your 
 
-- Submit papers that get rejected ❌  
-- Run experiments that fail 💥  
-- Write code that doesn’t work 🐛  
-- Read things you don’t understand (yet) 🤯  
+- submitted papers might get rejected ❌  
+- experiments could fail 💥  
+- code could break 🐛  
 
 But, if you can treat failure as data that can be used, confusion as progress,
 and rejection as part of life, then a PhD is for you. In other words, if failure
-challenges you and drives you forward, and if not knowing things excites you
-rather than frustrates you, then this path is for you. 
+gives you that adrenaline boost, drives you forward, and if not knowing things
+excites you rather than frustrates you, then this path is for you. 
 
----
-## 🧠 The harsh truth of modern academia  
+### 🫡 You are in Charge of your PhD! 
 
-The harsh truth is that undergraduate degrees are getting easier and easier to
-attain, on the other hand, PhDs are **as demanding as ever**. 
+The relationship with your supervisor is going to be the most important thing of
+your PhD. My recommendation is to find a supervisor whose  **research interests
+align** with yours, someone you feel **comfortable working with** and someone
+whose mentoring style matches your needs. 
 
-When doing an undergraduate degree, you are **safeguarded**; Material is
-prepared for you, grades follow standardized metrics, and admission almost
-guarantees eventual graduation. A PhD, on the other hand, **does not follow
-these rules**; There is **no guarantee of success**.
+However, it is important to understand that if this relationship deteriorates
+--- _for whatever reason_ --- it is not your supervisor that gets into trouble,
+it is you who won't get a PhD. 
 
-There is also something to be said about **The AI factor**.  
+That is why it is expected from **the student to be in charge of the project**.
+This means for example being responsible for carrying the work to completion
+and maintaining a healthy relationship with the supervisors. 
 
-The AI is essentially a really good *stochastic parrot*.  While it is very good
-at solving undergraduate home exercises, it is really bad at doing research.
-This is because the AI only regurgitates information that has been already
-provided, thus each time you try to push the AI to the boundaries of what is
-known it produces garbage. 
+While it is common to hear phrases like "_your supervisor is responsible for
+you_" and "_your supervisor should ensure you get a PhD_" in practice I have
+never seen any professor bearing the consequences for having neglected a PhD
+student. This is also because it is not easy to gauge whether it is the
+supervisor not providing enough direction or the student not engaging properly.   
+In fact, trying to divert responsibility with phrases like "but nobody told me
+so" or "my advisor didn't tell me this" are not seen very well by the panel and
+there is not justification for bad or late deliverables. For instance, for
+submitting  an incomplete mid-evaluation report or not preparing presentations
+in time for a conference. 
 
-This adds another layer of difficulty when transitioning from the B.Sc/M.Sc to a PhD be cause the unscrupulous use of AI has made **undergraduates less trained to work critically**. 
+This is to say, you have to be responsible for yourself and the attainment of
+your PhD.  Of course, the PhD panel including the supervisors are there to give
+advice and support you throughout, but in the end is the student who is going to
+be awarded a PhD, so is reasonable to expect the student to be mature enough to
+keep themselves on track. 
 
 
----
+# 🧠 The Harsh Truth about University Degrees  
 
-# 🔱 The most important component of a PhD
+As an undergrad student you are considered a customer to the university and the
+university is essentially your service provider which heavily relies on student
+numbers for its own survival. This places the undergrad student at the centre of
+the attention allowing students to often get their own way when it comes to
+grades,  homework assignments and exams. 
 
-The most important component in your PhD is   
+This changes drastically the moment is not the student who pays the institution,
+but is the institution that pays the student.  One moment you are the person
+expecting value for money and suddenly you are the one having to provide value
+for the money and degree you get. 
+ 
+This adds another layer of difficulty when transitioning from the B.Sc/M.Sc.  
 
-`The relationship with your supervisor`. 
+This is acerbated by the fact the AI is currently causing disruption across the
+whole education sector and universities don't yet know how to deal with it.  
+The AI is a really good *stochastic parrot* --- good a regurgitating information
+--- but not really good at creating new. As a result, the disruption is  for now
+circumscribed in the undergrad degrees where it's easier to use it to solve
+homework assessment, group projects and theses.  
 
-The supervisor is your main collaborator, the person you are going to work with
-for a long period of time and whose expertise and personality will strongly
-influence your work. 
+In essence the AI has made
+**undergraduates less trained to work critically** which makes it harder for
+them to transition to a degree that requires a more sustained pace. 
 
-It is crucial that you find a supervisor whose  **research interests align**
-with yours, someone you feel **comfortable working with** and someone whose
-mentoring style matches your needs. 
 
-When looking for a PhD, my suggestion is to state upfront what kind of topics
-you like and what kind of supervision you want. 
 
-My suggestion is not to negotiate on it because if this relationship fails, it is your PhD that will be in jeopardy.  
-
-On the other hand, while I think the supervisor is responsible for you, there is
-nothing a supervisor can do if you decide you do not want to do your part. 
-
-A bad or toxic supervisor can derail even a strong student, while a good supervisor can elevate an average student into an excellent one, but,  
-a good supervisor can do little if the student is not willing to pay heed to
-feedback and advice or simply not willing to do the work. 
 
 # 🌍 Moving abroad
 
@@ -141,10 +157,6 @@ Making sure you like the country you are moving to before accepting a PhD offer
 is a good way of mitigating these risks.. even though a lot of people end up
 loathing the country they did their PhD in (lmao).
 
-
-In the end, I can try to warn you about all the risks involved in doing a PhD, but the reality is that **to learn what a PhD is you will have to do one**. 
+In the end, I can try to warn you about all the risks involved in doing a PhD,
+but the reality is that **to learn what a PhD is you will have to do one**. 
  
- 
-
-
----
