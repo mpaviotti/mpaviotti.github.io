@@ -46,7 +46,7 @@ wrong **topic**, or do not understand the **requirement for getting a PhD**.
 
 With this said, a PhD does not have necessarily to be a drag, it could actually
 be the best time of your life. This provided you make constant progress and
-deliver on the research in a timely manner. This issue is probably that this seldomly happens.. (lmao!)  
+deliver on the research in a timely manner.   
 
 # 🔥 Failure is Part of the Game   
 
@@ -55,14 +55,13 @@ One of the most precious life lessons I learned from my PhD is that
 *Failure happens when you try something new* 
 
 If anyone ever mocked or criticised you for having failed at something don't
-worry; **Those who have never tried anything challenging have never been
-wrong**. 
+worry; **A hammer left in the shed never bends a nail.**. 
 
-Failure is not a result, failure is just the **the mechanism** with which you
-learn and doing a PhD essentially means being being wrong, uncertain, or behind
-for long periods of times; perhaps months, perhaps years. This can be very stressful
-given the fact that time is limited, there is a thesis to write and time will
-be against you while your 
+Failure isn’t the outcome; it’s the **mechanism** through which you learn. Doing
+a PhD essentially means being wrong, uncertain, or behind for long periods of
+times; perhaps months, perhaps years. This can be very stressful given the fact
+that time is limited, there is a thesis to write and time will be against you.
+All of this while your
 
 - submitted papers might get rejected ❌  
 - experiments could fail 💥  
@@ -75,16 +74,10 @@ excites you rather than frustrates you, then this path is for you.
 
 # 🫡 You are in Charge of your PhD! 
 
-The relationship with your supervisor is one of the most important thing of
+The relationship with your supervisor is one of the most important things of
 your PhD. My recommendation is to find a supervisor whose  **research interests
 align** with yours, someone you feel **comfortable working with** and someone
 whose mentoring style matches your needs. 
-
-More important is the process of making mistakes and **taking ownership** of
-these.  That is what I mean when I say **a student is expected to be in charge
-of the project**.  This implies for example being responsible for carrying the
-work to completion, maintaining a healthy relationship with the supervisors and
-providing a risk assessment for the research being carried out. 
 
 While it is common to hear phrases like "_your supervisor is responsible for
 you_" and "_your supervisor should ensure you get a PhD_" in practice I have
@@ -93,43 +86,46 @@ student. This is partly also because it is not easy to gauge whether it is the
 supervisor not providing enough direction or the student not engaging properly.
 But also if the relationship with the student deteriorates --- _for whatever
 reason_ --- it is not the supervisor that gets into trouble, it is the student
-who won't get a PhD. 
+who will risk not getting a PhD. 
 
-It is also common to hear students pronouncing sentences like "_but nobody told
-me so_" or "_my advisor didn't tell me this_". These are not seen very well by
-the panel and they are a tell that the student is not willing to take
-responsibility for their own research project.  For instance, for submitting an
-incomplete mid-evaluation report or not preparing presentations in time for a
-conference. 
+More importantly _a PhD student is expected to be in charge of their PhD_. By
+this I mean they should take ownership of their research: set priorities, make
+day-to-day decisions, and drive the project forward, with their supervisor
+offering guidance and support. This is a rather subtle point to explain.  By
+being in charge I don't mean you have to do everything on your own. Your
+supervisor should help you and support you, but as you progress towards your PhD
+you should become more and more an independent researcher who depends less and
+less on their supervisor. 
+
+It is common to hear students pronouncing sentences like "_but nobody told me
+so_" or "_my advisor didn't tell me this_". These are not seen very well by the
+panel and they are a tell that the student is not willing to take responsibility
+for their own research project.  
 
 This is to say, you have to be responsible for yourself and the attainment of
-your PhD.  Of course, the PhD panel including the supervisors are there to give
-advice and support you throughout, but in the end is the student who is going to
-be awarded a PhD, so is reasonable to expect the student to be mature enough to
-keep themselves on track. 
+your PhD. The fact that your supervisor is nominally responsible for you is not
+an excuse for neglecting your own responsibilities. You have to know what is the
+requirement for the attainment of the degree and gauge whether you're on the
+right track or not.
 
 My suggestion is, if you think you are in trouble, to discuss this with your
 supervisor and eventually, if things are not resolved, to bring it up with the
 Director of PGR studies who can advise further. But **recognising you are in a
-situation and seeking help** it means taking responsibility for your own
-situation and be willing to fix it. This is already a big step towards the
-problem's resolution. 
-
+situation and seeking help** is already a big step towards the problem's
+resolution and signals that the student is starting to take responsibility for
+their degree. 
 
 # 🧠 The Harsh Truth about University Degrees
 
-As an undergrad student you are considered a customer to the university and the
-university is essentially your service provider which heavily relies on student
-numbers for its own survival. This places the undergrad student at the centre of
-the attention allowing students to often get their own way when it comes to
-grades, homework assignments and exams. 
+I am going to be very direct here, but frank! As an undergrad student you are
+considered a customer to the university and the university is essentially your
+service provider which heavily relies on student numbers for its own survival.
+This places the undergrad student at the centre of the attention allowing
+students to often get their own way when it comes to grades, homework
+assignments and exams. 
 
-This changes drastically the moment is not the student who pays the institution,
-but is the institution that pays the student.  One moment you are the person
-expecting value for money and suddenly you are the one having to provide value
-for the money and degree you get. 
- 
-This adds another layer of difficulty when transitioning from the B.Sc/M.Sc.  
+This changes drastically the moment the student does not pay the institution
+anymore, but the institution pays the student to do research. Suddenly, you don't have all the rights you had before and you are going to have way more pressure on you than you have ever experienced so far. This adds another layer of difficulty when transitioning from the B.Sc/M.Sc.  
 
 This is acerbated by the fact the AI is currently causing disruption across the
 whole sector and universities don't yet know how to deal with it.  
@@ -164,6 +160,5 @@ Making sure you like the country you are moving to before accepting a PhD offer
 is a good way of mitigating these risks.. even though a lot of people end up
 loathing the country they did their PhD in (lmao).
 
-In the end, I can try to warn you about all the risks involved in doing a PhD,
-but the reality is that **to learn what a PhD is you will have to do one**. 
- 
+...In the end, I can try to warn you about all the risks involved in doing a PhD,
+but the reality is that **to learn what a PhD is you will have to do one**... 
