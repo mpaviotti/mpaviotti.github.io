@@ -5,7 +5,7 @@ title: Projects
 ---
 
 
-## Undergrad Projects for Computer Scientists
+## Projects for Computer Scientists
 
 ### Graded Monads for Efficient Database Implementations 
 Functional programming languages such as Haskell make it easy to express
@@ -31,7 +31,7 @@ This project will address this trade-off by implementing an efficient database
 representation based on **graded monads**, thereby retaining compositionality
 while improving performance.
 
-### Quantum Functional Programming 
+### Quantum Functional Programming
 This project investigates the design and implementation of a purely functional
 domain-specific language for quantum programming, grounded in category-theoretic
 semantics. Quantum circuits are represented as typed morphisms—e.g. `Hadamard ::
@@ -68,38 +68,17 @@ change. The project should demonstrate compositional event handling, including
 the creation of derived signals that combine multiple inputs and the detection
 of complex events, such as threshold crossings. 
 
-### OS Development
-Markix is an operating System I developed when I was little. It is a bare bone
-operating system for x86 architectures written in Assembly and C and runs on x86
-or the [bochs emulator](https://bochs.sourceforge.io). The idea is to have
-something more minimal than Minix so that students can understand every
-component of an operating system in isolation. Hence, Markix is built in
-incremental stages. Each milestone corresponds to a Git tag, and improvements to
-that module are developed on dedicated branches.
+### OS Development and Weak Memory 
+Markix is an operating System is a bare bone operating system for x86
+architectures written in Assembly and C and runs on x86 or the [bochs
+emulator](https://bochs.sourceforge.io). The task is to implement a spin lock in
+assembly x86 relying on the optimisations of the TSO memory model provided by
+the x86 architecture.  Another option is to rewrite this for the Apple M-series
+chip, but you will have to provide a justification for the correctness of the
+implementation since the ARM model is weaker than the Intel's one. 
 
-| Tag          | Component         | Description                                                                 |
-|--------------|-------------------|-----------------------------------------------------------------------------|
-| Bootloader   | Bootloader        | Initializes the CPU in real mode, loads the kernel, and switches to protected mode |
-| Interrupts   | Interrupt System  | Implements the 8259 PIC, IDT setup, and interrupt service routines (ISRs) |
-| Keyboard     | PS/2 Driver       | Handles keyboard input and interrupt handling                               |
-| Scheduler    | Process Scheduler | Round-robin scheduling and context switching                                |
-| Paging       | Memory Management | GDT, paging tables, and memory protection setup                             |
-| FilesystemGRUB | File System     | Basic FAT filesystem and GRUB integration                                   |
+Visit my GitHub [page](https://github.com/mpaviotti/Markix). 
 
-
-Download the source code from my GitHub [page](https://github.com/mpaviotti/Markix). 
-Software needed: NASM Compiler, C Compiler with support for cross compiling to i386 architectures, Bochs, GNU Debugger (gdb).
-
-
-### Weak Memory Concurrency
-Amongst other things I also helped the weak memory concurrency community in fixing some problem with the C++ and Java concurrency model.
-
-The work which we published at [ESOP'20'](https://link.springer.com/content/pdf/10.1007/978-3-030-44914-8_22.pdf)
-is being considered for the next ISO standard of C++. 
-- Link to the draft [here](https://graymalk.in/iso-papers/p1780/p1780r2.html)
-- Link to the WG21 discussion [here](https://eur01.safelinks.protection.outlook.com/?url=https%3A%2F%2Fgithub.com%2Fcplusplus%2Fpapers%2Fissues%2F554%23issuecomment-1311093994&amp;data=05%7C01%7CM.Paviotti%40kent.ac.uk%7C5e1fff970b0a4039205008dac71af6b3%7C51a9fa563f32449aa7213e3f49aa5e9a%7C0%7C0%7C638041215860503967%7CUnknown%7CTWFpbGZsb3d8eyJWIjoiMC4wLjAwMDAiLCJQIjoiV2luMzIiLCJBTiI6Ik1haWwiLCJXVCI6Mn0%3D%7C3000%7C%7C%7C&amp;sdata=V1PRIBvid5UxHNvEI2aOq2Rp4Sq9voNbcjb5rCEJ4sk%3D&amp;reserved=0)
-- The WG21 group page: [https://isocpp.org/wiki/faq/wg21](https://isocpp.org/wiki/faq/wg21)
-- The MRD Web Tool [link](https://www.cs.kent.ac.uk/projects/MRDer/)
 
 ### Other Projects B.Sc. and M.Sc. Projects for Computer Scientists
  
@@ -108,5 +87,26 @@ is being considered for the next ISO standard of C++.
 - Kernel Hacking: Security, Hypervisors
 
 
-## Undergrad topics for Mathematicians
-TBA. 
+## Projects for Mathematicians
+I am happy to supervise theses in category theory, abstract algebra and
+topology, particularly where these subjects connect with computability theory.
+
+### Recursion and Induction in a Topos via Adjunctions 
+A topos is a category that shares many features with the category of sets. In
+particular, each object $$X$$ has a power object $$\mathcal{P}(X)$$, analogous to a
+power set, which is isomorphic to the object of maps $$X \to \Omega$$, where $$\Omega$$ is the object of truth values.
+
+Toposes support higher-order logic and provide an induction principle based on
+the natural numbers. This project aims to study other forms
+of induction systematically and proving them correct.
+
+### Diagonalisation Arguments and Fixed-Point Theorems  
+From Cantor’s theorem onwards, diagonalisation has been used to establish
+fundamental limits in logic and computer science. Famous examples include
+Russell’s paradox, Gödel’s incompleteness theorems and Turing’s halting problem.
+
+Lawvere’s fixed-point theorem gives a categorical framework that connects many
+diagonal arguments, self-reference paradoxes and limit theorems in logic and
+mathematics.
+
+The aim is to expand on other kinds of diagonal arguments outside the scope of computability. 
