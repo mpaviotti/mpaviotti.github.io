@@ -91,7 +91,7 @@ Visit my GitHub [page](https://github.com/mpaviotti/Markix).
 I am happy to supervise theses in category theory, abstract algebra and
 topology, particularly where these subjects connect with computability theory.
 
-### Recursion and Induction in a Topos via Adjunctions 
+### Recursion and Induction in a Topos 
 A topos is a category that shares many features with the category of sets. In
 particular, each object $$X$$ has a power object $$\mathcal{P}(X)$$, analogous to a
 power set, which is isomorphic to the object of maps $$X \to \Omega$$, where $$\Omega$$ is the object of truth values.
