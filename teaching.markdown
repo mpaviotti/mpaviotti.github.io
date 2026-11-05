@@ -5,11 +5,11 @@ title: Teaching
 ---
 
 ## Current Modules
-- 2025--present. [COMP6018 -- Theory and Practice of Concurrency](https://www.kent.ac.uk/courses/modules/module/COMP6018).
+- 2025--present. [COMP6018 -- Theory and Practice of Concurrency](https://curriculumcatalogue.kent.ac.uk/module/2026/COMP6018).
   * Lecture Notes by Dominic Orchard with some edits ([github](https://github.com/mpaviotti/co661-notes)) 
-- 2025--present. [COMP6012 -- Programming Languages and Type Systems](https://www.kent.ac.uk/courses/modules/module/COMP6012).
+- 2025--present. [COMP6012 -- Programming Languages and Type Systems](https://curriculumcatalogue.kent.ac.uk/module/2026/COMP6012).
   * Lecture Notes by Neel Krishnaswami ([pdf](https://www.cl.cam.ac.uk/teaching/2021/Semantics/notes.pdf)).
-- 2025--present. [COMP7006 -- Introduction to Quantum Computing & Quantum Cryptography](https://www.kent.ac.uk/courses/modules/module/COMP7006).
+- 2025--present. [COMP7006 -- Introduction to Quantum Computing & Quantum Cryptography](https://curriculumcatalogue.kent.ac.uk/module/2026/COMP7006).
   * Lecture Notes ([pdf](/assets/papers/quantum-notes.pdf)).
 
 ## PhD Courses 
@@ -17,6 +17,7 @@ title: Teaching
 - 2017-2019. *Category Theory* with Dominic Orchard, University of Kent. Postgraduate Course. Download the notes [here](/assets/papers/intro-cat24.pdf).
 
 ## Past Modules
+
 - 2023-2025. [COMP6610 -- Theory and Practice of Concurrency](https://www.kent.ac.uk/courses/modules/module/CO661).
 - 2023-2025. [COMP6630 -- Programming Languages: Applications and Design](https://www.kent.ac.uk/courses/modules/module/CO663). 
 - 2024-2025. [COMP8220 -- Introduction to Quantum Computing & Quantum Cryptography](https://www.kent.ac.uk/courses/modules/module/CO822).
